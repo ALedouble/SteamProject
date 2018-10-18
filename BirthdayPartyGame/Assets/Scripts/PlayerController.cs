@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour {
 
 	[Header("Components")]
 	public Rigidbody body;
+	public Transform holdPoint;
 
 	[Space]
 	[Header("Inputs")]
@@ -14,7 +15,11 @@ public class PlayerController : MonoBehaviour {
 	[Space]
 	[Header("Controls")]
 	public float maxSpeed = 10;
+	[Range(0.01f, 1f)]
 	public float acceleration = .2f;
+	[Range(0.01f, 1f)]
+	public float deceleration = .4f;
+	[Range(0.01f, 1f)]
 	public float turnSpeed = .25f;
 	Vector3 speedVector;
 	Vector3 input;
@@ -67,6 +72,11 @@ public class PlayerController : MonoBehaviour {
 
 	void KeyboardInput()
 	{
+		if (Input.GetKeyDown(KeyCode.KeypadEnter))
+		{
+			Grab();
+		}
+
 		int _horSpeed = 0;
 		if (Input.GetKey(KeyCode.LeftArrow))
 		{
@@ -121,17 +131,24 @@ public class PlayerController : MonoBehaviour {
 
 	void StopMoving()
 	{
-		print("Stop moving");
 		if (body.velocity.magnitude >= .5f)
 		{
 			speedVector = Vector3.Lerp(body.velocity, Vector3.zero, acceleration);
-			body.angularVelocity = Vector3.Lerp(body.angularVelocity, Vector3.zero, acceleration*2);
+			body.angularVelocity = Vector3.Lerp(body.angularVelocity, Vector3.zero, deceleration);
 		}
 		else
 		{
 			speedVector = Vector3.zero;
 			body.angularVelocity = Vector3.zero;
 		}
+	}
+	#endregion
+
+	#region Actions
+	void Grab()
+	{
+		//Check for pick up
+		//Pick up
 	}
 	#endregion
 }
