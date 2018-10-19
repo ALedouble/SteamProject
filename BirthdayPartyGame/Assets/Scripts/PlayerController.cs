@@ -15,13 +15,17 @@ public class PlayerController : MonoBehaviour {
 	[Space]
 	[Header("Controls")]
 	public float maxSpeed = 10;
-	[Range(0.01f, 1f)]
+	//[Range(0.01f, 1f)]
 	public float acceleration = .2f;
-	[Range(0.01f, 1f)]
-	public float deceleration = .4f;
+	//[Range(0.01f, 1f)]
+	public float movingDrag = .4f;
+	public float idleDrag = .4f;
 	[Range(0.01f, 1f)]
 	public float turnSpeed = .25f;
+
 	Vector3 speedVector;
+	float horSpeed;
+	float vertSpeed;
 	Vector3 input;
 	Quaternion turnRotation;
 
@@ -77,25 +81,26 @@ public class PlayerController : MonoBehaviour {
 			Grab();
 		}
 
-		int _horSpeed = 0;
+		int _horDir = 0;
 		if (Input.GetKey(KeyCode.LeftArrow))
 		{
-			_horSpeed--;
+			_horDir--;
 		}
 		if (Input.GetKey(KeyCode.RightArrow))
 		{
-			_horSpeed++;
+			_horDir++;
 		}
-		int _vertSpeed = 0;
+
+		int _vertDir = 0;
 		if (Input.GetKey(KeyCode.DownArrow))
 		{
-			_vertSpeed--;
+			_vertDir--;
 		}
 		if (Input.GetKey(KeyCode.UpArrow))
 		{
-			_vertSpeed++;
+			_vertDir++;
 		}
-		input = new Vector3(_horSpeed, 0, _vertSpeed);
+		input = new Vector3(_horDir, 0, _vertDir);
 		input.Normalize();
 	}
 
@@ -121,24 +126,24 @@ public class PlayerController : MonoBehaviour {
 
 	void Accelerate()
 	{
-		speedVector = Vector3.Lerp(input * speedVector.magnitude, input * maxSpeed, acceleration);
+		body.AddForce(input * acceleration, ForceMode.Acceleration);
+		body.drag = movingDrag;
 	}
-
+	
 	void Move()
 	{
-		body.velocity = speedVector;
+		body.velocity = Vector3.ClampMagnitude(body.velocity, maxSpeed);
 	}
 
 	void StopMoving()
 	{
+		body.drag = idleDrag;
 		if (body.velocity.magnitude >= .5f)
 		{
-			speedVector = Vector3.Lerp(body.velocity, Vector3.zero, acceleration);
-			body.angularVelocity = Vector3.Lerp(body.angularVelocity, Vector3.zero, deceleration);
+			body.angularVelocity = Vector3.Lerp(body.angularVelocity, Vector3.zero, acceleration);
 		}
 		else
 		{
-			speedVector = Vector3.zero;
 			body.angularVelocity = Vector3.zero;
 		}
 	}
