@@ -190,11 +190,11 @@ GameObject:
   - component: {fileID: 267449911}
   - component: {fileID: 267449910}
   - component: {fileID: 267449909}
-  - component: {fileID: 267449908}
   - component: {fileID: 267449907}
+  - component: {fileID: 267449908}
   m_Layer: 0
   m_Name: PickUp (1)
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -222,15 +222,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 267449906}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fc9974844a7e72428130d3e6d78092a, type: 3}
+  m_Script: {fileID: 11500000, guid: a7e5f8f3c76606e41864a6caacfe094b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canHold: 1
-  item: {fileID: 267449906}
-  tempParent: {fileID: 650792655}
-  pickUp: {fileID: 493240008}
-  isHolding: 0
-  throwForce: 600
+  profile: {fileID: 11400000, guid: f7e7ceee19b8cc64f848a74aedd0e4d2, type: 2}
 --- !u!65 &267449909
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -403,11 +398,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 60, y: 0, z: 0}
---- !u!1 &650792655 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1502690297865162, guid: a082a5eed5982fd4d81f660ba8ac9ff6,
-    type: 2}
-  m_PrefabInternal: {fileID: 1159591368}
 --- !u!4 &650792661 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4971963752547308, guid: a082a5eed5982fd4d81f660ba8ac9ff6,
@@ -424,11 +414,11 @@ GameObject:
   - component: {fileID: 923563535}
   - component: {fileID: 923563534}
   - component: {fileID: 923563533}
-  - component: {fileID: 923563537}
   - component: {fileID: 923563538}
+  - component: {fileID: 923563537}
   m_Layer: 0
   m_Name: PickUp
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -508,15 +498,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 923563532}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fc9974844a7e72428130d3e6d78092a, type: 3}
+  m_Script: {fileID: 11500000, guid: a7e5f8f3c76606e41864a6caacfe094b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canHold: 1
-  item: {fileID: 923563532}
-  tempParent: {fileID: 650792655}
-  pickUp: {fileID: 493240008}
-  isHolding: 0
-  throwForce: 600
+  profile: {fileID: 11400000, guid: d5a9f474c19e3784b8e2d2c640ddd780, type: 2}
 --- !u!54 &923563538
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -606,6 +591,11 @@ Prefab:
       propertyPath: movingDrag
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114857145729831190, guid: a082a5eed5982fd4d81f660ba8ac9ff6,
+        type: 2}
+      propertyPath: self
+      value: 
+      objectReference: {fileID: 650792661}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a082a5eed5982fd4d81f660ba8ac9ff6, type: 2}
   m_IsPrefabAsset: 0
