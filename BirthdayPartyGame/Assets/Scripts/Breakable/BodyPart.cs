@@ -6,7 +6,7 @@ public class BodyPart : MonoBehaviour {
 
 	public Rigidbody rb;
 	public Collider col;
-	float breakThrowForce = 7;
+	float breakThrowForce = 10;
 
 	// Use this for initialization
 	void Awake () {

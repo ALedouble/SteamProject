@@ -60,6 +60,7 @@ public class Electronic : MonoBehaviour {
 	void LosePower()
 	{
 		isPowered = false;
+		main.Deactivate();
 	}
 
 }
