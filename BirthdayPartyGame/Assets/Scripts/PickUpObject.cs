@@ -22,7 +22,9 @@ public class PickUpObject : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		
+		item = gameObject;
+		tempParent = GameObject.FindGameObjectWithTag("Player");
+		pickUp = tempParent.transform.GetChild(tempParent.transform.childCount-1).gameObject;
 	}
 	
 	// Update is called once per frame

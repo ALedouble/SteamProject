@@ -11,6 +11,12 @@ public class Breakable : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		rb = GetComponent<Rigidbody>();
+		GetParts();
+	}
+
+	void GetParts()
+	{
 		parts = new BodyPart[transform.childCount];
 		for (int i = 0; i < transform.childCount; i++)
 		{
@@ -29,21 +35,19 @@ public class Breakable : MonoBehaviour {
 		if (collision.gameObject.tag == "Interactable")
 		{
 			Interactable _object = collision.gameObject.GetComponent<Interactable>();
-			if (_object.profile.isBlunt && collision.gameObject.GetComponent<Rigidbody>().velocity.magnitude > breakSpeed)
+			if (_object.profile.blunt && collision.gameObject.GetComponent<Rigidbody>().velocity.magnitude > breakSpeed)
 			{
-				Break();
+				Break(collision.contacts[0].point);
 			}
 		}
 	}
 
-	public void Break()
+	public void Break(Vector3 impactPoint)
 	{
 
 		for (int i = 0; i < parts.Length; i++)
 		{
-			parts[i].transform.parent = null;
-			parts[i].rb.isKinematic = false;
-			parts[i].col.enabled = true;
+			parts[i].Break(impactPoint);
 		}
 		gameObject.SetActive(false);
 
