@@ -4,156 +4,231 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-	[Header("Components")]
-	public Rigidbody body;
-	public Transform holdPoint;
+    [Header("Components")]
+    public Rigidbody body;
+    public Transform holdPoint;
 
-	[Space]
-	[Header("Inputs")]
-	public float deadzone = 0.2f;
+    [Space]
+    [Header("Inputs")]
+    public float deadzone = 0.2f;
 
-	[Space]
-	[Header("Controls")]
-	public float maxSpeed = 10;
-	//[Range(0.01f, 1f)]
-	public float acceleration = .2f;
-	//[Range(0.01f, 1f)]
-	public float movingDrag = .4f;
-	public float idleDrag = .4f;
-	[Range(0.01f, 1f)]
-	public float turnSpeed = .25f;
+    [Space]
+    [Header("Controls")]
+    public float maxSpeed = 10;
+    //[Range(0.01f, 1f)]
+    public float acceleration = .2f;
+    //[Range(0.01f, 1f)]
+    public float movingDrag = .4f;
+    public float idleDrag = .4f;
+    [Range(0.01f, 1f)]
+    public float turnSpeed = .25f;
 
-	Vector3 speedVector;
-	float horSpeed;
-	float vertSpeed;
-	Vector3 input;
-	Quaternion turnRotation;
+    [Space]
+    [Header("Grab")]
+    public Transform self;
 
-	// Use this for initialization
-	void Start()
-	{
+    Vector3 speedVector;
+    float horSpeed;
+    float vertSpeed;
+    Vector3 input;
+    Quaternion turnRotation;
+    float distance;
 
-	}
+    Interactable grabbedObject;
 
-	// Update is called once per frame
-	void Update()
-	{
-		GetInput();
-	}
+    // Use this for initialization
+    void Start()
+    {
 
-	private void FixedUpdate()
-	{
-		if (input.magnitude != 0)
-		{
-			Rotate();
-			Accelerate();
-		}
-		else if (body.velocity != Vector3.zero)
-		{
-			StopMoving();
-		}
-		Move();
-	}
+    }
 
-	#region Input
-	void GetInput()
-	{
-		if (HasGamepad())
-		{
-			GamepadInput();
-		}
-		else
-		{
-			KeyboardInput();
-		}
-	}
+    // Update is called once per frame
+    void Update()
+    {
+        GetInput();
+        Grab();
+    }
 
-	void GamepadInput()
-	{
-		input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
-		input = input.normalized * ((input.magnitude - deadzone) / (1 - deadzone));
-	}
+    private void FixedUpdate()
+    {
+        if (input.magnitude != 0)
+        {
+            Rotate();
+            Accelerate();
+        }
+        else if (body.velocity != Vector3.zero)
+        {
+            StopMoving();
+        }
+        Move();
+    }
 
-	void KeyboardInput()
-	{
-		if (Input.GetKeyDown(KeyCode.KeypadEnter))
-		{
-			Grab();
-		}
+    #region Input
+    void GetInput()
+    {
+        if (HasGamepad())
+        {
+            GamepadInput();
+        }
+        else
+        {
+            KeyboardInput();
+        }
+    }
 
-		int _horDir = 0;
-		if (Input.GetKey(KeyCode.LeftArrow))
-		{
-			_horDir--;
-		}
-		if (Input.GetKey(KeyCode.RightArrow))
-		{
-			_horDir++;
-		}
+    void GamepadInput()
+    {
+        input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+        input = input.normalized * ((input.magnitude - deadzone) / (1 - deadzone));
+    }
 
-		int _vertDir = 0;
-		if (Input.GetKey(KeyCode.DownArrow))
-		{
-			_vertDir--;
-		}
-		if (Input.GetKey(KeyCode.UpArrow))
-		{
-			_vertDir++;
-		}
-		input = new Vector3(_horDir, 0, _vertDir);
-		input.Normalize();
-	}
+    void KeyboardInput()
+    {
+        if (Input.GetKeyDown(KeyCode.KeypadEnter))
+        {
+            Grab();
+        }
 
-	bool HasGamepad()
-	{
-		if (Input.GetJoystickNames().Length > 0)
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
-	}
-	#endregion
+        int _horDir = 0;
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            _horDir--;
+        }
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            _horDir++;
+        }
 
-	#region Movement
-	void Rotate()
-	{
-		turnRotation = Quaternion.Euler(0, Mathf.Atan2(input.x, input.z) * 180 / Mathf.PI, 0);
-		transform.rotation = Quaternion.Slerp(transform.rotation, turnRotation, turnSpeed);
-	}
+        int _vertDir = 0;
+        if (Input.GetKey(KeyCode.DownArrow))
+        {
+            _vertDir--;
+        }
+        if (Input.GetKey(KeyCode.UpArrow))
+        {
+            _vertDir++;
+        }
+        input = new Vector3(_horDir, 0, _vertDir);
+        input.Normalize();
+    }
 
-	void Accelerate()
-	{
-		body.AddForce(input * acceleration, ForceMode.Acceleration);
-		body.drag = movingDrag;
-	}
-	
-	void Move()
-	{
-		body.velocity = Vector3.ClampMagnitude(body.velocity, maxSpeed);
-	}
+    bool HasGamepad()
+    {
+        if (Input.GetJoystickNames().Length > 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    #endregion
 
-	void StopMoving()
-	{
-		body.drag = idleDrag;
-		if (body.velocity.magnitude >= .5f)
-		{
-			body.angularVelocity = Vector3.Lerp(body.angularVelocity, Vector3.zero, acceleration);
-		}
-		else
-		{
-			body.angularVelocity = Vector3.zero;
-		}
-	}
-	#endregion
+    #region Movement
+    void Rotate()
+    {
+        turnRotation = Quaternion.Euler(0, Mathf.Atan2(input.x, input.z) * 180 / Mathf.PI, 0);
+        transform.rotation = Quaternion.Slerp(transform.rotation, turnRotation, turnSpeed);
+    }
 
-	#region Actions
-	void Grab()
-	{
-		//Check for pick up
-		//Pick up
-	}
-	#endregion
+    void Accelerate()
+    {
+        body.AddForce(input * acceleration, ForceMode.Acceleration);
+        body.drag = movingDrag;
+    }
+
+    void Move()
+    {
+        body.velocity = Vector3.ClampMagnitude(body.velocity, maxSpeed);
+    }
+
+    void StopMoving()
+    {
+        body.drag = idleDrag;
+        if (body.velocity.magnitude >= .5f)
+        {
+            body.angularVelocity = Vector3.Lerp(body.angularVelocity, Vector3.zero, acceleration);
+        }
+        else
+        {
+            body.angularVelocity = Vector3.zero;
+        }
+    }
+    #endregion
+
+    #region Actions
+
+
+
+
+    void Grab()
+    {
+        Collider[] objectsGrab = Physics.OverlapSphere(self.position, 5);
+        // Check Grab
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if ( grabbedObject == null)
+            {
+                if (objectsGrab.Length > 0)
+                {
+                    List<Interactable> grabbableObjects = GetGrab(objectsGrab);
+                    if (grabbableObjects.Count > 0)
+                    {
+                        grabbedObject = GetNearest(grabbableObjects);
+                        grabbedObject.transform.position = holdPoint.position;
+                        grabbedObject.transform.parent = holdPoint;
+                        grabbedObject.GetComponent<Rigidbody>().isKinematic = true;
+                    }
+                }
+            }
+            else
+            {
+                grabbedObject.transform.parent = null;
+                grabbedObject.GetComponent<Rigidbody>().isKinematic = false;
+                grabbedObject = null;
+            }
+          
+        }
+    }
+
+
+    List<Interactable> GetGrab(Collider[] objectsGrab)
+    {
+        List<Interactable> pickUpObjects = new List<Interactable>();
+
+            for (int i = 0; i < objectsGrab.Length; i++)
+            {
+                if (objectsGrab[i].tag == "Interactable" && objectsGrab[i].GetComponent<Interactable>().profile.pickUp)
+                {
+                    pickUpObjects.Add(objectsGrab[i].GetComponent<Interactable>());
+                }
+            }
+            return pickUpObjects;
+    }
+
+
+    Interactable GetNearest(List<Interactable> grabbableObjects)
+    {
+        float minDist = Mathf.Infinity;
+        int minIndex = -1;
+        for (int i = 0; i < grabbableObjects.Count; i++)
+        {
+            if (Vector3.Distance(self.position, grabbableObjects[i].transform.position) < minDist)
+            {
+                minDist = Vector3.Distance(self.position, grabbableObjects[i].transform.position);
+                minIndex = i;
+            }
+        }
+
+
+        return grabbableObjects[minIndex];
+    }
 }
+
+    #endregion
+
+
+
+
+

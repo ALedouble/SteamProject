@@ -24,39 +24,43 @@ public class PickUpObject : MonoBehaviour {
     void Start () {
 		item = gameObject;
 		tempParent = GameObject.FindGameObjectWithTag("Player");
-		pickUp = tempParent.transform.GetChild(tempParent.transform.childCount-1).gameObject;
+        if (tempParent != null)
+        {
+            pickUp = tempParent.transform.GetChild(tempParent.transform.childCount - 1).gameObject;
+        }
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
         isGrab();
-
-        distance = Vector3.Distance(item.transform.position, tempParent.transform.position);
-        if (distance >= 3)
-        {
-            isHolding = false;
-        }
-
-		if (isHolding == true)
-        {
-            item.transform.position = pickUp.transform.position;
-            item.GetComponent<Rigidbody>().velocity = Vector3.zero;
-            item.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
-            item.transform.SetParent(tempParent.transform);
-
-            if (Input.GetMouseButtonDown(1))
+        if (tempParent != null){
+            distance = Vector3.Distance(item.transform.position, tempParent.transform.position);
+            if (distance >= 3)
             {
-                item.GetComponent<Rigidbody>().AddForce(tempParent.transform.forward * throwForce);
                 isHolding = false;
             }
-        }
-        else
-        {
-            objectPos = item.transform.position;
-            item.transform.SetParent(null);
-            item.GetComponent<Rigidbody>().useGravity = true;
-            item.transform.position = objectPos;
+
+            if (isHolding == true)
+            {
+                item.transform.position = pickUp.transform.position;
+                item.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                item.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+                item.transform.SetParent(tempParent.transform);
+
+                if (Input.GetMouseButtonDown(1))
+                {
+                    item.GetComponent<Rigidbody>().AddForce(tempParent.transform.forward * throwForce);
+                    isHolding = false;
+                }
+            }
+            else
+            {
+                objectPos = item.transform.position;
+                item.transform.SetParent(null);
+                item.GetComponent<Rigidbody>().useGravity = true;
+                item.transform.position = objectPos;
+            }
         }
 	}
 
