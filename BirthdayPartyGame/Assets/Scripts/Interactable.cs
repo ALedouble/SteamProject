@@ -2,29 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(ObjectParameters))]
 public class Interactable : MonoBehaviour {
-
-	[System.Serializable]
-	public class ObjectParameters
-	{
-		public bool blunt;
-		public bool breakable;
-		public bool pickUp;
-		public bool electronic;
-		public bool electric;
-		public ActivationType activationType;
-	}
-
+	
 	public ObjectParameters parameters;
+
 	[System.NonSerialized]
 	public bool canBreak;
-
-	//public ObjectProfile profile; 
+	protected bool canActivate = true;
+	
 
 	// Use this for initialization
 	void Awake () {
+		if (parameters == null) parameters = GetComponent<ObjectParameters>();
+
 		if (parameters.pickUp) gameObject.AddComponent<PickUpObject>();
-		if (parameters.breakable) gameObject.AddComponent<Breakable>();
+		if (parameters.breakable)
+		{
+			Breakable breakableScript = gameObject.AddComponent<Breakable>();
+			breakableScript.Initialize(this);
+		}
 		if (parameters.electronic)
 		{
 			Electronic electronicScript = gameObject.AddComponent<Electronic>();
@@ -37,7 +34,9 @@ public class Interactable : MonoBehaviour {
 		
 	}
 
-	public virtual void Activate() {}
+	public virtual void Activate() { }
 
 	public virtual void Deactivate() { }
+
+	public virtual void Die() { }
 }

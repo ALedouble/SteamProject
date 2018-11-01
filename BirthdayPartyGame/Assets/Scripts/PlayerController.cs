@@ -154,7 +154,6 @@ public class PlayerController : MonoBehaviour {
 			transform.rotation = Quaternion.Euler(0, Mathf.Atan2(input.x, input.z) * 180 / Mathf.PI, 0);
 			body.drag = steerDeceleration;
 			moveState = MoveState.Steer;
-			print("Steering");
 		}
 		else if (body.velocity.magnitude <= 1f)
 		{

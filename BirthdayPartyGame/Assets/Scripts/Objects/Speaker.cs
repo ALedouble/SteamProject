@@ -8,4 +8,10 @@ public class Speaker : Interactable {
 	{
 		print("BOOM BOOM BOOM");
 	}
+
+	public override void Die()
+	{
+		print("ZOING");
+	}
+
 }

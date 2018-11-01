@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4167086084661972}
   - component: {fileID: 33601083961443866}
   - component: {fileID: 23442884456457082}
+  - component: {fileID: 114910643666737284}
   - component: {fileID: 114244075944726506}
   - component: {fileID: 65524667871550356}
   - component: {fileID: 54716712608219606}
@@ -124,12 +125,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8511f0689db95d469c96751d01e0278, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parameters:
-    blunt: 0
-    breakable: 0
-    pickUp: 0
-    electronic: 1
-    electric: 0
-    activationType: 0
+  parameters: {fileID: 114910643666737284}
   matOff: {fileID: 2100000, guid: 6a4b0bfe6e8df4542a1b5f95bd0e65f8, type: 2}
   matOn: {fileID: 2100000, guid: 890bda0e739623c4e8aebb27b197c3eb, type: 2}
+--- !u!114 &114910643666737284
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1625469406107736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39feb44449d084c44907efdadc23c0f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blunt: 0
+  breakable: 0
+  destructible: 0
+  pickUp: 0
+  electronic: 1
+  electric: 0
+  activationType: 0

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Breakable : MonoBehaviour {
 
+	Interactable main;
+
 	BodyPart[] parts;
 	public float breakSpeed;
 	public Rigidbody rb;
@@ -12,7 +14,13 @@ public class Breakable : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody>();
-		GetParts();
+		if (main.parameters.destructible) GetParts();
+		else parts = new BodyPart[0];
+	}
+
+	public void Initialize(Interactable creator)
+	{
+		main = creator;
 	}
 
 	void GetParts()
@@ -23,21 +31,14 @@ public class Breakable : MonoBehaviour {
 			parts[i] = transform.GetChild(i).GetComponent<BodyPart>();
 		}
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
 	private void OnCollisionEnter(Collision collision)
 	{
 		if (collision.gameObject.tag == "Interactable")
 		{
-			print("Collided with Object");
 			Interactable _object = collision.gameObject.GetComponent<Interactable>();
 			if (_object.parameters.blunt && _object.canBreak)
 			{
-				print("About to break");
 				Break(collision.contacts[0].point);
 			}
 		}
@@ -45,13 +46,14 @@ public class Breakable : MonoBehaviour {
 
 	public void Break(Vector3 impactPoint)
 	{
-
-		for (int i = 0; i < parts.Length; i++)
+		if (parts.Length > 0)
 		{
-			parts[i].Break(impactPoint);
+			for (int i = 0; i < parts.Length; i++)
+			{
+				parts[i].Break(impactPoint);
+			}
+			gameObject.SetActive(false);
 		}
-		gameObject.SetActive(false);
-
-		print("Break");
+		main.Die();
 	}
 }

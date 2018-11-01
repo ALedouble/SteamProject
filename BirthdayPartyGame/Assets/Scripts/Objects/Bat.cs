@@ -9,15 +9,22 @@ public class Bat : Interactable
 
 	public override void Activate()
 	{
-		StartCoroutine(BatSwing());
+		if (canActivate)
+		{
+			StartCoroutine(BatSwing());
+		}
 	}
 
 	IEnumerator BatSwing()
 	{
 		canBreak = true;
+		canActivate = false;
 		print("Start swinging");
+
 		yield return new WaitForSeconds(swingDuration);
+
 		canBreak = false;
 		print("Stop swinging");
+		canActivate = true;
 	}
 }

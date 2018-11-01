@@ -16,13 +16,11 @@ public class Toaster : Interactable {
 	public override void Activate()
 	{
 		rend.material = matOn;
-		print("Toast!");
 	}
 
 	public override void Deactivate()
 	{
 		rend.material = matOff;
-		print("Toast!");
 	}
 
 }

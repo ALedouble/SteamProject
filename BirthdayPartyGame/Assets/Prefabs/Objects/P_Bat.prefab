@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4886443635860970}
   - component: {fileID: 33022180360098434}
   - component: {fileID: 23115802384332560}
+  - component: {fileID: 114072311391775584}
   - component: {fileID: 114852370877320194}
   - component: {fileID: 65196972205021214}
   - component: {fileID: 54009273561382374}
@@ -113,6 +114,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114072311391775584
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1655780164451330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39feb44449d084c44907efdadc23c0f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blunt: 1
+  breakable: 0
+  destructible: 0
+  pickUp: 1
+  electronic: 0
+  electric: 0
+  activationType: 2
 --- !u!114 &114852370877320194
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -124,11 +143,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bee7b0a9be0caa4d8ff6f2d833a17bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parameters:
-    blunt: 1
-    breakable: 0
-    pickUp: 1
-    electronic: 0
-    electric: 0
-    activationType: 2
+  parameters: {fileID: 114072311391775584}
   swingDuration: 1
