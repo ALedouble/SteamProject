@@ -23,8 +23,9 @@ public class PlayerController : MonoBehaviour {
 	[Header("Controls")]
 	public MoveState moveState;
     public float maxSpeed = 10;
+	public AnimationCurve accelerationCurve;
     //[Range(0.01f, 1f)]
-    public float acceleration = .2f;
+    //public float acceleration = .2f;
     //[Range(0.01f, 1f)]
     public float movingDrag = .4f;
     public float idleDrag = .4f;
@@ -36,6 +37,7 @@ public class PlayerController : MonoBehaviour {
     public Transform self;
 
     Vector3 speedVector;
+	float accelerationTimer;
 	Vector3 lastVelocity;
 	Vector3 input;
     Quaternion turnRotation;
@@ -60,28 +62,28 @@ public class PlayerController : MonoBehaviour {
 
     private void FixedUpdate()
     {
-		
 		if (moveState != MoveState.Steer)
 		{
 			if (input.magnitude != 0)
 			{
+				accelerationTimer += Time.fixedDeltaTime;
 				Rotate();
 				Accelerate();
 			}
-			else if (body.velocity != Vector3.zero)
+			else //if (body.velocity != Vector3.zero)
 			{
-				StopMoving();
+				accelerationTimer = 0;
 			}
 			Move();
 		}
-        else
-		{
-			Steer();
-		}
-    }
 
-    #region Input
-    void GetInput()
+		CheckMoveState();
+		lastVelocity = body.velocity.normalized;
+
+	}
+
+	#region Input
+	void GetInput()
     {
         if (HasGamepad())
         {
@@ -143,11 +145,6 @@ public class PlayerController : MonoBehaviour {
     #endregion
 
     #region Movement
-	void Steer()
-	{
-		CheckMoveState();
-		lastVelocity = body.velocity;
-	}
 	
 	void CheckMoveState()
 	{
@@ -178,15 +175,13 @@ public class PlayerController : MonoBehaviour {
 
     void Accelerate()
     {
-        body.AddForce(input * acceleration, ForceMode.Acceleration);
+        body.AddForce(input * (accelerationCurve.Evaluate(accelerationTimer) * maxSpeed), ForceMode.Acceleration);
         body.drag = movingDrag;
     }
 
     void Move()
     {
         body.velocity = Vector3.ClampMagnitude(body.velocity, maxSpeed);
-		CheckMoveState();
-		lastVelocity = body.velocity.normalized;
     }
 
     void StopMoving()
@@ -194,7 +189,7 @@ public class PlayerController : MonoBehaviour {
         body.drag = idleDrag;
         if (body.velocity.magnitude >= .5f)
         {
-            body.angularVelocity = Vector3.Lerp(body.angularVelocity, Vector3.zero, acceleration);
+            //body.angularVelocity = Vector3.Lerp(body.angularVelocity, Vector3.zero, acceleration);
         }
         else
         {
@@ -204,10 +199,6 @@ public class PlayerController : MonoBehaviour {
     #endregion
 
     #region Actions
-
-
-
-
     void Grab()
     {
         Collider[] objectsGrab = Physics.OverlapSphere(self.position, 5);
@@ -238,22 +229,20 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-
     List<Interactable> GetGrab(Collider[] objectsGrab)
     {
         List<Interactable> pickUpObjects = new List<Interactable>();
 
-            for (int i = 0; i < objectsGrab.Length; i++)
+        for (int i = 0; i < objectsGrab.Length; i++)
+        {
+            if (objectsGrab[i].tag == "Interactable" && objectsGrab[i].GetComponent<Interactable>().profile.pickUp)
             {
-                if (objectsGrab[i].tag == "Interactable" && objectsGrab[i].GetComponent<Interactable>().profile.pickUp)
-                {
-                    pickUpObjects.Add(objectsGrab[i].GetComponent<Interactable>());
-                }
+                pickUpObjects.Add(objectsGrab[i].GetComponent<Interactable>());
             }
-            return pickUpObjects;
+        }
+        return pickUpObjects;
     }
-
-
+	
     Interactable GetNearest(List<Interactable> grabbableObjects)
     {
         float minDist = Mathf.Infinity;
@@ -266,13 +255,48 @@ public class PlayerController : MonoBehaviour {
                 minIndex = i;
             }
         }
-
-
         return grabbableObjects[minIndex];
     }
+
+	void ActivateObject()
+	{
+		if (grabbedObject != null && grabbedObject.profile.activationType == ActivationType.Handheld)
+		{
+			grabbedObject.Activate();
+		}
+		else
+		{
+			Collider[] objectsActivate = Physics.OverlapSphere(self.position, 5);
+			if (objectsActivate.Length > 0)
+			{
+				List<Interactable> activableObjects = GetActivate(objectsActivate);
+				if (activableObjects.Count > 0)
+				{
+					GetNearest(activableObjects).Activate();
+				}
+			}
+			
+		}
+	}
+
+	List<Interactable> GetActivate(Collider[] objectsActivate)
+	{
+		List<Interactable> toActivateObjects = new List<Interactable>();
+
+		for (int i = 0; i < objectsActivate.Length; i++)
+		{
+			if (objectsActivate[i].tag == "Interactable" && objectsActivate[i].GetComponent<Interactable>().profile.activationType == ActivationType.Proximity)
+			{
+				toActivateObjects.Add(objectsActivate[i].GetComponent<Interactable>());
+			}
+		}
+		return toActivateObjects;
+	}
+
+	#endregion
 }
 
-    #endregion
+
 
 
 

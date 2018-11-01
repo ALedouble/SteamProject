@@ -179,34 +179,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &493240008
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 493240009}
-  m_Layer: 0
-  m_Name: ObjectPosition
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &493240009
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 493240008}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
-  m_LocalScale: {x: 0.625, y: 0.625, z: 0.625}
-  m_Children: []
-  m_Father: {fileID: 650792661}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &534669902
 GameObject:
   m_ObjectHideFlags: 0
@@ -284,11 +256,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 60, y: 0, z: 0}
---- !u!4 &650792661 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4971963752547308, guid: a082a5eed5982fd4d81f660ba8ac9ff6,
-    type: 2}
-  m_PrefabInternal: {fileID: 1159591368}
 --- !u!1001 &1139284940
 Prefab:
   m_ObjectHideFlags: 0
@@ -613,55 +580,6 @@ Prefab:
     - target: {fileID: 4971963752547308, guid: a082a5eed5982fd4d81f660ba8ac9ff6, type: 2}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114857145729831190, guid: a082a5eed5982fd4d81f660ba8ac9ff6,
-        type: 2}
-      propertyPath: turnSpeed
-      value: 0.501
-      objectReference: {fileID: 0}
-    - target: {fileID: 114857145729831190, guid: a082a5eed5982fd4d81f660ba8ac9ff6,
-        type: 2}
-      propertyPath: acceleration
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 114857145729831190, guid: a082a5eed5982fd4d81f660ba8ac9ff6,
-        type: 2}
-      propertyPath: deceleration
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 114857145729831190, guid: a082a5eed5982fd4d81f660ba8ac9ff6,
-        type: 2}
-      propertyPath: maxSpeed
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 54603048579009150, guid: a082a5eed5982fd4d81f660ba8ac9ff6,
-        type: 2}
-      propertyPath: m_Drag
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114857145729831190, guid: a082a5eed5982fd4d81f660ba8ac9ff6,
-        type: 2}
-      propertyPath: idleDrag
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114857145729831190, guid: a082a5eed5982fd4d81f660ba8ac9ff6,
-        type: 2}
-      propertyPath: movingDrag
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1502690297865162, guid: a082a5eed5982fd4d81f660ba8ac9ff6, type: 2}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 114857145729831190, guid: a082a5eed5982fd4d81f660ba8ac9ff6,
-        type: 2}
-      propertyPath: self
-      value: 
-      objectReference: {fileID: 650792661}
-    - target: {fileID: 114857145729831190, guid: a082a5eed5982fd4d81f660ba8ac9ff6,
-        type: 2}
-      propertyPath: steerDeceleration
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a082a5eed5982fd4d81f660ba8ac9ff6, type: 2}

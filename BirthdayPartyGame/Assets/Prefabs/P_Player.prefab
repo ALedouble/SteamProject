@@ -29,6 +29,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1425602485825522
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4476042624978462}
+  m_Layer: 0
+  m_Name: ObjectPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1502690297865162
 GameObject:
   m_ObjectHideFlags: 0
@@ -44,7 +59,7 @@ GameObject:
   - component: {fileID: 114857145729831190}
   m_Layer: 0
   m_Name: P_Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77,6 +92,19 @@ Transform:
   m_Father: {fileID: 4971963752547308}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4476042624978462
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1425602485825522}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalScale: {x: 0.625, y: 0.625, z: 0.625}
+  m_Children: []
+  m_Father: {fileID: 4971963752547308}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4493889291902144
 Transform:
   m_ObjectHideFlags: 1
@@ -102,6 +130,7 @@ Transform:
   m_Children:
   - {fileID: 4493889291902144}
   - {fileID: 4243258563941640}
+  - {fileID: 4476042624978462}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -197,12 +226,12 @@ Rigidbody:
   m_GameObject: {fileID: 1502690297865162}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 5
   m_AngularDrag: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 84
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!65 &65856414558681568
 BoxCollider:
@@ -230,10 +259,37 @@ MonoBehaviour:
   body: {fileID: 54603048579009150}
   holdPoint: {fileID: 4243258563941640}
   deadzone: 0.2
+  moveState: 0
   maxSpeed: 20
-  acceleration: 0.2
-  deceleration: 0.4
-  turnSpeed: 0.25
+  accelerationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  movingDrag: 1
+  idleDrag: 5
+  turnSpeed: 0.501
+  self: {fileID: 4971963752547308}
+  steerDeceleration: 3
 --- !u!136 &136376308146124582
 CapsuleCollider:
   m_ObjectHideFlags: 1
