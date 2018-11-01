@@ -38,7 +38,7 @@ public class Electronic : MonoBehaviour {
 	{
 		for (int i = 0; i < _collidedObjects.Length; i++)
 		{
-			if (_collidedObjects[i].tag == "Interactable" && _collidedObjects[i].GetComponent<Interactable>().profile.electric)
+			if (_collidedObjects[i].tag == "Interactable" && _collidedObjects[i].GetComponent<Interactable>().parameters.electric)
 			{
 				return true;
 			}

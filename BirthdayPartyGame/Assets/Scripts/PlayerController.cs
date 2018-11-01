@@ -58,6 +58,7 @@ public class PlayerController : MonoBehaviour {
     {
         GetInput();
         Grab();
+		if (Input.GetKeyDown(KeyCode.A)) ActivateObject();
     }
 
     private void FixedUpdate()
@@ -214,6 +215,7 @@ public class PlayerController : MonoBehaviour {
                     {
                         grabbedObject = GetNearest(grabbableObjects);
                         grabbedObject.transform.position = holdPoint.position;
+						grabbedObject.transform.rotation = holdPoint.rotation;
                         grabbedObject.transform.parent = holdPoint;
                         grabbedObject.GetComponent<Rigidbody>().isKinematic = true;
                     }
@@ -235,7 +237,7 @@ public class PlayerController : MonoBehaviour {
 
         for (int i = 0; i < objectsGrab.Length; i++)
         {
-            if (objectsGrab[i].tag == "Interactable" && objectsGrab[i].GetComponent<Interactable>().profile.pickUp)
+            if (objectsGrab[i].tag == "Interactable" && objectsGrab[i].GetComponent<Interactable>().parameters.pickUp)
             {
                 pickUpObjects.Add(objectsGrab[i].GetComponent<Interactable>());
             }
@@ -260,7 +262,7 @@ public class PlayerController : MonoBehaviour {
 
 	void ActivateObject()
 	{
-		if (grabbedObject != null && grabbedObject.profile.activationType == ActivationType.Handheld)
+		if (grabbedObject != null && grabbedObject.parameters.activationType == ActivationType.Handheld)
 		{
 			grabbedObject.Activate();
 		}
@@ -285,7 +287,7 @@ public class PlayerController : MonoBehaviour {
 
 		for (int i = 0; i < objectsActivate.Length; i++)
 		{
-			if (objectsActivate[i].tag == "Interactable" && objectsActivate[i].GetComponent<Interactable>().profile.activationType == ActivationType.Proximity)
+			if (objectsActivate[i].tag == "Interactable" && objectsActivate[i].GetComponent<Interactable>().parameters.activationType == ActivationType.Proximity)
 			{
 				toActivateObjects.Add(objectsActivate[i].GetComponent<Interactable>());
 			}

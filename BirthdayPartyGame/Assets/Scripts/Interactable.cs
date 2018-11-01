@@ -4,13 +4,28 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour {
 
-	public ObjectProfile profile; 
+	[System.Serializable]
+	public class ObjectParameters
+	{
+		public bool blunt;
+		public bool breakable;
+		public bool pickUp;
+		public bool electronic;
+		public bool electric;
+		public ActivationType activationType;
+	}
+
+	public ObjectParameters parameters;
+	[System.NonSerialized]
+	public bool canBreak;
+
+	//public ObjectProfile profile; 
 
 	// Use this for initialization
 	void Awake () {
-		if (profile.pickUp) gameObject.AddComponent<PickUpObject>();
-		if (profile.breakable) gameObject.AddComponent<Breakable>();
-		if (profile.electronic)
+		if (parameters.pickUp) gameObject.AddComponent<PickUpObject>();
+		if (parameters.breakable) gameObject.AddComponent<Breakable>();
+		if (parameters.electronic)
 		{
 			Electronic electronicScript = gameObject.AddComponent<Electronic>();
 			electronicScript.Initialize(this);

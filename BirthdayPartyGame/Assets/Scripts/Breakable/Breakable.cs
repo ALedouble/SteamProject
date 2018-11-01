@@ -31,12 +31,13 @@ public class Breakable : MonoBehaviour {
 
 	private void OnCollisionEnter(Collision collision)
 	{
-
 		if (collision.gameObject.tag == "Interactable")
 		{
+			print("Collided with Object");
 			Interactable _object = collision.gameObject.GetComponent<Interactable>();
-			if (_object.profile.blunt && collision.gameObject.GetComponent<Rigidbody>().velocity.magnitude > breakSpeed)
+			if (_object.parameters.blunt && _object.canBreak)
 			{
+				print("About to break");
 				Break(collision.contacts[0].point);
 			}
 		}
