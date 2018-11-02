@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour {
 	[Header("Controls")]
 	public MoveState moveState;
     public float maxSpeed = 10;
+	public float maxAcceleration = 10;
 	public AnimationCurve accelerationCurve;
     //[Range(0.01f, 1f)]
     //public float acceleration = .2f;
@@ -57,8 +58,6 @@ public class PlayerController : MonoBehaviour {
     void Update()
     {
         GetInput();
-        Grab();
-		if (Input.GetKeyDown(KeyCode.A)) ActivateObject();
     }
 
     private void FixedUpdate()
@@ -104,10 +103,14 @@ public class PlayerController : MonoBehaviour {
 
     void KeyboardInput()
     {
-        if (Input.GetKeyDown(KeyCode.KeypadEnter))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             Grab();
         }
+		if (Input.GetKeyDown(KeyCode.A))
+		{
+			ActivateObject();
+		}
 
         int _horDir = 0;
         if (Input.GetKey(KeyCode.LeftArrow))
@@ -175,7 +178,7 @@ public class PlayerController : MonoBehaviour {
 
     void Accelerate()
     {
-        body.AddForce(input * (accelerationCurve.Evaluate(accelerationTimer) * maxSpeed), ForceMode.Acceleration);
+        body.AddForce(input * (accelerationCurve.Evaluate(body.velocity.magnitude/maxSpeed) * maxAcceleration), ForceMode.Acceleration);
         body.drag = movingDrag;
     }
 
@@ -203,8 +206,6 @@ public class PlayerController : MonoBehaviour {
     {
         Collider[] objectsGrab = Physics.OverlapSphere(self.position, 5);
         // Check Grab
-        if (Input.GetKeyDown(KeyCode.E))
-        {
             if ( grabbedObject == null)
             {
                 if (objectsGrab.Length > 0)
@@ -226,8 +227,6 @@ public class PlayerController : MonoBehaviour {
                 grabbedObject.GetComponent<Rigidbody>().isKinematic = false;
                 grabbedObject = null;
             }
-          
-        }
     }
 
     List<Interactable> GetGrab(Collider[] objectsGrab)
@@ -296,10 +295,3 @@ public class PlayerController : MonoBehaviour {
 
 	#endregion
 }
-
-
-
-
-
-
-
