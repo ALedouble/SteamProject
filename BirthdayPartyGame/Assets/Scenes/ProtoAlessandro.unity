@@ -456,7 +456,7 @@ Prefab:
     - target: {fileID: 114857145729831190, guid: a082a5eed5982fd4d81f660ba8ac9ff6,
         type: 2}
       propertyPath: accelerationCurve.m_Curve.Array.data[0].value
-      value: 0
+      value: 0.23413086
       objectReference: {fileID: 0}
     - target: {fileID: 114857145729831190, guid: a082a5eed5982fd4d81f660ba8ac9ff6,
         type: 2}
@@ -466,6 +466,11 @@ Prefab:
     - target: {fileID: 114857145729831190, guid: a082a5eed5982fd4d81f660ba8ac9ff6,
         type: 2}
       propertyPath: maxSpeed
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 114857145729831190, guid: a082a5eed5982fd4d81f660ba8ac9ff6,
+        type: 2}
+      propertyPath: maxAcceleration
       value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -765,6 +770,11 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 54e4474ea134fd045b087327d55f2dc0, type: 2}
+    - target: {fileID: 114072311391775584, guid: d9493b5df0b53724db46fbd9fdd0114d,
+        type: 2}
+      propertyPath: breakable
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9493b5df0b53724db46fbd9fdd0114d, type: 2}
   m_IsPrefabAsset: 0
