@@ -7,7 +7,7 @@ using UnityEditor;
 [CustomEditor(typeof(ObjectParameters))]
 public class ObjectParametersInspector : Editor {
 
-	SerializedProperty blunt, breakable, destructible, pickUp, electronic, electric, activationType;
+	SerializedProperty blunt, breakable, destructible, pickUp, electronic, electric, activationType, material;
 
 	private void OnEnable()
 	{
@@ -18,6 +18,7 @@ public class ObjectParametersInspector : Editor {
 		electronic = serializedObject.FindProperty("electronic");
 		electric = serializedObject.FindProperty("electric");
 		activationType = serializedObject.FindProperty("activationType");
+		material = serializedObject.FindProperty("material");
 	}
 
 	public override void OnInspectorGUI()
@@ -35,6 +36,7 @@ public class ObjectParametersInspector : Editor {
 		EditorGUILayout.PropertyField(electronic);
 		EditorGUILayout.PropertyField(electric);
 		EditorGUILayout.PropertyField(activationType);
+		EditorGUILayout.PropertyField(material);
 
 		serializedObject.ApplyModifiedProperties();
 	}

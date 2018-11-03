@@ -2,33 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Breakable : MonoBehaviour {
+public class Breakable : InteractableComponent {
 
-	Interactable main;
-
+	//List<BodyPart> parts;
 	BodyPart[] parts;
 	public float breakSpeed;
 	public Rigidbody rb;
+	Transform self;
 
 
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody>();
+		self = GetComponent<Transform>();
 		if (main.parameters.destructible) GetParts();
 		else parts = new BodyPart[0];
 	}
 
-	public void Initialize(Interactable creator)
-	{
-		main = creator;
-	}
-
 	void GetParts()
-	{
-		parts = new BodyPart[transform.childCount];
-		for (int i = 0; i < transform.childCount; i++)
+	{		
+		Transform bodyPartsChild = self.GetChild(0);
+		parts = new BodyPart[bodyPartsChild.childCount];
+		for (int i = 0; i < bodyPartsChild.childCount; i++)
 		{
-			parts[i] = transform.GetChild(i).GetComponent<BodyPart>();
+			parts[i] = bodyPartsChild.GetChild(i).GetComponent<BodyPart>();
 		}
 	}
 
@@ -52,7 +49,6 @@ public class Breakable : MonoBehaviour {
 			{
 				parts[i].Break(impactPoint);
 			}
-			gameObject.SetActive(false);
 		}
 		main.Die();
 	}

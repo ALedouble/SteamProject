@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Electronic : MonoBehaviour {
-
-	Interactable main;
+public class Electronic : InteractableComponent {
+	
 	Transform self;
 	float electricityDetectionRadius = 5;
 	bool isPowered;
@@ -44,11 +43,6 @@ public class Electronic : MonoBehaviour {
 			}
 		}
 		return false;
-	}
-
-	public void Initialize(Interactable creator)
-	{
-		main = creator;
 	}
 
 	void GetPowered()

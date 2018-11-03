@@ -9,6 +9,7 @@ public class Bat : Interactable
 
 	public override void Activate()
 	{
+		base.Activate();
 		if (canActivate)
 		{
 			StartCoroutine(BatSwing());

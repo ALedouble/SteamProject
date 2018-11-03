@@ -126,6 +126,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameters: {fileID: 114910643666737284}
+  body: {fileID: 54716712608219606}
+  self: {fileID: 4167086084661972}
+  fireParticleSystem: {fileID: 1068989696536054, guid: d585bcc898a67fa43b7b10bc09863fcf,
+    type: 2}
+  waterParticleSystem: {fileID: 1068989696536054, guid: 9ac20361cadf4a147aca21bd3fb1073c,
+    type: 2}
   matOff: {fileID: 2100000, guid: 6a4b0bfe6e8df4542a1b5f95bd0e65f8, type: 2}
   matOn: {fileID: 2100000, guid: 890bda0e739623c4e8aebb27b197c3eb, type: 2}
 --- !u!114 &114910643666737284
@@ -140,9 +146,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blunt: 0
-  breakable: 0
+  breakable: 1
   destructible: 0
   pickUp: 0
   electronic: 1
   electric: 0
   activationType: 0
+  material: 0

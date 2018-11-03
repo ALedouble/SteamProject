@@ -31,9 +31,6 @@ public class PlayerController : MonoBehaviour {
     public float maxSpeed = 10;
 	public float maxAcceleration = 10;
 	public AnimationCurve accelerationCurve;
-    //[Range(0.01f, 1f)]
-    //public float acceleration = .2f;
-    //[Range(0.01f, 1f)]
     public float movingDrag = .4f;
     public float idleDrag = .4f;
     [Range(0.01f, 1f)]

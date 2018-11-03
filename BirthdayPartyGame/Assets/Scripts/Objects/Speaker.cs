@@ -6,6 +6,7 @@ public class Speaker : Interactable {
 
 	public override void Activate()
 	{
+		base.Activate();
 		print("BOOM BOOM BOOM");
 	}
 

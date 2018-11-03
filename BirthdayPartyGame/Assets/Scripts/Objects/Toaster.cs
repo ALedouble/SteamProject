@@ -15,6 +15,7 @@ public class Toaster : Interactable {
 
 	public override void Activate()
 	{
+		base.Activate();
 		rend.material = matOn;
 	}
 
