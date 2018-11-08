@@ -37,7 +37,7 @@ public class Electronic : InteractableComponent {
 	{
 		for (int i = 0; i < _collidedObjects.Length; i++)
 		{
-			if (_collidedObjects[i].tag == "Interactable" && _collidedObjects[i].GetComponent<Interactable>().parameters.electric)
+			if (_collidedObjects[i].tag == "Interactable" && _collidedObjects[i].GetComponent<Interactable>().electrified)
 			{
 				return true;
 			}

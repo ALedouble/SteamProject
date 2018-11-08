@@ -2,16 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Water : MonoBehaviour {
+public class Water : Entity {
 
-	Transform self;
+	#region Old code
+	/*Transform self;
 
 	float radius = 3;
 	float maturingTime = 1;
 	float lifeSpan;
 	public bool canWet;
 	List<Interactable> canWetObjects = new List<Interactable>();
-
+	
 	void Start()
 	{
 		Initialize();
@@ -84,5 +85,26 @@ public class Water : MonoBehaviour {
 		{
 			canWetObjects[i].GetWet();
 		}
+	}*/
+	#endregion
+
+	protected override void Interact(Interactable _object)
+	{
+		if (_object.parameters.material == ObjectMaterial.Paper)
+		{
+			canSpreadObjects.Add(_object);
+		}
+		else if (_object.parameters.material == ObjectMaterial.Wood && _object.burning)
+		{
+			_object.StopBurning();
+		}
 	}
+	protected override void Spread()
+	{
+		for (int i = 0; i < canSpreadObjects.Count; i++)
+		{
+			canSpreadObjects[i].GetWet();
+		}
+	}
+
 }

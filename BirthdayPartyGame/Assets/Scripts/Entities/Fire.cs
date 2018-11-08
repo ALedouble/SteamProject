@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fire : MonoBehaviour {
-
-	Transform self;
+public class Fire : Entity {
+	#region Old code
+	/*Transform self;
 	
 	float radius = 3;
 	float maturingTime = 2;
@@ -66,7 +66,7 @@ public class Fire : MonoBehaviour {
 	{
 		for (int i = 0; i < _colliders.Length; i++)
 		{
-			if (_colliders[i].tag == "Interactable" && _colliders[i] != GetComponent<Collider>())
+			if (_colliders[i].tag == "Interactable")
 			{
 				Interactable _object = _colliders[i].GetComponent<Interactable>();
 				if ((_object.parameters.material == ObjectMaterial.Wood || _object.parameters.material == ObjectMaterial.Paper) && 
@@ -84,5 +84,24 @@ public class Fire : MonoBehaviour {
 		{
 			canBurnObjects[i].Burn(gameObject);
 		}
+	}*/
+	#endregion
+
+	protected override void Interact(Interactable _object)
+	{
+		if ((_object.parameters.material == ObjectMaterial.Wood || _object.parameters.material == ObjectMaterial.Paper) &&
+					(!_object.wet && !_object.burning))
+		{
+			canSpreadObjects.Add(_object);
+		}
 	}
+
+	protected override void Spread()
+	{
+		for (int i = 0; i < canSpreadObjects.Count; i++)
+		{
+			canSpreadObjects[i].Burn(gameObject);
+		}
+	}
+
 }

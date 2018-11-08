@@ -39,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1234805847673052}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.28, y: 0.5, z: 4.79}
+  m_LocalPosition: {x: -7.28, y: 0.5, z: -4.87}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -60,7 +60,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 890bda0e739623c4e8aebb27b197c3eb, type: 2}
+  - {fileID: 2100000, guid: ee8aefe5bc9432a4ca29c35fdd58f221, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -132,6 +132,9 @@ MonoBehaviour:
     type: 2}
   waterParticleSystem: {fileID: 1068989696536054, guid: 9ac20361cadf4a147aca21bd3fb1073c,
     type: 2}
+  electricityScript: {fileID: 0}
+  electricityParticleSystem: {fileID: 1068989696536054, guid: d79bec28e35144646b97714ef6609a6e,
+    type: 2}
 --- !u!114 &114717428361297436
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -144,7 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blunt: 0
-  breakable: 1
+  breakable: 0
   destructible: 0
   pickUp: 1
   electronic: 0

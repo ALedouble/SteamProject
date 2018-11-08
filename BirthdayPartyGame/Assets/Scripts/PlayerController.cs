@@ -50,6 +50,7 @@ public class PlayerController : MonoBehaviour {
     Interactable grabbedObject;
 
 	public float steerDeceleration;
+	public float grabAngleTolerance;
 
 	// Use this for initialization
 	void Start()
@@ -284,7 +285,7 @@ public class PlayerController : MonoBehaviour {
 		{
 			Vector3 directionToObject = _objects[i].self.position - self.position;
 			float angle = Vector3.Angle(directionToObject, self.forward);
-			if (angle < minAngle + 1)
+			if (angle < minAngle + grabAngleTolerance)
 			{
 				inFrontObjects.Add(_objects[i]);
 			}

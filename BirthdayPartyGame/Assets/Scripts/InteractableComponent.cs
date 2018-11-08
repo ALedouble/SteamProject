@@ -6,9 +6,9 @@ public class InteractableComponent : MonoBehaviour {
 
 	protected Interactable main;
 
-	public void Initialize(Interactable creator)
+	public void Initialize(Interactable _creator)
 	{
-		main = creator;
+		main = _creator;
 	}
 
 }

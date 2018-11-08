@@ -10,7 +10,7 @@ public class Lighter : Interactable {
 		if (!burning)
 		{
 			Burn(gameObject);
-			fireScript.canBurn = true;
+			fireScript.canSpread = true;
 		}
 		else Deactivate();
 	}

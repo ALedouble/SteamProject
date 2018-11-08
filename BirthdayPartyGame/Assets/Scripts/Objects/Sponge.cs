@@ -10,7 +10,7 @@ public class Sponge : Interactable {
 		if (!wet)
 		{
 			GetWet();
-			waterScript.canWet = true;
+			waterScript.canSpread = true;
 		}
 		else Deactivate();
 	}

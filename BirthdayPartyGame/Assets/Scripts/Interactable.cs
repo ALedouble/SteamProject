@@ -21,6 +21,11 @@ public class Interactable : MonoBehaviour {
 	public GameObject waterParticleSystem;
 	protected ParticleSystem myWaterParticleSystem;
 
+	[Space]
+	[System.NonSerialized] public Electricity electricityScript;
+	public GameObject electricityParticleSystem;
+	protected ParticleSystem myElectricityParticleSystem;
+
 	[System.NonSerialized]
 	public bool canBreak;
 	protected bool canActivate = true;
@@ -100,12 +105,13 @@ public class Interactable : MonoBehaviour {
 	public void StopBurning()
 	{
 		burning = false;
-		GetComponent<Fire>().enabled = false;
+		fireScript.enabled = false;
 		myFireParticleSystem.Stop(true, ParticleSystemStopBehavior.StopEmitting);
 	}
 
 	public void GetWet()
 	{
+		print("Get wet");
 		if (burning)
 		{
 			StopBurning();
@@ -122,6 +128,34 @@ public class Interactable : MonoBehaviour {
 		else
 			myWaterParticleSystem.Play();
 		
+	}
+
+	public void GetElectrified(Electricity _creator)
+	{
+		print("Get electrified: " + name);
+		electrified = true;
+
+		if (electricityScript == null)
+		{
+			electricityScript = gameObject.AddComponent<Electricity>();
+			electricityScript.creator = _creator;
+		}
+			
+		else
+			electricityScript.enabled = true;
+
+		if (myElectricityParticleSystem == null)
+			myElectricityParticleSystem = Instantiate(electricityParticleSystem, self.position, Quaternion.identity, self).GetComponent<ParticleSystem>();
+		else
+			myElectricityParticleSystem.Play();
+	}
+
+	public void StopElectrify()
+	{
+		print("Stop electrify: " + name);
+		electrified = false;
+		electricityScript.enabled = false;
+		myElectricityParticleSystem.Stop(true, ParticleSystemStopBehavior.StopEmitting);
 	}
 
 	#endregion
