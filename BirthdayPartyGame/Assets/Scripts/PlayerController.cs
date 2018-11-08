@@ -18,7 +18,8 @@ public enum Filter
 public class PlayerController : MonoBehaviour {
 
     [Header("Components")]
-    public Rigidbody body;
+	public Transform self;
+	public Rigidbody body;
     public Transform holdPoint;
 
     [Space]
@@ -28,29 +29,37 @@ public class PlayerController : MonoBehaviour {
 	[Space]
 	[Header("Controls")]
 	public MoveState moveState;
-    public float maxSpeed = 10;
+	[SerializeField] private float speed;
+	[Tooltip("Minimum required speed to go to walking state")] public float minWalkSpeed = 0.1f;
+	public float maxSpeed = 10;
 	public float maxAcceleration = 10;
 	public AnimationCurve accelerationCurve;
+	[Space]
     public float movingDrag = .4f;
     public float idleDrag = .4f;
-    [Range(0.01f, 1f)]
+	public float steerDrag;
+	[Space]
+	[Range(0.01f, 1f)]
     public float turnSpeed = .25f;
+	[Tooltip("Minimum required speed to go to steering state")] [Range(0.01f, 1f)] public float steerThresholdSpeed;
 
-    [Space]
+
+	[Space]
     [Header("Grab")]
-    public Transform self;
-
+	public float grabAngleTolerance;
+	
     Vector3 speedVector;
 	float accelerationTimer;
 	Vector3 lastVelocity;
 	Vector3 input;
     Quaternion turnRotation;
     float distance;
+	Quaternion steerTarget;
 
     Interactable grabbedObject;
 
-	public float steerDeceleration;
-	public float grabAngleTolerance;
+	
+	
 
 	// Use this for initialization
 	void Start()
@@ -66,6 +75,7 @@ public class PlayerController : MonoBehaviour {
 
     private void FixedUpdate()
     {
+		CheckMoveState();
 		if (moveState != MoveState.Steer)
 		{
 			if (input.magnitude != 0)
@@ -80,8 +90,12 @@ public class PlayerController : MonoBehaviour {
 			}
 			Move();
 		}
+		else
+		{
+			Steer();
+		}
 
-		CheckMoveState();
+		
 		lastVelocity = body.velocity.normalized;
 
 	}
@@ -156,14 +170,20 @@ public class PlayerController : MonoBehaviour {
 	
 	void CheckMoveState()
 	{
-		if (Vector3.Dot(input, lastVelocity) < -0.8f && moveState != MoveState.Steer)
+		if (Vector3.Dot(input, lastVelocity) < -0.8f && moveState != MoveState.Steer && speed >= steerThresholdSpeed * maxSpeed)
 		{
-			transform.rotation = Quaternion.Euler(0, Mathf.Atan2(input.x, input.z) * 180 / Mathf.PI, 0);
-			body.drag = steerDeceleration;
+			steerTarget = Quaternion.Euler(0, Mathf.Atan2(input.x, input.z) * 180 / Mathf.PI, 0);
+			print("Start steeering");
+			//transform.rotation = Quaternion.Euler(0, Mathf.Atan2(input.x, input.z) * 180 / Mathf.PI, 0);
+			body.drag = steerDrag;
 			moveState = MoveState.Steer;
 		}
-		else if (body.velocity.magnitude <= 1f)
+		else if (body.velocity.magnitude <= minWalkSpeed)
 		{
+			if (moveState != MoveState.Idle)
+			{
+				body.velocity = Vector3.zero;
+			}
 			body.drag = idleDrag;
 			moveState = MoveState.Idle;
 		}
@@ -179,6 +199,11 @@ public class PlayerController : MonoBehaviour {
         turnRotation = Quaternion.Euler(0, Mathf.Atan2(input.x, input.z) * 180 / Mathf.PI, 0);
         transform.rotation = Quaternion.Slerp(transform.rotation, turnRotation, turnSpeed);
     }
+	void Steer()
+	{
+		transform.rotation = Quaternion.Slerp(transform.rotation, steerTarget, turnSpeed);
+		print("Steering");
+	}
 
     void Accelerate()
     {
@@ -189,6 +214,7 @@ public class PlayerController : MonoBehaviour {
     void Move()
     {
         body.velocity = Vector3.ClampMagnitude(body.velocity, maxSpeed);
+		speed = body.velocity.magnitude;
     }
     #endregion
 
