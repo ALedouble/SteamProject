@@ -149,7 +149,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 890bda0e739623c4e8aebb27b197c3eb, type: 2}
+  - {fileID: 2100000, guid: 106bfcadbc7a9ce48890ba8a6fd1846e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -184,7 +184,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: ee8aefe5bc9432a4ca29c35fdd58f221, type: 2}
+  - {fileID: 2100000, guid: 02b9ed4b6dca6364f949350f5182d40b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -256,23 +256,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 690f694ca4918824595be8b681972bee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  self: {fileID: 4971963752547308}
   body: {fileID: 54603048579009150}
   holdPoint: {fileID: 4243258563941640}
   deadzone: 0.2
   moveState: 0
-  maxSpeed: 20
+  speed: 0
+  minWalkSpeed: 0.1
+  maxSpeed: 50
+  maxAcceleration: 50
   accelerationCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
-      inSlope: 2
-      outSlope: 2
+      value: 0.23413086
+      inSlope: 3.1363633
+      outSlope: 3.1363633
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.09166667
+    - serializedVersion: 3
+      time: 0.028554725
+      value: 0.6877239
+      inSlope: 1.2984565
+      outSlope: 1.2984565
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 1
+      outWeight: 0.2092006
     - serializedVersion: 3
       time: 1
       value: 1
@@ -287,9 +300,10 @@ MonoBehaviour:
     m_RotationOrder: 4
   movingDrag: 1
   idleDrag: 5
+  steerDrag: 5
   turnSpeed: 0.501
-  self: {fileID: 4971963752547308}
-  steerDeceleration: 3
+  steerThresholdSpeed: 0.281
+  grabAngleTolerance: 30
 --- !u!136 &136376308146124582
 CapsuleCollider:
   m_ObjectHideFlags: 1
