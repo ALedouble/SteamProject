@@ -29,6 +29,7 @@ public class Interactable : MonoBehaviour {
 	[System.NonSerialized]
 	public bool canBreak;
 	protected bool canActivate = true;
+	protected bool activated;
 
 	[System.NonSerialized]
 	public bool electrified, burning, wet;
