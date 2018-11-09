@@ -90,7 +90,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -5664,6 +5664,11 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 02b9ed4b6dca6364f949350f5182d40b, type: 2}
+    - target: {fileID: 114857145729831190, guid: a082a5eed5982fd4d81f660ba8ac9ff6,
+        type: 2}
+      propertyPath: steerThresholdSpeed
+      value: 0.85
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a082a5eed5982fd4d81f660ba8ac9ff6, type: 2}
   m_IsPrefabAsset: 0
