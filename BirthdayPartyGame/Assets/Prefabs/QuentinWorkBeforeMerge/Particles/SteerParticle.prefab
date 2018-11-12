@@ -34,13 +34,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1049745428137448}
-  m_LocalRotation: {x: -0.56098604, y: 0.43045872, z: -0.43045872, w: 0.56098604}
-  m_LocalPosition: {x: 17.6, y: 13.86, z: -1.85}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.0000023543832}
+  m_LocalPosition: {x: 0, y: 0, z: -0.28}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -165, y: -90, z: 89.99999}
+  m_LocalEulerAnglesHint: {x: 0, y: 180.00002, z: 0}
 --- !u!198 &198090400059770152
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -447,7 +447,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startRotationX:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 0
       minScalar: 0
       maxCurve:
@@ -500,7 +500,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startRotationY:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 0
       minScalar: 0
       maxCurve:
@@ -553,9 +553,9 @@ ParticleSystem:
         m_RotationOrder: 4
     startRotation:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 0
-      minScalar: 0
+      minMaxState: 3
+      scalar: 0.17453292
+      minScalar: -0.17453292
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -665,7 +665,7 @@ ParticleSystem:
     serializedVersion: 5
     enabled: 1
     type: 4
-    angle: 9.292744
+    angle: 15.41
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
@@ -4668,13 +4668,13 @@ ParticleSystemRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_SortMode: 0
   m_MinParticleSize: 0
   m_MaxParticleSize: 0.5
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
-  m_LengthScale: 2
+  m_LengthScale: 1
   m_SortingFudge: 0
   m_NormalDirection: 1
   m_RenderAlignment: 0
