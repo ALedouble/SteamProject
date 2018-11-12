@@ -60,7 +60,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 02b9ed4b6dca6364f949350f5182d40b, type: 2}
+  - {fileID: 2100000, guid: ee8aefe5bc9432a4ca29c35fdd58f221, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: Lighter
   blunt: 0
-  breakable: 1
+  breakable: 0
   destructible: 0
   pickUp: 1
   electronic: 0
@@ -156,3 +156,5 @@ MonoBehaviour:
   isWater: 0
   activationType: 2
   material: 0
+  holdPositionOffset: {x: 0.5, y: 0, z: 0.5}
+  holdRotationOffset: {x: 0, y: 0, z: 0}

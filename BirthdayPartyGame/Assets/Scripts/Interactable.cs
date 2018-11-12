@@ -66,9 +66,10 @@ public class Interactable : MonoBehaviour {
 
 	public void GetGrabbed(Transform _holdPoint)
 	{
-		self.position = _holdPoint.position;
-		self.rotation = _holdPoint.rotation;
 		self.parent = _holdPoint;
+		self.localPosition = - parameters.holdPositionOffset;
+		self.rotation = _holdPoint.rotation;
+		
 		body.isKinematic = true;
 	}
 
