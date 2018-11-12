@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour {
 	public Transform self;
 	public Rigidbody body;
     public Transform holdPoint;
+    public Animator anim;
 
     [Space]
     [Header("Inputs")]
@@ -177,6 +178,7 @@ public class PlayerController : MonoBehaviour {
 			//transform.rotation = Quaternion.Euler(0, Mathf.Atan2(input.x, input.z) * 180 / Mathf.PI, 0);
 			body.drag = steerDrag;
 			moveState = MoveState.Steer;
+            anim.SetInteger("EnumState", 2);
 		}
 		else if (body.velocity.magnitude <= minWalkSpeed)
 		{
@@ -186,12 +188,14 @@ public class PlayerController : MonoBehaviour {
 			}
 			body.drag = idleDrag;
 			moveState = MoveState.Idle;
-		}
+            anim.SetInteger("EnumState", 0);
+        }
 		else if (moveState != MoveState.Steer)
 		{
 			body.drag = movingDrag;
 			moveState = MoveState.Walk;
-		}
+            anim.SetInteger("EnumState", 1);
+        }
 	}
 
     void Rotate()
@@ -215,6 +219,7 @@ public class PlayerController : MonoBehaviour {
     {
         body.velocity = Vector3.ClampMagnitude(body.velocity, maxSpeed);
 		speed = body.velocity.magnitude;
+        anim.SetFloat("MoveSpeed", speed/6);
     }
     #endregion
 
