@@ -43,6 +43,7 @@ public class PlayerController : MonoBehaviour {
 	[Range(0.01f, 1f)]
     public float turnSpeed = .25f;
 	[Tooltip("Minimum required speed to go to steering state")] [Range(0.01f, 1f)] public float steerThresholdSpeed;
+    public AnimationCurve walkAnimationSpeedCurve;
 
 
 	[Space]
@@ -58,9 +59,10 @@ public class PlayerController : MonoBehaviour {
 	Quaternion steerTarget;
 
     Interactable grabbedObject;
+	private float steerTimer;
+	public float steerTimerLimit = .2f;
 
-	
-	
+
 
 	// Use this for initialization
 	void Start()
@@ -72,6 +74,8 @@ public class PlayerController : MonoBehaviour {
     void Update()
     {
         GetInput();
+        
+        anim.SetFloat("MoveSpeed", walkAnimationSpeedCurve.Evaluate(speed));
     }
 
     private void FixedUpdate()
@@ -96,8 +100,8 @@ public class PlayerController : MonoBehaviour {
 			Steer();
 		}
 
-		
-		lastVelocity = body.velocity.normalized;
+		if (steerTimer > steerTimerLimit || steerTimer == 0)
+			lastVelocity = body.velocity.normalized;
 
 	}
 
@@ -150,6 +154,18 @@ public class PlayerController : MonoBehaviour {
         {
             _vertDir++;
         }
+		if ((Input.GetKey(KeyCode.DownArrow) && Input.GetKey(KeyCode.UpArrow)) || (Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.RightArrow)))
+		{
+			if (steerTimer == 0)
+			{
+				lastVelocity = body.velocity;
+			}
+			steerTimer += Time.deltaTime;
+		}
+		else
+		{
+			steerTimer = 0;
+		}
         input = new Vector3(_horDir, 0, _vertDir);
         input.Normalize();
     }
@@ -175,7 +191,6 @@ public class PlayerController : MonoBehaviour {
 		{
 			steerTarget = Quaternion.Euler(0, Mathf.Atan2(input.x, input.z) * 180 / Mathf.PI, 0);
 			print("Start steeering");
-			//transform.rotation = Quaternion.Euler(0, Mathf.Atan2(input.x, input.z) * 180 / Mathf.PI, 0);
 			body.drag = steerDrag;
 			moveState = MoveState.Steer;
             anim.SetInteger("EnumState", 2);
@@ -192,7 +207,14 @@ public class PlayerController : MonoBehaviour {
         }
 		else if (moveState != MoveState.Steer)
 		{
-			body.drag = movingDrag;
+			if (input == Vector3.zero && (steerTimer > steerTimerLimit || steerTimer == 0))
+			{
+				body.drag = idleDrag;
+			}
+			else
+			{
+				body.drag = movingDrag;
+			}
 			moveState = MoveState.Walk;
             anim.SetInteger("EnumState", 1);
         }
@@ -219,7 +241,6 @@ public class PlayerController : MonoBehaviour {
     {
         body.velocity = Vector3.ClampMagnitude(body.velocity, maxSpeed);
 		speed = body.velocity.magnitude;
-        anim.SetFloat("MoveSpeed", speed/6);
     }
     #endregion
 
