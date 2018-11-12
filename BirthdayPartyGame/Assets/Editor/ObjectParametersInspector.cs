@@ -7,16 +7,19 @@ using UnityEditor;
 [CustomEditor(typeof(ObjectParameters))]
 public class ObjectParametersInspector : Editor {
 
-	SerializedProperty blunt, breakable, destructible, pickUp, electronic, electric, activationType, material;
+	SerializedProperty objectName, blunt, breakable, destructible, pickUp, electronic, isElectric, isFire, isWater, activationType, material;
 
 	private void OnEnable()
 	{
+		objectName = serializedObject.FindProperty("objectName");
 		blunt = serializedObject.FindProperty("blunt");
 		breakable = serializedObject.FindProperty("breakable");
 		destructible = serializedObject.FindProperty("destructible");
 		pickUp = serializedObject.FindProperty("pickUp");
 		electronic = serializedObject.FindProperty("electronic");
-		electric = serializedObject.FindProperty("electric");
+		isElectric = serializedObject.FindProperty("isElectric");
+		isFire = serializedObject.FindProperty("isFire");
+		isWater = serializedObject.FindProperty("isWater");
 		activationType = serializedObject.FindProperty("activationType");
 		material = serializedObject.FindProperty("material");
 	}
@@ -25,6 +28,7 @@ public class ObjectParametersInspector : Editor {
 	{
 		serializedObject.Update();
 
+		EditorGUILayout.PropertyField(objectName);
 		EditorGUILayout.PropertyField(blunt);
 		breakable.boolValue = EditorGUILayout.Toggle(breakable.displayName, breakable.boolValue);
 
@@ -34,7 +38,9 @@ public class ObjectParametersInspector : Editor {
 
 		EditorGUILayout.PropertyField(pickUp);
 		EditorGUILayout.PropertyField(electronic);
-		EditorGUILayout.PropertyField(electric);
+		EditorGUILayout.PropertyField(isElectric);
+		EditorGUILayout.PropertyField(isFire);
+		EditorGUILayout.PropertyField(isWater);
 		EditorGUILayout.PropertyField(activationType);
 		EditorGUILayout.PropertyField(material);
 
