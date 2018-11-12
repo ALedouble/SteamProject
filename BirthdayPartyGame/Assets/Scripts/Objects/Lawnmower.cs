@@ -14,6 +14,12 @@ public class Lawnmower : Interactable {
 		activated = true;
 	}
 
+	public override void Deactivate()
+	{
+		base.Deactivate();
+		activated = false;
+	}
+
 	private void Update()
 	{
 		if (activated)
@@ -25,11 +31,25 @@ public class Lawnmower : Interactable {
 
 	private void FixedUpdate()
 	{
-		if (Mathf.Abs(body.velocity.y) > 1 && activated)
+		if (activated && Mathf.Abs(body.velocity.y) > 1)
 		{
 			print("Going down");
 			body.AddForce(Vector3.down * gravityAdded, ForceMode.Acceleration);
 		}
+	}
+
+	private void OnCollisionEnter(Collision collision)
+	{
+		if (activated && collision.rigidbody != null && !collision.rigidbody.isKinematic)
+		{
+			StartCoroutine(WaitToDeactivate());
+		}
+	}
+
+	IEnumerator WaitToDeactivate()
+	{
+		yield return new WaitForSeconds(.1f);
+		Deactivate();
 	}
 
 }

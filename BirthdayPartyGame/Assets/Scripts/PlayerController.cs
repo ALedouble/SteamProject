@@ -43,6 +43,7 @@ public class PlayerController : MonoBehaviour {
 	[Range(0.01f, 1f)]
     public float turnSpeed = .25f;
 	[Tooltip("Minimum required speed to go to steering state")] [Range(0.01f, 1f)] public float steerThresholdSpeed;
+    public AnimationCurve walkAnimationSpeedCurve;
 
 
 	[Space]
@@ -73,6 +74,8 @@ public class PlayerController : MonoBehaviour {
     void Update()
     {
         GetInput();
+        
+        anim.SetFloat("MoveSpeed", walkAnimationSpeedCurve.Evaluate(speed));
     }
 
     private void FixedUpdate()
@@ -238,7 +241,6 @@ public class PlayerController : MonoBehaviour {
     {
         body.velocity = Vector3.ClampMagnitude(body.velocity, maxSpeed);
 		speed = body.velocity.magnitude;
-        anim.SetFloat("MoveSpeed", speed/6);
     }
     #endregion
 
