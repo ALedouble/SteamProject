@@ -20,12 +20,15 @@ public enum ObjectMaterial
 [System.Serializable]
 public class ObjectParameters : MonoBehaviour {
 
+	public string objectName;
 	public bool blunt;
 	public bool breakable;
 	public bool destructible;
 	public bool pickUp;
 	public bool electronic;
-	public bool electric;
+	public bool isElectric;
+	public bool isFire;
+	public bool isWater;
 	public ActivationType activationType;
 	public ObjectMaterial material;
 

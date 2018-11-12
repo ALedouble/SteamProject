@@ -9,7 +9,7 @@ public class Lighter : Interactable {
 		base.Activate();
 		if (!burning)
 		{
-			Burn(gameObject);
+			Burn();
 			fireScript.canSpread = true;
 		}
 		else Deactivate();

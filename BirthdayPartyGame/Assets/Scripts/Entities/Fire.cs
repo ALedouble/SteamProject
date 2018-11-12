@@ -100,7 +100,7 @@ public class Fire : Entity {
 	{
 		for (int i = 0; i < canSpreadObjects.Count; i++)
 		{
-			canSpreadObjects[i].Burn(gameObject);
+			canSpreadObjects[i].Burn();
 		}
 	}
 
