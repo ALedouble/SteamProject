@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 4167033274023578}
   - component: {fileID: 54741196801424152}
   - component: {fileID: 114698046066878646}
-  - component: {fileID: 114070517487556318}
+  - component: {fileID: 114375825967722678}
   - component: {fileID: 65381497444813968}
   m_Layer: 0
   m_Name: P_Pinata
@@ -949,7 +949,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 54466526772429076}
   col: {fileID: 65126106881251796}
---- !u!114 &114070517487556318
+--- !u!114 &114375825967722678
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -957,7 +957,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1359427604532070}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7e5f8f3c76606e41864a6caacfe094b, type: 3}
+  m_Script: {fileID: 11500000, guid: b701eb82401ad554d9999b95a1ff6739, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   parameters: {fileID: 114698046066878646}
@@ -969,6 +969,7 @@ MonoBehaviour:
     type: 2}
   electricityParticleSystem: {fileID: 1068989696536054, guid: d79bec28e35144646b97714ef6609a6e,
     type: 2}
+  containedObject: {fileID: 0}
 --- !u!114 &114550802499924388
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -993,12 +994,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39feb44449d084c44907efdadc23c0f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectName: Pinata
   blunt: 0
   breakable: 1
   destructible: 1
   pickUp: 0
   electronic: 0
-  electric: 0
+  isElectric: 0
+  isFire: 0
+  isWater: 0
   activationType: 0
   material: 1
 --- !u!114 &114741240501699294

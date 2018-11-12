@@ -36,20 +36,25 @@ public class Interactable : MonoBehaviour {
 
 
 	// Use this for initialization
-	void Awake () {
+	void Awake()
+	{
+		Initialize();
+	}
+
+	void Initialize()
+	{
 		if (parameters == null) parameters = GetComponent<ObjectParameters>();
 		if (body == null) body = GetComponent<Rigidbody>();
 		if (self == null) self = transform;
 
 		if (parameters.breakable) components.Add(gameObject.AddComponent<Breakable>());
 		if (parameters.electronic) components.Add(gameObject.AddComponent<Electronic>());
+		if (parameters.isFire) Burn();
 
 		switch (parameters.material)
 		{
 			case ObjectMaterial.Paper:
 				components.Add(gameObject.AddComponent<Paper>());
-				break;
-			case ObjectMaterial.Metal:
 				break;
 		}
 
@@ -87,7 +92,7 @@ public class Interactable : MonoBehaviour {
 
 	#region Entities behavior
 
-	public void Burn(GameObject creator)
+	public void Burn()
 	{
 		burning = true;
 
