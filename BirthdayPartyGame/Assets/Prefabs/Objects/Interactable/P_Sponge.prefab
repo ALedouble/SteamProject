@@ -60,7 +60,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 603f3a1a04b46144db627be3baa9e8be, type: 2}
+  - {fileID: 2100000, guid: 6a4b0bfe6e8df4542a1b5f95bd0e65f8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -127,7 +127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: Sponge
   blunt: 0
-  breakable: 1
+  breakable: 0
   destructible: 0
   pickUp: 1
   electronic: 0
@@ -136,6 +136,8 @@ MonoBehaviour:
   isWater: 0
   activationType: 2
   material: 0
+  holdPositionOffset: {x: 0.5, y: 0, z: 0.5}
+  holdRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &114818621315578924
 MonoBehaviour:
   m_ObjectHideFlags: 1

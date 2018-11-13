@@ -24,7 +24,7 @@ public class Lawnmower : Interactable {
 	{
 		if (activated)
 		{
-			body.AddForce(self.forward * speed, ForceMode.VelocityChange);
+			body.AddForce(self.forward * speed, ForceMode.Acceleration);
 			body.velocity = Vector3.ClampMagnitude(body.velocity, maxSpeed);
 		}
 	}

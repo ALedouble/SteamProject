@@ -31,5 +31,7 @@ public class ObjectParameters : MonoBehaviour {
 	public bool isWater;
 	public ActivationType activationType;
 	public ObjectMaterial material;
+	public Vector3 holdPositionOffset;
+	public Vector3 holdRotationOffset;
 
 }
