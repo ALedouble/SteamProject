@@ -7,7 +7,8 @@ using UnityEditor;
 [CustomEditor(typeof(ObjectParameters))]
 public class ObjectParametersInspector : Editor {
 
-	SerializedProperty objectName, blunt, breakable, destructible, pickUp, electronic, isElectric, isFire, isWater, activationType, material;
+	SerializedProperty objectName, blunt, breakable, destructible, pickUp, electronic, isElectric, isFire, isWater, activationType, material,
+						holdPositionOffset, holdRotationOffset;
 
 	private void OnEnable()
 	{
@@ -22,6 +23,8 @@ public class ObjectParametersInspector : Editor {
 		isWater = serializedObject.FindProperty("isWater");
 		activationType = serializedObject.FindProperty("activationType");
 		material = serializedObject.FindProperty("material");
+		holdPositionOffset = serializedObject.FindProperty("holdPositionOffset");
+		holdRotationOffset = serializedObject.FindProperty("holdRotationOffset");
 	}
 
 	public override void OnInspectorGUI()
@@ -43,6 +46,8 @@ public class ObjectParametersInspector : Editor {
 		EditorGUILayout.PropertyField(isWater);
 		EditorGUILayout.PropertyField(activationType);
 		EditorGUILayout.PropertyField(material);
+		EditorGUILayout.PropertyField(holdPositionOffset);
+		EditorGUILayout.PropertyField(holdRotationOffset);
 
 		serializedObject.ApplyModifiedProperties();
 	}
