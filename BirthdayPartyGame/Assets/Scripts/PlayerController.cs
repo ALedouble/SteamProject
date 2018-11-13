@@ -49,7 +49,11 @@ public class PlayerController : MonoBehaviour {
 	[Space]
     [Header("Grab")]
 	public float grabAngleTolerance;
-	
+
+    [Space]
+    [Header("Referencies")]
+    public GameObject steerParticlesPrefab;
+
     Vector3 speedVector;
 	float accelerationTimer;
 	Vector3 lastVelocity;
@@ -194,6 +198,10 @@ public class PlayerController : MonoBehaviour {
 			body.drag = steerDrag;
 			moveState = MoveState.Steer;
             anim.SetInteger("EnumState", 2);
+            Vector3 positionSpawnParticleSteer = self.position + self.forward + (self.up*-0.6f);
+            Vector3 eulerRotationSpawnParticleSteer = self.rotation.eulerAngles + new Vector3(-90, -90, -45);
+            GameObject _steerParticle = Instantiate(steerParticlesPrefab, positionSpawnParticleSteer, Quaternion.Euler(eulerRotationSpawnParticleSteer));
+            Destroy(_steerParticle, 1.5f);
 		}
 		else if (body.velocity.magnitude <= minWalkSpeed)
 		{
