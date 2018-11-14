@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour {
 
@@ -75,7 +76,9 @@ public class MenuManager : MonoBehaviour {
 				}
 			}
 		
-		 
+		 	if (Input.GetKeyDown(KeyCode.Return) && choose == 0){
+				 SceneManager.LoadScene("VerticalSliceScene 1", LoadSceneMode.Single);
+			 }
 
 		/* meshText = GetComponentsInChildren<MeshRenderer>();
 
