@@ -47,17 +47,19 @@ public class OnTheWayScript : NPCBaseFSM {
 					ca[i].valueCircle = -10;
 				}	
 
-				if(dist <= ca[i].radius) {
+				
+			}
+
+
+			if(dist <= ca[i].radius) {
 					MoveToPOI();	
 				}
-			}
 		}
 	}
 		//Debug.Log(maxValueCircle);
 
 	public void MoveToPOI(){
- 
-		float distanceClosestPoint = Mathf.Infinity;
+	 float distanceClosestPoint = Mathf.Infinity;
 		ScriptPOI closestPOI = null;
 		ScriptPOI[] allPOI = GameObject.FindObjectsOfType<ScriptPOI>();
 		foreach (ScriptPOI currentPoint in allPOI){
