@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum MoveState
 {
@@ -11,6 +12,7 @@ public enum MoveState
 
 public enum Filter
 {
+	Interactable,
 	Grab,
 	Activate
 }
@@ -23,7 +25,12 @@ public class PlayerController : MonoBehaviour {
     public Transform holdPoint;
     public Animator anim;
 
-    [Space]
+	[Space]
+	[Header("References")]
+	public Text actionText;
+	public GameObject steerParticlesPrefab;
+
+	[Space]
     [Header("Inputs")]
     public float deadzone = 0.2f;
 
@@ -50,9 +57,10 @@ public class PlayerController : MonoBehaviour {
     [Header("Grab")]
 	public float grabAngleTolerance;
 
-    [Space]
-    [Header("Referencies")]
-    public GameObject steerParticlesPrefab;
+	[Space]
+	[Header("UI")]
+	public Vector3 uiOffset;
+    
 
     Vector3 speedVector;
 	float accelerationTimer;
@@ -63,6 +71,7 @@ public class PlayerController : MonoBehaviour {
 	Quaternion steerTarget;
 
     Interactable grabbedObject;
+	Interactable canInteract;
 	private float steerTimer;
 	public float steerTimerLimit = .2f;
 
@@ -77,8 +86,9 @@ public class PlayerController : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+		CheckForActions();
         GetInput();
-        
+
         anim.SetFloat("MoveSpeed", walkAnimationSpeedCurve.Evaluate(speed));
     }
 
@@ -253,7 +263,56 @@ public class PlayerController : MonoBehaviour {
     #endregion
 
     #region Actions
-    void Grab()
+	void CheckForActions()
+	{
+		Collider[] objectsNear = Physics.OverlapSphere(self.position, 5);
+
+		canInteract = null;
+		if (grabbedObject == null)
+		{
+			if (objectsNear.Length > 0)
+			{
+				List<Interactable> InteractablesNear = FilteredObjects(objectsNear, Filter.Interactable);
+				if (InteractablesNear.Count > 0)
+				{
+					canInteract = GetNearestInFront(InteractablesNear);
+				}
+			}
+		}
+		UpdateInteractUI();
+	}
+
+	void UpdateInteractUI()
+	{
+		if (canInteract == null)
+		{
+			actionText.text = "";
+		}
+		else
+		{
+			if (canInteract.parameters.pickUp)
+			{
+				actionText.text = "GRAB";
+			}
+			else if (canInteract.parameters.activationType == ActivationType.Proximity)
+			{
+				actionText.text = "ACTIVATE";
+			}
+			else
+			{
+				actionText.text = "";
+			}
+			actionText.transform.position = WorldToUIPosition(canInteract.transform.position) + uiOffset;
+		}
+	}
+
+	Vector3 WorldToUIPosition(Vector3 _position)
+	{
+		Vector3 _UIPos = Camera.main.WorldToScreenPoint(_position);
+		return _UIPos;
+	}
+
+	void Grab()
     {
         Collider[] objectsGrab = Physics.OverlapSphere(self.position, 5);
 		
@@ -302,6 +361,15 @@ public class PlayerController : MonoBehaviour {
 		
 		switch (_filter)
 		{
+			case Filter.Interactable:
+				for (int i = 0; i < _objects.Length; i++)
+				{
+					if (_objects[i].tag == "Interactable")
+					{
+						filteredObjects.Add(_objects[i].GetComponent<Interactable>());
+					}
+				}
+				break;
 			case Filter.Grab:
 				for (int i = 0; i < _objects.Length; i++)
 				{

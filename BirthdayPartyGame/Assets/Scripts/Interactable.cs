@@ -34,7 +34,6 @@ public class Interactable : MonoBehaviour {
 	[System.NonSerialized]
 	public bool electrified, burning, wet;
 
-
 	// Use this for initialization
 	void Awake()
 	{
@@ -93,7 +92,7 @@ public class Interactable : MonoBehaviour {
 
 	#region Entities behavior
 
-	public void Burn()
+	public virtual void Burn()
 	{
 		burning = true;
 
