@@ -23,7 +23,7 @@ public class OnTheWayScript : NPCBaseFSM {
 	// OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
 	override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
 		
-		Debug.Log(maxValueCircle);
+		
 		for (int i = 0; i < ca.Length; i++){
 			if(ca[i].valueCircle > maxValueCircle){
 				maxValueCircle = ca[i].valueCircle;
@@ -36,47 +36,54 @@ public class OnTheWayScript : NPCBaseFSM {
 			
 
 			float dist = Vector3.Distance(agent.transform.position, circleNumber[i].transform.position);
+			
+			if (ca[i].valueCircle == maxValueCircle){
+				if (dist > ca[i].radius && agent.enabled == true)
+				{
+					agent.SetDestination(circleNumber[i].transform.position);
+					Debug.Log(maxValueCircle);
+					Debug.DrawLine(NPC.transform.position, circleNumber[i].transform.position);
 
-			if (dist > ca[i].radius && ca[i].valueCircle == maxValueCircle && agent.enabled == true)
-			{
-				agent.SetDestination(circleNumber[i].transform.position);
-
-				
-				if (Input.GetKeyDown(KeyCode.E)){
-					maxValueCircle = 0;
-					ca[i].valueCircle = -10;
-				}	
-
-				
+					
+					if (Input.GetKeyDown(KeyCode.E)){
+						maxValueCircle = 0;
+						ca[i].valueCircle = -10;
+					}	
+					
+					if(dist <= ca[i].radius) {
+						MoveToPOI();
+					}
+				}
 			}
 
 
-			if(dist <= ca[i].radius) {
-					MoveToPOI();	
-				}
+
+			
 		}
 	}
 		//Debug.Log(maxValueCircle);
 
 	public void MoveToPOI(){
-	 float distanceClosestPoint = Mathf.Infinity;
-		ScriptPOI closestPOI = null;
-		ScriptPOI[] allPOI = GameObject.FindObjectsOfType<ScriptPOI>();
-		foreach (ScriptPOI currentPoint in allPOI){
-			float distanceToPOI = (currentPoint.transform.position - NPC.transform.position).sqrMagnitude;
-			if (distanceToPOI < distanceClosestPoint){
-				distanceClosestPoint = distanceToPOI;
-				closestPOI = currentPoint;
-				if(agent.enabled == true){
-					agent.SetDestination(closestPOI.transform.position);
-				}
+			float distanceClosestPoint = Mathf.Infinity;
+			ScriptPOI closestPOI = null;
+			ScriptPOI[] allPOI = GameObject.FindObjectsOfType<ScriptPOI>();
+			foreach (ScriptPOI currentPoint in allPOI)
+			{
+				float distanceToPOI = (currentPoint.transform.position - NPC.transform.position).sqrMagnitude;
+				if (distanceToPOI < distanceClosestPoint)
+				{
+					distanceClosestPoint = distanceToPOI;
+					closestPOI = currentPoint;
+					if(agent.enabled == true)
+					{
+						agent.SetDestination(closestPOI.transform.position);
+					}
 				anim.SetFloat("distance", Vector3.Distance(NPC.transform.position, closestPOI.transform.position));
 
-				
-
+				}
 			}
 		}
-	}
+
 
 
 	//	for (int i = 0; i < pointsOfInterests.Length; i++){
