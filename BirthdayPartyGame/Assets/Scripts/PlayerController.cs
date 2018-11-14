@@ -26,9 +26,11 @@ public class PlayerController : MonoBehaviour {
     public Animator anim;
 
 	[Space]
-	[Header("References")]
+	[Header("Referencies")]
 	public Text actionText;
 	public GameObject steerParticlesPrefab;
+    public GameObject grabParticlesPrefab;
+    public GameObject dropParticlesPrefab;
 
 	[Space]
     [Header("Inputs")]
@@ -325,6 +327,8 @@ public class PlayerController : MonoBehaviour {
                 {
                     grabbedObject = GetNearestInFront(grabbableObjects);
 					grabbedObject.GetGrabbed(holdPoint);
+                    GameObject _grabParticlesRef = Instantiate(grabParticlesPrefab, holdPoint.position, Quaternion.identity, holdPoint);
+                    Destroy(_grabParticlesRef, 1);
                 }
             }
         }
@@ -332,6 +336,8 @@ public class PlayerController : MonoBehaviour {
         {
 			grabbedObject.GetDropped();
             grabbedObject = null;
+            GameObject _dropParticlesRef = Instantiate(dropParticlesPrefab, holdPoint.position, Quaternion.identity);
+            Destroy(_dropParticlesRef, 1);
         }
     }
 
