@@ -6,7 +6,7 @@ public class BodyPart : MonoBehaviour {
 
 	public Rigidbody rb;
 	public Collider col;
-	float breakThrowForce = 10;
+	float breakThrowForce = 1;
 
 	// Use this for initialization
 	void Awake () {
@@ -20,6 +20,8 @@ public class BodyPart : MonoBehaviour {
 
 	void Initialize()
 	{
+		rb = GetComponent<Rigidbody>();
+		col = GetComponent<Collider>();
 		rb.isKinematic = true;
 		col.enabled = false;
 	}

@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 4256832956683282}
   - component: {fileID: 33747995426264212}
   - component: {fileID: 23831463424467524}
+  - component: {fileID: 54192051860150918}
+  - component: {fileID: 65982466690344038}
   m_Layer: 0
   m_Name: mode_support_fence_bilinear
   m_TagString: Untagged
@@ -36,7 +38,7 @@ Transform:
   m_GameObject: {fileID: 1764040556865214}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 24.22956, y: -1.7547833e-16, z: 7.902841}
-  m_LocalScale: {x: 2.54, y: 2.54, z: 2.54}
+  m_LocalScale: {x: 8, y: 8, z: 8}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -83,3 +85,30 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1764040556865214}
   m_Mesh: {fileID: 4300000, guid: d6ab87e47eea5f64aa85e5faab9375b3, type: 3}
+--- !u!54 &54192051860150918
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1764040556865214}
+  serializedVersion: 2
+  m_Mass: 10
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &65982466690344038
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1764040556865214}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.05, y: 0.05, z: 0.5}
+  m_Center: {x: 0, y: 0, z: 0.25}
