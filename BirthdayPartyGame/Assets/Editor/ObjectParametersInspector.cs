@@ -8,7 +8,7 @@ using UnityEditor;
 public class ObjectParametersInspector : Editor {
 
 	SerializedProperty objectName, blunt, breakable, destructible, pickUp, electronic, isElectric, isFire, isWater, activationType, material,
-						holdPositionOffset, holdRotationOffset;
+						holdPositionOffset, holdRotationOffset, node;
 
 	private void OnEnable()
 	{
@@ -25,6 +25,7 @@ public class ObjectParametersInspector : Editor {
 		material = serializedObject.FindProperty("material");
 		holdPositionOffset = serializedObject.FindProperty("holdPositionOffset");
 		holdRotationOffset = serializedObject.FindProperty("holdRotationOffset");
+		node = serializedObject.FindProperty("node");
 	}
 
 	public override void OnInspectorGUI()
@@ -48,6 +49,7 @@ public class ObjectParametersInspector : Editor {
 		EditorGUILayout.PropertyField(material);
 		EditorGUILayout.PropertyField(holdPositionOffset);
 		EditorGUILayout.PropertyField(holdRotationOffset);
+		EditorGUILayout.PropertyField(node);
 
 		serializedObject.ApplyModifiedProperties();
 	}

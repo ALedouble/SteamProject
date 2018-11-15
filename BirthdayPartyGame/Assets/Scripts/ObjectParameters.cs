@@ -33,5 +33,6 @@ public class ObjectParameters : MonoBehaviour {
 	public ObjectMaterial material;
 	public Vector3 holdPositionOffset;
 	public Vector3 holdRotationOffset;
+	public Transform node;
 
 }
