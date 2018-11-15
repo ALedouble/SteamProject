@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour {
 
@@ -9,12 +10,11 @@ public class LevelManager : MonoBehaviour {
 	public Text timerText;
 	public GameObject uiWin;
 	public GameObject uiLose;
-	bool gameEnd;
+	protected bool gameEnd;
 
 	protected virtual void Update()
 	{
 		if (gameEnd) return;
-			
 		UpdateTimer();
 	}
 
@@ -37,7 +37,7 @@ public class LevelManager : MonoBehaviour {
 	{
 		print("Winning!");
 		gameEnd = true;
-		Time.timeScale = 0;
+		//Time.timeScale = 0.01f;
 		uiWin.SetActive(true);
 	}
 
@@ -45,7 +45,22 @@ public class LevelManager : MonoBehaviour {
 	{
 		print("Loser!");
 		gameEnd = true;
-		Time.timeScale = 0;
+		//Time.timeScale = 0.01f;
 		uiLose.SetActive(true);
+	}
+
+	public void Restart()
+	{
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+	}
+
+	public void Menu()
+	{
+		SceneManager.LoadScene("Menu");
+	}
+
+	public void NextLevel()
+	{
+		SceneManager.LoadScene("Menu");
 	}
 }
