@@ -6,7 +6,7 @@ public class Entity : InteractableComponent {
 
 	Transform self;
 
-	float radius = 3;
+	protected float radius = 3;
 	protected float maturingTime = 1;
 	float lifeSpan;
 	public bool canSpread;
@@ -51,7 +51,16 @@ public class Entity : InteractableComponent {
 		if (canSpread)
 		{
 			canSpreadObjects.Clear();
-			Collider[] colliders = Physics.OverlapSphere(self.position, radius);
+			Vector3 pos;
+			if (main.parameters.node != null)
+			{
+				pos = main.parameters.node.position;
+			}
+			else
+			{
+				pos = transform.position;
+			}
+			Collider[] colliders = Physics.OverlapSphere(pos, radius);
 			if (colliders.Length > 0) CheckObjects(colliders);
 			if (canSpreadObjects.Count > 0) Spread();
 		}

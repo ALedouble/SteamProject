@@ -9,6 +9,7 @@ public class StreamerChild : MonoBehaviour {
 	public Transform self;
 	Rigidbody body;
 	public Vector3 pos;
+	public Vector3 offset;
 	LineRenderer line;
 	List<SpringJoint> joints = new List<SpringJoint>();
 
@@ -25,7 +26,7 @@ public class StreamerChild : MonoBehaviour {
 			GetJoints();
 			jointsNb = joints.Count;
 		}
-		
+
 		pos = new Vector3(self.position.x, self.position.y + self.localScale.y/2, self.position.z);
 	}
 
@@ -55,7 +56,7 @@ public class StreamerChild : MonoBehaviour {
 
 	private void Update()
 	{
-		pos = new Vector3(self.position.x, self.position.y + self.localScale.y / 2, self.position.z);
+		pos = new Vector3(self.position.x, self.position.y + self.localScale.y/2, self.position.z);
 		if (!isPost)
 		{
 			for (int i = 0; i < joints.Count; i++)
