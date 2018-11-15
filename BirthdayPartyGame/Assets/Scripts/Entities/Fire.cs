@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Fire : Entity {
 
+	private void Awake()
+	{
+		radius = 2;
+	}
+
 	protected override void Interact(Interactable _object)
 	{
 		if ((_object.parameters.material == ObjectMaterial.Wood || _object.parameters.material == ObjectMaterial.Paper) &&

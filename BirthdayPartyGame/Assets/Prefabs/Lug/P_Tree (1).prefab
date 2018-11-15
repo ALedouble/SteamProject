@@ -22,6 +22,8 @@ GameObject:
   - component: {fileID: 33192654139125728}
   - component: {fileID: 23939060464822204}
   - component: {fileID: 64475074048850066}
+  - component: {fileID: 64465521354275586}
+  - component: {fileID: 64271729969228276}
   m_Layer: 0
   m_Name: mode_tree_trunk
   m_TagString: Untagged
@@ -37,8 +39,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4739074353129112}
-  - component: {fileID: 54963338300563136}
   - component: {fileID: 114226707416328160}
+  - component: {fileID: 54114888713510366}
+  - component: {fileID: 114715705472767704}
   m_Layer: 0
   m_Name: P_Tree (1)
   m_TagString: Untagged
@@ -56,6 +59,10 @@ GameObject:
   - component: {fileID: 4023027996037578}
   - component: {fileID: 33279242681540686}
   - component: {fileID: 23970327562031290}
+  - component: {fileID: 114992250359477808}
+  - component: {fileID: 114909079152579858}
+  - component: {fileID: 54954418708253790}
+  - component: {fileID: 135294017234533564}
   m_Layer: 0
   m_Name: mode_tree_foliage
   m_TagString: Untagged
@@ -95,15 +102,15 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1934707711561198}
-  m_LocalRotation: {x: -0, y: -0.24774437, z: -0, w: 0.9688255}
-  m_LocalPosition: {x: -11.81, y: 0, z: -2.46}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 7.08, y: 0, z: 9.46}
   m_LocalScale: {x: 8.325862, y: 8.325862, z: 8.325862}
   m_Children:
   - {fileID: 4677694186491506}
   - {fileID: 4023027996037578}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -28.688002, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 68.614006, z: 0}
 --- !u!23 &23939060464822204
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -188,7 +195,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1996273618364336}
   m_Mesh: {fileID: 4300000, guid: 7afdc6a4169956a4782528c398a2c296, type: 3}
---- !u!54 &54963338300563136
+--- !u!54 &54114888713510366
 Rigidbody:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -203,6 +210,49 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!54 &54954418708253790
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1996273618364336}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!64 &64271729969228276
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1325527512318654}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 253da085ec373334e8fb4f8001aa9acf, type: 3}
+--- !u!64 &64465521354275586
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1325527512318654}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 253da085ec373334e8fb4f8001aa9acf, type: 3}
 --- !u!64 &64475074048850066
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -230,3 +280,74 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   self: {fileID: 0}
   pos: {x: 0, y: 0, z: 0}
+  offset: {x: 0, y: 0, z: 0}
+--- !u!114 &114715705472767704
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1934707711561198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e6cb1bf803d59f4c99bfda53a09ccbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  self: {fileID: 0}
+  pos: {x: 0, y: 0, z: 0}
+  offset: {x: 0, y: 0, z: 0}
+--- !u!114 &114909079152579858
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1996273618364336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7e5f8f3c76606e41864a6caacfe094b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parameters: {fileID: 0}
+  body: {fileID: 0}
+  self: {fileID: 0}
+  fireParticleSystem: {fileID: 1068989696536054, guid: d585bcc898a67fa43b7b10bc09863fcf,
+    type: 2}
+  waterParticleSystem: {fileID: 1068989696536054, guid: 9ac20361cadf4a147aca21bd3fb1073c,
+    type: 2}
+  electricityParticleSystem: {fileID: 1068989696536054, guid: d79bec28e35144646b97714ef6609a6e,
+    type: 2}
+--- !u!114 &114992250359477808
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1996273618364336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39feb44449d084c44907efdadc23c0f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectName: Tree foliage
+  blunt: 0
+  breakable: 0
+  destructible: 0
+  pickUp: 0
+  electronic: 0
+  isElectric: 0
+  isFire: 0
+  isWater: 0
+  activationType: 0
+  material: 1
+  holdPositionOffset: {x: 0, y: 0, z: 0}
+  holdRotationOffset: {x: 0, y: 0, z: 0}
+--- !u!135 &135294017234533564
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1996273618364336}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.2
+  m_Center: {x: 0.06, y: -0.18, z: 0.68}

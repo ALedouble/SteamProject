@@ -219,8 +219,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1964410256477482}
-  m_LocalRotation: {x: -0, y: 0.70710576, z: -0, w: 0.7071078}
-  m_LocalPosition: {x: -8.307629, y: 1.39, z: -4.075872}
+  m_LocalRotation: {x: -0.000000029802322, y: 0.7071058, z: -0, w: 0.7071078}
+  m_LocalPosition: {x: -8.307629, y: 1.3900032, z: -4.0758724}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4014576512157078}
@@ -501,6 +501,13 @@ MonoBehaviour:
   body: {fileID: 54783290003990400}
   holdPoint: {fileID: 4014576512157078}
   anim: {fileID: 95860022272394552}
+  actionText: {fileID: 0}
+  steerParticlesPrefab: {fileID: 1010759285009588, guid: cbe4c6baeb110a947ac2dbcd04ea93e7,
+    type: 2}
+  grabParticlesPrefab: {fileID: 1933719270593620, guid: 39b020881d1ad904c88919e804942afe,
+    type: 2}
+  dropParticlesPrefab: {fileID: 1849988834198574, guid: dce1623b182d97c4ea2810440eeda91c,
+    type: 2}
   deadzone: 0.2
   moveState: 0
   speed: 0
@@ -561,8 +568,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   grabAngleTolerance: 30
-  steerParticlesPrefab: {fileID: 1010759285009588, guid: cbe4c6baeb110a947ac2dbcd04ea93e7,
-    type: 2}
+  uiOffset: {x: 0, y: 25, z: 0}
   steerTimerLimit: 0.2
 --- !u!136 &136280638299141164
 CapsuleCollider:
