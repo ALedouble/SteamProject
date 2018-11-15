@@ -102,7 +102,7 @@ public class LevelManager : MonoBehaviour {
 			}
 		}
 
-		Debug.Log(index);
+		//Debug.Log(index);
 	}
 
 	void UpdateTimer()
