@@ -306,6 +306,11 @@ Prefab:
       propertyPath: uiOffset.y
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 82039040311032090, guid: f9971b605f5cd1243a1f092e0fb43bf9,
+        type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9971b605f5cd1243a1f092e0fb43bf9, type: 2}
   m_IsPrefabAsset: 0
@@ -1776,6 +1781,11 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -87.025
       objectReference: {fileID: 0}
+    - target: {fileID: 54389459908716218, guid: 8c7c4dba6d57a984d919aae8680f03b0,
+        type: 2}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c7c4dba6d57a984d919aae8680f03b0, type: 2}
   m_IsPrefabAsset: 0
@@ -2777,6 +2787,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114879587775139256, guid: d895746ec8690b141bbaa31eb092c0f4,
+        type: 2}
+      propertyPath: parameters
+      value: 
+      objectReference: {fileID: 1891304384}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d895746ec8690b141bbaa31eb092c0f4, type: 2}
   m_IsPrefabAsset: 0
@@ -4027,16 +4042,22 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4167033274023578, guid: cf588260d5e2ef04493939d615f7521f, type: 2}
       propertyPath: m_LocalScale.x
-      value: 0.35000008
+      value: 0.55
       objectReference: {fileID: 0}
     - target: {fileID: 4167033274023578, guid: cf588260d5e2ef04493939d615f7521f, type: 2}
       propertyPath: m_LocalScale.z
-      value: 0.35000014
+      value: 0.55
       objectReference: {fileID: 0}
     - target: {fileID: 4167033274023578, guid: cf588260d5e2ef04493939d615f7521f, type: 2}
       propertyPath: m_LocalScale.y
-      value: 0.35000002
+      value: 0.55
       objectReference: {fileID: 0}
+    - target: {fileID: 114375825967722678, guid: cf588260d5e2ef04493939d615f7521f,
+        type: 2}
+      propertyPath: containedObject
+      value: 
+      objectReference: {fileID: 1577033295628064, guid: d895746ec8690b141bbaa31eb092c0f4,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf588260d5e2ef04493939d615f7521f, type: 2}
   m_IsPrefabAsset: 0
@@ -5632,6 +5653,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4015052498020356, guid: 4733ea51795298a46b67e774f01c2cc5,
     type: 2}
   m_PrefabInternal: {fileID: 1883681839}
+--- !u!114 &1891304384 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114450796959077338, guid: d895746ec8690b141bbaa31eb092c0f4,
+    type: 2}
+  m_PrefabInternal: {fileID: 697744003}
+  m_Script: {fileID: 11500000, guid: 39feb44449d084c44907efdadc23c0f2, type: 3}
 --- !u!1001 &1895775342
 Prefab:
   m_ObjectHideFlags: 0
@@ -5988,6 +6015,11 @@ Prefab:
       propertyPath: toBurnBanners.Array.data[2]
       value: 
       objectReference: {fileID: 457949935}
+    - target: {fileID: 224363227584635454, guid: a4bbdf60f079b4d4a9a631b058a9e7d1,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4bbdf60f079b4d4a9a631b058a9e7d1, type: 2}
   m_IsPrefabAsset: 0
