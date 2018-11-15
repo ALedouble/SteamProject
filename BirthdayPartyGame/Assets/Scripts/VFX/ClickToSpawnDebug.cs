@@ -8,6 +8,7 @@ public class ClickToSpawnDebug : MonoBehaviour {
     public float distanceYFromGround;
     public bool toDestroy;
     public float timeToDestroy;
+    public Vector3 eulerOffset;
 	
 	void Update () {
         if (Input.GetMouseButtonDown(0))
@@ -16,7 +17,7 @@ public class ClickToSpawnDebug : MonoBehaviour {
             RaycastHit _hit;
             if (Physics.Raycast(_mouseRay, out _hit))
             {
-                GameObject stockPrefab = Instantiate(prefabToSpawn, _hit.point + Vector3.up*distanceYFromGround, Quaternion.identity);
+                GameObject stockPrefab = Instantiate(prefabToSpawn, _hit.point + Vector3.up*distanceYFromGround, Quaternion.Euler(eulerOffset));
                 if(toDestroy)
                     Destroy(stockPrefab, timeToDestroy);
             }
