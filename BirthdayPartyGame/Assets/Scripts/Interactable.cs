@@ -70,12 +70,15 @@ public class Interactable : MonoBehaviour {
 		self.rotation = _holdPoint.rotation;
 		
 		body.isKinematic = true;
+		gameObject.layer = LayerMask.NameToLayer("Held Objects");
 	}
 
 	public void GetDropped()
 	{
 		self.parent = null;
 		body.isKinematic = false;
+		gameObject.layer = LayerMask.NameToLayer("Default");
+
 	}
 
 	public virtual void Activate()
