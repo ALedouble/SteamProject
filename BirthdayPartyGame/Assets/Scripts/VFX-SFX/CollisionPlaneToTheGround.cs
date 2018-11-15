@@ -14,7 +14,5 @@ public class CollisionPlaneToTheGround : MonoBehaviour {
             print(_hit.point.y);
             collisionPlaneTransform.position = _hit.point;
         }
-        else
-            print("prout");
 	}
 }
