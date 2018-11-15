@@ -31,6 +31,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1821951240083480
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4122303722000686}
+  m_Layer: 0
+  m_Name: FoliageObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1934707711561198
 GameObject:
   m_ObjectHideFlags: 0
@@ -41,7 +56,6 @@ GameObject:
   - component: {fileID: 4739074353129112}
   - component: {fileID: 114226707416328160}
   - component: {fileID: 54114888713510366}
-  - component: {fileID: 114715705472767704}
   m_Layer: 0
   m_Name: P_Tree (1)
   m_TagString: Untagged
@@ -62,10 +76,10 @@ GameObject:
   - component: {fileID: 114992250359477808}
   - component: {fileID: 114909079152579858}
   - component: {fileID: 54954418708253790}
-  - component: {fileID: 135294017234533564}
+  - component: {fileID: 65444819820772792}
   m_Layer: 0
   m_Name: mode_tree_foliage
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -79,9 +93,23 @@ Transform:
   m_LocalRotation: {x: -0.77875364, y: 0.0026041176, z: -0.06104347, w: 0.62434745}
   m_LocalPosition: {x: -0.10725616, y: 0, z: 0}
   m_LocalScale: {x: 1.0922506, y: 1.0922512, z: 1.0922515}
-  m_Children: []
+  m_Children:
+  - {fileID: 4122303722000686}
   m_Father: {fileID: 4739074353129112}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4122303722000686
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1821951240083480}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.039, y: -0.147, z: 0.581}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4023027996037578}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4677694186491506
 Transform:
@@ -102,8 +130,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1934707711561198}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.08, y: 0, z: 9.46}
+  m_LocalRotation: {x: -0, y: 0.5636276, z: -0, w: 0.826029}
+  m_LocalPosition: {x: -5.07, y: 0, z: 9.46}
   m_LocalScale: {x: 8.325862, y: 8.325862, z: 8.325862}
   m_Children:
   - {fileID: 4677694186491506}
@@ -233,7 +261,7 @@ MeshCollider:
   m_GameObject: {fileID: 1325527512318654}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 1
   m_CookingOptions: 14
@@ -247,7 +275,7 @@ MeshCollider:
   m_GameObject: {fileID: 1325527512318654}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 1
   m_CookingOptions: 14
@@ -267,21 +295,19 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 253da085ec373334e8fb4f8001aa9acf, type: 3}
---- !u!114 &114226707416328160
-MonoBehaviour:
+--- !u!65 &65444819820772792
+BoxCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1934707711561198}
+  m_GameObject: {fileID: 1996273618364336}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e6cb1bf803d59f4c99bfda53a09ccbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  self: {fileID: 0}
-  pos: {x: 0, y: 0, z: 0}
-  offset: {x: 0, y: 0, z: 0}
---- !u!114 &114715705472767704
+  serializedVersion: 2
+  m_Size: {x: 0.22, y: 0.22, z: 0.22}
+  m_Center: {x: 0.063352175, y: -0.12915593, z: 0.6388869}
+--- !u!114 &114226707416328160
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -336,18 +362,7 @@ MonoBehaviour:
   isFire: 0
   isWater: 0
   activationType: 0
-  material: 1
+  material: 2
   holdPositionOffset: {x: 0, y: 0, z: 0}
   holdRotationOffset: {x: 0, y: 0, z: 0}
---- !u!135 &135294017234533564
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1996273618364336}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.2
-  m_Center: {x: 0.06, y: -0.18, z: 0.68}
+  node: {fileID: 4122303722000686}

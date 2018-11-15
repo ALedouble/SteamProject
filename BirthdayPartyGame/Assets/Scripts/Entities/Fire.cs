@@ -6,7 +6,8 @@ public class Fire : Entity {
 
 	private void Awake()
 	{
-		radius = 2;
+		radius = 2.5f;
+		maturingTime = 2;
 	}
 
 	protected override void Interact(Interactable _object)
