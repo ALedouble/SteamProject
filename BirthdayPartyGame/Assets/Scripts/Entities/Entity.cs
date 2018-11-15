@@ -6,7 +6,7 @@ public class Entity : InteractableComponent {
 
 	Transform self;
 
-	float radius = 3;
+	protected float radius = 3;
 	protected float maturingTime = 1;
 	float lifeSpan;
 	public bool canSpread;
