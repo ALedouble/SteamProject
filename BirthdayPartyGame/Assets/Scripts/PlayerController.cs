@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour {
 	public Rigidbody body;
     public Transform holdPoint;
     public Animator anim;
+    public AudioSource myAudioSource;
 
 	[Space]
 	[Header("Referencies")]
@@ -31,6 +32,7 @@ public class PlayerController : MonoBehaviour {
 	public GameObject steerParticlesPrefab;
     public GameObject grabParticlesPrefab;
     public GameObject dropParticlesPrefab;
+    public AudioClip steerClip;
 
 	[Space]
     [Header("Inputs")]
@@ -76,14 +78,6 @@ public class PlayerController : MonoBehaviour {
 	Interactable canInteract;
 	private float steerTimer;
 	public float steerTimerLimit = .2f;
-
-
-
-	// Use this for initialization
-	void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void Update()
@@ -214,7 +208,9 @@ public class PlayerController : MonoBehaviour {
             Vector3 eulerRotationSpawnParticleSteer = self.rotation.eulerAngles + new Vector3(-90, -90, -45);
             GameObject _steerParticle = Instantiate(steerParticlesPrefab, positionSpawnParticleSteer, Quaternion.Euler(eulerRotationSpawnParticleSteer));
             Destroy(_steerParticle, 1.5f);
-		}
+            myAudioSource.PlayOneShot(steerClip);
+
+        }
 		else if (body.velocity.magnitude <= minWalkSpeed)
 		{
 			if (moveState != MoveState.Idle)
