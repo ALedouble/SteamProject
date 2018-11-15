@@ -8,8 +8,10 @@ public class Interactable : MonoBehaviour {
 	public ObjectParameters parameters;
 	List<InteractableComponent> components = new List<InteractableComponent>();
 
-	public Rigidbody body;
-	public Transform self;
+	protected Rigidbody body;
+	[HideInInspector] public Transform self;
+	Collider[] colliders;
+	Renderer[] renderers;
 
 	[Space]
 	protected Fire fireScript;
@@ -45,6 +47,8 @@ public class Interactable : MonoBehaviour {
 		if (parameters == null) parameters = GetComponent<ObjectParameters>();
 		if (body == null) body = GetComponent<Rigidbody>();
 		if (self == null) self = transform;
+		colliders = GetComponents<Collider>();
+		renderers = GetComponents<Renderer>();
 
 		if (parameters.breakable) components.Add(gameObject.AddComponent<Breakable>());
 		if (parameters.electronic) components.Add(gameObject.AddComponent<Electronic>());
@@ -90,7 +94,25 @@ public class Interactable : MonoBehaviour {
 
 	public virtual void Die()
 	{
-		gameObject.SetActive(false);
+		body.isKinematic = true;
+		for (int i = 0; i < colliders.Length; i++)
+		{
+			colliders[i].enabled = false;
+		}
+		for (int i = 0; i < renderers.Length; i++)
+		{
+			renderers[i].enabled = false;
+		}
+		for (int i = 0; i < components.Count; i++)
+		{
+			components[i].enabled = false;
+		}
+		for (int i = 0; i < self.childCount; i++)
+		{
+			self.GetChild(i).gameObject.SetActive(false);
+		}
+		parameters.enabled = false;
+		this.enabled = false;
 	}
 
 	#region Entities behavior
