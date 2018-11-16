@@ -4,37 +4,41 @@ using UnityEngine;
 
 public class Speaker : Interactable {
 
-	public AudioSource source;
+	public AudioSource myAudioSource;
 	public AudioClip firstMusic;
 	public AudioClip secondMusic;
+    [Space]
+    public GameObject explosionParticlePrefab;
+    public Transform explosionTransform;
 
 	public override void Activate()
 	{
 		base.Activate();
-		print("BOOM BOOM BOOM");
-		//if (!activated)
-		//{
-		//	source.PlayOneShot(firstMusic);
-		//	activated = true;
-		//}
-		//else
-		//{
-		//	Deactivate();
-		//}
+		if (!activated)
+		{
+            myAudioSource.Stop();
+            myAudioSource.PlayOneShot(firstMusic);
+			activated = true;
+		}
+		else
+		{
+			Deactivate();
+		}
 	}
 
 	public override void Deactivate()
 	{
 		base.Deactivate();
-		source.PlayOneShot(secondMusic);
+        myAudioSource.Stop();
+        myAudioSource.PlayOneShot(secondMusic);
 		activated = false;
 	}
 
 	public override void Die()
 	{
-		print("ZOING");
+        Instantiate(explosionParticlePrefab, explosionTransform.position, Quaternion.identity);
 		canActivate = false;
-		source.Stop();
+        myAudioSource.Stop();
 	}
 
 }

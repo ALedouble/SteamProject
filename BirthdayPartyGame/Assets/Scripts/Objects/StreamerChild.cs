@@ -42,7 +42,7 @@ public class StreamerChild : MonoBehaviour {
 
 		SpringJoint[] newJoints = GetComponents<SpringJoint>();
 		
-		print("Current joints: " + newJoints.Length);
+		//print("Current joints: " + newJoints.Length);
 		for (int i = 0; i < newJoints.Length; i++)
 		{
 			joints.Add(newJoints[i]);

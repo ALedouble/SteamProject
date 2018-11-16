@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 65024232384065954}
   - component: {fileID: 54092740852478428}
   - component: {fileID: 82030229163903758}
+  - component: {fileID: 114181629584738998}
   m_Layer: 0
   m_Name: P_Speaker
   m_TagString: Interactable
@@ -50,20 +51,79 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1740922138844422
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4286856662579506}
+  - component: {fileID: 114729298953855204}
+  m_Layer: 0
+  m_Name: AttractionCircle
+  m_TagString: CircleAttraction
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1838780012694706
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4024569632142456}
+  m_Layer: 0
+  m_Name: ExplosionPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4024569632142456
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1838780012694706}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.702, z: -1.61}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4382801576420618}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4286856662579506
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1740922138844422}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4382801576420618}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4382801576420618
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1386794302474044}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.33, y: 0, z: 2.32}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalRotation: {x: -0.31124437, y: -0.67777646, z: 0.39131442, w: 0.53909105}
+  m_LocalPosition: {x: -11.530001, y: -8.133232, z: 30.40717}
+  m_LocalScale: {x: 0.70000076, y: 0.70000017, z: 0.7000007}
   m_Children:
   - {fileID: 4680505319040558}
+  - {fileID: 4286856662579506}
+  - {fileID: 4024569632142456}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -103.004005, z: 0}
 --- !u!4 &4680505319040558
 Transform:
   m_ObjectHideFlags: 1
@@ -283,6 +343,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &114181629584738998
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1386794302474044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: add85b9bb6f22674bbcf75efea79c058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114333930312621628
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -295,7 +366,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameters: {fileID: 114742047672179038}
-  body: {fileID: 54092740852478428}
   self: {fileID: 4382801576420618}
   fireParticleSystem: {fileID: 1068989696536054, guid: d585bcc898a67fa43b7b10bc09863fcf,
     type: 2}
@@ -303,9 +373,25 @@ MonoBehaviour:
     type: 2}
   electricityParticleSystem: {fileID: 1068989696536054, guid: d79bec28e35144646b97714ef6609a6e,
     type: 2}
-  source: {fileID: 0}
-  firstMusic: {fileID: 0}
-  secondMusic: {fileID: 0}
+  myAudioSource: {fileID: 82030229163903758}
+  firstMusic: {fileID: 8300000, guid: 2ff764650d833ae4ebea97c1447b96bf, type: 3}
+  secondMusic: {fileID: 8300000, guid: 2ff764650d833ae4ebea97c1447b96bf, type: 3}
+  explosionParticlePrefab: {fileID: 1114352652095662, guid: 51624f50bb059e5469c135b19e9a444b,
+    type: 2}
+  explosionTransform: {fileID: 4024569632142456}
+--- !u!114 &114729298953855204
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1740922138844422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dcb6c18ebc31544d9378bdc9ff1019c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 4
+  valueCircle: 3
 --- !u!114 &114742047672179038
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -330,3 +416,4 @@ MonoBehaviour:
   material: 3
   holdPositionOffset: {x: 0, y: 0, z: 0}
   holdRotationOffset: {x: 0, y: 0, z: 0}
+  node: {fileID: 0}
