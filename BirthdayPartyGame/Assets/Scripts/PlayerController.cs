@@ -33,6 +33,8 @@ public class PlayerController : MonoBehaviour {
     public GameObject grabParticlesPrefab;
     public GameObject dropParticlesPrefab;
     public AudioClip steerClip;
+    public AudioClip grabClip;
+    public AudioClip dropClip;
 
 	[Space]
     [Header("Inputs")]
@@ -325,6 +327,7 @@ public class PlayerController : MonoBehaviour {
 					grabbedObject.GetGrabbed(holdPoint);
                     GameObject _grabParticlesRef = Instantiate(grabParticlesPrefab, holdPoint.position, Quaternion.identity, holdPoint);
                     Destroy(_grabParticlesRef, 1);
+                    myAudioSource.PlayOneShot(grabClip);
                 }
             }
         }
@@ -334,6 +337,7 @@ public class PlayerController : MonoBehaviour {
             grabbedObject = null;
             GameObject _dropParticlesRef = Instantiate(dropParticlesPrefab, holdPoint.position, Quaternion.identity);
             Destroy(_dropParticlesRef, 1);
+            myAudioSource.PlayOneShot(dropClip);
         }
     }
 

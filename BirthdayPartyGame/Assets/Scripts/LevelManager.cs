@@ -122,7 +122,7 @@ public class LevelManager : MonoBehaviour {
 
 	protected virtual void Win()
 	{
-		Debug.Log(index);
+		//Debug.Log(index);
 		
 		print("Winning!");
 		gameEnd = true;

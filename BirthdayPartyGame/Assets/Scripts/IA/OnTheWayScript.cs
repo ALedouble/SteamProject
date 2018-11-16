@@ -41,7 +41,7 @@ public class OnTheWayScript : NPCBaseFSM {
 				if (dist > ca[i].radius && agent.enabled == true)
 				{
 					agent.SetDestination(circleNumber[i].transform.position);
-					Debug.Log(maxValueCircle);
+					//Debug.Log(maxValueCircle);
 					Debug.DrawLine(NPC.transform.position, circleNumber[i].transform.position);
 
 					
