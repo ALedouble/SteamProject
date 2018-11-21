@@ -88,6 +88,11 @@ public class PlayerController : MonoBehaviour {
         GetInput();
 
         anim.SetFloat("MoveSpeed", walkAnimationSpeedCurve.Evaluate(speed));
+
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            anim.SetTrigger("SwingTrigger");
+        }
     }
 
     private void FixedUpdate()

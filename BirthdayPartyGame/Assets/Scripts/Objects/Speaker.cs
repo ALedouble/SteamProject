@@ -9,6 +9,7 @@ public class Speaker : Interactable {
 	public AudioClip secondMusic;
     [Space]
     public GameObject explosionParticlePrefab;
+    public GameObject smokeParticlePrefab;
     public Transform explosionTransform;
 
 	public override void Activate()
@@ -37,7 +38,8 @@ public class Speaker : Interactable {
 	public override void Die()
 	{
         Instantiate(explosionParticlePrefab, explosionTransform.position, Quaternion.identity);
-		canActivate = false;
+        Instantiate(smokeParticlePrefab, explosionTransform.position, Quaternion.Euler(-90, 0, 0), transform);
+        canActivate = false;
         myAudioSource.Stop();
 	}
 
