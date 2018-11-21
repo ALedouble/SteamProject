@@ -38,7 +38,7 @@ public class Pinata : Interactable
     public override void Die()
     {
         GameObject _confettiParticlesRef = Instantiate(confettiParticlesPrefab, transform.position, Quaternion.Euler(-90, 0, 0));
-        //_confettiParticlesRef.GetComponent<ParticleSystem>().Pause();
+        Destroy(_confettiParticlesRef, 2.5f);
         print("beforePlay");
         myAudioSource.PlayOneShot(dieAudioClip);
         print("afterPlay");

@@ -4,11 +4,18 @@ using UnityEngine;
 
 public class Lawnmower : Interactable {
 
+    [Space]
+    public AudioSource myAudioSource;
+    [Space]
 	public float speed = 2;
 	public float maxSpeed = 30;
 	public float gravityAdded = 3;
+    [Space]
+    public GameObject explosionParticlePrefab;
+    public GameObject smokeParticlePrefab;
+    public Transform explosionTransform;
 
-	public override void Activate()
+    public override void Activate()
 	{
 		base.Activate();
 		activated = true;
@@ -33,7 +40,15 @@ public class Lawnmower : Interactable {
 		}
 	}
 
-	private void OnCollisionEnter(Collision collision)
+    public override void Die()
+    {
+        Instantiate(explosionParticlePrefab, explosionTransform.position, Quaternion.identity);
+        Instantiate(smokeParticlePrefab, explosionTransform.position, Quaternion.Euler(-90, 0, 0), transform);
+        canActivate = false;
+        myAudioSource.Stop();
+    }
+
+    private void OnCollisionEnter(Collision collision)
 	{
 		if (activated && collision.rigidbody != null && !collision.rigidbody.isKinematic)
 		{
