@@ -10,6 +10,13 @@ public class Lawnmower : Interactable {
 	public float speed = 2;
 	public float maxSpeed = 30;
 	public float gravityAdded = 3;
+	[Space]
+	public GameObject explosionParticlePrefab;
+	public GameObject smokeParticlePrefab;
+	public Transform explosionTransform;
+
+	public float damageZoneHeight = .3f;
+	public float pushAwayForce = 80;
 
 	public override void Activate()
 	{
@@ -84,10 +91,3 @@ public class Lawnmower : Interactable {
 	}
 
 }
-
-    [Space]
-    public GameObject explosionParticlePrefab;
-    public GameObject smokeParticlePrefab;
-    public Transform explosionTransform;
-
-    public override void Activate()
