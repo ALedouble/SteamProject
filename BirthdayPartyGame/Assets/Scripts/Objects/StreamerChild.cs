@@ -65,14 +65,40 @@ public class StreamerChild : MonoBehaviour {
 				{
 					line.SetPosition(2 * i, joints[i].connectedBody.GetComponent<StreamerChild>().pos);
 					line.SetPosition(2 * i + 1, pos);
-				}				
+				}
+				//if (joints[i].connectedBody.isKinematic )
+				//{
+				//	print("Broken connected body");
+				//	joints[i].breakForce = 0;
+				//	body.AddForce(Vector3.one, ForceMode.VelocityChange);
+				//}
 			}
-		}	}
+		}
+	}
+
+	private void OnCollisionEnter(Collision collision)
+	{
+		if (collision.collider.tag == "Interactable")
+		{
+			Interactable other = collision.collider.GetComponent<Interactable>();
+			if (other.parameters.name == "Lawnmower" && joints[0] != null)
+			{
+				Vector3 _direction = self.position - other.self.position;
+				body.AddForce(_direction.normalized * joints[0].breakForce, ForceMode.VelocityChange);
+			}
+		}
+	}
 
 	private void OnJointBreak(float breakForce)
 	{
 		jointsNb--;
 		GetJoints();
 	}
+
+	//public override void Die()
+	//{
+	//	base.Die();
+
+	//}
 
 }

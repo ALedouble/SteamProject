@@ -18,12 +18,12 @@ public class LevelTest : LevelManager {
 	{
 		for (int i = 0; i < toBurnBanners.Length; i++)
 		{
-			if (toBurnBanners[i] != null && !toBurnBanners[i].burning)
+			if (toBurnBanners[i] != null && toBurnBanners[i].enabled)
 			{
 				return;
 			}
 		}
-		Win();
+		StartCoroutine(Win());
 	}
 
 }
