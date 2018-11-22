@@ -7,7 +7,8 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour {
 
 	public float levelTimer = 60;
-	public Text timerText;
+	public Text timerSecondsText;
+	public Text timerFractionsText;
 	public GameObject uiWin;
 	public GameObject uiLose;
 	protected bool gameEnd;
@@ -16,7 +17,7 @@ public class LevelManager : MonoBehaviour {
 
 	void FixedUpdate() {
 		if (gameEnd == true){
-			if(index == 1){
+			/*if(index == 1){
 				Button bM = GameObject.Find("MenuButton").GetComponent<Button>();
 				ColorBlock colors = bM.colors;
 				colors.normalColor = Color.green;
@@ -69,7 +70,7 @@ public class LevelManager : MonoBehaviour {
 				ColorBlock colors3 = bC.colors;
 				colors3.normalColor = Color.green;
 				bC.colors = colors3;	 
-			}
+			}*/
 		}
 	}
 
@@ -113,27 +114,41 @@ public class LevelManager : MonoBehaviour {
 		}
 		else
 		{
+			if (levelTimer <= 5)
+			{
+				timerSecondsText.color = Color.red;
+				timerFractionsText.color = Color.red;
+			}
 			levelTimer -= Time.deltaTime;
 		}
-		timerText.text = levelTimer.ToString("#.##");
+		timerSecondsText.text = levelTimer.ToString("#");
+		float _fractions = (levelTimer - Mathf.Floor(levelTimer)) * 60;
+		timerFractionsText.text = _fractions.ToString("#");
 	}
 
 	public virtual void CheckWin() { }
 
-	protected virtual void Win()
+	protected virtual IEnumerator Win()
 	{
-		//Debug.Log(index);
-		
-		print("Winning!");
-		gameEnd = true;
-		//Time.timeScale = 0.01f;
-		uiWin.SetActive(true);
+		if (!gameEnd)
+		{
+			gameEnd = true;
+			//Debug.Log(index);
+
+			yield return new WaitForSeconds(1);
+
+			//Time.timeScale = 0.01f;
+			uiWin.SetActive(true);
+		}
+		else
+		{
+			yield return null;
+		}
 	}
 
 	void Lose()
 	{
 		loose = true;
-		print("Loser!");
 		gameEnd = true;
 		//Time.timeScale = 0.01f;
 		uiLose.SetActive(true);

@@ -7,11 +7,17 @@ using UnityEditor;
 [CustomEditor(typeof(ObjectParameters))]
 public class ObjectParametersInspector : Editor {
 
+	ObjectParameters script;
+	Interactable interactable;
+	bool initialized;
 	SerializedProperty objectName, blunt, breakable, destructible, pickUp, electronic, isElectric, isFire, isWater, activationType, material,
 						holdPositionOffset, holdRotationOffset, node;
 
 	private void OnEnable()
 	{
+		script = (ObjectParameters)target;
+		interactable = script.GetComponent<Interactable>();
+
 		objectName = serializedObject.FindProperty("objectName");
 		blunt = serializedObject.FindProperty("blunt");
 		breakable = serializedObject.FindProperty("breakable");
@@ -51,7 +57,38 @@ public class ObjectParametersInspector : Editor {
 		EditorGUILayout.PropertyField(holdRotationOffset);
 		EditorGUILayout.PropertyField(node);
 
+
+		if (interactable.fireParticleSystem == null ||
+			interactable.waterParticleSystem == null ||
+			interactable.electricityParticleSystem == null ||
+			interactable.body == null ||
+			interactable.self == null ||
+			interactable.colliders == null ||
+			interactable.renderers == null)
+		{
+			initialized = false;
+		}
+		if (GUILayout.Button("Initialize Object"))
+		{
+			interactable.fireParticleSystem = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Entities/P_Fire.prefab", typeof(GameObject));
+			interactable.waterParticleSystem = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Entities/P_Water.prefab", typeof(GameObject));
+			interactable.electricityParticleSystem = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Entities/P_Electricity.prefab", typeof(GameObject));
+			interactable.body = interactable.GetComponent<Rigidbody>();
+			interactable.self = interactable.transform;
+			interactable.colliders = interactable.GetComponents<Collider>();
+			interactable.renderers = interactable.GetComponents<Renderer>();
+			Undo.RecordObject(target, "Initialized object");
+			Undo.RecordObject(interactable, "Changed Area Of Effect");
+
+			initialized = true;
+		}
+		if (!initialized)
+		{
+			EditorGUILayout.HelpBox("Error: Object not yet initialized!", MessageType.Error);
+		}
+
 		serializedObject.ApplyModifiedProperties();
+		EditorUtility.SetDirty(interactable);
 	}
 
 }

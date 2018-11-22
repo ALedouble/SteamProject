@@ -8,10 +8,10 @@ public class Interactable : MonoBehaviour {
 	public ObjectParameters parameters;
 	List<InteractableComponent> components = new List<InteractableComponent>();
 
-	protected Rigidbody body;
+	[HideInInspector] public Rigidbody body;
 	[HideInInspector] public Transform self;
-	Collider[] colliders;
-	Renderer[] renderers;
+	[HideInInspector] public Collider[] colliders;
+	[HideInInspector] public Renderer[] renderers;
 
 	[Space]
 	protected Fire fireScript;
@@ -47,8 +47,8 @@ public class Interactable : MonoBehaviour {
 		if (parameters == null) parameters = GetComponent<ObjectParameters>();
 		if (body == null) body = GetComponent<Rigidbody>();
 		if (self == null) self = transform;
-		colliders = GetComponents<Collider>();
-		renderers = GetComponents<Renderer>();
+		if (colliders.Length <= 0) colliders = GetComponents<Collider>();
+		if (renderers.Length <= 0) renderers = GetComponents<Renderer>();
 
 		if (parameters.breakable) components.Add(gameObject.AddComponent<Breakable>());
 		if (parameters.electronic) components.Add(gameObject.AddComponent<Electronic>());
