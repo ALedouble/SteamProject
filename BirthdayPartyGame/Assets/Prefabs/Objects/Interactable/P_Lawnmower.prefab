@@ -98,7 +98,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1182011020943386}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 12.04315, y: 0.12508467, z: -0.43555337}
+  m_LocalPosition: {x: 2.208814, y: -1.648359e-16, z: 7.423548}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4820421655305254}
@@ -121,7 +121,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 1cb7556c40c85a643981d0979945047e, type: 3}
+  - {fileID: 2100000, guid: 87bb19eb770bac5459ea6adac34a50e1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -349,7 +349,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameters: {fileID: 114774949195867140}
+  body: {fileID: 0}
   self: {fileID: 4992736532821108}
+  colliders: []
+  renderers: []
   fireParticleSystem: {fileID: 1068989696536054, guid: d585bcc898a67fa43b7b10bc09863fcf,
     type: 2}
   waterParticleSystem: {fileID: 1068989696536054, guid: 9ac20361cadf4a147aca21bd3fb1073c,
@@ -365,3 +368,5 @@ MonoBehaviour:
   smokeParticlePrefab: {fileID: 1876152382001860, guid: 2ca705be0a37ed746b1f648c5333af52,
     type: 2}
   explosionTransform: {fileID: 4470302944553684}
+  damageZoneHeight: 0.3
+  pushAwayForce: 80
