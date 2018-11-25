@@ -50,9 +50,15 @@ public class OnTheWayScript : NPCBaseFSM {
 						ca[i].valueCircle = -10;
 					}	
 					
+
 					if(dist <= ca[i].radius) {
 						MoveToPOI();
 					}
+				}
+
+
+				if(dist <= ca[i].radius) {
+						MoveToPOI();
 				}
 			}
 
@@ -82,6 +88,9 @@ public class OnTheWayScript : NPCBaseFSM {
 
 				}
 			}
+
+
+			anim.SetFloat("distance", Vector3.Distance(NPC.transform.position, closestPOI.transform.position));
 		}
 
 

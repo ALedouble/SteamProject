@@ -13,7 +13,7 @@ public class ChildAI : MonoBehaviour {
 
 	Animator anim;
 
-	bool sad;
+	bool sad = false;
 
 	
 
@@ -29,6 +29,11 @@ public class ChildAI : MonoBehaviour {
 		anim.SetBool("sad", sad);
 
 		if (Input.GetKeyDown(KeyCode.B)){
+		}
+	}
+
+	void OnCollisionEnter(Collision other) {
+		if (other.gameObject.name == "P_Bat"){
 			sad = true;
 		}
 	}
