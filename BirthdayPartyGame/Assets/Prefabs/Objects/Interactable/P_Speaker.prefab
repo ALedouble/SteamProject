@@ -11,6 +11,21 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1386794302474044}
   m_IsPrefabAsset: 1
+--- !u!1 &1097889661550686
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4819476670218156}
+  m_Layer: 0
+  m_Name: ParticleSpawnPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1179226176021624
 GameObject:
   m_ObjectHideFlags: 0
@@ -21,6 +36,8 @@ GameObject:
   - component: {fileID: 4680505319040558}
   - component: {fileID: 33181398806037180}
   - component: {fileID: 23698744255217826}
+  - component: {fileID: 95362725046007254}
+  - component: {fileID: 114392326311227424}
   m_Layer: 0
   m_Name: mode_boombox
   m_TagString: Untagged
@@ -115,7 +132,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1386794302474044}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.585775, y: 0.5385404, z: -0.2712479}
+  m_LocalPosition: {x: 5.585775, y: -0.04, z: -0.2712479}
   m_LocalScale: {x: 0.70000076, y: 0.70000017, z: 0.7000007}
   m_Children:
   - {fileID: 4680505319040558}
@@ -133,10 +150,24 @@ Transform:
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 8, y: 8, z: 8}
-  m_Children: []
+  m_Children:
+  - {fileID: 4819476670218156}
   m_Father: {fileID: 4382801576420618}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!4 &4819476670218156
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1097889661550686}
+  m_LocalRotation: {x: 0.70710665, y: -0, z: -0.707107, w: 0}
+  m_LocalPosition: {x: 0.00075450883, y: 0.18727696, z: 0.23749994}
+  m_LocalScale: {x: 0.2142857, y: 0.21607126, z: 0.21428552}
+  m_Children: []
+  m_Father: {fileID: 4680505319040558}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23450373135180018
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -343,6 +374,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &95362725046007254
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1179226176021624}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6e1ad55fadcd29d4fa4aa3a63c3f0165, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114181629584738998
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -366,7 +415,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameters: {fileID: 114742047672179038}
+  body: {fileID: 0}
   self: {fileID: 4382801576420618}
+  colliders: []
+  renderers: []
   fireParticleSystem: {fileID: 1068989696536054, guid: d585bcc898a67fa43b7b10bc09863fcf,
     type: 2}
   waterParticleSystem: {fileID: 1068989696536054, guid: 9ac20361cadf4a147aca21bd3fb1073c,
@@ -381,6 +433,23 @@ MonoBehaviour:
   smokeParticlePrefab: {fileID: 1876152382001860, guid: 2ca705be0a37ed746b1f648c5333af52,
     type: 2}
   explosionTransform: {fileID: 4024569632142456}
+  myAnim: {fileID: 95362725046007254}
+--- !u!114 &114392326311227424
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1179226176021624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf5cdde595fcc9f4390263fcf5bdf728, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popParticlePrefab: {fileID: 1887107627461446, guid: c10174c05021b9a41a921f3c823b3d0e,
+    type: 2}
+  hardParticlePrefab: {fileID: 1887107627461446, guid: c10174c05021b9a41a921f3c823b3d0e,
+    type: 2}
+  particleSpawnPos: {fileID: 4819476670218156}
 --- !u!114 &114729298953855204
 MonoBehaviour:
   m_ObjectHideFlags: 1
