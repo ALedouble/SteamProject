@@ -60,7 +60,9 @@ public class PlayerController : MonoBehaviour {
 
 
 	[Space]
-    [Header("Grab")]
+	[Header("Grab")]
+	[Tooltip("Distance forward to check for objects")] public float checkCircleDistance;
+	[Tooltip("Circle radius to check for objects")]  public float checkCircleRadius;
 	public float grabAngleTolerance;
 
 	[Space]
@@ -319,7 +321,7 @@ public class PlayerController : MonoBehaviour {
 
 	void Grab()
     {
-        Collider[] objectsGrab = Physics.OverlapSphere(self.position, 5);
+        Collider[] objectsGrab = Physics.OverlapSphere(self.position + self.forward * checkCircleDistance, checkCircleRadius);
 		
         if ( grabbedObject == null)
         {
@@ -354,7 +356,7 @@ public class PlayerController : MonoBehaviour {
 		}
 		else
 		{
-			Collider[] objectsActivate = Physics.OverlapSphere(self.position, 5);
+			Collider[] objectsActivate = Physics.OverlapSphere(self.position + self.forward * checkCircleDistance, checkCircleRadius);
 			if (objectsActivate.Length > 0)
 			{
 				List<Interactable> activableObjects = FilteredObjects(objectsActivate, Filter.Activate);

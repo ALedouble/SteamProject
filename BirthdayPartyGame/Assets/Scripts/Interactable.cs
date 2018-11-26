@@ -131,7 +131,19 @@ public class Interactable : MonoBehaviour {
 			fireScript.enabled = true;
 
 		if (myFireParticleSystem == null)
-			myFireParticleSystem = Instantiate(fireParticleSystem, self.position, Quaternion.identity, self).GetComponent<ParticleSystem>();
+		{
+			Transform particleTransform;
+			if (parameters.node != null)
+				particleTransform = parameters.node;
+			else
+			{
+				particleTransform = self;
+			}
+			myFireParticleSystem = Instantiate(fireParticleSystem, 
+												particleTransform.position, 
+												Quaternion.identity, self)
+												.GetComponent<ParticleSystem>();
+		}
 		else
 			myFireParticleSystem.Play();
 		
