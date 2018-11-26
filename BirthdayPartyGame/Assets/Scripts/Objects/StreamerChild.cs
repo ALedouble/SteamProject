@@ -56,7 +56,7 @@ public class StreamerChild : MonoBehaviour {
 
 	private void Update()
 	{
-		pos = new Vector3(self.position.x, self.position.y + self.localScale.y/2, self.position.z);
+		pos = new Vector3(self.position.x, self.position.y + /*self.localScale.y/2*/offset.y, self.position.z);
 		if (!isPost)
 		{
 			for (int i = 0; i < joints.Count; i++)
@@ -84,7 +84,7 @@ public class StreamerChild : MonoBehaviour {
 			if (other.parameters.name == "Lawnmower" && joints[0] != null)
 			{
 				Vector3 _direction = self.position - other.self.position;
-				body.AddForce(_direction.normalized * joints[0].breakForce, ForceMode.VelocityChange);
+				body.AddForce(_direction.normalized * (joints[0].breakForce *2), ForceMode.VelocityChange);
 			}
 		}
 	}

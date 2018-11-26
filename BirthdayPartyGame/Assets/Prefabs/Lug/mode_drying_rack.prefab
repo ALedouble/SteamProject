@@ -24,6 +24,8 @@ GameObject:
   - component: {fileID: 54141518773735818}
   - component: {fileID: 114438221212529914}
   - component: {fileID: 114118078964382624}
+  - component: {fileID: 114028472672577532}
+  - component: {fileID: 65070653689070056}
   m_Layer: 0
   m_Name: mode_drying_rack
   m_TagString: Interactable
@@ -39,7 +41,7 @@ Transform:
   m_GameObject: {fileID: 1850840164993126}
   m_LocalRotation: {x: -0.6813859, y: 0.18897954, z: 0.18897949, w: 0.68138593}
   m_LocalPosition: {x: -10.65, y: -0, z: -1.9}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -101,6 +103,32 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &65070653689070056
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1850840164993126}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.07, y: 0.05905517, z: 1.1811024}
+  m_Center: {x: 0.000000009526721, y: -0.000000022167113, z: 0.5905512}
+--- !u!114 &114028472672577532
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1850840164993126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e6cb1bf803d59f4c99bfda53a09ccbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  self: {fileID: 4688815153677678}
+  pos: {x: 0, y: 0, z: 0}
+  offset: {x: 0, y: 8, z: 0}
 --- !u!114 &114118078964382624
 MonoBehaviour:
   m_ObjectHideFlags: 1
