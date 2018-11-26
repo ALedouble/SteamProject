@@ -10,11 +10,14 @@ public class ExplosionSphereEvents : MonoBehaviour {
     GameObject burstExplosionSphereSide1Ref;
     GameObject burstExplosionSphereSide2Ref;
     GameObject burstExplosionSphereSide3Ref;
+    public AudioSource myAudioSource;
+    public AudioClip explosionClip;
 
     public void InstantiateSide3()
     {
         burstExplosionSphereSide3Ref = Instantiate(burstExplosionSphereSide3, transform.position, Quaternion.identity);
         Destroy(burstExplosionSphereSide3Ref, 1);
+        myAudioSource.PlayOneShot(explosionClip);
     }
 
     public void InstantiateSide1And2()
