@@ -19,6 +19,8 @@ public class ChildAI : MonoBehaviour {
 	bool amused = false;
 	public GameObject tears;
 
+	public Bat swingBat;
+
 
 	
 
@@ -49,13 +51,15 @@ public class ChildAI : MonoBehaviour {
 			amused = true;
 		}
 
+			
 		
 		
 	}
 
 	void OnCollisionEnter(Collision other) {
+
 		if (other.gameObject.name == "P_Bat"){
-			sad = true;
+			sad = true;		
 		}
 	}
 }
