@@ -13,7 +13,12 @@ public class ChildAI : MonoBehaviour {
 
 	Animator anim;
 
+	public Animator anim2;
+
 	bool sad = false;
+	bool amused = false;
+	public GameObject tears;
+
 
 	
 
@@ -28,8 +33,24 @@ public class ChildAI : MonoBehaviour {
 	void Update () {
 		anim.SetBool("sad", sad);
 
-		if (Input.GetKeyDown(KeyCode.B)){
+		anim2.SetBool("sad", sad);
+		anim2.SetBool("amused", amused);
+		anim2.SetFloat("MoveSpeed", agent.speed);
+		
+		if (sad){
+			tears.SetActive(true);
 		}
+
+		if (Input.GetKeyDown(KeyCode.B)){
+			sad = true;
+		}
+
+		if (anim.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Amused")){
+			amused = true;
+		}
+
+		
+		
 	}
 
 	void OnCollisionEnter(Collision other) {
