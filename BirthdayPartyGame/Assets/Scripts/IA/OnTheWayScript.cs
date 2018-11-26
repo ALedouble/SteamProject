@@ -9,6 +9,8 @@ public class OnTheWayScript : NPCBaseFSM {
 	CircleAttraction[] ca;	
 	int maxValueCircle = 0;
 
+	public float animDistance;
+
 	void Awake() {
 		circleNumber = GameObject.FindGameObjectsWithTag("CircleAttraction");
 		ca = FindObjectsOfType(typeof(CircleAttraction)) as CircleAttraction[];		
@@ -89,7 +91,7 @@ public class OnTheWayScript : NPCBaseFSM {
 				}
 			}
 
-
+			animDistance = Vector3.Distance(NPC.transform.position, closestPOI.transform.position);
 			anim.SetFloat("distance", Vector3.Distance(NPC.transform.position, closestPOI.transform.position));
 		}
 

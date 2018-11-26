@@ -36,8 +36,8 @@ public class Interactable : MonoBehaviour {
 	[System.NonSerialized]
 	public bool electrified, burning, wet;
 
-	// Use this for initialization
-	void Awake()
+
+	private void Start()
 	{
 		Initialize();
 	}
@@ -49,6 +49,10 @@ public class Interactable : MonoBehaviour {
 		if (self == null) self = transform;
 		if (colliders.Length <= 0) colliders = GetComponents<Collider>();
 		if (renderers.Length <= 0) renderers = GetComponents<Renderer>();
+
+		fireParticleSystem = Constants.constants.fireParticle;
+		waterParticleSystem = Constants.constants.waterParticle;
+		electricityParticleSystem = Constants.constants.electricityParticle;
 
 		if (parameters.breakable) components.Add(gameObject.AddComponent<Breakable>());
 		if (parameters.electronic) components.Add(gameObject.AddComponent<Electronic>());
@@ -127,7 +131,19 @@ public class Interactable : MonoBehaviour {
 			fireScript.enabled = true;
 
 		if (myFireParticleSystem == null)
-			myFireParticleSystem = Instantiate(fireParticleSystem, self.position, Quaternion.identity, self).GetComponent<ParticleSystem>();
+		{
+			Transform particleTransform;
+			if (parameters.node != null)
+				particleTransform = parameters.node;
+			else
+			{
+				particleTransform = self;
+			}
+			myFireParticleSystem = Instantiate(fireParticleSystem, 
+												particleTransform.position, 
+												Quaternion.identity, self)
+												.GetComponent<ParticleSystem>();
+		}
 		else
 			myFireParticleSystem.Play();
 		
