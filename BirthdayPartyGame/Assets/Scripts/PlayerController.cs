@@ -28,7 +28,8 @@ public class PlayerController : MonoBehaviour {
 
 	[Space]
 	[Header("Referencies")]
-	public Text actionText;
+	public GameObject actionUI;
+	Text actionText;
 	public GameObject steerParticlesPrefab;
     public GameObject grabParticlesPrefab;
     public GameObject dropParticlesPrefab;
@@ -83,8 +84,14 @@ public class PlayerController : MonoBehaviour {
 	private float steerTimer;
 	public float steerTimerLimit = .2f;
 
-    // Update is called once per frame
-    void Update()
+	private void Awake()
+	{
+		actionText = actionUI.GetComponentInChildren<Text>();
+		actionUI.SetActive(false);
+	}
+
+	// Update is called once per frame
+	void Update()
     {
 		CheckForActions();
         GetInput();
@@ -293,23 +300,28 @@ public class PlayerController : MonoBehaviour {
 	{
 		if (canInteract == null)
 		{
-			actionText.text = "";
+			actionUI.SetActive(false);
+			//actionText.text = "";
 		}
 		else
 		{
 			if (canInteract.parameters.pickUp)
 			{
+				actionUI.SetActive(true);
+				
 				actionText.text = "GRAB";
 			}
 			else if (canInteract.parameters.activationType == ActivationType.Proximity)
 			{
+				actionUI.SetActive(true);
 				actionText.text = "ACTIVATE";
 			}
 			else
 			{
-				actionText.text = "";
+				actionUI.SetActive(false);
+				//actionText.text = "";
 			}
-			actionText.transform.position = WorldToUIPosition(canInteract.transform.position) + uiOffset;
+			actionUI.transform.position = WorldToUIPosition(canInteract.transform.position) + uiOffset;
 		}
 	}
 
