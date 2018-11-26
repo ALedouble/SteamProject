@@ -12,12 +12,12 @@ public class LevelManager : MonoBehaviour {
 	public GameObject uiWin;
 	public GameObject uiLose;
 	protected bool gameEnd;
-	int index = -1;
+	int index = 0;
 	bool loose = false;
 
 	void FixedUpdate() {
 		if (gameEnd == true){
-			/*if(index == 1){
+			if(index == 1){
 				Button bM = GameObject.Find("MenuButton").GetComponent<Button>();
 				ColorBlock colors = bM.colors;
 				colors.normalColor = Color.green;
@@ -53,8 +53,8 @@ public class LevelManager : MonoBehaviour {
 					if(Input.GetKeyDown(KeyCode.Return)){
 						Restart();
 					}
-				}
-			else if (index == - 1 && loose == false)
+			}
+			else if (index == - 1)
 			{
 				Button bM = GameObject.Find("MenuButton").GetComponent<Button>();
 				ColorBlock colors = bM.colors;
@@ -70,7 +70,8 @@ public class LevelManager : MonoBehaviour {
 				ColorBlock colors3 = bC.colors;
 				colors3.normalColor = Color.green;
 				bC.colors = colors3;	 
-			}*/
+			}
+			
 		}
 	}
 
@@ -80,7 +81,7 @@ public class LevelManager : MonoBehaviour {
 			UpdateTimer();
 		}
 		
-		if (loose == true && index == -1){
+		if (loose == true && index == 0){
 			index = 0;
 		}
 
@@ -132,11 +133,11 @@ public class LevelManager : MonoBehaviour {
 	{
 		if (!gameEnd)
 		{
-			gameEnd = true;
+			
 			//Debug.Log(index);
 
 			yield return new WaitForSeconds(1);
-
+			gameEnd = true;
 			//Time.timeScale = 0.01f;
 			uiWin.SetActive(true);
 		}
