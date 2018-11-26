@@ -21,9 +21,14 @@ GameObject:
   - component: {fileID: 4688815153677678}
   - component: {fileID: 33778405903310288}
   - component: {fileID: 23608291104008484}
+  - component: {fileID: 54141518773735818}
+  - component: {fileID: 114438221212529914}
+  - component: {fileID: 114118078964382624}
+  - component: {fileID: 114028472672577532}
+  - component: {fileID: 65070653689070056}
   m_Layer: 0
   m_Name: mode_drying_rack
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34,13 +39,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1850840164993126}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -7.5306406, y: 1.1368716e-17, z: -0.51200145}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalRotation: {x: -0.6813859, y: 0.18897954, z: 0.18897949, w: 0.68138593}
+  m_LocalPosition: {x: -10.65, y: -0, z: -1.9}
+  m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 31.002}
 --- !u!23 &23608291104008484
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -83,3 +88,91 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1850840164993126}
   m_Mesh: {fileID: 4300000, guid: b8ea0a87f88392b46a029bcc831f148d, type: 3}
+--- !u!54 &54141518773735818
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1850840164993126}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &65070653689070056
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1850840164993126}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.07, y: 0.05905517, z: 1.1811024}
+  m_Center: {x: 0.000000009526721, y: -0.000000022167113, z: 0.5905512}
+--- !u!114 &114028472672577532
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1850840164993126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e6cb1bf803d59f4c99bfda53a09ccbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  self: {fileID: 4688815153677678}
+  pos: {x: 0, y: 0, z: 0}
+  offset: {x: 0, y: 8, z: 0}
+--- !u!114 &114118078964382624
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1850840164993126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7e5f8f3c76606e41864a6caacfe094b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parameters: {fileID: 114438221212529914}
+  body: {fileID: 0}
+  self: {fileID: 0}
+  colliders: []
+  renderers: []
+  fireParticleSystem: {fileID: 1068989696536054, guid: d585bcc898a67fa43b7b10bc09863fcf,
+    type: 2}
+  waterParticleSystem: {fileID: 1068989696536054, guid: 9ac20361cadf4a147aca21bd3fb1073c,
+    type: 2}
+  electricityParticleSystem: {fileID: 1068989696536054, guid: d79bec28e35144646b97714ef6609a6e,
+    type: 2}
+--- !u!114 &114438221212529914
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1850840164993126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39feb44449d084c44907efdadc23c0f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectName: Drying rack
+  blunt: 0
+  breakable: 0
+  destructible: 0
+  pickUp: 0
+  electronic: 0
+  isElectric: 0
+  isFire: 0
+  isWater: 0
+  activationType: 0
+  material: 3
+  holdPositionOffset: {x: 0, y: 0, z: 0}
+  holdRotationOffset: {x: 0, y: 0, z: 0}
+  node: {fileID: 0}

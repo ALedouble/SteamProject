@@ -11,11 +11,11 @@ public class SpeakersAnimationEvents : MonoBehaviour {
     public void SpawnPopParticlePrefab()
     {
         print("hey");
-        Destroy(Instantiate(popParticlePrefab, particleSpawnPos.position, particleSpawnPos.rotation, particleSpawnPos), 2f);
+        Destroy(Instantiate(popParticlePrefab, particleSpawnPos.position, particleSpawnPos.rotation*Quaternion.Euler(90, 0, 0), particleSpawnPos), 2f);
     }
 
     public void SpawnHardParticlePrefab()
     {
-        Destroy(Instantiate(hardParticlePrefab, particleSpawnPos.position, particleSpawnPos.rotation, particleSpawnPos), 2f);
+        Destroy(Instantiate(hardParticlePrefab, particleSpawnPos.position + Vector3.up*0.25f, particleSpawnPos.rotation * Quaternion.Euler(90, 0, 0), particleSpawnPos), 2f);
     }
 }
