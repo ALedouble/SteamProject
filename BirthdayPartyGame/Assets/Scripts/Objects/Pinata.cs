@@ -16,8 +16,9 @@ public class Pinata : Interactable
     public AudioSource myAudioSource;
     public AudioClip dieAudioClip;
 
-    private void Start()
+    protected override void Start()
     {
+		base.Start();
         if (linked)
         {
             line = GetComponent<LineRenderer>();

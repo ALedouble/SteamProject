@@ -38,7 +38,9 @@ public class PlayerController : MonoBehaviour {
     public AudioClip dropClip;
 
 	[Space]
-    [Header("Inputs")]
+	[Header("Inputs")]
+	public KeyCode actionKey;
+	public KeyCode grabKey;
     public float deadzone = 0.2f;
 
 	[Space]
@@ -79,7 +81,7 @@ public class PlayerController : MonoBehaviour {
     float distance;
 	Quaternion steerTarget;
 
-    Interactable grabbedObject;
+    [System.NonSerialized] public Interactable grabbedObject;
 	Interactable canInteract;
 	private float steerTimer;
 	public float steerTimerLimit = .2f;
@@ -97,11 +99,6 @@ public class PlayerController : MonoBehaviour {
         GetInput();
 
         anim.SetFloat("MoveSpeed", walkAnimationSpeedCurve.Evaluate(speed));
-
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            anim.SetTrigger("SwingTrigger");
-        }
     }
 
     private void FixedUpdate()
@@ -152,11 +149,11 @@ public class PlayerController : MonoBehaviour {
 
     void KeyboardInput()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(grabKey))
         {
             Grab();
         }
-		if (Input.GetKeyDown(KeyCode.A))
+		if (Input.GetKeyDown(actionKey))
 		{
 			ActivateObject();
 		}
@@ -279,7 +276,7 @@ public class PlayerController : MonoBehaviour {
     #region Actions
 	void CheckForActions()
 	{
-		Collider[] objectsNear = Physics.OverlapSphere(self.position, 5);
+		Collider[] objectsNear = Physics.OverlapSphere(self.position + self.forward * checkCircleDistance, 5);
 
 		canInteract = null;
 		if (grabbedObject == null)
@@ -301,7 +298,6 @@ public class PlayerController : MonoBehaviour {
 		if (canInteract == null)
 		{
 			actionUI.SetActive(false);
-			//actionText.text = "";
 		}
 		else
 		{
@@ -309,17 +305,16 @@ public class PlayerController : MonoBehaviour {
 			{
 				actionUI.SetActive(true);
 				
-				actionText.text = "GRAB";
+				actionText.text = "(" + grabKey + ") GRAB: " + canInteract.parameters.objectName;
 			}
 			else if (canInteract.parameters.activationType == ActivationType.Proximity)
 			{
 				actionUI.SetActive(true);
-				actionText.text = "ACTIVATE";
+				actionText.text = "(" + actionKey + ") ACTIVATE: " + canInteract.parameters.objectName;
 			}
 			else
 			{
 				actionUI.SetActive(false);
-				//actionText.text = "";
 			}
 			actionUI.transform.position = WorldToUIPosition(canInteract.transform.position) + uiOffset;
 		}
@@ -364,7 +359,17 @@ public class PlayerController : MonoBehaviour {
 	{
 		if (grabbedObject != null && grabbedObject.parameters.activationType == ActivationType.Handheld)
 		{
-			grabbedObject.Activate();
+			//grabbedObject.Activate();
+			switch (grabbedObject.parameters.objectName)
+			{
+				case "Bat":
+					anim.SetTrigger("SwingTrigger");
+					break;
+
+				default:
+					grabbedObject.Activate();
+					break;
+			}
 		}
 		else
 		{

@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Breakable : InteractableComponent {
-
-	//List<BodyPart> parts;
+	
 	BodyPart[] parts;
 	public float breakSpeed;
 	public Rigidbody rb;
@@ -50,6 +49,7 @@ public class Breakable : InteractableComponent {
 				parts[i].Break(impactPoint);
 			}
 		}
+		print("Break");
 		main.Die();
 	}
 }

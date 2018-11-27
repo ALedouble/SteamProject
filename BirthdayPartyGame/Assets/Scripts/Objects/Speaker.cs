@@ -16,8 +16,9 @@ public class Speaker : Interactable {
     [Space]
     public Animator myAnim;
 
-    private void Start()
+    protected override void Start()
     {
+		base.Start();
         levelAudioSource.clip = levelMusic;
         levelAudioSource.volume = 0.5f;
         levelAudioSource.Play();
