@@ -38,7 +38,9 @@ public class PlayerController : MonoBehaviour {
     public AudioClip dropClip;
 
 	[Space]
-    [Header("Inputs")]
+	[Header("Inputs")]
+	public KeyCode actionKey;
+	public KeyCode grabKey;
     public float deadzone = 0.2f;
 
 	[Space]
@@ -97,11 +99,6 @@ public class PlayerController : MonoBehaviour {
         GetInput();
 
         anim.SetFloat("MoveSpeed", walkAnimationSpeedCurve.Evaluate(speed));
-
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            anim.SetTrigger("SwingTrigger");
-        }
     }
 
     private void FixedUpdate()
@@ -152,11 +149,11 @@ public class PlayerController : MonoBehaviour {
 
     void KeyboardInput()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(grabKey))
         {
             Grab();
         }
-		if (Input.GetKeyDown(KeyCode.A))
+		if (Input.GetKeyDown(actionKey))
 		{
 			ActivateObject();
 		}
@@ -308,12 +305,12 @@ public class PlayerController : MonoBehaviour {
 			{
 				actionUI.SetActive(true);
 				
-				actionText.text = "(E) GRAB: " + canInteract.parameters.objectName;
+				actionText.text = "(" + grabKey + ") GRAB: " + canInteract.parameters.objectName;
 			}
 			else if (canInteract.parameters.activationType == ActivationType.Proximity)
 			{
 				actionUI.SetActive(true);
-				actionText.text = "(A) ACTIVATE: " + canInteract.parameters.objectName;
+				actionText.text = "(" + actionKey + ") ACTIVATE: " + canInteract.parameters.objectName;
 			}
 			else
 			{

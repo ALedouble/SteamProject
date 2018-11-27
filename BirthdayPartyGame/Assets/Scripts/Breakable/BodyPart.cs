@@ -12,10 +12,11 @@ public class BodyPart : MonoBehaviour {
 	void Awake () {
 		Initialize();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	void Disappear()
+	{
+		rb.isKinematic = true;
+		col.enabled = false;
 	}
 
 	void Initialize()
@@ -32,5 +33,13 @@ public class BodyPart : MonoBehaviour {
 		rb.isKinematic = false;
 		col.enabled = true;
 		rb.AddForce((transform.position - impactPoint) * breakThrowForce, ForceMode.VelocityChange);
+	}
+
+	private void OnCollisionEnter(Collision collision)
+	{
+		if (collision.collider.tag == "Ground")
+		{
+			Disappear();
+		}
 	}
 }
