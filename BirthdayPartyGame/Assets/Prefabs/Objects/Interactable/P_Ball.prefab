@@ -147,10 +147,8 @@ MonoBehaviour:
   self: {fileID: 4626018072050136}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 1068989696536054, guid: d585bcc898a67fa43b7b10bc09863fcf,
-    type: 2}
-  waterParticleSystem: {fileID: 1068989696536054, guid: 9ac20361cadf4a147aca21bd3fb1073c,
-    type: 2}
+  fireParticleSystem: {fileID: 0}
+  waterParticleSystem: {fileID: 0}
   electricityParticleSystem: {fileID: 1068989696536054, guid: d79bec28e35144646b97714ef6609a6e,
     type: 2}
   shootForce: 30
@@ -176,7 +174,7 @@ MonoBehaviour:
   isWater: 0
   activationType: 0
   material: 0
-  holdPositionOffset: {x: 0.75, y: 0, z: 0.75}
+  holdPositionOffset: {x: 0.25, y: 0, z: 0.25}
   holdRotationOffset: {x: 0, y: 0, z: 0}
   node: {fileID: 0}
 --- !u!135 &135310614204138992
