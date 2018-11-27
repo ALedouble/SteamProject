@@ -10,8 +10,7 @@ public class Fence : Interactable {
 
     public override void Die()
     {
-        if(myAudioSource!=null)
-            myAudioSource.PlayOneShot(explosionWood);
+        StaticFenceSound.fenceAudio.PlayWoodExplosion(transform.position);
         GameObject _woodPiecesParticlesRef = Instantiate(woodPiecesParticlesPrefab, transform.position+Vector3.up*1.7f, Quaternion.identity);
         Destroy(_woodPiecesParticlesRef, 1);
         base.Die();
