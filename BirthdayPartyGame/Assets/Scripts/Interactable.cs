@@ -37,7 +37,7 @@ public class Interactable : MonoBehaviour {
 	public bool electrified, burning, wet;
 
 
-	private void Start()
+	protected virtual void Start()
 	{
 		Initialize();
 	}
