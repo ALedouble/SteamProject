@@ -22,12 +22,14 @@ public class Lawnmower : Interactable {
 	{
 		base.Activate();
 		activated = true;
+		canBreak = true;
 	}
 
 	public override void Deactivate()
 	{
 		base.Deactivate();
 		activated = false;
+		canBreak = false;
 	}
 
 	private void FixedUpdate()
