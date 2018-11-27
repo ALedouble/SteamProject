@@ -74,8 +74,8 @@ public class Interactable : MonoBehaviour {
 	public void GetGrabbed(Transform _holdPoint)
 	{
 		self.parent = _holdPoint;
-		self.localPosition = - parameters.holdPositionOffset;
-		self.rotation = _holdPoint.rotation;
+		self.localPosition = parameters.holdPositionOffset;
+		self.localRotation = /*_holdPoint.rotation + */Quaternion.Euler(parameters.holdRotationOffset);
 
 		//body.isKinematic = true;
 		body.constraints = RigidbodyConstraints.FreezeAll;
