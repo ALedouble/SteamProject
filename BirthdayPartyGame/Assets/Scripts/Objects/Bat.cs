@@ -12,23 +12,32 @@ public class Bat : Interactable
 	public override void Activate()
 	{
 		base.Activate();
-		if (canActivate)
-		{
-			StartCoroutine(BatSwing());
-		}
-	}
-
-	IEnumerator BatSwing()
-	{
+		//StartCoroutine(BatSwing());
 		canBreak = true;
 		canActivate = false;
 		print("Start swinging");
-        myAudioSource.PlayOneShot(batteSwingClip);
+		myAudioSource.PlayOneShot(batteSwingClip);
+	}
 
-        yield return new WaitForSeconds(swingDuration);
-
-		canBreak = false;
+	public override void Deactivate()
+	{
+		base.Deactivate();
 		print("Stop swinging");
+		canBreak = false;
 		canActivate = true;
 	}
+
+	//IEnumerator BatSwing()
+	//{
+	//	canBreak = true;
+	//	canActivate = false;
+	//	print("Start swinging");
+	//       myAudioSource.PlayOneShot(batteSwingClip);
+
+	//       yield return new WaitForSeconds(swingDuration);
+
+	//	canBreak = false;
+	//	print("Stop swinging");
+	//	canActivate = true;
+	//}
 }
