@@ -7,8 +7,10 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour {
 
 	public float levelTimer = 60;
-	public Text timerSecondsText;
-	public Text timerFractionsText;
+	public Text firstTimerText;
+	public Text secondTimerText;
+	public Text thirdTimerText;
+	public Text fourthTimerText;
 	public GameObject uiWin;
 	public GameObject uiLose;
 	protected bool gameEnd;
@@ -117,14 +119,18 @@ public class LevelManager : MonoBehaviour {
 		{
 			if (levelTimer <= 5)
 			{
-				timerSecondsText.color = Color.red;
-				timerFractionsText.color = Color.red;
+				firstTimerText.color = Color.red;
+				secondTimerText.color = Color.red;
+				thirdTimerText.color = Color.red;
+				fourthTimerText.color = Color.red;
 			}
 			levelTimer -= Time.deltaTime;
 		}
-		timerSecondsText.text = levelTimer.ToString("#");
-		float _fractions = (levelTimer - Mathf.Floor(levelTimer)) * 60;
-		timerFractionsText.text = _fractions.ToString("#");
+		firstTimerText.text = Mathf.FloorToInt(levelTimer / 10).ToString();
+		secondTimerText.text = Mathf.FloorToInt(levelTimer % 10).ToString();
+		thirdTimerText.text = Mathf.FloorToInt((levelTimer % 1) * 10).ToString();
+		fourthTimerText.text = Mathf.FloorToInt((levelTimer % 0.1f) * 100).ToString();
+		print(((int)levelTimer / 10).ToString());
 	}
 
 	public virtual void CheckWin() { }
