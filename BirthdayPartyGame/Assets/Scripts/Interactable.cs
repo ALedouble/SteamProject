@@ -76,15 +76,17 @@ public class Interactable : MonoBehaviour {
 		self.parent = _holdPoint;
 		self.localPosition = - parameters.holdPositionOffset;
 		self.rotation = _holdPoint.rotation;
-		
-		body.isKinematic = true;
+
+		//body.isKinematic = true;
+		body.constraints = RigidbodyConstraints.FreezeAll;
 		gameObject.layer = LayerMask.NameToLayer("Held Objects");
 	}
 
 	public void GetDropped()
 	{
 		self.parent = null;
-		body.isKinematic = false;
+		//body.isKinematic = false;
+		body.constraints = RigidbodyConstraints.None;
 		gameObject.layer = LayerMask.NameToLayer("Default");
 
 	}

@@ -58,7 +58,7 @@ public class ChildAI : MonoBehaviour {
 
 	void OnCollisionEnter(Collision other) {
 
-		if (other.gameObject.name == "P_Bat"){
+		if (other.gameObject.tag == "Interactable" && other.gameObject.GetComponent<ObjectParameters>().objectName == "Bat"){
 			sad = true;		
 		}
 	}
