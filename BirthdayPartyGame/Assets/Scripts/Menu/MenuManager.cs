@@ -7,6 +7,9 @@ public class MenuManager : MonoBehaviour {
 
 	int choose = 0;
 	public GameObject[] allElements;
+    public Animator transitionAnim;
+
+
 	MeshRenderer[] meshTextRed;
 
 	MeshRenderer[] meshTextWhite;
@@ -14,6 +17,7 @@ public class MenuManager : MonoBehaviour {
 	MeshRenderer[] meshTextWhite2;
 	MeshRenderer[] meshTextWhite3;
 	MeshRenderer[] meshTextWhite4;
+ 
 
 
 	// Use this for initialization
@@ -77,14 +81,16 @@ public class MenuManager : MonoBehaviour {
 			}
 		
 		 	if (Input.GetKeyDown(KeyCode.Return) && choose == 0){
-				 SceneManager.LoadScene("VerticalSliceScene 1", LoadSceneMode.Single);
+                StartCoroutine(LoadScene());
+				 //SceneManager.LoadScene("VerticalSliceScene 1", LoadSceneMode.Single);
 			 }
-
-		/* meshText = GetComponentsInChildren<MeshRenderer>();
-
-		foreach(MeshRenderer colorful in meshText){
-			colorful.material.color = Color.red;
-		}
-		*/
 	}
+
+
+    IEnumerator LoadScene()
+    {
+        transitionAnim.SetTrigger("end");
+        yield return new WaitForSeconds(1.3f);
+        SceneManager.LoadScene("VerticalSliceScene 1", LoadSceneMode.Single);
+    }
 }
