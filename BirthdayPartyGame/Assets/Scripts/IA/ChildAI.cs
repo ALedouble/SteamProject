@@ -58,8 +58,11 @@ public class ChildAI : MonoBehaviour {
 
 	void OnCollisionEnter(Collision other) {
 
-		if (other.gameObject.tag == "Interactable" && other.gameObject.GetComponent<ObjectParameters>().objectName == "Bat"){
-			sad = true;		
+		if (other.gameObject.tag == "Interactable") {
+			Interactable _object = other.gameObject.GetComponent<Interactable>();
+			if (_object.canBreak){
+				sad = true;
+			}
 		}
 	}
 }

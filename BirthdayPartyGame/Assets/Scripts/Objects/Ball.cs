@@ -5,13 +5,12 @@ using UnityEngine;
 public class Ball : Interactable {
 
 	public float shootForce = 5;
-	CircleAttraction ca;
 
 
 
 
 	void Start() {
-		ca = GetComponentInChildren<CircleAttraction>();
+		
 	}
 
 	private void OnCollisionEnter(Collision collision)
@@ -19,7 +18,6 @@ public class Ball : Interactable {
 		if (collision.collider.tag == "Player")
 		{
 			GetShot(collision.contacts[0].point, collision.rigidbody.velocity);
-			ca.valueCircle += 5;
 		}
 	}
 

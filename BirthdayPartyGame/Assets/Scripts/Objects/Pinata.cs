@@ -15,6 +15,7 @@ public class Pinata : Interactable
 
     public AudioSource myAudioSource;
     public AudioClip dieAudioClip;
+    public CircleAttraction ca;
 
     protected override void Start()
     {
@@ -38,6 +39,7 @@ public class Pinata : Interactable
 
     public override void Die()
     {
+        ca.valueCircle = 10;
         GameObject _confettiParticlesRef = Instantiate(confettiParticlesPrefab, transform.position, Quaternion.Euler(-90, 0, 0));
         Destroy(_confettiParticlesRef, 2.5f);
         print("beforePlay");
