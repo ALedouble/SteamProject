@@ -7,7 +7,6 @@ public class MenuManager : MonoBehaviour {
 
 	int choose = 0;
 	public GameObject[] allElements;
-    public Animator transitionAnim;
 
 
 	MeshRenderer[] meshTextRed;
@@ -81,16 +80,18 @@ public class MenuManager : MonoBehaviour {
 			}
 		
 		 	if (Input.GetKeyDown(KeyCode.Return) && choose == 0){
-                StartCoroutine(LoadScene());
-				 //SceneManager.LoadScene("VerticalSliceScene 1", LoadSceneMode.Single);
+                //StartCoroutine(LoadScene());
+				 SceneManager.LoadScene("VerticalSliceScene 1", LoadSceneMode.Single);
 			 }
 	}
 
 
-    IEnumerator LoadScene()
+   /* IEnumerator LoadScene()
     {
         transitionAnim.SetTrigger("end");
         yield return new WaitForSeconds(1.3f);
         SceneManager.LoadScene("VerticalSliceScene 1", LoadSceneMode.Single);
     }
+
+    */
 }
