@@ -8,6 +8,7 @@ public class OnTheWayScript : NPCBaseFSM {
 	GameObject[] circleNumber;
 	CircleAttraction[] ca;	
 	int maxValueCircle = 0;
+	float IdleTime = 0;
 
 	public float animDistance;
 
@@ -25,12 +26,52 @@ public class OnTheWayScript : NPCBaseFSM {
 	// OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
 	override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
 		
+		for (int i = 0; i < ca.Length; i++){
+
+			float dist = Vector3.Distance(agent.transform.position, circleNumber[i].transform.position);
+			
+			if(dist <= ca[i].radius) 
+			{
+				IdleTime += Time.deltaTime;
+				MoveToPOI();
+				agent.speed = 3.5f;
+			}
+		}
+	}
+
+	public void MoveToPOI(){
+		float distanceClosestPoint = Mathf.Infinity;
+		ScriptPOI closestPOI = null;
+		ScriptPOI[] allPOI = GameObject.FindObjectsOfType<ScriptPOI>();
+		foreach (ScriptPOI currentPoint in allPOI)
+		{
+			float distanceToPOI = (currentPoint.transform.position - NPC.transform.position).sqrMagnitude;
+			if (distanceToPOI < distanceClosestPoint)
+			{
+				distanceClosestPoint = distanceToPOI;
+				closestPOI = currentPoint;
+				if(agent.enabled == true)
+				{
+					agent.SetDestination(closestPOI.transform.position);
+				}
+			anim.SetFloat("distance", Vector3.Distance(NPC.transform.position, closestPOI.transform.position));
+
+			}
+		}
+
+		animDistance = Vector3.Distance(NPC.transform.position, closestPOI.transform.position);
+		anim.SetFloat("distance", Vector3.Distance(NPC.transform.position, closestPOI.transform.position));
+	}
+}
 		
+		
+
+		/* 
 		for (int i = 0; i < ca.Length; i++){
 			if(ca[i].valueCircle > maxValueCircle){
 				maxValueCircle = ca[i].valueCircle;
 			}
-
+			
 			if(ca[i].valueCircle < maxValueCircle){
 				maxValueCircle = 0;
 			}
@@ -65,35 +106,14 @@ public class OnTheWayScript : NPCBaseFSM {
 			}
 
 
-
+			*/
 			
-		}
-	}
+		
+
 		//Debug.Log(maxValueCircle);
-
-	public void MoveToPOI(){
-			float distanceClosestPoint = Mathf.Infinity;
-			ScriptPOI closestPOI = null;
-			ScriptPOI[] allPOI = GameObject.FindObjectsOfType<ScriptPOI>();
-			foreach (ScriptPOI currentPoint in allPOI)
-			{
-				float distanceToPOI = (currentPoint.transform.position - NPC.transform.position).sqrMagnitude;
-				if (distanceToPOI < distanceClosestPoint)
-				{
-					distanceClosestPoint = distanceToPOI;
-					closestPOI = currentPoint;
-					if(agent.enabled == true)
-					{
-						agent.SetDestination(closestPOI.transform.position);
-					}
-				anim.SetFloat("distance", Vector3.Distance(NPC.transform.position, closestPOI.transform.position));
-
-				}
-			}
-
-			animDistance = Vector3.Distance(NPC.transform.position, closestPOI.transform.position);
-			anim.SetFloat("distance", Vector3.Distance(NPC.transform.position, closestPOI.transform.position));
-		}
+	 
+	
+		
 
 
 
@@ -107,7 +127,7 @@ public class OnTheWayScript : NPCBaseFSM {
 			}
 
 
-			*/
+			
 
 
 
@@ -118,7 +138,6 @@ public class OnTheWayScript : NPCBaseFSM {
 
 
 
-/* 
 	// OnStateMove is called right after Animator.OnAnimatorMove(). Code that processes and affects root motion should be implemented here
 	override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
 	//
@@ -129,5 +148,5 @@ public class OnTheWayScript : NPCBaseFSM {
 	//
 	//}
 
-*/
-}
+	*/
+
