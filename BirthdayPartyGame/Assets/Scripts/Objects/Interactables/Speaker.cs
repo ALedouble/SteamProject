@@ -9,6 +9,12 @@ public class Speaker : Interactable {
 	public AudioClip firstMusic;
 	public AudioClip secondMusic;
     public AudioClip levelMusic;
+    public AnimationCurve comingBackMusicCurve;
+    public float secondMusicVolume;
+    public float firstMusicVolumeBeforeDeath;
+    public float firstMusicVolumeAfterDeath;
+    public float timeforMusicToComeBack;
+    float musicVolumeAscending;
     [Space]
     public GameObject explosionParticlePrefab;
     public GameObject smokeParticlePrefab;
@@ -19,9 +25,11 @@ public class Speaker : Interactable {
     protected override void Start()
     {
 		base.Start();
-        levelAudioSource.clip = levelMusic;
-        levelAudioSource.volume = 0.5f;
+        levelAudioSource.clip = firstMusic;
+        levelAudioSource.volume = firstMusicVolumeBeforeDeath;
         levelAudioSource.Play();
+        activated = true;
+        myAnim.SetTrigger("PopTrigger");
     }
 
     public override void Activate()
@@ -31,7 +39,7 @@ public class Speaker : Interactable {
 		{
             levelAudioSource.Stop();
             levelAudioSource.clip = firstMusic;
-            levelAudioSource.volume = .8f;
+            levelAudioSource.volume = firstMusicVolumeBeforeDeath;
             levelAudioSource.Play();
 			activated = true;
             myAnim.SetTrigger("PopTrigger");
@@ -47,6 +55,7 @@ public class Speaker : Interactable {
 		base.Deactivate();
         levelAudioSource.Stop();
         levelAudioSource.clip = secondMusic;
+        levelAudioSource.volume = secondMusicVolume;
         levelAudioSource.Play();
         activated = false;
         myAnim.SetTrigger("HardTrigger");
@@ -61,9 +70,23 @@ public class Speaker : Interactable {
         levelAudioSource.Stop();
         levelAudioSource.clip = levelMusic;
         levelAudioSource.Play();
+        levelAudioSource.volume = 0;
+        StopCoroutine(MusicComingBack());
+        StartCoroutine(MusicComingBack());
         myAnim.SetTrigger("NoMusicTrigger");
-        print("noMusic");
 
+    }
+
+    IEnumerator MusicComingBack()
+    {
+        print(musicVolumeAscending);
+        musicVolumeAscending += Time.deltaTime / timeforMusicToComeBack;
+        levelAudioSource.volume = comingBackMusicCurve.Evaluate(musicVolumeAscending);
+        yield return new WaitForSeconds(Time.deltaTime);
+        if (musicVolumeAscending < firstMusicVolumeAfterDeath)
+        {
+            StartCoroutine(MusicComingBack());
+        }
     }
 
 }

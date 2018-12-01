@@ -29,4 +29,14 @@ public class PlayerMoveAnimationEvents : MonoBehaviour {
 	{
 		player.grabbedObject.Deactivate();
 	}
+
+    public void ActivateBatTrail()
+    {
+        player.grabbedObject.transform.GetChild(1).GetComponent<TrailRenderer>().enabled = true;
+    }
+
+    public void DeactivateBatTrail()
+    {
+        player.grabbedObject.transform.GetChild(1).GetComponent<TrailRenderer>().enabled = false;
+    }
 }
