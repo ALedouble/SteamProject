@@ -10,7 +10,6 @@ public class SpeakersAnimationEvents : MonoBehaviour {
 
     public void SpawnPopParticlePrefab()
     {
-        print("hey");
         Destroy(Instantiate(popParticlePrefab, particleSpawnPos.position, particleSpawnPos.rotation*Quaternion.Euler(90, 0, 0), particleSpawnPos), 2f);
     }
 
