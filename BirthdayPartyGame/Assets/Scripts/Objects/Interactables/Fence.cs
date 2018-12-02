@@ -5,8 +5,6 @@ using UnityEngine;
 public class Fence : Interactable {
 
     public GameObject woodPiecesParticlesPrefab;
-    public AudioSource myAudioSource;
-    public AudioClip explosionWood;
 
     public override void Die()
     {
