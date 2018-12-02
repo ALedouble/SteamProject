@@ -21,6 +21,13 @@ public class ChildAI : MonoBehaviour {
 
 	public Bat swingBat;
 
+    [Space]
+    [Header("Ref for the hit event")]
+    public Transform spawnPointForSurpriseParticles;
+    public GameObject surpriseParticlesPrefab;
+    public AudioSource myAudioSource;
+    public AudioClip hitAudioClip;
+
 
 	
 
@@ -60,8 +67,15 @@ public class ChildAI : MonoBehaviour {
 
 		if (other.gameObject.tag == "Interactable") {
 			Interactable _object = other.gameObject.GetComponent<Interactable>();
-			if (_object.canBreak){
-				sad = true;
+			if (_object.canBreak)
+            {
+                sad = true;
+                if (_object.GetComponent<ObjectParameters>().objectName == "Bat")
+                {
+                    GameObject _surprisePartRef = Instantiate(surpriseParticlesPrefab, spawnPointForSurpriseParticles.position, Quaternion.Euler(-90, 0, 0), spawnPointForSurpriseParticles);
+                    Destroy(_surprisePartRef, 2f);
+                    myAudioSource.PlayOneShot(hitAudioClip);
+                }
 			}
 		}
 	}
