@@ -79,7 +79,6 @@ public class Speaker : Interactable {
 
     IEnumerator MusicComingBack()
     {
-        print(musicVolumeAscending);
         musicVolumeAscending += Time.deltaTime / timeforMusicToComeBack;
         levelAudioSource.volume = comingBackMusicCurve.Evaluate(musicVolumeAscending);
         yield return new WaitForSeconds(Time.deltaTime);

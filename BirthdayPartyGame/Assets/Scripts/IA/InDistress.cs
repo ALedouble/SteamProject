@@ -4,14 +4,22 @@ using UnityEngine;
 
 public class InDistress : NPCBaseFSM {
 
+    float cdBeforeNotInDistress;
+
 	 // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
 	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
 		base.OnStateEnter(animator, stateInfo, layerIndex);
+        cdBeforeNotInDistress = 5f;
 	}
 
 	// OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
 	override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
 		agent.speed = 0;
+        cdBeforeNotInDistress -= Time.deltaTime;
+        if (cdBeforeNotInDistress < 0)
+        {
+            animator.SetBool("sad", false);
+        }
 	}
 
 	// OnStateExit is called when a transition ends and the state machine finishes evaluating this state
