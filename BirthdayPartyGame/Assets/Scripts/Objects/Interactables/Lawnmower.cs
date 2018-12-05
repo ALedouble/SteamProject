@@ -56,10 +56,6 @@ public class Lawnmower : Interactable {
 
     private void OnCollisionEnter(Collision collision)
 	{
-		//if (activated && collision.rigidbody != null && !collision.rigidbody.isKinematic)
-		//{
-		//	StartCoroutine(WaitToDeactivate());
-		//}
 		if (activated)
 		{
 			if (collision.collider.tag == "Player")
@@ -88,7 +84,7 @@ public class Lawnmower : Interactable {
 
 	IEnumerator WaitToDeactivate()
 	{
-		yield return new WaitForSeconds(.1f);
+		yield return new WaitForSeconds(.5f);
 		Deactivate();
 	}
 

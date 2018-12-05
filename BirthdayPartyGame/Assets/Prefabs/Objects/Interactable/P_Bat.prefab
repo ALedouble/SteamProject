@@ -98,8 +98,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1655780164451330}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.51, y: 0.13899994, z: -4.13}
-  m_LocalScale: {x: 0.8, y: 0.7999999, z: 0.7999999}
+  m_LocalPosition: {x: -12, y: 0.39999986, z: 10}
+  m_LocalScale: {x: 0.8, y: 0.79999983, z: 0.79999983}
   m_Children:
   - {fileID: 4303163682092268}
   - {fileID: 4067496479866768}
@@ -331,7 +331,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: Bat
   blunt: 1
-  breakable: 0
+  breakable: 1
   destructible: 0
   pickUp: 1
   electronic: 0
@@ -365,5 +365,6 @@ MonoBehaviour:
   electricityParticleSystem: {fileID: 1068989696536054, guid: d79bec28e35144646b97714ef6609a6e,
     type: 2}
   swingDuration: 1
+  swingGrowFactor: 2
   myAudioSource: {fileID: 0}
   batteSwingClip: {fileID: 0}

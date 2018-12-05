@@ -325,7 +325,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4533311853963844}
-  - component: {fileID: 114401869916738222}
+  - component: {fileID: 114282275152919748}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -1584,6 +1584,24 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114282275152919748
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1504021723354958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b17bfdfb46690849ac901a7203dea43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelTimer: 60
+  firstTimerText: {fileID: 114593257470947756}
+  secondTimerText: {fileID: 114403863289555620}
+  thirdTimerText: {fileID: 114195918364729832}
+  fourthTimerText: {fileID: 114348435671572172}
+  uiWin: {fileID: 1150514422180652}
+  uiLose: {fileID: 1846584641207122}
 --- !u!114 &114345606305003280
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1727,28 +1745,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114401869916738222
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1504021723354958}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3aa845dd53244364b8c4fee928db1a8f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelTimer: 60
-  firstTimerText: {fileID: 114593257470947756}
-  secondTimerText: {fileID: 114403863289555620}
-  thirdTimerText: {fileID: 114195918364729832}
-  fourthTimerText: {fileID: 114348435671572172}
-  uiWin: {fileID: 1150514422180652}
-  uiLose: {fileID: 1846584641207122}
-  toBurnBanners:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!114 &114403863289555620
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1880,7 +1876,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114401869916738222}
+      - m_Target: {fileID: 0}
         m_MethodName: NextLevel
         m_Mode: 1
         m_Arguments:
@@ -1959,7 +1955,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114401869916738222}
+      - m_Target: {fileID: 0}
         m_MethodName: Restart
         m_Mode: 1
         m_Arguments:
@@ -2094,7 +2090,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114401869916738222}
+      - m_Target: {fileID: 0}
         m_MethodName: Restart
         m_Mode: 1
         m_Arguments:
@@ -2248,7 +2244,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114401869916738222}
+      - m_Target: {fileID: 0}
         m_MethodName: Menu
         m_Mode: 1
         m_Arguments:
@@ -2422,7 +2418,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114401869916738222}
+      - m_Target: {fileID: 0}
         m_MethodName: Menu
         m_Mode: 1
         m_Arguments:
