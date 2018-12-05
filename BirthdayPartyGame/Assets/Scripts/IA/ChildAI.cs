@@ -15,13 +15,11 @@ public class ChildAI : MonoBehaviour {
 	Animator anim;
 
 	public Animator anim2;
-
-
+	public float cooldown = 2f;
 	bool sad = false;
 	bool amused = false;
 	public GameObject tears;
 
-	public Bat swingBat;
 
     [Space]
     [Header("Ref for the hit event")]
