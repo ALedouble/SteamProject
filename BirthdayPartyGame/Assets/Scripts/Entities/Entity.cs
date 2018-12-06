@@ -48,19 +48,10 @@ public class Entity : InteractableComponent {
 	void CheckSpread()
 	{
 		if (!this.enabled) return;
-		print("Start spread check");
-		//if (!this.enabled)
-		//{
-		//	StopAllCoroutines();
-		//	yield return null;
-		//}
-		print("Verify can spread");
 		if (canSpread)
 		{
-			print("Initialize");
 			canSpreadObjects.Clear();
 			Vector3 pos;
-			print("About to get node/position");
 			if (main.parameters.node != null)
 			{
 				pos = main.parameters.node.position;
@@ -69,17 +60,10 @@ public class Entity : InteractableComponent {
 			{
 				pos = transform.position;
 			}
-			print("About to get Colliders");
 			Collider[] colliders = Physics.OverlapSphere(pos, radius);
-			print("About to Check Objects");
 			if (colliders.Length > 0) CheckObjects(colliders);
-			print("About to Spread Objects");
 			if (canSpreadObjects.Count > 0) Spread();
-			print("Spread completed");
 		}
-		print("About to restart");
-		//yield return new WaitForSeconds(.2f);
-		//StartCoroutine(CheckSpread());
 	}
 
 	protected virtual void CheckObjects(Collider[] _colliders)
