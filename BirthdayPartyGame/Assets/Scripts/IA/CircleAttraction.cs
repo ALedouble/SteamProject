@@ -5,7 +5,7 @@ using UnityEngine;
 public class CircleAttraction : MonoBehaviour {
 
 	public float radius;
-	
+	public GameObject[] allPOI;
 	public int valueCircle;
 
 	public Vector3 DirFromAngle(float angleDegrees){

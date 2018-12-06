@@ -17,7 +17,7 @@ public class ChildAI : MonoBehaviour {
 	public Animator anim2;
 	public float cooldown = 2f;
 	bool sad = false;
-	bool amused = false;
+	public bool amused = false;
 	public GameObject tears;
 
 

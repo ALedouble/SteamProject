@@ -5,7 +5,6 @@ using UnityEngine;
 public class OnTheWayScript : NPCBaseFSM {
 
 	Animator anim;
-	GameObject[] circleNumber;
 	CircleAttraction[] ca;	
 	ChildAI[] child;
 	float IdleTime = 0;
@@ -14,10 +13,13 @@ public class OnTheWayScript : NPCBaseFSM {
 	public float animDistance;
 
 	public float cooldown;
+
+	int maxValue;
+
+	int circleNumber;
 	
 
 	void Awake() {
-		circleNumber = GameObject.FindGameObjectsWithTag("CircleAttraction");
 		ca = FindObjectsOfType(typeof(CircleAttraction)) as CircleAttraction[];
 		child = FindObjectsOfType(typeof(ChildAI)) as ChildAI[];
 	}
@@ -30,61 +32,94 @@ public class OnTheWayScript : NPCBaseFSM {
 
 	// OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
 	override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-		
+	
 		for (int i = 0; i < ca.Length; i++){
-			for (int y = 0; y < child.Length; y++){
-				float dist = Vector3.Distance(agent.transform.position, circleNumber[i].transform.position);
-			
-				if(dist <= ca[i].radius) 
-				{
-					inRadius = true;	
-				}
-				else {
-					inRadius = false;
-				}
 
-				if (inRadius == true){
-					IdleTime += Time.deltaTime;
+			if(ca[i].valueCircle > maxValue){
+				maxValue = ca[i].valueCircle;
+			}
+			
+			/* if(ca[i].valueCircle < maxValue){
+				maxValue = 0;
+			}
+			*/
+			float dist = Vector3.Distance(agent.transform.position, ca[i].transform.position);
+
+			Debug.Log(inRadius);
+
+			if(dist <= ca[i].radius)  
+			{
+				inRadius = true;	
+			}
+			else {
+				inRadius = false;
+			}
+
+			if (inRadius == true){
+				IdleTime += Time.deltaTime;
+				MoveToPOI();
+				agent.speed = 3.5f;
+				circleNumber = i;
+				break;
+			} else {
+				cooldown -= Time.deltaTime;
+				agent.speed = 0;
+
+				if (cooldown <= 0){
 					MoveToPOI();
 					agent.speed = 3.5f;
-				}
-				else {
-					cooldown -= Time.deltaTime;
-					agent.speed = 0;
-
-					if (cooldown <= 0){
-						MoveToPOI();
-						agent.speed = 3.5f;
-					}
+					cooldown = 0;
+					circleNumber = Random.Range(1, 2);
 				}
 
+				
 			}
+			
 		}
 	}
 
 	public void MoveToPOI(){
-		float distanceClosestPoint = Mathf.Infinity;
-		ScriptPOI closestPOI = null;
-		ScriptPOI[] allPOI = GameObject.FindObjectsOfType<ScriptPOI>();
-		foreach (ScriptPOI currentPoint in allPOI)
-		{
-			float distanceToPOI = (currentPoint.transform.position - NPC.transform.position).sqrMagnitude;
-			if (distanceToPOI < distanceClosestPoint)
-			{
-				distanceClosestPoint = distanceToPOI;
-				closestPOI = currentPoint;
-				if(agent.enabled == true)
-				{
-					agent.SetDestination(closestPOI.transform.position);
-				}
-			anim.SetFloat("distance", Vector3.Distance(NPC.transform.position, closestPOI.transform.position));
+		for (int i = 0; i < ca.Length; i++){
+			CircleAttraction[] allPOI = GameObject.FindObjectsOfType<CircleAttraction>();
+			agent.SetDestination(allPOI[circleNumber].transform.position);
 
-			}
+			animDistance = Vector3.Distance(NPC.transform.position, allPOI[circleNumber].transform.position);
+			anim.SetFloat("distance", Vector3.Distance(NPC.transform.position, allPOI[circleNumber].transform.position));
 		}
+		
 
-		animDistance = Vector3.Distance(NPC.transform.position, closestPOI.transform.position);
-		anim.SetFloat("distance", Vector3.Distance(NPC.transform.position, closestPOI.transform.position));
+
+
+
+
+
+
+
+		/*for (int i = 0; i < ca.Length; i++){
+			float distanceClosestPoint = Mathf.Infinity;
+			CircleAttraction closestPOI = null;
+			CircleAttraction[] allPOI = GameObject.FindObjectsOfType<CircleAttraction>();
+			foreach (CircleAttraction currentPoint in allPOI )
+			{
+				float distanceToPOI = (currentPoint.transform.position - NPC.transform.position).sqrMagnitude;
+				if (distanceToPOI < distanceClosestPoint)
+				{
+					distanceClosestPoint = distanceToPOI;
+					closestPOI = currentPoint;
+					if(agent.enabled == true)
+					{
+						agent.SetDestination(closestPOI.transform.position);
+					}
+				anim.SetFloat("distance", Vector3.Distance(NPC.transform.position, closestPOI.transform.position));
+
+				Debug.DrawLine(NPC.transform.position, closestPOI.transform.position);
+				a
+				}
+			}		
+		}
+		*/
 	}
+	 
 }
 		
 		
