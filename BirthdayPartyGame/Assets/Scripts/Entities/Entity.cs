@@ -26,7 +26,7 @@ public class Entity : InteractableComponent {
 	{
 		main = GetComponent<Interactable>();
 		self = transform;
-		StartCoroutine(CheckSpread());
+		//StartCoroutine(CheckSpread());
 	}
 	// Update is called once per frame
 	void Update()
@@ -40,18 +40,27 @@ public class Entity : InteractableComponent {
 		}
 	}
 
-	IEnumerator CheckSpread()
+	private void FixedUpdate()
 	{
-		if (!this.enabled)
-		{
-			StopAllCoroutines();
-			yield return null;
-		}
+		CheckSpread();
+	}
 
+	void CheckSpread()
+	{
+		if (!this.enabled) return;
+		print("Start spread check");
+		//if (!this.enabled)
+		//{
+		//	StopAllCoroutines();
+		//	yield return null;
+		//}
+		print("Verify can spread");
 		if (canSpread)
 		{
+			print("Initialize");
 			canSpreadObjects.Clear();
 			Vector3 pos;
+			print("About to get node/position");
 			if (main.parameters.node != null)
 			{
 				pos = main.parameters.node.position;
@@ -60,13 +69,17 @@ public class Entity : InteractableComponent {
 			{
 				pos = transform.position;
 			}
+			print("About to get Colliders");
 			Collider[] colliders = Physics.OverlapSphere(pos, radius);
+			print("About to Check Objects");
 			if (colliders.Length > 0) CheckObjects(colliders);
+			print("About to Spread Objects");
 			if (canSpreadObjects.Count > 0) Spread();
+			print("Spread completed");
 		}
-
-		yield return new WaitForSeconds(.2f);
-		StartCoroutine(CheckSpread());
+		print("About to restart");
+		//yield return new WaitForSeconds(.2f);
+		//StartCoroutine(CheckSpread());
 	}
 
 	protected virtual void CheckObjects(Collider[] _colliders)

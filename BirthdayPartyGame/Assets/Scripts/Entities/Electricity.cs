@@ -27,6 +27,11 @@ public class Electricity : Entity {
 
 	protected override void Spread()
 	{
+		if (!creatorInRange && !firstGeneration)
+		{
+			main.StopElectrify();
+			return;
+		}
 		for (int i = 0; i < canSpreadObjects.Count; i++)
 		{
 			canSpreadObjects[i].GetElectrified(this);
