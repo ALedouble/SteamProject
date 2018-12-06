@@ -30,7 +30,7 @@ public class Bat : Interactable
 		for (int i = 0; i < colliders.Length; i++)
 		{
 			BoxCollider box = colliders[i] as BoxCollider;
-			box.size *= swingGrowFactor ;
+			box.size = initialScale[i] * swingGrowFactor;
 		}
 		canBreak = true;
 		canActivate = false;

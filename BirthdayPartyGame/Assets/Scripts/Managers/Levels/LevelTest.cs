@@ -10,8 +10,6 @@ public class LevelTest : LevelManager {
 	{
 		base.Update();
 		CheckWin();
-
-		
 	}
 
 	public override void CheckWin()

@@ -126,10 +126,10 @@ public class LevelManager : MonoBehaviour {
 			}
 			levelTimer -= Time.deltaTime;
 		}
-		firstTimerText.text = Mathf.FloorToInt(levelTimer / 10).ToString();
-		secondTimerText.text = Mathf.FloorToInt(levelTimer % 10).ToString();
-		thirdTimerText.text = Mathf.FloorToInt((levelTimer % 1) * 10).ToString();
-		fourthTimerText.text = Mathf.FloorToInt((levelTimer % 0.1f) * 100).ToString();
+		firstTimerText.text = Mathf.Max(Mathf.FloorToInt(levelTimer / 10), 0).ToString();
+		secondTimerText.text = Mathf.Max(Mathf.FloorToInt(levelTimer % 10), 0).ToString();
+		thirdTimerText.text = Mathf.Max(Mathf.FloorToInt((levelTimer % 1) * 10), 0).ToString();
+		fourthTimerText.text = Mathf.Max(Mathf.FloorToInt((levelTimer % 0.1f) * 100), 0).ToString();
 	}
 
 	public virtual void CheckWin() { }
