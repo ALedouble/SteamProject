@@ -7,14 +7,19 @@ public class OnTheWayScript : NPCBaseFSM {
 	Animator anim;
 	GameObject[] circleNumber;
 	CircleAttraction[] ca;	
-	int maxValueCircle = 0;
+	ChildAI[] child;
 	float IdleTime = 0;
+	bool inRadius = false;
 
 	public float animDistance;
 
+	public float cooldown;
+	
+
 	void Awake() {
 		circleNumber = GameObject.FindGameObjectsWithTag("CircleAttraction");
-		ca = FindObjectsOfType(typeof(CircleAttraction)) as CircleAttraction[];		
+		ca = FindObjectsOfType(typeof(CircleAttraction)) as CircleAttraction[];
+		child = FindObjectsOfType(typeof(ChildAI)) as ChildAI[];
 	}
 
 	 // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
@@ -27,14 +32,32 @@ public class OnTheWayScript : NPCBaseFSM {
 	override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
 		
 		for (int i = 0; i < ca.Length; i++){
-
-			float dist = Vector3.Distance(agent.transform.position, circleNumber[i].transform.position);
+			for (int y = 0; y < child.Length; y++){
+				float dist = Vector3.Distance(agent.transform.position, circleNumber[i].transform.position);
 			
-			if(dist <= ca[i].radius) 
-			{
-				IdleTime += Time.deltaTime;
-				MoveToPOI();
-				agent.speed = 3.5f;
+				if(dist <= ca[i].radius) 
+				{
+					inRadius = true;	
+				}
+				else {
+					inRadius = false;
+				}
+
+				if (inRadius == true){
+					IdleTime += Time.deltaTime;
+					MoveToPOI();
+					agent.speed = 3.5f;
+				}
+				else {
+					cooldown -= Time.deltaTime;
+					agent.speed = 0;
+
+					if (cooldown <= 0){
+						MoveToPOI();
+						agent.speed = 3.5f;
+					}
+				}
+
 			}
 		}
 	}
