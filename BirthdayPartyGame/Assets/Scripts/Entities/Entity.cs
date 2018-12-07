@@ -26,7 +26,7 @@ public class Entity : InteractableComponent {
 	{
 		main = GetComponent<Interactable>();
 		self = transform;
-		StartCoroutine(CheckSpread());
+		//StartCoroutine(CheckSpread());
 	}
 	// Update is called once per frame
 	void Update()
@@ -40,14 +40,14 @@ public class Entity : InteractableComponent {
 		}
 	}
 
-	IEnumerator CheckSpread()
+	private void FixedUpdate()
 	{
-		if (!this.enabled)
-		{
-			StopAllCoroutines();
-			yield return null;
-		}
+		CheckSpread();
+	}
 
+	void CheckSpread()
+	{
+		if (!this.enabled) return;
 		if (canSpread)
 		{
 			canSpreadObjects.Clear();
@@ -64,9 +64,6 @@ public class Entity : InteractableComponent {
 			if (colliders.Length > 0) CheckObjects(colliders);
 			if (canSpreadObjects.Count > 0) Spread();
 		}
-
-		yield return new WaitForSeconds(.2f);
-		StartCoroutine(CheckSpread());
 	}
 
 	protected virtual void CheckObjects(Collider[] _colliders)

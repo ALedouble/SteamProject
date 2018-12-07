@@ -160,7 +160,6 @@ public class Interactable : MonoBehaviour {
 
 	public void GetWet()
 	{
-		print("Get wet");
 		if (burning)
 		{
 			StopBurning();
@@ -181,7 +180,6 @@ public class Interactable : MonoBehaviour {
 
 	public void GetElectrified(Electricity _creator)
 	{
-		print("Get electrified: " + name);
 		electrified = true;
 
 		if (electricityScript == null)
@@ -201,7 +199,6 @@ public class Interactable : MonoBehaviour {
 
 	public void StopElectrify()
 	{
-		print("Stop electrify: " + name);
 		electrified = false;
 		electricityScript.enabled = false;
 		myElectricityParticleSystem.Stop(true, ParticleSystemStopBehavior.StopEmitting);

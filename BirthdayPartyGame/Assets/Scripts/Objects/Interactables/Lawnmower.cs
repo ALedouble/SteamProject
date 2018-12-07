@@ -34,15 +34,20 @@ public class Lawnmower : Interactable {
 
 	private void FixedUpdate()
 	{
-		if (activated)
+		if (activated /*&& (Mathf.Abs(body.velocity.y) < 1)*/)
 		{
 			body.mass = 50;
+			//body.velocity = self.forward * maxSpeed;
 			body.AddForce(self.forward * speed, ForceMode.Acceleration);
 			body.velocity = Vector3.ClampMagnitude(body.velocity, maxSpeed);
 			if (Mathf.Abs(body.velocity.y) > 1)
 			{
-				body.AddForce(Vector3.down * gravityAdded, ForceMode.Acceleration);
+				WaitToDeactivate();
 			}
+		}
+		if (Mathf.Abs(body.velocity.y) > 1)
+		{
+			body.AddForce(Vector3.down * gravityAdded, ForceMode.Acceleration);
 		}
 	}
 
