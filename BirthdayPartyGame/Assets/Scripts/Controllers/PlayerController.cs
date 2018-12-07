@@ -328,23 +328,31 @@ public class PlayerController : MonoBehaviour {
 
 	void Grab()
     {
-        Collider[] objectsGrab = Physics.OverlapSphere(self.position + self.forward * checkCircleDistance, checkCircleRadius);
+        //Collider[] objectsGrab = Physics.OverlapSphere(self.position + self.forward * checkCircleDistance, checkCircleRadius);
 		
         if ( grabbedObject == null)
         {
-            if (objectsGrab.Length > 0)
-            {
-                List<Interactable> grabbableObjects = FilteredObjects(objectsGrab, Filter.Grab);
-                if (grabbableObjects.Count > 0)
-                {
-                    grabbedObject = GetNearestInFront(grabbableObjects);
-					grabbedObject.GetGrabbed(holdPoint);
-                    GameObject _grabParticlesRef = Instantiate(grabParticlesPrefab, holdPoint.position, Quaternion.identity, holdPoint);
-                    Destroy(_grabParticlesRef, 1);
-                    myAudioSource.PlayOneShot(grabClip);
-                }
-            }
-        }
+     //       if (objectsGrab.Length > 0)
+     //       {
+     //           List<Interactable> grabbableObjects = FilteredObjects(objectsGrab, Filter.Grab);
+     //           if (grabbableObjects.Count > 0)
+     //           {
+     //               grabbedObject = GetNearestInFront(grabbableObjects);
+					//grabbedObject.GetGrabbed(holdPoint);
+     //               GameObject _grabParticlesRef = Instantiate(grabParticlesPrefab, holdPoint.position, Quaternion.identity, holdPoint);
+     //               Destroy(_grabParticlesRef, 1);
+     //               myAudioSource.PlayOneShot(grabClip);
+     //           }
+     //       }
+			if (canInteract != null && canInteract.GetComponent<Interactable>().parameters.pickUp)
+			{
+				grabbedObject = canInteract;
+				grabbedObject.GetGrabbed(holdPoint);
+				GameObject _grabParticlesRef = Instantiate(grabParticlesPrefab, holdPoint.position, Quaternion.identity, holdPoint);
+				Destroy(_grabParticlesRef, 1);
+				myAudioSource.PlayOneShot(grabClip);
+			}
+		}
         else
         {
 			grabbedObject.GetDropped();
@@ -373,14 +381,18 @@ public class PlayerController : MonoBehaviour {
 		}
 		else
 		{
-			Collider[] objectsActivate = Physics.OverlapSphere(self.position + self.forward * checkCircleDistance, checkCircleRadius);
-			if (objectsActivate.Length > 0)
+			//Collider[] objectsActivate = Physics.OverlapSphere(self.position + self.forward * checkCircleDistance, checkCircleRadius);
+			//if (objectsActivate.Length > 0)
+			//{
+			//	List<Interactable> activableObjects = FilteredObjects(objectsActivate, Filter.Activate);
+			//	if (activableObjects.Count > 0)
+			//	{
+			//		GetNearestInFront(activableObjects).Activate();
+			//	}
+			//}
+			if (canInteract != null && canInteract.GetComponent<Interactable>().parameters.activationType == ActivationType.Proximity)
 			{
-				List<Interactable> activableObjects = FilteredObjects(objectsActivate, Filter.Activate);
-				if (activableObjects.Count > 0)
-				{
-					GetNearestInFront(activableObjects).Activate();
-				}
+				canInteract.Activate();
 			}
 		}
 	}
