@@ -6,16 +6,26 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour {
 
-	public float levelTimer = 60;
+	public float initialTimer = 60;
+	float levelTimer = 60;
 	public Text firstTimerText;
 	public Text secondTimerText;
 	public Text thirdTimerText;
 	public Text fourthTimerText;
+	public Text objectiveText;
 	public GameObject uiWin;
 	public GameObject uiLose;
+	public Animator objectiveAnimator;
 	protected bool gameEnd;
 	int index = 0;
 	bool loose = false;
+	bool hasReminded;
+	bool lastSeconds;
+
+	private void Awake()
+	{
+		levelTimer = initialTimer;
+	}
 
 	void FixedUpdate() {
 		if (gameEnd == true){
@@ -117,14 +127,28 @@ public class LevelManager : MonoBehaviour {
 		}
 		else
 		{
-			if (levelTimer <= 5)
+			if (levelTimer <= initialTimer/2 && !hasReminded)
 			{
-				firstTimerText.color = Color.red;
-				secondTimerText.color = Color.red;
-				thirdTimerText.color = Color.red;
-				fourthTimerText.color = Color.red;
+				hasReminded = true;
+				objectiveAnimator.SetTrigger("Remind");
 			}
-			levelTimer -= Time.deltaTime;
+			if (levelTimer <= 10)
+			{
+				if (!lastSeconds)
+				{
+					objectiveAnimator.SetTrigger("Remind");
+					lastSeconds = true;
+					Time.timeScale = 1.5f;
+					firstTimerText.color = Color.red;
+					secondTimerText.color = Color.red;
+					thirdTimerText.color = Color.red;
+					fourthTimerText.color = Color.red;
+					objectiveText.color = Color.red;
+				}
+			}
+			
+
+			levelTimer -= Time.unscaledDeltaTime;
 		}
 		firstTimerText.text = Mathf.Max(Mathf.FloorToInt(levelTimer / 10), 0).ToString();
 		secondTimerText.text = Mathf.Max(Mathf.FloorToInt(levelTimer % 10), 0).ToString();
@@ -145,6 +169,7 @@ public class LevelManager : MonoBehaviour {
 			gameEnd = true;
 			//Time.timeScale = 0.01f;
 			uiWin.SetActive(true);
+			Time.timeScale = 1;
 		}
 		else
 		{
@@ -158,10 +183,11 @@ public class LevelManager : MonoBehaviour {
 		gameEnd = true;
 		//Time.timeScale = 0.01f;
 		uiLose.SetActive(true);
+		Time.timeScale = 1;
 
-		
 
-		if(Input.GetKeyDown(KeyCode.Return) && index == 1){
+
+		if (Input.GetKeyDown(KeyCode.Return) && index == 1){
 			Menu();
 		}
 
