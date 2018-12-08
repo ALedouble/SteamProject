@@ -115,6 +115,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!1 &1154420297363926
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 224740831564821506}
+  - component: {fileID: 222338185470462694}
+  - component: {fileID: 114228939202672148}
+  - component: {fileID: 95776775709022498}
+  m_Layer: 5
+  m_Name: ObjectiveText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1181968054842460
 GameObject:
   m_ObjectHideFlags: 1
@@ -325,7 +343,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4533311853963844}
-  - component: {fileID: 114282275152919748}
+  - component: {fileID: 114840691857487384}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -1349,6 +1367,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &95776775709022498
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1154420297363926}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c7143bc375cc61943a98d540d87d868e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114000914377857138
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1536,6 +1572,39 @@ MonoBehaviour:
   m_Text: '0
 
 '
+--- !u!114 &114228939202672148
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1154420297363926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 58661e689fbdecd4a973930283ea3597, type: 3}
+    m_FontSize: 50
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 50
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Burn the banners!
 --- !u!114 &114246070620616676
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1584,24 +1653,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114282275152919748
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1504021723354958}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b17bfdfb46690849ac901a7203dea43, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelTimer: 60
-  firstTimerText: {fileID: 114593257470947756}
-  secondTimerText: {fileID: 114403863289555620}
-  thirdTimerText: {fileID: 114195918364729832}
-  fourthTimerText: {fileID: 114348435671572172}
-  uiWin: {fileID: 1150514422180652}
-  uiLose: {fileID: 1846584641207122}
 --- !u!114 &114345606305003280
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2257,6 +2308,30 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114840691857487384
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1504021723354958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3aa845dd53244364b8c4fee928db1a8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialTimer: 60
+  firstTimerText: {fileID: 114593257470947756}
+  secondTimerText: {fileID: 114403863289555620}
+  thirdTimerText: {fileID: 114195918364729832}
+  fourthTimerText: {fileID: 114348435671572172}
+  objectiveText: {fileID: 114228939202672148}
+  uiWin: {fileID: 1150514422180652}
+  uiLose: {fileID: 1846584641207122}
+  objectiveAnimator: {fileID: 95776775709022498}
+  toBurnBanners:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &114867158352854596
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2568,6 +2643,13 @@ CanvasRenderer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1403314768846554}
+  m_CullTransparentMesh: 0
+--- !u!222 &222338185470462694
+CanvasRenderer:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1154420297363926}
   m_CullTransparentMesh: 0
 --- !u!222 &222363101453570682
 CanvasRenderer:
@@ -3035,6 +3117,7 @@ RectTransform:
   - {fileID: 224461467775371390}
   - {fileID: 224620511328217506}
   - {fileID: 224864228075740320}
+  - {fileID: 224740831564821506}
   m_Father: {fileID: 4533311853963844}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3043,6 +3126,24 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!224 &224740831564821506
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1154420297363926}
+  m_LocalRotation: {x: 0, y: 0, z: 0.15384822, w: 0.9880945}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_Children: []
+  m_Father: {fileID: 224698918942444874}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 17.7}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 100, y: -50}
+  m_SizeDelta: {x: 320, y: 120}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224786472011472630
 RectTransform:
   m_ObjectHideFlags: 1
