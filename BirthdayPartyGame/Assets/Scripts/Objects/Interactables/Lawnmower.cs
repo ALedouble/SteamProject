@@ -6,6 +6,7 @@ public class Lawnmower : Interactable {
 
     [Space]
     public AudioSource myAudioSource;
+	public Animator anim;
     [Space]
 	public float speed = 2;
 	public float maxSpeed = 30;
@@ -17,11 +18,21 @@ public class Lawnmower : Interactable {
 
 	public float damageZoneHeight = .3f;
 	public float pushAwayForce = 80;
+	public bool isAnimated;
+	bool hasJumped;
 
 	public override void Activate()
 	{
 		base.Activate();
-		activated = true;
+		if (isAnimated && !hasJumped)
+		{
+			anim.SetTrigger("Jump");
+			hasJumped = true;
+		}
+		else
+		{
+			activated = true;
+		}
 		canBreak = true;
 	}
 
