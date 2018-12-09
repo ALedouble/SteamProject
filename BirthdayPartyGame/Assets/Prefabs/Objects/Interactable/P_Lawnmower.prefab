@@ -197,13 +197,13 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1182011020943386}
   serializedVersion: 2
-  m_Mass: 6
+  m_Mass: 60
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 96
   m_CollisionDetection: 0
 --- !u!65 &65304583858362660
 BoxCollider:
@@ -348,21 +348,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbdf9e34da4afbb4da26489eebad8741, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parameters: {fileID: 114774949195867140}
+  parameters: {fileID: 0}
   body: {fileID: 0}
-  self: {fileID: 4992736532821108}
+  self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 1068989696536054, guid: d585bcc898a67fa43b7b10bc09863fcf,
-    type: 2}
+  fireParticleSystem: {fileID: 0}
   waterParticleSystem: {fileID: 1068989696536054, guid: 9ac20361cadf4a147aca21bd3fb1073c,
     type: 2}
   electricityParticleSystem: {fileID: 1068989696536054, guid: d79bec28e35144646b97714ef6609a6e,
     type: 2}
-  myAudioSource: {fileID: 82749059626262158}
+  myAudioSource: {fileID: 0}
   speed: 25
   maxSpeed: 30
-  gravityAdded: 14
+  gravityAdded: 20
   explosionParticlePrefab: {fileID: 1114352652095662, guid: 51624f50bb059e5469c135b19e9a444b,
     type: 2}
   smokeParticlePrefab: {fileID: 1876152382001860, guid: 2ca705be0a37ed746b1f648c5333af52,
@@ -370,3 +369,4 @@ MonoBehaviour:
   explosionTransform: {fileID: 4470302944553684}
   damageZoneHeight: 0.3
   pushAwayForce: 100
+  isAnimated: 0
