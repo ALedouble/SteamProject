@@ -15,7 +15,7 @@ public class Electricity : Entity {
 		if (!creatorInRange && !firstGeneration) main.StopElectrify();
 	}
 
-	protected override void Interact(Interactable _object)
+	protected override void Interact(Node _object)
 	{
 		if ((_object.parameters.material == ObjectMaterial.Metal || _object.wet) && !_object.electrified /*&& (_object.electricityScript != creator && _object.electricityScript != null)*/)
 			canSpreadObjects.Add(_object);

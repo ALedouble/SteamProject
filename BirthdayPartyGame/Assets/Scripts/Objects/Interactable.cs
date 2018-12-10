@@ -69,15 +69,19 @@ public class Interactable : MonoBehaviour {
 		{
 			components[i].Initialize(this);
 		}
+
+		for (int i = 0; i < parameters.nodes.Length; i++)
+		{
+			parameters.nodes[i].Initialize(this);
+		}
 	}
 
 	public void GetGrabbed(Transform _holdPoint)
 	{
 		self.parent = _holdPoint;
 		self.localPosition = parameters.holdPositionOffset;
-		self.localRotation = /*_holdPoint.rotation + */Quaternion.Euler(parameters.holdRotationOffset);
-
-		//body.isKinematic = true;
+		self.localRotation = Quaternion.Euler(parameters.holdRotationOffset);
+		
 		body.constraints = RigidbodyConstraints.FreezeAll;
 		gameObject.layer = LayerMask.NameToLayer("Held Objects");
 	}
@@ -85,7 +89,6 @@ public class Interactable : MonoBehaviour {
 	public void GetDropped()
 	{
 		self.parent = null;
-		//body.isKinematic = false;
 		body.constraints = RigidbodyConstraints.None;
 		gameObject.layer = LayerMask.NameToLayer("Default");
 
@@ -135,16 +138,25 @@ public class Interactable : MonoBehaviour {
 		if (myFireParticleSystem == null)
 		{
 			Transform particleTransform;
-			if (parameters.node != null)
-				particleTransform = parameters.node;
+			if (parameters.nodes.Length > 0)
+			{
+				for (int i = 0; i < parameters.nodes.Length; i++)
+				{
+					particleTransform = parameters.nodes[i].self;
+					myFireParticleSystem = Instantiate(fireParticleSystem,
+												particleTransform.position,
+												Quaternion.identity, self)
+												.GetComponent<ParticleSystem>();
+				}
+			}
 			else
 			{
 				particleTransform = self;
-			}
-			myFireParticleSystem = Instantiate(fireParticleSystem, 
-												particleTransform.position, 
+				myFireParticleSystem = Instantiate(fireParticleSystem,
+												particleTransform.position,
 												Quaternion.identity, self)
 												.GetComponent<ParticleSystem>();
+			}
 		}
 		else
 			myFireParticleSystem.Play();

@@ -11,7 +11,7 @@ public class ObjectParametersInspector : Editor {
 	Interactable interactable;
 	bool initialized;
 	SerializedProperty objectName, blunt, breakable, destructible, pickUp, electronic, isElectric, isFire, isWater, activationType, material,
-						holdPositionOffset, holdRotationOffset, node;
+						holdPositionOffset, holdRotationOffset, nodes;
 
 	private void OnEnable()
 	{
@@ -31,7 +31,7 @@ public class ObjectParametersInspector : Editor {
 		material = serializedObject.FindProperty("material");
 		holdPositionOffset = serializedObject.FindProperty("holdPositionOffset");
 		holdRotationOffset = serializedObject.FindProperty("holdRotationOffset");
-		node = serializedObject.FindProperty("node");
+		nodes = serializedObject.FindProperty("nodes");
 	}
 
 	public override void OnInspectorGUI()
@@ -55,7 +55,7 @@ public class ObjectParametersInspector : Editor {
 		EditorGUILayout.PropertyField(material);
 		EditorGUILayout.PropertyField(holdPositionOffset);
 		EditorGUILayout.PropertyField(holdRotationOffset);
-		EditorGUILayout.PropertyField(node);
+		EditorGUILayout.PropertyField(nodes);
 
 
 		if (interactable.fireParticleSystem == null ||

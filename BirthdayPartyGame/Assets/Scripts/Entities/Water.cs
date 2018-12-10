@@ -88,7 +88,7 @@ public class Water : Entity {
 	}*/
 	#endregion
 
-	protected override void Interact(Interactable _object)
+	protected override void Interact(Node _object)
 	{
 		if (_object.parameters.material == ObjectMaterial.Paper)
 		{
