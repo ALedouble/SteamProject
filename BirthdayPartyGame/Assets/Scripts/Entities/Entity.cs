@@ -10,7 +10,7 @@ public class Entity : InteractableComponent {
 	protected float maturingTime = 1;
 	float lifeSpan;
 	public bool canSpread;
-	protected List<Interactable> canSpreadObjects = new List<Interactable>();
+	protected List<Node> canSpreadObjects = new List<Node>();
 
 	void Start()
 	{
@@ -51,16 +51,16 @@ public class Entity : InteractableComponent {
 		if (canSpread)
 		{
 			canSpreadObjects.Clear();
-			Vector3 pos;
-			if (main.parameters.node != null)
-			{
-				pos = main.parameters.node.position;
-			}
-			else
-			{
-				pos = transform.position;
-			}
-			Collider[] colliders = Physics.OverlapSphere(pos, radius);
+			//Vector3 pos;
+			//if (main.parameters.nodes.Length > 0)
+			//{
+			//	pos = main.parameters.nodes.position;
+			//}
+			//else
+			//{
+			//	pos = self.position;
+			//}
+			Collider[] colliders = Physics.OverlapSphere(self.position, radius);
 			if (colliders.Length > 0) CheckObjects(colliders);
 			if (canSpreadObjects.Count > 0) Spread();
 		}
@@ -70,14 +70,14 @@ public class Entity : InteractableComponent {
 	{
 		for (int i = 0; i < _colliders.Length; i++)
 		{
-			if (_colliders[i].tag == "Interactable")
+			if (_colliders[i].GetComponent<Node>() != null)
 			{
-				Interact(_colliders[i].GetComponent<Interactable>());
+				Interact(_colliders[i].GetComponent<Node>());
 			}
 		}
 	}
 
-	protected virtual void Interact(Interactable _object) { }
+	protected virtual void Interact(Node _object) { }
 
 	protected virtual void Spread() { }
 

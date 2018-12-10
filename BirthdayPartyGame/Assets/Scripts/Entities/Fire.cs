@@ -10,7 +10,7 @@ public class Fire : Entity {
 		//maturingTime = 1.5f;
 	}
 
-	protected override void Interact(Interactable _object)
+	protected override void Interact(Node _object)
 	{
 		if ((_object.parameters.material == ObjectMaterial.Wood || _object.parameters.material == ObjectMaterial.Paper) &&
 					(!_object.wet && !_object.burning))
