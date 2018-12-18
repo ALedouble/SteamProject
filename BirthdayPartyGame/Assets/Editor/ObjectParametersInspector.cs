@@ -10,7 +10,7 @@ public class ObjectParametersInspector : Editor {
 	ObjectParameters script;
 	Interactable interactable;
 	bool initialized;
-	SerializedProperty objectName, blunt, breakable, destructible, pickUp, electronic, isElectric, isFire, isWater, activationType, material,
+	SerializedProperty objectName, blunt, breakable, destructible, pickUp, isElectric, isFire, isWater, activationType, material,
 						holdPositionOffset, holdRotationOffset, nodes;
 
 	private void OnEnable()
@@ -23,7 +23,6 @@ public class ObjectParametersInspector : Editor {
 		breakable = serializedObject.FindProperty("breakable");
 		destructible = serializedObject.FindProperty("destructible");
 		pickUp = serializedObject.FindProperty("pickUp");
-		electronic = serializedObject.FindProperty("electronic");
 		isElectric = serializedObject.FindProperty("isElectric");
 		isFire = serializedObject.FindProperty("isFire");
 		isWater = serializedObject.FindProperty("isWater");
@@ -47,7 +46,6 @@ public class ObjectParametersInspector : Editor {
 		EditorGUI.indentLevel = 0;
 
 		EditorGUILayout.PropertyField(pickUp);
-		EditorGUILayout.PropertyField(electronic);
 		EditorGUILayout.PropertyField(isElectric);
 		EditorGUILayout.PropertyField(isFire);
 		EditorGUILayout.PropertyField(isWater);
@@ -68,24 +66,24 @@ public class ObjectParametersInspector : Editor {
 		{
 			initialized = false;
 		}
-		if (GUILayout.Button("Initialize Object"))
-		{
-			interactable.fireParticleSystem = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Entities/P_Fire.prefab", typeof(GameObject));
-			interactable.waterParticleSystem = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Entities/P_Water.prefab", typeof(GameObject));
-			interactable.electricityParticleSystem = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Entities/P_Electricity.prefab", typeof(GameObject));
-			interactable.body = interactable.GetComponent<Rigidbody>();
-			interactable.self = interactable.transform;
-			interactable.colliders = interactable.GetComponents<Collider>();
-			interactable.renderers = interactable.GetComponents<Renderer>();
-			Undo.RecordObject(target, "Initialized object");
-			Undo.RecordObject(interactable, "Changed Area Of Effect");
+		//if (GUILayout.Button("Initialize Object"))
+		//{
+		//	interactable.fireParticleSystem = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Entities/P_Fire.prefab", typeof(GameObject));
+		//	interactable.waterParticleSystem = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Entities/P_Water.prefab", typeof(GameObject));
+		//	interactable.electricityParticleSystem = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Entities/P_Electricity.prefab", typeof(GameObject));
+		//	interactable.body = interactable.GetComponent<Rigidbody>();
+		//	interactable.self = interactable.transform;
+		//	interactable.colliders = interactable.GetComponents<Collider>();
+		//	interactable.renderers = interactable.GetComponents<Renderer>();
+		//	Undo.RecordObject(target, "Initialized object");
+		//	Undo.RecordObject(interactable, "Changed Area Of Effect");
 
-			initialized = true;
-		}
-		if (!initialized)
-		{
-			EditorGUILayout.HelpBox("Error: Object not yet initialized!", MessageType.Error);
-		}
+		//	initialized = true;
+		//}
+		//if (!initialized)
+		//{
+		//	EditorGUILayout.HelpBox("Error: Object not yet initialized!", MessageType.Error);
+		//}
 
 		serializedObject.ApplyModifiedProperties();
 		EditorUtility.SetDirty(interactable);
