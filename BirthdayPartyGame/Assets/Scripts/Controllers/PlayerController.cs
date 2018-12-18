@@ -149,11 +149,13 @@ public class PlayerController : MonoBehaviour {
 
     void KeyboardInput()
     {
-        if (Input.GetKeyDown(grabKey))
-        {
+		// if (Input.GetKeyDown(grabKey))
+		if (Input.GetButtonDown("Grab"))
+		{
             Grab();
         }
-		if (Input.GetKeyDown(actionKey))
+		//if (Input.GetKeyDown(actionKey))
+		if (Input.GetButtonDown("Action"))
 		{
 			ActivateObject();
 		}
