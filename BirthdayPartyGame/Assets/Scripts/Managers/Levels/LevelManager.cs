@@ -22,6 +22,8 @@ public class LevelManager : MonoBehaviour {
 	bool hasReminded;
 	bool lastSeconds;
 
+	public Objective[] objectives;
+
 	private void Awake()
 	{
 		levelTimer = initialTimer;
@@ -116,6 +118,16 @@ public class LevelManager : MonoBehaviour {
 			}
 		}
 
+		if (objectives.Length > 0)
+		{
+			for (int i = 0; i < objectives.Length; i++)
+			{
+				if (!objectives[i].validated)
+				{
+					objectives[i].CheckValid();
+				}
+			}
+		}
 		//Debug.Log(index);
 	}
 

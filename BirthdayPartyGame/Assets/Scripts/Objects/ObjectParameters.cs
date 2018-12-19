@@ -25,7 +25,6 @@ public class ObjectParameters : MonoBehaviour {
 	public bool breakable;
 	public bool destructible;
 	public bool pickUp;
-	public bool electronic;
 	public bool isElectric;
 	public bool isFire;
 	public bool isWater;
