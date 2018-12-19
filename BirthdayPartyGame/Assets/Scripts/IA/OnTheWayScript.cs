@@ -41,6 +41,7 @@ public class OnTheWayScript : NPCBaseFSM {
 			float distance = Vector3.Distance(agent.transform.position, ca[i].transform.position); // Check la distance entre l'IA est les cercles d'attractions.
 
 			if (ca[i].repulse == true && distance <= ca[i].radius){
+				cooldown = 0;
 				closestPOI = null;
 				ScriptPOI[] globalPOI = GameObject.FindObjectsOfType<ScriptPOI>();
 
