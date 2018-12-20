@@ -22,7 +22,7 @@ public class LevelManager : MonoBehaviour {
 	bool hasReminded;
 	bool lastSeconds;
 
-	public Objective[] objectives;
+	//public Objective[] objectives;
 
 	private void Awake()
 	{
@@ -118,16 +118,19 @@ public class LevelManager : MonoBehaviour {
 			}
 		}
 
-		if (objectives.Length > 0)
+		if (LevelData.instance.secondaryObjectives.Length > 0)
 		{
-			for (int i = 0; i < objectives.Length; i++)
+			for (int i = 0; i < LevelData.instance.secondaryObjectives.Length; i++)
 			{
-				if (!objectives[i].validated)
+				if (!LevelData.instance.secondaryObjectives[i].validated)
 				{
-					objectives[i].CheckValid();
+					LevelData.instance.secondaryObjectives[i].CheckValid();
 				}
 			}
 		}
+
+		CheckWin();
+
 		//Debug.Log(index);
 	}
 
@@ -168,7 +171,14 @@ public class LevelManager : MonoBehaviour {
 		fourthTimerText.text = Mathf.Max(Mathf.FloorToInt((levelTimer % 0.1f) * 100), 0).ToString();
 	}
 
-	public virtual void CheckWin() { }
+	public virtual void CheckWin()
+	{
+		LevelData.instance.mainObjective.CheckValid();
+		if (LevelData.instance.mainObjective.validated)
+		{
+			Win();
+		}
+	}
 
 	protected virtual IEnumerator Win()
 	{
