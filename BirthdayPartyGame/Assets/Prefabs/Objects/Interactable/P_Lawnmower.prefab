@@ -328,7 +328,6 @@ MonoBehaviour:
   breakable: 1
   destructible: 0
   pickUp: 0
-  electronic: 0
   isElectric: 0
   isFire: 0
   isWater: 0
@@ -336,7 +335,7 @@ MonoBehaviour:
   material: 0
   holdPositionOffset: {x: 0, y: 0, z: 0}
   holdRotationOffset: {x: 0, y: 0, z: 0}
-  node: {fileID: 0}
+  nodes: []
 --- !u!114 &114800491014112116
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -348,17 +347,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbdf9e34da4afbb4da26489eebad8741, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parameters: {fileID: 0}
   body: {fileID: 0}
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  waterParticleSystem: {fileID: 1068989696536054, guid: 9ac20361cadf4a147aca21bd3fb1073c,
-    type: 2}
-  electricityParticleSystem: {fileID: 1068989696536054, guid: d79bec28e35144646b97714ef6609a6e,
-    type: 2}
   myAudioSource: {fileID: 0}
+  anim: {fileID: 0}
   speed: 25
   maxSpeed: 30
   gravityAdded: 20
