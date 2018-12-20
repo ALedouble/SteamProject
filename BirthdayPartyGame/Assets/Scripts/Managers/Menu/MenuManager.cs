@@ -79,9 +79,12 @@ public class MenuManager : MonoBehaviour {
 			}
 		
 		 	if (Input.GetKeyDown(KeyCode.Return) && choose == 0){
-                //StartCoroutine(LoadScene());
-				 SceneManager.LoadScene("VSD", LoadSceneMode.Single);
-			 }
+			//StartCoroutine(LoadScene());
+
+			//SceneManager.UnloadSceneAsync("Menu");
+			//SceneManager.LoadScene("LevelNecessities", LoadSceneMode.Single);
+			SceneManager.LoadScene("VSD", LoadSceneMode.Single);
+		}
 	}
 
 
