@@ -343,7 +343,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4533311853963844}
-  - component: {fileID: 114840691857487384}
+  - component: {fileID: 114788261115521802}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -2170,6 +2170,26 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   priority: 0
+--- !u!114 &114788261115521802
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1504021723354958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b17bfdfb46690849ac901a7203dea43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialTimer: 60
+  firstTimerText: {fileID: 114593257470947756}
+  secondTimerText: {fileID: 114403863289555620}
+  thirdTimerText: {fileID: 114195918364729832}
+  fourthTimerText: {fileID: 114348435671572172}
+  objectiveText: {fileID: 114228939202672148}
+  uiWin: {fileID: 1150514422180652}
+  uiLose: {fileID: 1846584641207122}
+  objectiveAnimator: {fileID: 95776775709022498}
 --- !u!114 &114788935792490116
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2308,30 +2328,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &114840691857487384
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1504021723354958}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3aa845dd53244364b8c4fee928db1a8f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  initialTimer: 60
-  firstTimerText: {fileID: 114593257470947756}
-  secondTimerText: {fileID: 114403863289555620}
-  thirdTimerText: {fileID: 114195918364729832}
-  fourthTimerText: {fileID: 114348435671572172}
-  objectiveText: {fileID: 114228939202672148}
-  uiWin: {fileID: 1150514422180652}
-  uiLose: {fileID: 1846584641207122}
-  objectiveAnimator: {fileID: 95776775709022498}
-  toBurnBanners:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!114 &114867158352854596
 MonoBehaviour:
   m_ObjectHideFlags: 1
