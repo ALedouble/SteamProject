@@ -6,13 +6,6 @@ public class Ball : Interactable {
 
 	public float shootForce = 5;
 
-
-
-
-	void Start() {
-		
-	}
-
 	private void OnCollisionEnter(Collision collision)
 	{
 		if (collision.collider.tag == "Player")

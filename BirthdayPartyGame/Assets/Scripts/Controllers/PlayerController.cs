@@ -303,6 +303,7 @@ public class PlayerController : MonoBehaviour {
 		}
 		else
 		{
+			//print("Object: " + canInteract + " has parameters: " + canInteract.parameters);
 			if (canInteract.parameters.pickUp)
 			{
 				actionUI.SetActive(true);
