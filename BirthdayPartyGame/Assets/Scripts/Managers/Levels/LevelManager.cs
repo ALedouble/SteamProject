@@ -142,7 +142,7 @@ public class LevelManager : MonoBehaviour {
 		}
 		else
 		{
-			if (levelTimer <= initialTimer/2 && !hasReminded)
+			if (levelTimer <= LevelData.instance.levelTimer/2 && !hasReminded)
 			{
 				hasReminded = true;
 				objectiveAnimator.SetTrigger("Remind");
