@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LevelTest : LevelManager {
 
-	public Interactable[] toBurnBanners;
+	public Interactable[] toDestroy;
 
 	protected override void Update()
 	{
@@ -14,9 +14,9 @@ public class LevelTest : LevelManager {
 
 	public override void CheckWin()
 	{
-		for (int i = 0; i < toBurnBanners.Length; i++)
+		for (int i = 0; i < toDestroy.Length; i++)
 		{
-			if (toBurnBanners[i] != null && toBurnBanners[i].enabled)
+			if (toDestroy[i] != null && toDestroy[i].enabled)
 			{
 				return;
 			}

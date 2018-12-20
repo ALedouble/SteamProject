@@ -4,8 +4,8 @@ using UnityEngine;
 
 [RequireComponent(typeof(ObjectParameters))]
 public class Interactable : MonoBehaviour {
-	
-	public ObjectParameters parameters;
+
+	[System.NonSerialized] public ObjectParameters parameters;
 	List<InteractableComponent> components = new List<InteractableComponent>();
 
 	[HideInInspector] public Rigidbody body;
@@ -15,17 +15,17 @@ public class Interactable : MonoBehaviour {
 
 	[Space]
 	protected Fire fireScript;
-	public GameObject fireParticleSystem;
+	[System.NonSerialized] public GameObject fireParticleSystem;
 	protected ParticleSystem myFireParticleSystem;
 
 	[Space]
 	protected Water waterScript;
-	public GameObject waterParticleSystem;
+	[System.NonSerialized] public GameObject waterParticleSystem;
 	protected ParticleSystem myWaterParticleSystem;
 
 	[Space]
 	[System.NonSerialized] public Electricity electricityScript;
-	public GameObject electricityParticleSystem;
+	[System.NonSerialized] public GameObject electricityParticleSystem;
 	protected ParticleSystem myElectricityParticleSystem;
 
 	[System.NonSerialized]
@@ -35,7 +35,7 @@ public class Interactable : MonoBehaviour {
 
 	[System.NonSerialized]
 	public bool electrified, burning, wet;
-
+	
 
 	protected virtual void Start()
 	{
@@ -55,7 +55,6 @@ public class Interactable : MonoBehaviour {
 		electricityParticleSystem = Constants.constants.electricityParticle;
 
 		if (parameters.breakable) components.Add(gameObject.AddComponent<Breakable>());
-		if (parameters.electronic) components.Add(gameObject.AddComponent<Electronic>());
 		if (parameters.isFire) Burn();
 
 		switch (parameters.material)

@@ -25,6 +25,7 @@ public class Speaker : Interactable {
     protected override void Start()
     {
 		base.Start();
+		levelAudioSource = GameObject.Find("LevelAudioSource").GetComponent<AudioSource>();
         levelAudioSource.clip = firstMusic;
         levelAudioSource.volume = firstMusicVolumeBeforeDeath;
         levelAudioSource.Play();

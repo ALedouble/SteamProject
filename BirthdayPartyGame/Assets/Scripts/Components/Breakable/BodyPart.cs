@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class BodyPart : MonoBehaviour {
 
-	public Rigidbody rb;
-	public Collider col;
+	[System.NonSerialized] public Rigidbody rb;
+	[System.NonSerialized] public Collider col;
 	float breakThrowForce = 1;
 
 	// Use this for initialization
