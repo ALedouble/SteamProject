@@ -14,6 +14,7 @@ public class StreamerChild : MonoBehaviour {
 	List<SpringJoint> joints = new List<SpringJoint>();
 
 	int jointsNb = -1;
+	[System.NonSerialized] public bool animated;
 
 	private void Start()
 	{
@@ -57,21 +58,35 @@ public class StreamerChild : MonoBehaviour {
 	private void Update()
 	{
 		pos = new Vector3(self.position.x, self.position.y + /*self.localScale.y/2*/offset.y, self.position.z);
-		if (!isPost)
+		if (animated)
 		{
-			for (int i = 0; i < joints.Count; i++)
+			if (!body.isKinematic && !isPost)
 			{
-				if (joints[i] != null)
+				body.isKinematic = true;
+				for (int i = 0; i < line.positionCount; i++)
 				{
-					line.SetPosition(2 * i, joints[i].connectedBody.GetComponent<StreamerChild>().pos);
-					line.SetPosition(2 * i + 1, pos);
+					line.SetPosition(i, new Vector3(100, 100, 100));
 				}
-				//if (joints[i].connectedBody.isKinematic )
-				//{
-				//	print("Broken connected body");
-				//	joints[i].breakForce = 0;
-				//	body.AddForce(Vector3.one, ForceMode.VelocityChange);
-				//}
+			}
+			
+		}
+		else
+		{
+			if (body.isKinematic && !isPost)
+			{
+				body.isKinematic = false;
+			}
+			
+			if (!isPost)
+			{
+				for (int i = 0; i < joints.Count; i++)
+				{
+					if (joints[i] != null)
+					{
+						line.SetPosition(2 * i, joints[i].connectedBody.GetComponent<StreamerChild>().pos);
+						line.SetPosition(2 * i + 1, pos);
+					}
+				}
 			}
 		}
 	}

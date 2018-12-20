@@ -21,9 +21,8 @@ public class LevelManager : MonoBehaviour {
 	bool hasReminded;
 	bool lastSeconds;
 
-	//public Objective[] objectives;
-
-	private void Awake()
+	
+	private void Start()
 	{
 		levelTimer = LevelData.instance.levelTimer;
 		objectiveText.text = LevelData.instance.objectiveDescription;

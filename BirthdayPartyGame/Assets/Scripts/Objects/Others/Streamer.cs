@@ -4,15 +4,27 @@ using UnityEngine;
 
 public class Streamer : MonoBehaviour {
 
-	StreamerChild[] children;
+	public StreamerChild[] children;
+	public LineRenderer line;
 
 	private void Start()
 	{
-		Transform firstChild = transform.GetChild(0);
-		children = new StreamerChild[firstChild.childCount];
+		//Transform firstChild = transform.GetChild(0);
+		//children = new StreamerChild[firstChild.childCount];
 		for (int i = 0; i < children.Length; i++)
 		{
-			children[i] = firstChild.GetChild(i).GetComponent<StreamerChild>();
+			//children[i] = firstChild.GetChild(i).GetComponent<StreamerChild>();
+			children[i].animated = true;
+		}
+		line.positionCount = children.Length;
+	}
+
+	private void Update()
+	{
+
+		for (int i = 0; i < children.Length; i++)
+		{
+			line.SetPosition(i, children[i].pos);
 		}
 	}
 
@@ -26,6 +38,11 @@ public class Streamer : MonoBehaviour {
 
 	void GetCut()
 	{
-
+		for (int i = 0; i < children.Length; i++)
+		{
+			children[i].animated = false;
+		}
+		line.positionCount = 0;
+		Destroy(this);
 	}
 }
