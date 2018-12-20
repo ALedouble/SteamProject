@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BridgeSwitcher : Interactable {
+public class Chest : Interactable {
 
-    public Animator bridgeBarrierAnim;
+    public CircleAttraction myCircleAttraction;
+    public Renderer myRenderer;
 
     protected override void Start()
     {
@@ -16,10 +17,13 @@ public class BridgeSwitcher : Interactable {
         base.Activate();
         if (!activated)
         {
-            bridgeBarrierAnim.SetTrigger("ToggleTrigger");
+            myCircleAttraction.valueCircle = 20;
+            myRenderer.material.color = Color.yellow;
+            activated = true;
         }
         else
         {
+            print("prout");
             Deactivate();
         }
     }
@@ -27,6 +31,8 @@ public class BridgeSwitcher : Interactable {
     public override void Deactivate()
     {
         base.Deactivate();
-        bridgeBarrierAnim.SetTrigger("ToggleTrigger");
+        myCircleAttraction.valueCircle = 0;
+        myRenderer.material.color = Color.white;
+        activated = false;
     }
 }
