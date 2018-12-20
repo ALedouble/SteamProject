@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour {
 
-	public float initialTimer = 60;
 	float levelTimer = 60;
 	public Text firstTimerText;
 	public Text secondTimerText;
@@ -26,7 +25,8 @@ public class LevelManager : MonoBehaviour {
 
 	private void Awake()
 	{
-		levelTimer = initialTimer;
+		levelTimer = LevelData.instance.levelTimer;
+		objectiveText.text = LevelData.instance.objectiveDescription;
 	}
 
 	void FixedUpdate() {

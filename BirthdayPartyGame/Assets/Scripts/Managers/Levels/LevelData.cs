@@ -7,6 +7,8 @@ public class LevelData : MonoBehaviour {
 	public static LevelData instance;
 
 	public string levelName;
+	public float levelTimer = 60;
+	public string objectiveDescription = "Do something!";
 	public Objective mainObjective;
 	public Objective[] secondaryObjectives;
 
