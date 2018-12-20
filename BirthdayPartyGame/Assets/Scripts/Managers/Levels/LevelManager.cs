@@ -173,6 +173,8 @@ public class LevelManager : MonoBehaviour {
 
 	public virtual void CheckWin()
 	{
+		if (LevelData.instance.mainObjective == null) return;
+
 		LevelData.instance.mainObjective.CheckValid();
 		if (LevelData.instance.mainObjective.validated)
 		{

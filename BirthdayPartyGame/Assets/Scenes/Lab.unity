@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028359, g: 0.22571385, b: 0.30692258, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -320,6 +320,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1926250633}
+  - {fileID: 2053415114}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -382,14 +383,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25884e86bad8ccb49b6a01adb5075a27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parameters: {fileID: 0}
   body: {fileID: 0}
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  waterParticleSystem: {fileID: 0}
-  electricityParticleSystem: {fileID: 0}
 --- !u!114 &356680396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -406,7 +403,6 @@ MonoBehaviour:
   breakable: 0
   destructible: 0
   pickUp: 0
-  electronic: 0
   isElectric: 0
   isFire: 0
   isWater: 0
@@ -562,14 +558,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25884e86bad8ccb49b6a01adb5075a27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parameters: {fileID: 0}
   body: {fileID: 0}
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  waterParticleSystem: {fileID: 0}
-  electricityParticleSystem: {fileID: 0}
 --- !u!114 &404458383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -586,7 +578,6 @@ MonoBehaviour:
   breakable: 0
   destructible: 0
   pickUp: 0
-  electronic: 0
   isElectric: 0
   isFire: 0
   isWater: 0
@@ -776,14 +767,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25884e86bad8ccb49b6a01adb5075a27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parameters: {fileID: 0}
   body: {fileID: 0}
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  waterParticleSystem: {fileID: 0}
-  electricityParticleSystem: {fileID: 0}
 --- !u!114 &464006727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -800,7 +787,6 @@ MonoBehaviour:
   breakable: 0
   destructible: 0
   pickUp: 0
-  electronic: 0
   isElectric: 0
   isFire: 0
   isWater: 0
@@ -964,14 +950,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25884e86bad8ccb49b6a01adb5075a27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parameters: {fileID: 0}
   body: {fileID: 0}
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  waterParticleSystem: {fileID: 0}
-  electricityParticleSystem: {fileID: 0}
 --- !u!114 &610852095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -988,7 +970,6 @@ MonoBehaviour:
   breakable: 0
   destructible: 0
   pickUp: 0
-  electronic: 0
   isElectric: 0
   isFire: 0
   isWater: 0
@@ -1051,14 +1032,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25884e86bad8ccb49b6a01adb5075a27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parameters: {fileID: 0}
   body: {fileID: 0}
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  waterParticleSystem: {fileID: 0}
-  electricityParticleSystem: {fileID: 0}
 --- !u!114 &624774746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1075,7 +1052,6 @@ MonoBehaviour:
   breakable: 0
   destructible: 0
   pickUp: 0
-  electronic: 0
   isElectric: 0
   isFire: 0
   isWater: 0
@@ -1143,14 +1119,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25884e86bad8ccb49b6a01adb5075a27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parameters: {fileID: 0}
   body: {fileID: 0}
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  waterParticleSystem: {fileID: 0}
-  electricityParticleSystem: {fileID: 0}
 --- !u!114 &733076914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1167,7 +1139,6 @@ MonoBehaviour:
   breakable: 0
   destructible: 0
   pickUp: 0
-  electronic: 0
   isElectric: 0
   isFire: 0
   isWater: 0
@@ -1230,14 +1201,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25884e86bad8ccb49b6a01adb5075a27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parameters: {fileID: 0}
   body: {fileID: 0}
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  waterParticleSystem: {fileID: 0}
-  electricityParticleSystem: {fileID: 0}
 --- !u!114 &747140837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1254,7 +1221,6 @@ MonoBehaviour:
   breakable: 0
   destructible: 0
   pickUp: 0
-  electronic: 0
   isElectric: 0
   isFire: 0
   isWater: 0
@@ -1359,14 +1325,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25884e86bad8ccb49b6a01adb5075a27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parameters: {fileID: 0}
   body: {fileID: 0}
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  waterParticleSystem: {fileID: 0}
-  electricityParticleSystem: {fileID: 0}
 --- !u!114 &812001579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1383,7 +1345,6 @@ MonoBehaviour:
   breakable: 0
   destructible: 0
   pickUp: 0
-  electronic: 0
   isElectric: 0
   isFire: 0
   isWater: 0
@@ -1408,14 +1369,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7e5f8f3c76606e41864a6caacfe094b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parameters: {fileID: 0}
   body: {fileID: 0}
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  waterParticleSystem: {fileID: 0}
-  electricityParticleSystem: {fileID: 0}
 --- !u!114 &829554990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1432,7 +1389,6 @@ MonoBehaviour:
   breakable: 0
   destructible: 0
   pickUp: 0
-  electronic: 0
   isElectric: 0
   isFire: 0
   isWater: 0
@@ -1643,14 +1599,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25884e86bad8ccb49b6a01adb5075a27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parameters: {fileID: 0}
   body: {fileID: 0}
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  waterParticleSystem: {fileID: 0}
-  electricityParticleSystem: {fileID: 0}
 --- !u!114 &1092769936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1667,7 +1619,6 @@ MonoBehaviour:
   breakable: 0
   destructible: 0
   pickUp: 0
-  electronic: 0
   isElectric: 0
   isFire: 0
   isWater: 0
@@ -1817,6 +1768,53 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf588260d5e2ef04493939d615f7521f, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1001 &1195913137
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 304626196}
+    m_Modifications:
+    - target: {fileID: 114402446455790048, guid: 9fb5844b6b3c82d46865dda0737b972b,
+        type: 2}
+      propertyPath: mainObjective.relatedObjects.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498872837371968, guid: 9fb5844b6b3c82d46865dda0737b972b, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498872837371968, guid: 9fb5844b6b3c82d46865dda0737b972b, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498872837371968, guid: 9fb5844b6b3c82d46865dda0737b972b, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498872837371968, guid: 9fb5844b6b3c82d46865dda0737b972b, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498872837371968, guid: 9fb5844b6b3c82d46865dda0737b972b, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498872837371968, guid: 9fb5844b6b3c82d46865dda0737b972b, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498872837371968, guid: 9fb5844b6b3c82d46865dda0737b972b, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498872837371968, guid: 9fb5844b6b3c82d46865dda0737b972b, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9fb5844b6b3c82d46865dda0737b972b, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &1199590431
 GameObject:
   m_ObjectHideFlags: 0
@@ -1871,14 +1869,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25884e86bad8ccb49b6a01adb5075a27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parameters: {fileID: 0}
   body: {fileID: 0}
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  waterParticleSystem: {fileID: 0}
-  electricityParticleSystem: {fileID: 0}
 --- !u!114 &1199590435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1895,7 +1889,6 @@ MonoBehaviour:
   breakable: 0
   destructible: 0
   pickUp: 0
-  electronic: 0
   isElectric: 0
   isFire: 0
   isWater: 0
@@ -1958,14 +1951,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25884e86bad8ccb49b6a01adb5075a27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parameters: {fileID: 0}
   body: {fileID: 0}
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  waterParticleSystem: {fileID: 0}
-  electricityParticleSystem: {fileID: 0}
 --- !u!114 &1215033447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1982,7 +1971,6 @@ MonoBehaviour:
   breakable: 0
   destructible: 0
   pickUp: 0
-  electronic: 0
   isElectric: 0
   isFire: 0
   isWater: 0
@@ -2140,14 +2128,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25884e86bad8ccb49b6a01adb5075a27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parameters: {fileID: 0}
   body: {fileID: 0}
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  waterParticleSystem: {fileID: 0}
-  electricityParticleSystem: {fileID: 0}
 --- !u!114 &1270389229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2164,7 +2148,6 @@ MonoBehaviour:
   breakable: 0
   destructible: 0
   pickUp: 0
-  electronic: 0
   isElectric: 0
   isFire: 0
   isWater: 0
@@ -2539,14 +2522,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25884e86bad8ccb49b6a01adb5075a27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parameters: {fileID: 0}
   body: {fileID: 0}
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  waterParticleSystem: {fileID: 0}
-  electricityParticleSystem: {fileID: 0}
 --- !u!114 &1644032809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2563,7 +2542,6 @@ MonoBehaviour:
   breakable: 0
   destructible: 0
   pickUp: 0
-  electronic: 0
   isElectric: 0
   isFire: 0
   isWater: 0
@@ -2626,14 +2604,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25884e86bad8ccb49b6a01adb5075a27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parameters: {fileID: 0}
   body: {fileID: 0}
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  waterParticleSystem: {fileID: 0}
-  electricityParticleSystem: {fileID: 0}
 --- !u!114 &1683727624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2650,7 +2624,6 @@ MonoBehaviour:
   breakable: 0
   destructible: 0
   pickUp: 0
-  electronic: 0
   isElectric: 0
   isFire: 0
   isWater: 0
@@ -2781,14 +2754,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25884e86bad8ccb49b6a01adb5075a27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parameters: {fileID: 0}
   body: {fileID: 0}
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  waterParticleSystem: {fileID: 0}
-  electricityParticleSystem: {fileID: 0}
 --- !u!114 &1785071305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2805,7 +2774,6 @@ MonoBehaviour:
   breakable: 0
   destructible: 0
   pickUp: 0
-  electronic: 0
   isElectric: 0
   isFire: 0
   isWater: 0
@@ -2920,14 +2888,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25884e86bad8ccb49b6a01adb5075a27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parameters: {fileID: 0}
   body: {fileID: 0}
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  waterParticleSystem: {fileID: 0}
-  electricityParticleSystem: {fileID: 0}
 --- !u!114 &1911606312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2944,7 +2908,6 @@ MonoBehaviour:
   breakable: 0
   destructible: 0
   pickUp: 0
-  electronic: 0
   isElectric: 0
   isFire: 0
   isWater: 0
@@ -3145,14 +3108,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25884e86bad8ccb49b6a01adb5075a27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parameters: {fileID: 0}
   body: {fileID: 0}
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  waterParticleSystem: {fileID: 0}
-  electricityParticleSystem: {fileID: 0}
 --- !u!114 &1961208695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3169,7 +3128,6 @@ MonoBehaviour:
   breakable: 0
   destructible: 0
   pickUp: 0
-  electronic: 0
   isElectric: 0
   isFire: 0
   isWater: 0
@@ -3220,6 +3178,11 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aad803980e3fff54e86d204f0fa69426, type: 2}
   m_IsPrefabAsset: 0
+--- !u!4 &2053415114 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4498872837371968, guid: 9fb5844b6b3c82d46865dda0737b972b,
+    type: 2}
+  m_PrefabInternal: {fileID: 1195913137}
 --- !u!4 &2080042243 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4834080667856096, guid: 792b959d4b4efc944acf9ac40a75c65a,
@@ -3279,14 +3242,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25884e86bad8ccb49b6a01adb5075a27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parameters: {fileID: 0}
   body: {fileID: 0}
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  waterParticleSystem: {fileID: 0}
-  electricityParticleSystem: {fileID: 0}
 --- !u!114 &2134752712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3303,7 +3262,6 @@ MonoBehaviour:
   breakable: 0
   destructible: 0
   pickUp: 0
-  electronic: 0
   isElectric: 0
   isFire: 0
   isWater: 0
