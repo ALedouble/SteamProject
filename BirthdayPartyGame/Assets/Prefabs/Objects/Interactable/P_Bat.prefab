@@ -395,7 +395,6 @@ MonoBehaviour:
   breakable: 1
   destructible: 0
   pickUp: 1
-  electronic: 0
   isElectric: 0
   isFire: 0
   isWater: 0
@@ -416,14 +415,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25884e86bad8ccb49b6a01adb5075a27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parameters: {fileID: 0}
   body: {fileID: 0}
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  waterParticleSystem: {fileID: 0}
-  electricityParticleSystem: {fileID: 0}
 --- !u!114 &114791834630329278
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -440,7 +435,6 @@ MonoBehaviour:
   breakable: 0
   destructible: 0
   pickUp: 0
-  electronic: 0
   isElectric: 0
   isFire: 0
   isWater: 0
@@ -460,16 +454,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bee7b0a9be0caa4d8ff6f2d833a17bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parameters: {fileID: 114072311391775584}
   body: {fileID: 54009273561382374}
   self: {fileID: 4886443635860970}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  waterParticleSystem: {fileID: 1068989696536054, guid: 9ac20361cadf4a147aca21bd3fb1073c,
-    type: 2}
-  electricityParticleSystem: {fileID: 1068989696536054, guid: d79bec28e35144646b97714ef6609a6e,
-    type: 2}
   swingDuration: 1
   swingGrowFactor: 2
   myAudioSource: {fileID: 0}
