@@ -75,7 +75,6 @@ public class Speaker : Interactable {
         StopCoroutine(MusicComingBack());
         StartCoroutine(MusicComingBack());
         myAnim.SetTrigger("NoMusicTrigger");
-
     }
 
     IEnumerator MusicComingBack()
