@@ -18,6 +18,6 @@ public class Taser : Interactable {
 
 	public override void Deactivate()
 	{
-		StopElectrify();
+		StopElectrified();
 	}
 }
