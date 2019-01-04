@@ -172,17 +172,18 @@ public class LevelManager : MonoBehaviour {
 
 	public virtual void CheckWin()
 	{
-		if (LevelData.instance.mainObjective == null) return;
 
 		LevelData.instance.mainObjective.CheckValid();
 		if (LevelData.instance.mainObjective.validated)
 		{
-			Win();
+			print("Go to win");
+			StartCoroutine(Win());
 		}
 	}
 
 	protected virtual IEnumerator Win()
 	{
+		print(gameEnd);
 		if (!gameEnd)
 		{
 			
@@ -192,6 +193,7 @@ public class LevelManager : MonoBehaviour {
 			gameEnd = true;
 			//Time.timeScale = 0.01f;
 			uiWin.SetActive(true);
+			print("UI activated");
 			Time.timeScale = 1;
 		}
 		else

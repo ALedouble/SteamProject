@@ -12,10 +12,10 @@ public class Electricity : Entity {
 	{
 		creatorInRange = false;
 		base.CheckObjects(_colliders);
-		if (!creatorInRange && !firstGeneration) main.StopElectrify();
+		if (!creatorInRange && !firstGeneration) main.StopElectrified();
 	}
 
-	protected override void Interact(Node _object)
+	protected override void Interact(Interactable _object)
 	{
 		if ((_object.parameters.material == ObjectMaterial.Metal || _object.wet) && !_object.electrified /*&& (_object.electricityScript != creator && _object.electricityScript != null)*/)
 			canSpreadObjects.Add(_object);
@@ -29,7 +29,7 @@ public class Electricity : Entity {
 	{
 		if (!creatorInRange && !firstGeneration)
 		{
-			main.StopElectrify();
+			main.StopElectrified();
 			return;
 		}
 		for (int i = 0; i < canSpreadObjects.Count; i++)

@@ -11,7 +11,7 @@ public class ObjectParametersInspector : Editor {
 	Interactable interactable;
 	bool initialized;
 	SerializedProperty objectName, blunt, breakable, destructible, pickUp, isElectric, isFire, isWater, activationType, material,
-						holdPositionOffset, holdRotationOffset, nodes;
+						holdPositionOffset, holdRotationOffset, nodesChildren, nodes;
 
 	private void OnEnable()
 	{
@@ -30,6 +30,7 @@ public class ObjectParametersInspector : Editor {
 		material = serializedObject.FindProperty("material");
 		holdPositionOffset = serializedObject.FindProperty("holdPositionOffset");
 		holdRotationOffset = serializedObject.FindProperty("holdRotationOffset");
+		nodesChildren = serializedObject.FindProperty("nodesChildren");
 		nodes = serializedObject.FindProperty("nodes");
 	}
 
@@ -53,7 +54,13 @@ public class ObjectParametersInspector : Editor {
 		EditorGUILayout.PropertyField(material);
 		EditorGUILayout.PropertyField(holdPositionOffset);
 		EditorGUILayout.PropertyField(holdRotationOffset);
-		EditorGUILayout.PropertyField(nodes);
+		//EditorGUILayout.PropertyField(nodesChildren);
+		//script.nodes = new Node[nodesChildren.arraySize];
+		//for (int i = 0; i < script.nodes.Length; i++)
+		//{
+		//	script.nodes[i] = script.nodesChildren[i].GetComponent<Node>();
+		//}
+		EditorGUILayout.PropertyField(nodes, true);
 
 
 		if (interactable.fireParticleSystem == null ||

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public enum ObjectiveType
 {
+	None,
 	Destroy,
 	PickUp
 }
@@ -19,6 +20,8 @@ public class Objective {
 	{
 		switch (type)
 		{
+			case ObjectiveType.None:
+				break;
 			case ObjectiveType.Destroy:
 				CheckDestroyed();
 				break;
@@ -43,6 +46,7 @@ public class Objective {
 	void Validate()
 	{
 		validated = true;
+		Debug.Log("Validate");
 	}
 
 }

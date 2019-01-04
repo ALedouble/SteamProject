@@ -125,8 +125,9 @@ public class Interactable : MonoBehaviour {
 
 	#region Entities behavior
 
-	public virtual void Burn()
+	public void Burn()
 	{
+		print("Start burning");
 		burning = true;
 
 		if (fireScript == null)
@@ -164,6 +165,7 @@ public class Interactable : MonoBehaviour {
 
 	public void StopBurning()
 	{
+		print("Stop burning");
 		burning = false;
 		fireScript.enabled = false;
 		myFireParticleSystem.Stop(true, ParticleSystemStopBehavior.StopEmitting);
@@ -208,7 +210,7 @@ public class Interactable : MonoBehaviour {
 			myElectricityParticleSystem.Play();
 	}
 
-	public void StopElectrify()
+	public void StopElectrified()
 	{
 		electrified = false;
 		electricityScript.enabled = false;

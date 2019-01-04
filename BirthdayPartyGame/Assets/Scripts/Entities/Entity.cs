@@ -10,7 +10,7 @@ public class Entity : InteractableComponent {
 	protected float maturingTime = 1;
 	float lifeSpan;
 	public bool canSpread;
-	protected List<Node> canSpreadObjects = new List<Node>();
+	protected List<Interactable> canSpreadObjects = new List<Interactable>();
 
 	void Start()
 	{
@@ -70,14 +70,14 @@ public class Entity : InteractableComponent {
 	{
 		for (int i = 0; i < _colliders.Length; i++)
 		{
-			if (_colliders[i].GetComponent<Node>() != null)
+			if (_colliders[i].GetComponent<Interactable>() != null)
 			{
-				Interact(_colliders[i].GetComponent<Node>());
+				Interact(_colliders[i].GetComponent<Interactable>());
 			}
 		}
 	}
 
-	protected virtual void Interact(Node _object) { }
+	protected virtual void Interact(Interactable _object) { }
 
 	protected virtual void Spread() { }
 
