@@ -131,32 +131,47 @@ public class PlayerController : MonoBehaviour {
 	#region Input
 	void GetInput()
     {
-        if (HasGamepad())
-        {
-            GamepadInput();
-        }
-        else
-        {
-            KeyboardInput();
-        }
-    }
+		if (HasGamepad())
+		{
+			GamepadInput();
+		}
+		else
+		{
+			KeyboardInput();
+		}
+	}
 
     void GamepadInput()
     {
         input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
         input = input.normalized * ((input.magnitude - deadzone) / (1 - deadzone));
-    }
+
+		// if (Input.GetKeyDown(grabKey))
+		if (Input.GetButtonDown("Grab"))
+		{
+			print("Grab");
+			Grab();
+		}
+		//if (Input.GetKeyDown(actionKey))
+		if (Input.GetButtonDown("Action"))
+		{
+			print("Activate");
+			ActivateObject();
+		}
+	}
 
     void KeyboardInput()
     {
 		// if (Input.GetKeyDown(grabKey))
 		if (Input.GetButtonDown("Grab"))
 		{
+			print("Grab");
             Grab();
         }
 		//if (Input.GetKeyDown(actionKey))
 		if (Input.GetButtonDown("Action"))
 		{
+			print("Activate");
 			ActivateObject();
 		}
 
