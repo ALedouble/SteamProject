@@ -6,6 +6,7 @@ public class LevelData : MonoBehaviour {
 
 	public static LevelData instance;
 
+	public byte id;
 	public string levelName;
 	public float levelTimer = 60;
 	public string objectiveDescription = "Do something!";

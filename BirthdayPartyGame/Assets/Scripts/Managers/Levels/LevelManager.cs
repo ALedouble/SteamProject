@@ -92,6 +92,19 @@ public class LevelManager : MonoBehaviour {
 	{
 		if (gameEnd == false){
 			UpdateTimer();
+
+			if (LevelData.instance.secondaryObjectives.Length > 0)
+			{
+				for (int i = 0; i < LevelData.instance.secondaryObjectives.Length; i++)
+				{
+					if (!LevelData.instance.secondaryObjectives[i].validated)
+					{
+						LevelData.instance.secondaryObjectives[i].CheckValid();
+					}
+				}
+			}
+
+			CheckWin();
 		}
 		
 		if (loose == true && index == 0){
@@ -116,21 +129,6 @@ public class LevelManager : MonoBehaviour {
 				index -= 1;
 			}
 		}
-
-		if (LevelData.instance.secondaryObjectives.Length > 0)
-		{
-			for (int i = 0; i < LevelData.instance.secondaryObjectives.Length; i++)
-			{
-				if (!LevelData.instance.secondaryObjectives[i].validated)
-				{
-					LevelData.instance.secondaryObjectives[i].CheckValid();
-				}
-			}
-		}
-
-		CheckWin();
-
-		//Debug.Log(index);
 	}
 
 	void UpdateTimer()
@@ -193,8 +191,10 @@ public class LevelManager : MonoBehaviour {
 			gameEnd = true;
 			//Time.timeScale = 0.01f;
 			uiWin.SetActive(true);
-			print("UI activated");
 			Time.timeScale = 1;
+
+			SaveManager.instance.SaveProgress(LevelData.instance.id, true, LevelData.instance.secondaryObjectives);
+			LevelData.instance = null;
 		}
 		else
 		{
@@ -210,6 +210,8 @@ public class LevelManager : MonoBehaviour {
 		uiLose.SetActive(true);
 		Time.timeScale = 1;
 
+		SaveManager.instance.SaveProgress(LevelData.instance.id, false, LevelData.instance.secondaryObjectives);
+		LevelData.instance = null;
 
 
 		if (Input.GetKeyDown(KeyCode.Return) && index == 1){

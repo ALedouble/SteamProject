@@ -14,7 +14,7 @@ public class Objective {
 
 	public ObjectiveType type;
 	public Interactable[] relatedObjects;
-	[System.NonSerialized] public bool validated;
+	[HideInInspector] public bool validated;
 
 	public void CheckValid()
 	{
