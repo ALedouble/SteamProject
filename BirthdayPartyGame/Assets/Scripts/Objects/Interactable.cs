@@ -102,25 +102,26 @@ public class Interactable : MonoBehaviour {
 
 	public virtual void Die()
 	{
-		body.isKinematic = true;
-		for (int i = 0; i < colliders.Length; i++)
-		{
-			colliders[i].enabled = false;
-		}
-		for (int i = 0; i < renderers.Length; i++)
-		{
-			renderers[i].enabled = false;
-		}
-		for (int i = 0; i < components.Count; i++)
-		{
-			components[i].enabled = false;
-		}
-		for (int i = 0; i < self.childCount; i++)
-		{
-			self.GetChild(i).gameObject.SetActive(false);
-		}
-		parameters.enabled = false;
-		this.enabled = false;
+		Destroy(gameObject);
+		//body.isKinematic = true;
+		//for (int i = 0; i < colliders.Length; i++)
+		//{
+		//	colliders[i].enabled = false;
+		//}
+		//for (int i = 0; i < renderers.Length; i++)
+		//{
+		//	renderers[i].enabled = false;
+		//}
+		//for (int i = 0; i < components.Count; i++)
+		//{
+		//	components[i].enabled = false;
+		//}
+		//for (int i = 0; i < self.childCount; i++)
+		//{
+		//	self.GetChild(i).gameObject.SetActive(false);
+		//}
+		//parameters.enabled = false;
+		//this.enabled = false;
 	}
 
 	#region Entities behavior
