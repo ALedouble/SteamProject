@@ -42,11 +42,12 @@ public class Objective {
 	{
 		for (int i = 0; i < relatedObjects.Length; i++)
 		{
-			if (relatedObjects[i] != null && relatedObjects[i].enabled)
+			if (relatedObjects[i] != null/* && relatedObjects[i].enabled*/)
 			{
 				return;
 			}
 		}
+        Debug.Log ("About to win");
 		Validate();
 	}
 
