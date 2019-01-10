@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelData : MonoBehaviour {
+public class LevelData : MonoBehaviour
+{
 
 	public static LevelData instance;
 
@@ -10,7 +11,7 @@ public class LevelData : MonoBehaviour {
 	public string levelName;
 	public float levelTimer = 60;
 	public string objectiveDescription = "Do something!";
-	public Objective mainObjective;
+	public Objective[] mainObjectives;
 	public Objective[] secondaryObjectives;
 
 	private void Awake()
