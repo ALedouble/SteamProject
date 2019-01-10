@@ -170,12 +170,17 @@ public class LevelManager : MonoBehaviour {
 
 	public virtual void CheckWin()
 	{
+        if (LevelData.instance.mainObjectives.Length <= 0)
+        {
+            return;
+        }
+
 		bool won = true;
 
 		for (int i = 0; i < LevelData.instance.mainObjectives.Length; i++)
 		{
 			LevelData.instance.mainObjectives[i].CheckValid();
-			if (LevelData.instance.mainObjectives[i].validated)
+			if (!LevelData.instance.mainObjectives[i].validated)
 			{
 				won = false;
 			}
@@ -202,7 +207,7 @@ public class LevelManager : MonoBehaviour {
 			uiWin.SetActive(true);
 			Time.timeScale = 1;
 
-			SaveManager.instance.SaveProgress(LevelData.instance.id, true, LevelData.instance.secondaryObjectives);
+			//SaveManager.instance.SaveProgress(LevelData.instance.id, true, LevelData.instance.secondaryObjectives);
 			LevelData.instance = null;
 		}
 		else
@@ -219,7 +224,7 @@ public class LevelManager : MonoBehaviour {
 		uiLose.SetActive(true);
 		Time.timeScale = 1;
 
-		SaveManager.instance.SaveProgress(LevelData.instance.id, false, LevelData.instance.secondaryObjectives);
+		//SaveManager.instance.SaveProgress(LevelData.instance.id, false, LevelData.instance.secondaryObjectives);
 		LevelData.instance = null;
 
 

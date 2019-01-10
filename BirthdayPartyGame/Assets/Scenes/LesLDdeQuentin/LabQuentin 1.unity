@@ -1710,7 +1710,17 @@ Prefab:
     m_Modifications:
     - target: {fileID: 114402446455790048, guid: 9fb5844b6b3c82d46865dda0737b972b,
         type: 2}
+      propertyPath: mainObjectives.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114402446455790048, guid: 9fb5844b6b3c82d46865dda0737b972b,
+        type: 2}
       propertyPath: mainObjective.relatedObjects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114402446455790048, guid: 9fb5844b6b3c82d46865dda0737b972b,
+        type: 2}
+      propertyPath: mainObjectives.Array.data[0].relatedObjects.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4498872837371968, guid: 9fb5844b6b3c82d46865dda0737b972b, type: 2}
@@ -1768,6 +1778,16 @@ Prefab:
     - target: {fileID: 114402446455790048, guid: 9fb5844b6b3c82d46865dda0737b972b,
         type: 2}
       propertyPath: mainObjective.relatedObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 1134169802}
+    - target: {fileID: 114402446455790048, guid: 9fb5844b6b3c82d46865dda0737b972b,
+        type: 2}
+      propertyPath: mainObjectives.Array.data[0].type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114402446455790048, guid: 9fb5844b6b3c82d46865dda0737b972b,
+        type: 2}
+      propertyPath: mainObjectives.Array.data[0].relatedObjects.Array.data[0]
       value: 
       objectReference: {fileID: 1134169802}
     m_RemovedComponents: []
