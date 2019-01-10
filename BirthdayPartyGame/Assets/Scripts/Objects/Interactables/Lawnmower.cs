@@ -94,11 +94,19 @@ public class Lawnmower : Interactable {
 			{
 				StartCoroutine(WaitToDeactivate());
 			}
-		}
-		
+		}		
 	}
 
-	IEnumerator WaitToDeactivate()
+    private void OnTriggerEnter(Collider other)
+    {        
+        if (other.tag == "Water")
+        {
+            print("zzz");
+            Die();
+        }
+    }
+
+    IEnumerator WaitToDeactivate()
 	{
 		yield return new WaitForSeconds(.5f);
 		Deactivate();
