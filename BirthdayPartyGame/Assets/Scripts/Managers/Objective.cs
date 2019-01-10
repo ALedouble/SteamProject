@@ -6,7 +6,7 @@ public enum ObjectiveType
 {
 	None,
 	Destroy,
-	PickUp
+	PositionChild
 }
 
 [System.Serializable]
@@ -14,6 +14,13 @@ public class Objective {
 
 	public ObjectiveType type;
 	public Interactable[] relatedObjects;
+
+	[Header("Position child parameters:")]
+	public GameObject[] toPositionObjects;
+	public bool strict;
+	public ZoneBehaviour positionZone;
+	List<GameObject> positionnedObjects;
+
 	[HideInInspector] public bool validated;
 
 	public void CheckValid()
@@ -25,8 +32,8 @@ public class Objective {
 			case ObjectiveType.Destroy:
 				CheckDestroyed();
 				break;
-			case ObjectiveType.PickUp:
-				CheckDestroyed();
+			case ObjectiveType.PositionChild:
+				CheckPositionned();
 				break;
 		}
 	}
@@ -43,10 +50,20 @@ public class Objective {
 		Validate();
 	}
 
+	void CheckPositionned()
+	{
+		if (ZoneBehaviour.instance != null)
+		{
+			if (ZoneBehaviour.instance.collidingObjects.Count >= toPositionObjects.Length)
+			{
+				Validate();
+			}
+		}
+	}
+
 	void Validate()
 	{
 		validated = true;
 		Debug.Log("Validate");
 	}
-
 }

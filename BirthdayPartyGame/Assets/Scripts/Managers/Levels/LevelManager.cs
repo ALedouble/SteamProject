@@ -170,9 +170,18 @@ public class LevelManager : MonoBehaviour {
 
 	public virtual void CheckWin()
 	{
+		bool won = true;
 
-		LevelData.instance.mainObjective.CheckValid();
-		if (LevelData.instance.mainObjective.validated)
+		for (int i = 0; i < LevelData.instance.mainObjectives.Length; i++)
+		{
+			LevelData.instance.mainObjectives[i].CheckValid();
+			if (LevelData.instance.mainObjectives[i].validated)
+			{
+				won = false;
+			}
+		}
+
+		if (won)
 		{
 			print("Go to win");
 			StartCoroutine(Win());
