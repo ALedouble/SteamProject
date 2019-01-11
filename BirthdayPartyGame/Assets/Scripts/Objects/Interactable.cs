@@ -15,8 +15,8 @@ public class Interactable : MonoBehaviour {
 
 	[Space]
 	protected Fire fireScript;
-	[System.NonSerialized] public GameObject fireParticleSystem;
-	protected ParticleSystem myFireParticleSystem;
+	/*[System.NonSerialized]*/ public GameObject fireParticleSystem;
+	public GameObject myFireParticleSystem;
 
 	[Space]
 	protected Water waterScript;
@@ -139,28 +139,37 @@ public class Interactable : MonoBehaviour {
 		if (myFireParticleSystem == null)
 		{
 			Transform particleTransform;
-			if (parameters.nodes.Length > 0)
-			{
-				for (int i = 0; i < parameters.nodes.Length; i++)
-				{
-					particleTransform = parameters.nodes[i].self;
-					myFireParticleSystem = Instantiate(fireParticleSystem,
-												particleTransform.position,
-												Quaternion.identity, self)
-												.GetComponent<ParticleSystem>();
-				}
-			}
-			else
-			{
-				particleTransform = self;
-				myFireParticleSystem = Instantiate(fireParticleSystem,
-												particleTransform.position,
-												Quaternion.identity, self)
-												.GetComponent<ParticleSystem>();
-			}
+			//if (parameters.nodes.Length > 0)
+			//{
+			//	for (int i = 0; i < parameters.nodes.Length; i++)
+			//	{
+			//		particleTransform = parameters.nodes[i].self;
+			//		myFireParticleSystem = Instantiate(fireParticleSystem,
+			//									particleTransform.position,
+			//									Quaternion.identity, self)
+			//									.GetComponent<ParticleSystem>();
+			//	}
+			//}
+			//else
+			//{
+			particleTransform = self;
+			myFireParticleSystem = Instantiate(fireParticleSystem,
+											particleTransform.position,
+											Quaternion.identity, self)
+											/*.GetComponent<ParticleSystem>()*/;
+			//}
 		}
 		else
-			myFireParticleSystem.Play();
+		{
+			ParticleSystem[] parts = myFireParticleSystem.GetComponentsInChildren<ParticleSystem>();
+			foreach (var part in parts)
+			{
+				part.Play();
+			}
+		}
+		//myFireParticleSystem.GetComponent<ParticleSystem>().Play();
+
+		print("My part system is: " + myFireParticleSystem);
 		
 	}
 
@@ -169,7 +178,13 @@ public class Interactable : MonoBehaviour {
 		print("Stop burning");
 		burning = false;
 		fireScript.enabled = false;
-		myFireParticleSystem.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+
+		ParticleSystem[] parts = myFireParticleSystem.GetComponentsInChildren<ParticleSystem>();
+		foreach(var part in parts)
+		{
+			part.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+		}
+		//myFireParticleSystem.GetComponentInChildren<ParticleSystem>().Stop(true, ParticleSystemStopBehavior.StopEmitting);
 	}
 
 	public void GetWet()
