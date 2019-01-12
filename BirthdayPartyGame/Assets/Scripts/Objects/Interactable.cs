@@ -56,6 +56,17 @@ public class Interactable : MonoBehaviour {
 
 		if (parameters.breakable) components.Add(gameObject.AddComponent<Breakable>());
 		if (parameters.isFire) Burn();
+		if (parameters.isWater)
+		{
+			GetWet();
+			waterScript.canSpread = true;
+		}
+		if (parameters.isElectric)
+		{
+			GetElectrified(null);
+			electricityScript.canSpread = true;
+			electricityScript.firstGeneration = true;
+		}
 
 		switch (parameters.material)
 		{
@@ -200,10 +211,10 @@ public class Interactable : MonoBehaviour {
 		else
 			waterScript.enabled = true;
 
-		if (myWaterParticleSystem == null)
-			myWaterParticleSystem = Instantiate(waterParticleSystem, self.position, Quaternion.identity, self).GetComponent<ParticleSystem>();
-		else
-			myWaterParticleSystem.Play();
+		//if (myWaterParticleSystem == null)
+		//	myWaterParticleSystem = Instantiate(waterParticleSystem, self.position, Quaternion.identity, self).GetComponent<ParticleSystem>();
+		//else
+		//	myWaterParticleSystem.Play();
 		
 	}
 
