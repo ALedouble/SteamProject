@@ -5,17 +5,21 @@ using UnityEngine;
 public class SprayWaterMachine : MonoBehaviour {
 
     public GameObject waterSpherePrefab;
-    public Transform spawnPoint;
-    
-	void Start () {
+    public Transform spawnPoint1;
+    public Transform spawnPoint2;
+
+    void Start () {
         StartCoroutine(SprayWater());
 	}
 
     IEnumerator SprayWater()
     {
-        GameObject gameObjectRef = Instantiate(waterSpherePrefab, spawnPoint.position, spawnPoint.rotation);
-        gameObjectRef.GetComponent<Rigidbody>().AddForce(500 * spawnPoint.forward + 100 * spawnPoint.up);
-        Destroy(gameObjectRef, 1f);
+        GameObject gameObjectRef1 = Instantiate(waterSpherePrefab, spawnPoint1.position, spawnPoint1.rotation);
+        gameObjectRef1.GetComponent<Rigidbody>().AddForce(500 * spawnPoint1.forward + 100 * Vector3.up);
+        Destroy(gameObjectRef1, 1f);
+        GameObject gameObjectRef2 = Instantiate(waterSpherePrefab, spawnPoint2.position, spawnPoint2.rotation);
+        gameObjectRef2.GetComponent<Rigidbody>().AddForce(500 * spawnPoint2.forward + 100 * Vector3.up);
+        Destroy(gameObjectRef2, 1f);
         yield return new WaitForSeconds(0.05f);
         StartCoroutine(SprayWater());
     }
