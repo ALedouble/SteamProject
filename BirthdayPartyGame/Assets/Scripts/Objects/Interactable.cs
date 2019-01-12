@@ -15,8 +15,8 @@ public class Interactable : MonoBehaviour {
 
 	[Space]
 	protected Fire fireScript;
-	/*[System.NonSerialized]*/ public GameObject fireParticleSystem;
-	public GameObject myFireParticleSystem;
+	[System.NonSerialized] public GameObject fireParticleSystem;
+	protected GameObject myFireParticleSystem;
 
 	[Space]
 	protected Water waterScript;
