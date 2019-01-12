@@ -15,9 +15,6 @@ public class OnTheWayScript : NPCBaseFSM {
 	public bool inCircle;
 	ScriptPOI closestPOI;
 	bool go;
-	
-
-	
 
 	void Awake() {
 		ca = FindObjectsOfType(typeof(CircleAttraction)) as CircleAttraction[];
