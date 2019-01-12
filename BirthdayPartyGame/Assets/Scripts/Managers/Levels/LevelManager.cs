@@ -20,8 +20,10 @@ public class LevelManager : MonoBehaviour {
 	bool loose = false;
 	bool hasReminded;
 	bool lastSeconds;
+	public float timerAcceleration = 1.5f;
 
-	
+
+
 	private void Start()
 	{
 		levelTimer = LevelData.instance.levelTimer;
@@ -150,7 +152,7 @@ public class LevelManager : MonoBehaviour {
 				{
 					objectiveAnimator.SetTrigger("Remind");
 					lastSeconds = true;
-					Time.timeScale = 1.5f;
+					Time.timeScale = timerAcceleration;
 					firstTimerText.color = Color.red;
 					secondTimerText.color = Color.red;
 					thirdTimerText.color = Color.red;
