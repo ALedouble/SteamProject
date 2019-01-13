@@ -130,7 +130,7 @@ public class SaveManager : MonoBehaviour
 		if (completed)
 		{
 			currentSave.levels[id].complete = true;
-			currentSave.progressionIndex = id;
+			currentSave.progressionIndex = id+1;
 		}
 		if (secondaryObjective.Length > 0)
 		{

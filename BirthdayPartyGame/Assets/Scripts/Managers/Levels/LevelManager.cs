@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class LevelManager : MonoBehaviour {
+public class LevelManager : MonoBehaviour
+{
 
 	float levelTimer = 60;
 	public Text firstTimerText;
@@ -22,16 +23,19 @@ public class LevelManager : MonoBehaviour {
 	bool lastSeconds;
 	public float timerAcceleration = 1.5f;
 
-	
+
 	private void Start()
 	{
 		levelTimer = LevelData.instance.levelTimer;
 		objectiveText.text = LevelData.instance.objectiveDescription;
 	}
 
-	void FixedUpdate() {
-		if (gameEnd == true){
-			if(index == 1){
+	void FixedUpdate()
+	{
+		if (gameEnd == true)
+		{
+			if (index == 1)
+			{
 				Button bM = GameObject.Find("MenuButton").GetComponent<Button>();
 				ColorBlock colors = bM.colors;
 				colors.normalColor = Color.green;
@@ -42,33 +46,37 @@ public class LevelManager : MonoBehaviour {
 				colors2.normalColor = Color.white;
 				bR.colors = colors2;
 
-				if(Input.GetKeyDown(KeyCode.Return)){
+				if (Input.GetKeyDown(KeyCode.Return))
+				{
 					Menu();
 				}
 			}
-			else if(index == 0){
-					Button bM = GameObject.Find("MenuButton").GetComponent<Button>();
-					ColorBlock colors = bM.colors;
-					colors.normalColor = Color.white;
-					bM.colors = colors;
+			else if (index == 0)
+			{
+				Button bM = GameObject.Find("MenuButton").GetComponent<Button>();
+				ColorBlock colors = bM.colors;
+				colors.normalColor = Color.white;
+				bM.colors = colors;
 
-					Button bR = GameObject.Find("RestartButton").GetComponent<Button>();
-					ColorBlock colors2 = bR.colors;
-					colors2.normalColor = Color.green;
-					bR.colors = colors2;
+				Button bR = GameObject.Find("RestartButton").GetComponent<Button>();
+				ColorBlock colors2 = bR.colors;
+				colors2.normalColor = Color.green;
+				bR.colors = colors2;
 
-					if (loose == false){
-						Button bC = GameObject.Find("NextButton").GetComponent<Button>();
-						ColorBlock colors3 = bC.colors;
-						colors3.normalColor = Color.white;
-						bC.colors = colors3;
-					}	 
+				if (loose == false)
+				{
+					Button bC = GameObject.Find("NextButton").GetComponent<Button>();
+					ColorBlock colors3 = bC.colors;
+					colors3.normalColor = Color.white;
+					bC.colors = colors3;
+				}
 
-					if(Input.GetKeyDown(KeyCode.Return)){
-						Restart();
-					}
+				if (Input.GetKeyDown(KeyCode.Return))
+				{
+					Restart();
+				}
 			}
-			else if (index == - 1)
+			else if (index == -1)
 			{
 				Button bM = GameObject.Find("MenuButton").GetComponent<Button>();
 				ColorBlock colors = bM.colors;
@@ -78,20 +86,26 @@ public class LevelManager : MonoBehaviour {
 				Button bR = GameObject.Find("RestartButton").GetComponent<Button>();
 				ColorBlock colors2 = bR.colors;
 				colors2.normalColor = Color.white;
-				bR.colors = colors2;	
+				bR.colors = colors2;
 
 				Button bC = GameObject.Find("NextButton").GetComponent<Button>();
 				ColorBlock colors3 = bC.colors;
 				colors3.normalColor = Color.green;
-				bC.colors = colors3;	 
+				bC.colors = colors3;
+
+				if (Input.GetKeyDown(KeyCode.Return))
+				{
+					NextLevel();
+				}
 			}
-			
+
 		}
 	}
 
 	protected virtual void Update()
 	{
-		if (gameEnd == false){
+		if (gameEnd == false)
+		{
 			UpdateTimer();
 
 			if (LevelData.instance.secondaryObjectives.Length > 0)
@@ -107,26 +121,33 @@ public class LevelManager : MonoBehaviour {
 
 			CheckWin();
 		}
-		
-		if (loose == true && index == 0){
+
+		if (loose == true && index == 0)
+		{
 			index = 0;
 		}
 
-		if (gameEnd == true && loose == true){
-			if (Input.GetKeyDown(KeyCode.DownArrow) && index < 1){
+		if (gameEnd == true && loose == true)
+		{
+			if (Input.GetKeyDown(KeyCode.DownArrow) && index < 1)
+			{
 				index += 1;
 			}
 
-			if (Input.GetKeyDown(KeyCode.UpArrow) && index > 0){
+			if (Input.GetKeyDown(KeyCode.UpArrow) && index > 0)
+			{
 				index -= 1;
 			}
 		}
-		else if (gameEnd == true && loose == false){
-			if (Input.GetKeyDown(KeyCode.DownArrow) && index < 1){
+		else if (gameEnd == true && loose == false)
+		{
+			if (Input.GetKeyDown(KeyCode.DownArrow) && index < 1)
+			{
 				index += 1;
 			}
 
-			if (Input.GetKeyDown(KeyCode.UpArrow) && index > -1){
+			if (Input.GetKeyDown(KeyCode.UpArrow) && index > -1)
+			{
 				index -= 1;
 			}
 		}
@@ -134,6 +155,10 @@ public class LevelManager : MonoBehaviour {
 		if (Input.GetKeyDown(KeyCode.Escape))
 		{
 			SceneManager.LoadScene("LevelSelection");
+		}
+		if (Input.GetKeyDown(KeyCode.F2))
+		{
+			StartCoroutine(Win());
 		}
 	}
 
@@ -145,7 +170,7 @@ public class LevelManager : MonoBehaviour {
 		}
 		else
 		{
-			if (levelTimer <= LevelData.instance.levelTimer/2 && !hasReminded)
+			if (levelTimer <= LevelData.instance.levelTimer / 2 && !hasReminded)
 			{
 				hasReminded = true;
 				objectiveAnimator.SetTrigger("Remind");
@@ -164,7 +189,7 @@ public class LevelManager : MonoBehaviour {
 					objectiveText.color = Color.red;
 				}
 			}
-			
+
 
 			levelTimer -= Time.unscaledDeltaTime;
 		}
@@ -176,10 +201,10 @@ public class LevelManager : MonoBehaviour {
 
 	public virtual void CheckWin()
 	{
-        if (LevelData.instance.mainObjectives.Length <= 0)
-        {
-            return;
-        }
+		if (LevelData.instance.mainObjectives.Length <= 0)
+		{
+			return;
+		}
 
 		bool won = true;
 
@@ -204,7 +229,7 @@ public class LevelManager : MonoBehaviour {
 		print(gameEnd);
 		if (!gameEnd)
 		{
-			
+
 			//Debug.Log(index);
 
 			yield return new WaitForSeconds(1);
@@ -234,7 +259,8 @@ public class LevelManager : MonoBehaviour {
 		LevelData.instance = null;
 
 
-		if (Input.GetKeyDown(KeyCode.Return) && index == 1){
+		if (Input.GetKeyDown(KeyCode.Return) && index == 1)
+		{
 			Menu();
 		}
 
@@ -249,11 +275,11 @@ public class LevelManager : MonoBehaviour {
 
 	public void Menu()
 	{
-		SceneManager.LoadScene("Menu", LoadSceneMode.Single);
+		SceneManager.LoadScene("LevelSelection", LoadSceneMode.Single);
 	}
 
 	public void NextLevel()
 	{
-		SceneManager.LoadScene("Menu");
+		SceneManager.LoadScene(SaveManager.instance.currentSave.progressionIndex + 1);
 	}
 }
