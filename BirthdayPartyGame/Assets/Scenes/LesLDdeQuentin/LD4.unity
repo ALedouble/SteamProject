@@ -277,8 +277,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &58464984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -386,6 +384,10 @@ Prefab:
       propertyPath: grabAngleTolerance
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1654052945279190, guid: f9971b605f5cd1243a1f092e0fb43bf9, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9971b605f5cd1243a1f092e0fb43bf9, type: 2}
   m_IsPrefabAsset: 0
@@ -452,8 +454,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &86857017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1156,8 +1156,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &214689641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1323,8 +1321,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &227848755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1415,6 +1411,7 @@ MonoBehaviour:
   uiWin: {fileID: 548038705}
   uiLose: {fileID: 1428402596}
   objectiveAnimator: {fileID: 1194927855}
+  timerAcceleration: 1.5
 --- !u!1 &256195638
 GameObject:
   m_ObjectHideFlags: 0
@@ -1683,6 +1680,7 @@ Transform:
   - {fileID: 86317723}
   - {fileID: 1926250633}
   - {fileID: 412590045}
+  - {fileID: 695655141}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1744,8 +1742,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &309016277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2020,8 +2016,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &356680396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2162,8 +2156,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &381853590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2382,8 +2374,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &404458383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2467,8 +2457,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &406984170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2542,6 +2530,11 @@ Prefab:
         type: 2}
       propertyPath: objectiveDescription
       value: Isolate Douglas on the island
+      objectReference: {fileID: 0}
+    - target: {fileID: 114402446455790048, guid: 9fb5844b6b3c82d46865dda0737b972b,
+        type: 2}
+      propertyPath: id
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9fb5844b6b3c82d46865dda0737b972b, type: 2}
@@ -2800,8 +2793,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &443438777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2885,8 +2876,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &464006727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3142,8 +3131,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &610852095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3227,8 +3214,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &624774746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3342,11 +3327,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 32
   allPOI:
-  - {fileID: 802497327}
-  - {fileID: 1851902773}
-  - {fileID: 790420764}
-  - {fileID: 1908331459}
-  - {fileID: 1492328646}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   valueCircle: 0
   repulse: 0
 --- !u!1 &678767926
@@ -3440,6 +3425,53 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1989113078}
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!1001 &695655140
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 304626196}
+    m_Modifications:
+    - target: {fileID: 4364897347804974, guid: 228c9866b97bf1c4a891f8d42b65d009, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -3.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 4364897347804974, guid: 228c9866b97bf1c4a891f8d42b65d009, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -3.44671
+      objectReference: {fileID: 0}
+    - target: {fileID: 4364897347804974, guid: 228c9866b97bf1c4a891f8d42b65d009, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -6.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 4364897347804974, guid: 228c9866b97bf1c4a891f8d42b65d009, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4364897347804974, guid: 228c9866b97bf1c4a891f8d42b65d009, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4364897347804974, guid: 228c9866b97bf1c4a891f8d42b65d009, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4364897347804974, guid: 228c9866b97bf1c4a891f8d42b65d009, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4364897347804974, guid: 228c9866b97bf1c4a891f8d42b65d009, type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 228c9866b97bf1c4a891f8d42b65d009, type: 2}
+  m_IsPrefabAsset: 0
+--- !u!4 &695655141 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4364897347804974, guid: 228c9866b97bf1c4a891f8d42b65d009,
+    type: 2}
+  m_PrefabInternal: {fileID: 695655140}
 --- !u!1 &714050146
 GameObject:
   m_ObjectHideFlags: 0
@@ -3594,8 +3626,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &733076914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3679,8 +3709,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &747140837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3916,8 +3944,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &773959840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4035,8 +4061,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &801964852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4148,8 +4172,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &812001579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4334,8 +4356,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &828345915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4381,8 +4401,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &829554990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4740,8 +4758,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &863745098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4942,8 +4958,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!1 &991780714
 GameObject:
   m_ObjectHideFlags: 0
@@ -5214,8 +5228,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &1072364464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5490,8 +5502,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &1092769936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5575,8 +5585,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &1095081200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5886,8 +5894,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &1175198733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6038,8 +6044,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &1199590435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6123,8 +6127,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &1215033447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6208,8 +6210,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &1233016994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6546,8 +6546,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &1270389229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6662,8 +6660,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &1300167922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6818,8 +6814,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &1345498674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6903,8 +6897,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &1356275234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7073,8 +7065,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &1402088750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7384,8 +7374,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &1534870755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7681,8 +7669,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &1580530749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7894,8 +7880,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &1589089879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7979,8 +7963,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &1623498000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8080,8 +8062,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
   myCircleAttraction: {fileID: 678612447}
   myRenderer: {fileID: 1632571895}
 --- !u!65 &1632571894
@@ -8196,8 +8176,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &1644032809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8327,8 +8305,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &1665316089
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8550,8 +8526,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &1683711402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8635,8 +8609,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &1683727624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8771,8 +8743,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &1764832626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8856,8 +8826,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &1785071305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8941,8 +8909,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &1804409222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9026,8 +8992,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &1809188406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9347,8 +9311,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!1 &1865743653
 GameObject:
   m_ObjectHideFlags: 0
@@ -9407,8 +9369,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &1865743657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9492,8 +9452,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &1880995798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9605,8 +9563,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &1911606312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9951,8 +9907,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &1960379888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10036,8 +9990,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &1961208695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10169,7 +10121,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1504021723354958, guid: a4bbdf60f079b4d4a9a631b058a9e7d1, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114282275152919748, guid: a4bbdf60f079b4d4a9a631b058a9e7d1,
         type: 2}
@@ -10276,8 +10228,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &1994956737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10547,8 +10497,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &2060980699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10780,8 +10728,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &2114804135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10935,8 +10881,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
   bridgeBarrierAnim: {fileID: 368711682}
 --- !u!1 &2134752708
 GameObject:
@@ -10996,8 +10940,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &2134752712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11081,8 +11023,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &2136573839
 MonoBehaviour:
   m_ObjectHideFlags: 0

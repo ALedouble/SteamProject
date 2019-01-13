@@ -92,6 +92,11 @@ public class PlayerController : MonoBehaviour {
 		actionUI.SetActive(false);
 	}
 
+	private void Start()
+	{
+		self.position = SpawnPoint.instance.transform.position;
+	}
+
 	// Update is called once per frame
 	void Update()
     {

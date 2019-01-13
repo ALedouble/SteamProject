@@ -22,8 +22,7 @@ public class LevelManager : MonoBehaviour {
 	bool lastSeconds;
 	public float timerAcceleration = 1.5f;
 
-
-
+	
 	private void Start()
 	{
 		levelTimer = LevelData.instance.levelTimer;
