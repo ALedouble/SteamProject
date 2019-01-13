@@ -28,6 +28,7 @@ public class LevelSelectionManager : MonoBehaviour {
 			Destroy(gameObject);
 		}
 
+		levelsNumber = SaveManager.instance.currentSave.levels.Length;
 		levelIndex = SaveManager.instance.currentSave.progressionIndex;
 		currentLevelUI = levelsUI[0];
 
@@ -37,7 +38,7 @@ public class LevelSelectionManager : MonoBehaviour {
 	void SetUpLevelUI()
 	{
 		currentLevel = SaveManager.instance.currentSave.levels[levelIndex];
-		currentLevelUI.Initialize(currentLevel.name, currentLevel.description, currentLevel.timer);
+		currentLevelUI.Initialize(currentLevel.name, currentLevel.description, currentLevel.timer, currentLevel.id);
 	}
 	
 	// Update is called once per frame
@@ -53,7 +54,8 @@ public class LevelSelectionManager : MonoBehaviour {
 		{
 			SwitchLevel(false);
 		}
-		else if (Input.GetKeyDown(KeyCode.RightArrow) && levelIndex < levelsNumber - 1)
+		else if (Input.GetKeyDown(KeyCode.RightArrow) && levelIndex < levelsNumber - 1 &&
+				(levelIndex < SaveManager.instance.currentSave.progressionIndex || GameManager.instance.state == DevState.Debug))
 		{
 			SwitchLevel(true);
 		}

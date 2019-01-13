@@ -267,6 +267,7 @@ GameObject:
   m_Component:
   - component: {fileID: 251971903}
   - component: {fileID: 251971902}
+  - component: {fileID: 251971904}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -285,6 +286,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 999ff5727a2346f468a99bd82c5a8085, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentSave:
+    levels: []
+    progressionIndex: 0
 --- !u!4 &251971903
 Transform:
   m_ObjectHideFlags: 0
@@ -298,6 +302,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &251971904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 251971901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d670aba5d97da524db3e46fb40828b15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &373410239
 GameObject:
   m_ObjectHideFlags: 0
