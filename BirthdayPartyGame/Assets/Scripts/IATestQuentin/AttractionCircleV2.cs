@@ -7,9 +7,8 @@ public class AttractionCircleV2 : MonoBehaviour {
     List<AIV2> AIsInRange = new List<AIV2>();
     public int score;
     public AISpots[] mySpots;
+    [HideInInspector]
     public bool repulse;
-
-    public bool debug;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -44,19 +43,6 @@ public class AttractionCircleV2 : MonoBehaviour {
         for (int i = 0; i < AIsInRange.Count; i++)
         {
             AIsInRange[i].CompareAttractionCircles();
-        }
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.O) && debug)
-        {
-            if (repulse)
-            {
-                ChangeRepulse(false);
-            }
-            else
-                ChangeRepulse(true);
         }
     }
 }

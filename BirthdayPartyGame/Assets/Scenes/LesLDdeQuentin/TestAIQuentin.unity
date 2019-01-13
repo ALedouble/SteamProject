@@ -357,8 +357,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &58464984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -532,8 +530,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &86857017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -981,6 +977,48 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 159689835}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &162683812
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 641611098}
+    m_Modifications:
+    - target: {fileID: 4213892379148658, guid: 7b22f571f52fa674890be01e0aeaad86, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213892379148658, guid: 7b22f571f52fa674890be01e0aeaad86, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213892379148658, guid: 7b22f571f52fa674890be01e0aeaad86, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213892379148658, guid: 7b22f571f52fa674890be01e0aeaad86, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213892379148658, guid: 7b22f571f52fa674890be01e0aeaad86, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213892379148658, guid: 7b22f571f52fa674890be01e0aeaad86, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213892379148658, guid: 7b22f571f52fa674890be01e0aeaad86, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213892379148658, guid: 7b22f571f52fa674890be01e0aeaad86, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7b22f571f52fa674890be01e0aeaad86, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &185199415
 GameObject:
   m_ObjectHideFlags: 0
@@ -1392,8 +1430,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &214689641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1559,8 +1595,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &227848755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1651,47 +1685,7 @@ MonoBehaviour:
   uiWin: {fileID: 548038705}
   uiLose: {fileID: 1428402596}
   objectiveAnimator: {fileID: 1194927855}
---- !u!1 &254805048
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 254805049}
-  - component: {fileID: 254805050}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &254805049
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 254805048}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.67, y: -0, z: -4.17}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1380835799}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &254805050
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 254805048}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afd00493435fa404aa8aa3d860041685, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  availability: 1
+  timerAcceleration: 1.5
 --- !u!1 &256195638
 GameObject:
   m_ObjectHideFlags: 0
@@ -2020,8 +2014,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &309016277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2296,8 +2288,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &356680396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2438,8 +2428,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &381853590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2658,8 +2646,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &404458383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2743,8 +2729,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &406984170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3081,8 +3065,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &443438777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3166,8 +3148,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &464006727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3215,47 +3195,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: -49.551003, z: 0}
---- !u!1 &524397725
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 524397726}
-  - component: {fileID: 524397727}
-  m_Layer: 0
-  m_Name: GameObject (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &524397726
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 524397725}
-  m_LocalRotation: {x: -0, y: -0, z: 8.881783e-16, w: 1}
-  m_LocalPosition: {x: -3.28, y: 0, z: -4.6}
-  m_LocalScale: {x: 1.000005, y: 1.0000057, z: 1.0000055}
-  m_Children: []
-  m_Father: {fileID: 1380835799}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &524397727
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 524397725}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afd00493435fa404aa8aa3d860041685, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  availability: 1
 --- !u!1 &524768396
 GameObject:
   m_ObjectHideFlags: 0
@@ -3476,8 +3415,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &610852095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3561,8 +3498,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &624774746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3750,8 +3685,6 @@ MonoBehaviour:
   self: {fileID: 641611098}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
   levelAudioSource: {fileID: 503025631}
   firstMusic: {fileID: 8300000, guid: c642fdee0df21d94ba379c0db912dc34, type: 3}
   secondMusic: {fileID: 8300000, guid: 2ff764650d833ae4ebea97c1447b96bf, type: 3}
@@ -4219,8 +4152,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &733076914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4304,8 +4235,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &747140837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4541,8 +4470,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &773959840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4660,8 +4587,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &801964852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4773,8 +4698,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &812001579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4959,8 +4882,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &828345915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5006,8 +4927,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &829554990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5365,8 +5284,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &863745098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5597,8 +5514,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!1 &991780714
 GameObject:
   m_ObjectHideFlags: 0
@@ -5869,8 +5784,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &1072364464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6145,8 +6058,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &1092769936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6230,8 +6141,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &1095081200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6458,8 +6367,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &1175198733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6610,8 +6517,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &1199590435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6766,8 +6671,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &1215033447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6851,8 +6754,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &1233016994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7277,8 +7178,6 @@ MonoBehaviour:
   self: {fileID: 517180904}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
   levelAudioSource: {fileID: 503025631}
   firstMusic: {fileID: 8300000, guid: c642fdee0df21d94ba379c0db912dc34, type: 3}
   secondMusic: {fileID: 8300000, guid: 2ff764650d833ae4ebea97c1447b96bf, type: 3}
@@ -7401,8 +7300,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &1270389229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7517,8 +7414,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &1300167922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7703,8 +7598,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &1345498674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7788,8 +7681,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &1356275234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7900,69 +7791,11 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1356519130}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1380835798
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1380835799}
-  - component: {fileID: 1380835801}
-  - component: {fileID: 1380835800}
-  m_Layer: 0
-  m_Name: AttractionRange
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1380835799
+--- !u!4 &1380835799 stripped
 Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1380835798}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 254805049}
-  - {fileID: 1994508622}
-  - {fileID: 524397726}
-  m_Father: {fileID: 641611098}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &1380835800
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1380835798}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 12.16
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1380835801
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1380835798}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ce1bc0fad1ddb24db73c695e30faf91, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  score: 10
-  mySpots:
-  - {fileID: 254805050}
-  - {fileID: 1994508623}
-  - {fileID: 524397727}
-  repulse: 0
-  debug: 0
+  m_CorrespondingSourceObject: {fileID: 4213892379148658, guid: 7b22f571f52fa674890be01e0aeaad86,
+    type: 2}
+  m_PrefabInternal: {fileID: 162683812}
 --- !u!1 &1402088746
 GameObject:
   m_ObjectHideFlags: 0
@@ -8021,8 +7854,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &1402088750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8332,8 +8163,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &1534870755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8629,8 +8458,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &1580530749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8842,8 +8669,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &1589089879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8927,8 +8752,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &1623498000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9028,8 +8851,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
   myCircleAttraction: {fileID: 678612447}
   myRenderer: {fileID: 1632571895}
 --- !u!65 &1632571894
@@ -9144,8 +8965,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &1644032809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9316,8 +9135,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &1665316089
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9585,8 +9402,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &1683711402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9670,8 +9485,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &1683727624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9951,8 +9764,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &1764832626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10036,8 +9847,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &1785071305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10121,8 +9930,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &1804409222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10206,8 +10013,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &1809188406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10527,8 +10332,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!1 &1865743653
 GameObject:
   m_ObjectHideFlags: 0
@@ -10587,8 +10390,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &1865743657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10672,8 +10473,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &1880995798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10785,8 +10584,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &1911606312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11131,8 +10928,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &1960379888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11216,8 +11011,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &1961208695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11305,7 +11098,6 @@ MonoBehaviour:
   - {fileID: 1654993073}
   - {fileID: 123097683}
   repulse: 0
-  debug: 1
 --- !u!1 &1976487581
 GameObject:
   m_ObjectHideFlags: 0
@@ -11461,47 +11253,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4533311853963844, guid: a4bbdf60f079b4d4a9a631b058a9e7d1,
     type: 2}
   m_PrefabInternal: {fileID: 1989113078}
---- !u!1 &1994508621
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1994508622}
-  - component: {fileID: 1994508623}
-  m_Layer: 0
-  m_Name: GameObject (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1994508622
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1994508621}
-  m_LocalRotation: {x: -0, y: -0, z: 8.881783e-16, w: 1}
-  m_LocalPosition: {x: 1.04, y: -0, z: -5.85}
-  m_LocalScale: {x: 1.000005, y: 1.0000057, z: 1.0000055}
-  m_Children: []
-  m_Father: {fileID: 1380835799}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1994508623
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1994508621}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afd00493435fa404aa8aa3d860041685, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  availability: 1
 --- !u!1 &1994956733
 GameObject:
   m_ObjectHideFlags: 0
@@ -11560,8 +11311,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &1994956737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11831,8 +11580,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &2060980699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12064,8 +11811,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &2114804135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12219,8 +11964,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
   bridgeBarrierAnim: {fileID: 368711682}
 --- !u!1 &2134752708
 GameObject:
@@ -12280,8 +12023,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &2134752712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12365,8 +12106,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &2136573839
 MonoBehaviour:
   m_ObjectHideFlags: 0
