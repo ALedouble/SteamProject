@@ -22,8 +22,7 @@ public class LevelManager : MonoBehaviour {
 	bool lastSeconds;
 	public float timerAcceleration = 1.5f;
 
-
-
+	
 	private void Start()
 	{
 		levelTimer = LevelData.instance.levelTimer;
@@ -209,7 +208,7 @@ public class LevelManager : MonoBehaviour {
 			uiWin.SetActive(true);
 			Time.timeScale = 1;
 
-			//SaveManager.instance.SaveProgress(LevelData.instance.id, true, LevelData.instance.secondaryObjectives);
+			SaveManager.instance.SaveProgress(LevelData.instance.id, true, LevelData.instance.secondaryObjectives);
 			LevelData.instance = null;
 		}
 		else
@@ -226,7 +225,7 @@ public class LevelManager : MonoBehaviour {
 		uiLose.SetActive(true);
 		Time.timeScale = 1;
 
-		//SaveManager.instance.SaveProgress(LevelData.instance.id, false, LevelData.instance.secondaryObjectives);
+		SaveManager.instance.SaveProgress(LevelData.instance.id, false, LevelData.instance.secondaryObjectives);
 		LevelData.instance = null;
 
 
