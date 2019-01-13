@@ -73,6 +73,7 @@ GameObject:
   - component: {fileID: 136627392781727998}
   - component: {fileID: 114511716328158268}
   - component: {fileID: 195024045741264184}
+  - component: {fileID: 82864526054179286}
   m_Layer: 13
   m_Name: P_AIV2
   m_TagString: AI
@@ -92,6 +93,21 @@ GameObject:
   m_Layer: 13
   m_Name: ChildModel
   m_TagString: AI
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1648692820893692
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4215849934554134}
+  m_Layer: 13
+  m_Name: SpawnParticlesPoint
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,6 +141,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4319370236135646}
   m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4215849934554134
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1648692820893692}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0, z: 0.537}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4380796957881804}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4296256436353464
 Transform:
@@ -165,7 +194,8 @@ Transform:
   m_LocalRotation: {x: -0.0000018643474, y: 0.7071068, z: 0.7071068, w: 0.0000018643474}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 3.9491, y: 3.9491, z: 3.9490995}
-  m_Children: []
+  m_Children:
+  - {fileID: 4215849934554134}
   m_Father: {fileID: 4319370236135646}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 180.00002}
@@ -189,7 +219,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1457840857801490}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.53, y: 2.0400057, z: -26.22}
+  m_LocalPosition: {x: -9.85, y: 1, z: -2.69}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4319370236135646}
@@ -364,6 +394,101 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1672695449203950}
   m_Mesh: {fileID: 4300004, guid: d4d8b67255d030d4b9776f1228433275, type: 3}
+--- !u!82 &82864526054179286
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1457840857801490}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!95 &95768956473722974
 Animator:
   serializedVersion: 3
@@ -396,9 +521,14 @@ MonoBehaviour:
   currentSpot: {fileID: 0}
   AttractionCircleList: []
   myState: 2
-  cooldownInDistressValue: 2
+  cooldownInDistressValue: 5
   myAnim: {fileID: 95768956473722974}
   myNavMeshAgent: {fileID: 195024045741264184}
+  spawnPointForSurpriseParticles: {fileID: 4215849934554134}
+  surpriseParticlesPrefab: {fileID: 1039986090510716, guid: 4a5a0516d6877bf4386ba0cefc4a86d5,
+    type: 2}
+  myAudioSource: {fileID: 82864526054179286}
+  hitAudioClip: {fileID: 8300000, guid: 58ffc0a15c03db2458883a41449d0b05, type: 3}
 --- !u!136 &136627392781727998
 CapsuleCollider:
   m_ObjectHideFlags: 1

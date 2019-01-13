@@ -21,6 +21,10 @@ public class AIV2 : MonoBehaviour {
     [Header("Referencies")]
     public Animator myAnim;
     public NavMeshAgent myNavMeshAgent;
+    public Transform spawnPointForSurpriseParticles;
+    public GameObject surpriseParticlesPrefab;
+    public AudioSource myAudioSource;
+    public AudioClip hitAudioClip;
 
 
     float cooldownInDistress;
@@ -141,13 +145,13 @@ public class AIV2 : MonoBehaviour {
                 if (cooldownInDistress <= 0)
                 {
                     SetState(AIState.Neutral);
+                    CompareAttractionCircles();
                 }
                 break;
             case AIState.Amused:
                 if(myNavMeshAgent.remainingDistance > 0.5f)
                 {
                     SetState(AIState.Neutral);
-                    print("heyyyy");
                 }
                 break;
             case AIState.Neutral:
@@ -169,6 +173,9 @@ public class AIV2 : MonoBehaviour {
                 myState = AIState.inDistress;
                 cooldownInDistress = cooldownInDistressValue;
                 myAnim.SetTrigger("SurpriseTrigger");
+                GameObject _surprisePartRef = Instantiate(surpriseParticlesPrefab, spawnPointForSurpriseParticles.position, Quaternion.Euler(-90, 0, 0), spawnPointForSurpriseParticles);
+                Destroy(_surprisePartRef, 2f);
+                myAudioSource.PlayOneShot(hitAudioClip);
                 ResetAttractionCirclesAndSpots();
                 myNavMeshAgent.SetDestination(transform.position);
                 break;
@@ -203,8 +210,8 @@ public class AIV2 : MonoBehaviour {
             Interactable _object = other.gameObject.GetComponent<Interactable>();
             if (_object.canBreak)
             {
-                SetState(AIState.inDistress);
             }
+            SetState(AIState.inDistress);
         }
     }
 
