@@ -28,8 +28,8 @@ public class AttractionCircleV2 : MonoBehaviour {
             AIsInRange.Remove(other.GetComponent<AIV2>());
         }
     }
-
-    void ChangeScore(int _newScore)
+    
+    public void ChangeScore(int _newScore)
     {
         score = _newScore;
         for (int i = 0; i < AIsInRange.Count; i++)

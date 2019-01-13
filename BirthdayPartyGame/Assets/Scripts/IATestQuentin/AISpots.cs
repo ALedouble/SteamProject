@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class AISpots : MonoBehaviour {
 
-    [HideInInspector]
+    [Header("READ ONLY")]
     public bool availability = true;
 }
