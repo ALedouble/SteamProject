@@ -76,10 +76,22 @@ public class SaveManager : MonoBehaviour
 		FileStream _file = File.Create(Application.persistentDataPath + "/Saves.bp");
 
 		currentSave = new Save(new Save.Level[] {
-			new Save.Level(0, "First level", 60, new string[] { "Burn the banners!"},
-				"Destroy the banners with Tim's name to make him regret the day he dared get out of his mother's wretched womb."),
-			new Save.Level(1, "Second level", 90, new string[] { "Do something, dude!"},
-				"Do something, that outta do it, man!")
+			new Save.Level(0, "Level 2", 60, new string[] { "Destroy the cake!"},
+				"Destroy the Léo's cake to make him cry"),
+			new Save.Level(1, "Level 3", 60, new string[] { "Destroy the cake!"},
+				"This is the third level!"),
+			new Save.Level(2, "Level 4", 60, new string[] { "Isolate Douglas on the island!"},
+				"Doug is afraid of water since he's seen Cast Away. Let's be naughty!"),
+			new Save.Level(3, "Level 6", 60, new string[] { "Do something!"},
+				"This is the sixth level!"),
+			new Save.Level(4, "Level 7", 60, new string[] { "Do something!"},
+				"Let's get naughty, birthday boys!"),
+			new Save.Level(5, "Level 8", 60, new string[] { "Burn the banners!"},
+				"Tim loves his name. Let's throw off his groove today..."),
+			new Save.Level(6, "Level 10", 60, new string[] { "Burn the thing!"},
+				"Kill it with fire!"),
+			new Save.Level(7, "Level 12", 60, new string[] { "Do something!"},
+				"And for the grand finale!")
 		});
 
 		_formatter.Serialize(_file, currentSave);
