@@ -5,7 +5,7 @@ using UnityEngine;
 public class CircleAttraction : MonoBehaviour {
 
 	public float radius;
-	public GameObject[] allPOI;
+	public Transform[] allPOI;
 	public int valueCircle;
 	public bool repulse = false;
 
