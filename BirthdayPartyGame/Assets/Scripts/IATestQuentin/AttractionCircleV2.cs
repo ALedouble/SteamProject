@@ -12,8 +12,10 @@ public class AttractionCircleV2 : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
+        print("hey");
         if (other.tag == "AI")
         {
+            print("hoy");
             other.GetComponent<AIV2>().AddAttractionCircle(this);
             AIsInRange.Add(other.GetComponent<AIV2>());
         }
