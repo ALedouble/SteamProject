@@ -77,13 +77,21 @@ public class MenuManager : MonoBehaviour {
 					colorful.material.color = Color.white;
 				}
 			}
-		
-		 	if (Input.GetKeyDown(KeyCode.Return) && choose == 0){
-			//StartCoroutine(LoadScene());
 
-			//SceneManager.UnloadSceneAsync("Menu");
-			//SceneManager.LoadScene("LevelNecessities", LoadSceneMode.Single);
-			SceneManager.LoadScene("VSD", LoadSceneMode.Single);
+		if (Input.GetKeyDown(KeyCode.Return))
+		{
+			switch (choose)
+			{
+				case 0:
+					SceneManager.LoadScene("LD8", LoadSceneMode.Single);
+					break;
+				case 1:
+					SceneManager.LoadScene("LevelSelection", LoadSceneMode.Single);
+					break;
+				default:
+					break;
+			}
+			
 		}
 	}
 
