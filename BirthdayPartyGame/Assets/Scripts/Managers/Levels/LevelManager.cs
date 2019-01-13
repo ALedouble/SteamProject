@@ -130,6 +130,11 @@ public class LevelManager : MonoBehaviour {
 				index -= 1;
 			}
 		}
+
+		if (Input.GetKeyDown(KeyCode.Escape))
+		{
+			SceneManager.LoadScene("LevelSelection");
+		}
 	}
 
 	void UpdateTimer()

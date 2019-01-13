@@ -70,14 +70,23 @@ public class SaveManager : MonoBehaviour
 		}
 	}
 
+	private void Update()
+	{
+		if (Input.GetKeyDown(KeyCode.Delete))
+		{
+			File.Delete(Application.persistentDataPath + "/Saves.bp");
+		}
+	}
+
 	public void InitializeSave()
 	{
+		print("New save");
 		BinaryFormatter _formatter = new BinaryFormatter();
 		FileStream _file = File.Create(Application.persistentDataPath + "/Saves.bp");
 
 		currentSave = new Save(new Save.Level[] {
 			new Save.Level(0, "Level 2", 60, new string[] { "Destroy the cake!"},
-				"Destroy the Léo's cake to make him cry"),
+				"Destroy the Leo's cake to make him cry"),
 			new Save.Level(1, "Level 3", 60, new string[] { "Destroy the cake!"},
 				"This is the third level!"),
 			new Save.Level(2, "Level 4", 60, new string[] { "Isolate Douglas on the island!"},

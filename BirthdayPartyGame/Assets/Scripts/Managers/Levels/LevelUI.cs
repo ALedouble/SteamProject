@@ -10,6 +10,7 @@ public class LevelUI : MonoBehaviour {
 	public Text levelName;
 	public Text description;
 	public Text time;
+	public Image panel;
 
 	public Vector2 self;
 
@@ -23,19 +24,34 @@ public class LevelUI : MonoBehaviour {
 		
 	}
 
-	public void Initialize(string _name, string _description, float _time)
+	public void Initialize(string _name, string _description, float _time, byte index)
 	{
 		levelName.text = _name;
 		description.text = _description;
 		time.text = "Time: " + _time.ToString() + " sec";
+		int progression = SaveManager.instance.currentSave.progressionIndex;
+		if (index < progression)
+		{
+			panel.color = Color.green;
+		}
+		else if (index == progression)
+		{
+			panel.color = Color.white;
+		}
+		else
+		{
+			panel.color = Color.grey;
+		}
 	}
 
 	public void RtoC()
 	{
+		self.x = 800;
 		anim.SetTrigger("RtoC");
 	}
 	public void LtoC()
 	{
+		self.x = -800;
 		anim.SetTrigger("LtoC");
 	}
 	public void CtoR()
