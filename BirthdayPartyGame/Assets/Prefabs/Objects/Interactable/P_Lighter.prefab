@@ -125,17 +125,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a8d8ef5d788e754abd2fb9ee6d88062, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parameters: {fileID: 114717428361297436}
   body: {fileID: 54960907101195722}
   self: {fileID: 4911275533450224}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 1068989696536054, guid: d585bcc898a67fa43b7b10bc09863fcf,
-    type: 2}
-  waterParticleSystem: {fileID: 1068989696536054, guid: 9ac20361cadf4a147aca21bd3fb1073c,
-    type: 2}
-  electricityParticleSystem: {fileID: 1068989696536054, guid: d79bec28e35144646b97714ef6609a6e,
-    type: 2}
 --- !u!114 &114717428361297436
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -152,7 +145,6 @@ MonoBehaviour:
   breakable: 0
   destructible: 0
   pickUp: 1
-  electronic: 0
   isElectric: 0
   isFire: 0
   isWater: 0
@@ -160,4 +152,5 @@ MonoBehaviour:
   material: 0
   holdPositionOffset: {x: 0.5, y: 0, z: 0.5}
   holdRotationOffset: {x: 0, y: 0, z: 0}
-  node: {fileID: 0}
+  nodesChildren: []
+  nodes: []

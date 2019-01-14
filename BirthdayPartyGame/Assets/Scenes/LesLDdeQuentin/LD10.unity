@@ -1864,7 +1864,7 @@ Prefab:
     - target: {fileID: 114402446455790048, guid: 9fb5844b6b3c82d46865dda0737b972b,
         type: 2}
       propertyPath: objectiveDescription
-      value: Burn the cake!
+      value: Burn the present!
       objectReference: {fileID: 0}
     - target: {fileID: 114402446455790048, guid: 9fb5844b6b3c82d46865dda0737b972b,
         type: 2}
@@ -2879,10 +2879,16 @@ MonoBehaviour:
   self: {fileID: 517180904}
   colliders: []
   renderers: []
-  levelAudioSource: {fileID: 0}
+  explosionParticlePrefab: {fileID: 1114352652095662, guid: 51624f50bb059e5469c135b19e9a444b,
+    type: 2}
+  smokeParticlePrefab: {fileID: 1876152382001860, guid: 2ca705be0a37ed746b1f648c5333af52,
+    type: 2}
+  explosionTransform: {fileID: 765642549}
+  myAnim: {fileID: 257449979}
   firstMusic: {fileID: 8300000, guid: c642fdee0df21d94ba379c0db912dc34, type: 3}
   secondMusic: {fileID: 8300000, guid: 2ff764650d833ae4ebea97c1447b96bf, type: 3}
   levelMusic: {fileID: 8300000, guid: c642fdee0df21d94ba379c0db912dc34, type: 3}
+  myAttractionCircle: {fileID: 0}
   comingBackMusicCurve:
     serializedVersion: 2
     m_Curve:
@@ -2910,13 +2916,10 @@ MonoBehaviour:
   secondMusicVolume: 0.5
   firstMusicVolumeBeforeDeath: 0.5
   firstMusicVolumeAfterDeath: 0.35
-  timeforMusicToComeBack: 12
-  explosionParticlePrefab: {fileID: 1114352652095662, guid: 51624f50bb059e5469c135b19e9a444b,
-    type: 2}
-  smokeParticlePrefab: {fileID: 1876152382001860, guid: 2ca705be0a37ed746b1f648c5333af52,
-    type: 2}
-  explosionTransform: {fileID: 765642549}
-  myAnim: {fileID: 257449979}
+  timeForMusicToComeBack: 0
+  hardTriggerRadius: 0
+  popTriggerRadius: 0
+  levelAudioSource: {fileID: 0}
 --- !u!114 &1810879952
 MonoBehaviour:
   m_ObjectHideFlags: 0

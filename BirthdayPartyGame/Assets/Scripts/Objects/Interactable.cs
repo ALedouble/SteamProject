@@ -110,7 +110,8 @@ public class Interactable : MonoBehaviour {
 	public virtual void Activate()
 	{
 		if (!canActivate) return;
-		ActionEvent(this);
+		if (ActionEvent != null)
+			ActionEvent(this);
 	}
 
 	public virtual void Deactivate() { }

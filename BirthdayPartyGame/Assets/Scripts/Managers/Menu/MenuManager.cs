@@ -19,13 +19,6 @@ public class MenuManager : MonoBehaviour
 	MeshRenderer[] meshTextWhite4;
 
 
-
-	// Use this for initialization
-	void Start()
-	{
-
-	}
-
 	// Update is called once per frame
 	void Update()
 	{
@@ -103,6 +96,9 @@ public class MenuManager : MonoBehaviour
 					break;
 				case 1:
 					SceneManager.LoadScene("LevelSelection", LoadSceneMode.Single);
+					break;
+				case 3:
+					Application.Quit();
 					break;
 				default:
 					break;
