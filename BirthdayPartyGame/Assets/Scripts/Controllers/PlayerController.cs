@@ -19,6 +19,8 @@ public enum Filter
 
 public class PlayerController : MonoBehaviour {
 
+	static public PlayerController instance;
+
     [Header("Components")]
 	public Transform self;
 	public Rigidbody body;
@@ -88,6 +90,14 @@ public class PlayerController : MonoBehaviour {
 
 	private void Awake()
 	{
+		if (instance == null)
+		{
+			instance = this;
+		}
+		else
+		{
+			Destroy(gameObject);
+		}
 		actionText = actionUI.GetComponentInChildren<Text>();
 		actionUI.SetActive(false);
 	}
