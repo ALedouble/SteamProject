@@ -7,7 +7,8 @@ public enum ObjectiveType
 	None,
 	Destroy,
 	PositionChild,
-    Isolate
+    Isolate,
+	Activate
 }
 
 [System.Serializable]
@@ -16,6 +17,8 @@ public class Objective {
 	public ObjectiveType type;
 	public Interactable[] relatedObjects;
     public GameObject[] relatedGameObjects;
+	bool setup;
+	public bool[] activatedObjects;
 
 	[Header("Position child parameters:")]
 	public GameObject[] toPositionObjects;
@@ -40,6 +43,17 @@ public class Objective {
             case ObjectiveType.Isolate:
                 CheckIsolation();
                 break;
+			case ObjectiveType.Activate:
+				if (!setup)
+				{
+					setup = true;
+					activatedObjects = new bool[relatedObjects.Length];
+					for (int i = 0; i < relatedObjects.Length; i++)
+					{
+						relatedObjects[i].ActionEvent += CheckActivate;
+					}
+				}
+				break;
 		}
 	}
 
@@ -75,6 +89,30 @@ public class Objective {
             Validate();
         }
     }
+
+	void CheckActivate(Interactable script)
+	{
+		for (int i = 0; i < relatedObjects.Length; i++)
+		{
+			if (script == relatedObjects[i])
+			{
+				activatedObjects[i] = true;
+			}
+
+		}
+
+		for (int i = 0; i < activatedObjects.Length; i++)
+		{
+			if (!activatedObjects[i])
+			{
+				return;
+			}
+			else
+			{
+				Validate();
+			}
+		}
+	}
 
 	void Validate()
 	{

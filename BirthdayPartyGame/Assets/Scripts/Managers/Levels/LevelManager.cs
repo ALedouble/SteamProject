@@ -28,9 +28,10 @@ public class LevelManager : MonoBehaviour
 	{
 		levelTimer = LevelData.instance.levelTimer;
 		objectiveText.text = LevelData.instance.objectiveDescription;
+		
 	}
 
-	void FixedUpdate()
+	void MenuNavigation()
 	{
 		if (gameEnd == true)
 		{
@@ -104,6 +105,8 @@ public class LevelManager : MonoBehaviour
 
 	protected virtual void Update()
 	{
+		MenuNavigation();
+
 		if (gameEnd == false)
 		{
 			UpdateTimer();
@@ -159,6 +162,10 @@ public class LevelManager : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.F2))
 		{
 			StartCoroutine(Win());
+		}
+		if (Input.GetKeyDown(KeyCode.R))
+		{
+			Restart();
 		}
 	}
 
@@ -270,7 +277,6 @@ public class LevelManager : MonoBehaviour
 
 	public void Restart()
 	{
-		Debug.Log("oui");
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
 

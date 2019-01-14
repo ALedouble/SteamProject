@@ -35,6 +35,9 @@ public class Interactable : MonoBehaviour {
 
 	[System.NonSerialized]
 	public bool electrified, burning, wet;
+
+	public delegate void Action(Interactable script);
+	public Action ActionEvent;
 	
 
 	protected virtual void Start()
@@ -107,6 +110,7 @@ public class Interactable : MonoBehaviour {
 	public virtual void Activate()
 	{
 		if (!canActivate) return;
+		ActionEvent(this);
 	}
 
 	public virtual void Deactivate() { }
