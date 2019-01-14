@@ -9,7 +9,7 @@ public class DestroyOnGround : MonoBehaviour {
     private void OnCollisionEnter(Collision other)
     {
         if(other.collider.tag == "Ground" && !dead) {
-            GetComponent<Interactable>().Die();
+            GetComponent<Breakable>().Break(other.contacts[0].point);
             dead = true;
         }
     }
