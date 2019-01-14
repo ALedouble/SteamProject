@@ -31,7 +31,9 @@ public class PlayerController : MonoBehaviour {
 	[Space]
 	[Header("Referencies")]
 	public GameObject actionUI;
+	public GameObject grabbedActionUI;
 	Text actionText;
+	Text grabbedActionText;
 	public GameObject steerParticlesPrefab;
     public GameObject grabParticlesPrefab;
     public GameObject dropParticlesPrefab;
@@ -100,6 +102,8 @@ public class PlayerController : MonoBehaviour {
 		}
 		actionText = actionUI.GetComponentInChildren<Text>();
 		actionUI.SetActive(false);
+		grabbedActionText = actionUI.GetComponentInChildren<Text>();
+		grabbedActionUI.SetActive(false);
 	}
 
 	private void Start()
@@ -113,10 +117,27 @@ public class PlayerController : MonoBehaviour {
 		CheckForActions();
         GetInput();
 
-        anim.SetFloat("MoveSpeed", walkAnimationSpeedCurve.Evaluate(speed));
+		GrabbedInteractUI();
+
+
+		anim.SetFloat("MoveSpeed", walkAnimationSpeedCurve.Evaluate(speed));
     }
 
-    private void FixedUpdate()
+	void GrabbedInteractUI()
+	{
+		if (grabbedObject != null && grabbedObject.parameters.activationType == ActivationType.Handheld)
+		{
+			grabbedActionUI.SetActive(true);
+			grabbedActionText.text = "(" + actionKey + ") Use: " + grabbedObject.parameters.objectName;
+		}
+		else
+		{
+			grabbedActionUI.SetActive(false);
+		}
+	}
+
+
+	private void FixedUpdate()
     {
 		CheckMoveState();
 		if (moveState != MoveState.Steer)
