@@ -18,17 +18,19 @@ public class SaveManager : MonoBehaviour
 			public string name;
 			public float timer;
 			public string[] objectiveNames;
+			public string[] subObjectiveNames;
 			public string description;
 
 			public bool complete;
 			public bool[] completedSecondaryObjectives;
 
-			public Level(byte _id, string _name, float _timer, string[] _objectiveNames, string _description)
+			public Level(byte _id, string _name, float _timer, string[] _objectiveNames, string[] _subObjectiveNames, string _description)
 			{
 				id = _id;
 				name = _name;
 				timer = _timer;
 				objectiveNames = _objectiveNames;
+				subObjectiveNames = _subObjectiveNames;
 				description = _description;
 				completedSecondaryObjectives = new bool[objectiveNames.Length];
 			}
@@ -85,29 +87,29 @@ public class SaveManager : MonoBehaviour
 		FileStream _file = File.Create(Application.persistentDataPath + "/Saves.bp");
 
 		currentSave = new Save(new Save.Level[] {
-			new Save.Level(0, "Level 1", 60, new string[] { "Destroy the cake!"},
+			new Save.Level(0, "Level 1", 60, new string[] { "Destroy the cake!"}, new string[] { "Destroy the cake!"},
 				"Learn to be bad"),
-			new Save.Level(1, "Level 2", 60, new string[] { "Destroy the cake!"},
+			new Save.Level(1, "Level 2", 60, new string[] { "Destroy the cake!"}, new string[] { "Drop the bass!", "Get the ball rolling!"},
 				"Destroy the Leo's cake to make him cry"),
-			new Save.Level(2, "Level 3", 60, new string[] { "Destroy the cake!"},
+			new Save.Level(2, "Level 3", 60, new string[] { "Destroy the cake!"}, new string[] { "Hang the DJ!", "Break the pinata!"},
 				"This is the third level!"),
-			new Save.Level(3, "Level 4", 60, new string[] { "Isolate Douglas on the island!"},
+			new Save.Level(3, "Level 4", 60, new string[] { "Isolate Douglas on the island!"}, new string[] { "Destroy the cake!"},
 				"Doug is afraid of water since he's seen Cast Away. Let's be naughty!"),
-			new Save.Level(4, "Level 5", 60, new string[] { "Isolate Douglas on the island!"},
+			new Save.Level(4, "Level 5", 60, new string[] { "Isolate Douglas on the island!"}, new string[] { "Destroy the cake!"},
 				"Doug is afraid of water since he's seen Cast Away. Let's be naughty!"),
-			new Save.Level(5, "Level 6", 60, new string[] { "Do something!"},
+			new Save.Level(5, "Level 6", 60, new string[] { "Do something!"}, new string[] { "Destroy the cake!"},
 				"This is the sixth level!"),
-			new Save.Level(6, "Level 7", 60, new string[] { "Do something!"},
+			new Save.Level(6, "Level 7", 60, new string[] { "Do something!"}, new string[] { "Destroy the cake!"},
 				"Let's get naughty, birthday boys!"),
-			new Save.Level(7, "Level 8", 60, new string[] { "Burn the banners!"},
+			new Save.Level(7, "Level 8", 60, new string[] { "Burn the banners!"}, new string[] { "Destroy the cake!"},
 				"Tim loves his name. Let's throw off his groove today..."),
-			new Save.Level(8, "Level 9", 60, new string[] { "Burn the banners!"},
+			new Save.Level(8, "Level 9", 60, new string[] { "Burn the banners!"}, new string[] { "Destroy the cake!"},
 				"Tim loves his name. Let's throw off his groove today..."),
-			new Save.Level(9, "Level 10", 60, new string[] { "Burn the thing!"},
+			new Save.Level(9, "Level 10", 60, new string[] { "Burn the thing!"}, new string[] { "Destroy the cake!"},
 				"Kill it with fire!"),
-			new Save.Level(10, "Level 12", 60, new string[] { "Do something!"},
+			new Save.Level(10, "Level 12", 60, new string[] { "Do something!"}, new string[] { "Destroy the cake!"},
 				"And for the grand finale!"),
-				new Save.Level(11, "Level 14", 60, new string[] { "Do something!"},
+				new Save.Level(11, "Level 14", 60, new string[] { "Do something!"}, new string[] { "Destroy the cake!"},
 				"And for the grand finale!")
 		});
 
