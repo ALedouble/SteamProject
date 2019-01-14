@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class Ball : Interactable {
 
-	public float shootForce = 5;
+    public AttractionCircleV2 myAttractionCircle;
+	public float shootForce;
+    public int minScore;
+    public int maxScore;
+    public float timeBeingAtMaxScore;
+    float cooldownBeforeMinScore;
 
 	private void OnCollisionEnter(Collision collision)
 	{
@@ -18,6 +23,20 @@ public class Ball : Interactable {
 	{
 		Vector3 direction = self.position - _impactPoint;
 		body.AddForce(direction.normalized * shootForce + otherSpeed/2, ForceMode.VelocityChange);
+        myAttractionCircle.ChangeScore(maxScore);
+        cooldownBeforeMinScore = timeBeingAtMaxScore;
 	}
+
+    private void Update()
+    {
+        if (cooldownBeforeMinScore > 0)
+        {
+            cooldownBeforeMinScore -= Time.deltaTime;
+            if (cooldownBeforeMinScore <= 0)
+            {
+                myAttractionCircle.ChangeScore(minScore);
+            }
+        }
+    }
 
 }
