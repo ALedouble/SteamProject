@@ -3368,6 +3368,8 @@ GameObject:
   - component: {fileID: 965263591}
   - component: {fileID: 965263590}
   - component: {fileID: 965263589}
+  - component: {fileID: 965263594}
+  - component: {fileID: 965263593}
   m_Layer: 0
   m_Name: ToyBox
   m_TagString: Untagged
@@ -3442,6 +3444,46 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &965263593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 965263588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7e5f8f3c76606e41864a6caacfe094b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  body: {fileID: 0}
+  self: {fileID: 0}
+  colliders: []
+  renderers: []
+--- !u!114 &965263594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 965263588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39feb44449d084c44907efdadc23c0f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectName: 
+  blunt: 0
+  breakable: 0
+  destructible: 0
+  pickUp: 0
+  isElectric: 0
+  isFire: 0
+  isWater: 0
+  activationType: 0
+  material: 1
+  holdPositionOffset: {x: 0, y: 0, z: 0}
+  holdRotationOffset: {x: 0, y: 0, z: 0}
+  nodesChildren: []
+  nodes: []
 --- !u!4 &970821843 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4737778757619442, guid: aad803980e3fff54e86d204f0fa69426,
@@ -4061,8 +4103,18 @@ Prefab:
     m_Modifications:
     - target: {fileID: 114402446455790048, guid: 9fb5844b6b3c82d46865dda0737b972b,
         type: 2}
+      propertyPath: mainObjectives.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114402446455790048, guid: 9fb5844b6b3c82d46865dda0737b972b,
+        type: 2}
       propertyPath: mainObjective.relatedObjects.Array.size
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114402446455790048, guid: 9fb5844b6b3c82d46865dda0737b972b,
+        type: 2}
+      propertyPath: mainObjectives.Array.data[0].relatedObjects.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4498872837371968, guid: 9fb5844b6b3c82d46865dda0737b972b, type: 2}
       propertyPath: m_LocalPosition.x
@@ -4116,6 +4168,16 @@ Prefab:
       propertyPath: id
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 114402446455790048, guid: 9fb5844b6b3c82d46865dda0737b972b,
+        type: 2}
+      propertyPath: mainObjectives.Array.data[0].type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114402446455790048, guid: 9fb5844b6b3c82d46865dda0737b972b,
+        type: 2}
+      propertyPath: mainObjectives.Array.data[0].relatedObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 965263593}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9fb5844b6b3c82d46865dda0737b972b, type: 2}
   m_IsPrefabAsset: 0
