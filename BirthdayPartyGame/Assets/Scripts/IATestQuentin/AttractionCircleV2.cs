@@ -17,13 +17,16 @@ public class AttractionCircleV2 : MonoBehaviour {
     public bool repulse;
     Vector3 latestPosition;
     List<AIV2> AIsInRange = new List<AIV2>();
+    float oldRadius;
+    [HideInInspector]
+    public float wantedRadius;
+    float lerpValue;
 
     private void OnTriggerEnter(Collider other)
     {
-        print("hey");
         if (other.tag == "AI")
         {
-            print("hoy");
+            print("Ai Trigger In");
             other.GetComponent<AIV2>().AddAttractionCircle(this);
             AIsInRange.Add(other.GetComponent<AIV2>());
         }
@@ -33,6 +36,7 @@ public class AttractionCircleV2 : MonoBehaviour {
     {
         if (other.tag == "AI")
         {
+            print("Ai Trigger Out");
             other.GetComponent<AIV2>().RemoveAttractionCircle(this);
             AIsInRange.Remove(other.GetComponent<AIV2>());
         }
@@ -58,7 +62,11 @@ public class AttractionCircleV2 : MonoBehaviour {
 
     public void ChangeRadius(float _newRadius)
     {
-        mySphereCollider.radius = _newRadius;
+        oldRadius = mySphereCollider.radius;
+        wantedRadius = _newRadius;
+        lerpValue = 0;
+        StopAllCoroutines();
+        StartCoroutine(ChangeRadiusCoroutine());
     }
 
     private void Update()
@@ -71,5 +79,25 @@ public class AttractionCircleV2 : MonoBehaviour {
             }
         }
         latestPosition = transform.position;
+    }
+
+    IEnumerator ChangeRadiusCoroutine()
+    {
+        mySphereCollider.radius = Mathf.Lerp(oldRadius, wantedRadius, lerpValue);
+        yield return new WaitForSeconds(0.03f);
+        lerpValue = Mathf.Clamp01(lerpValue+0.06f);
+        if (lerpValue < 1)
+        {
+            StartCoroutine(ChangeRadiusCoroutine());
+        }
+        else
+        {
+            Invoke("Hey", 0.2f);
+        }
+    }
+
+    void Hey()
+    {
+        transform.position += transform.up * 0.01f;
     }
 }
