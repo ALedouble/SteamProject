@@ -195,6 +195,12 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e3f4987d9b83a44ab88e503d8ee7d70, type: 2}
   m_IsPrefabAsset: 0
+--- !u!114 &208670515 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114360306288259684, guid: 0e3f4987d9b83a44ab88e503d8ee7d70,
+    type: 2}
+  m_PrefabInternal: {fileID: 208670514}
+  m_Script: {fileID: 11500000, guid: a7e5f8f3c76606e41864a6caacfe094b, type: 3}
 --- !u!4 &210325633 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4973551955803582, guid: a19b460c4d2322b4fbaedd01954e5e58,
@@ -790,6 +796,12 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af9ac9fbd1022014eaa5e2a578f606ec, type: 2}
   m_IsPrefabAsset: 0
+--- !u!114 &861290245 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114191069900257124, guid: af9ac9fbd1022014eaa5e2a578f606ec,
+    type: 2}
+  m_PrefabInternal: {fileID: 861290244}
+  m_Script: {fileID: 11500000, guid: a7e5f8f3c76606e41864a6caacfe094b, type: 3}
 --- !u!4 &893407147 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4739074353129112, guid: a5a408847cbb0284791c1e9d19a3ff0d,
@@ -1102,6 +1114,12 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: adcbc0db4f37c2f44ba1d1b965a95e5f, type: 2}
   m_IsPrefabAsset: 0
+--- !u!114 &1114963131 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114873282576372562, guid: adcbc0db4f37c2f44ba1d1b965a95e5f,
+    type: 2}
+  m_PrefabInternal: {fileID: 1114963130}
+  m_Script: {fileID: 11500000, guid: a7e5f8f3c76606e41864a6caacfe094b, type: 3}
 --- !u!1001 &1170712407
 Prefab:
   m_ObjectHideFlags: 0
@@ -1212,8 +1230,18 @@ Prefab:
     m_Modifications:
     - target: {fileID: 114402446455790048, guid: 9fb5844b6b3c82d46865dda0737b972b,
         type: 2}
+      propertyPath: mainObjectives.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114402446455790048, guid: 9fb5844b6b3c82d46865dda0737b972b,
+        type: 2}
       propertyPath: mainObjective.relatedObjects.Array.size
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114402446455790048, guid: 9fb5844b6b3c82d46865dda0737b972b,
+        type: 2}
+      propertyPath: mainObjectives.Array.data[0].relatedObjects.Array.size
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4498872837371968, guid: 9fb5844b6b3c82d46865dda0737b972b, type: 2}
       propertyPath: m_LocalPosition.x
@@ -1260,13 +1288,43 @@ Prefab:
     - target: {fileID: 114402446455790048, guid: 9fb5844b6b3c82d46865dda0737b972b,
         type: 2}
       propertyPath: objectiveDescription
-      value: No goal set
+      value: Burn the cake and presents!
       objectReference: {fileID: 0}
     - target: {fileID: 114402446455790048, guid: 9fb5844b6b3c82d46865dda0737b972b,
         type: 2}
       propertyPath: id
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 114402446455790048, guid: 9fb5844b6b3c82d46865dda0737b972b,
+        type: 2}
+      propertyPath: mainObjectives.Array.data[0].type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114402446455790048, guid: 9fb5844b6b3c82d46865dda0737b972b,
+        type: 2}
+      propertyPath: mainObjectives.Array.data[0].relatedObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 1403828933}
+    - target: {fileID: 114402446455790048, guid: 9fb5844b6b3c82d46865dda0737b972b,
+        type: 2}
+      propertyPath: mainObjectives.Array.data[0].relatedObjects.Array.data[1]
+      value: 
+      objectReference: {fileID: 861290245}
+    - target: {fileID: 114402446455790048, guid: 9fb5844b6b3c82d46865dda0737b972b,
+        type: 2}
+      propertyPath: mainObjectives.Array.data[0].relatedObjects.Array.data[2]
+      value: 
+      objectReference: {fileID: 208670515}
+    - target: {fileID: 114402446455790048, guid: 9fb5844b6b3c82d46865dda0737b972b,
+        type: 2}
+      propertyPath: mainObjectives.Array.data[0].relatedObjects.Array.data[3]
+      value: 
+      objectReference: {fileID: 1114963131}
+    - target: {fileID: 114402446455790048, guid: 9fb5844b6b3c82d46865dda0737b972b,
+        type: 2}
+      propertyPath: mainObjectives.Array.data[0].relatedObjects.Array.data[4]
+      value: 
+      objectReference: {fileID: 1562505013}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9fb5844b6b3c82d46865dda0737b972b, type: 2}
   m_IsPrefabAsset: 0
@@ -1484,6 +1542,12 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d895746ec8690b141bbaa31eb092c0f4, type: 2}
   m_IsPrefabAsset: 0
+--- !u!114 &1403828933 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114879587775139256, guid: d895746ec8690b141bbaa31eb092c0f4,
+    type: 2}
+  m_PrefabInternal: {fileID: 1403828932}
+  m_Script: {fileID: 11500000, guid: a7e5f8f3c76606e41864a6caacfe094b, type: 3}
 --- !u!1001 &1457338496
 Prefab:
   m_ObjectHideFlags: 0
@@ -1664,6 +1728,12 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 792b959d4b4efc944acf9ac40a75c65a, type: 2}
   m_IsPrefabAsset: 0
+--- !u!114 &1562505013 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114447855520587264, guid: 792b959d4b4efc944acf9ac40a75c65a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1562505012}
+  m_Script: {fileID: 11500000, guid: a7e5f8f3c76606e41864a6caacfe094b, type: 3}
 --- !u!1 &1584478677
 GameObject:
   m_ObjectHideFlags: 0

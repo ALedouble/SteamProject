@@ -150,7 +150,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4739074353129112, guid: a5a408847cbb0284791c1e9d19a3ff0d, type: 2}
       propertyPath: m_RootOrder
-      value: 15
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 1934707711561198, guid: a5a408847cbb0284791c1e9d19a3ff0d, type: 2}
       propertyPath: m_Name
@@ -3765,7 +3765,7 @@ Transform:
   - {fileID: 2041024628}
   - {fileID: 1177341507}
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &883728017
 Prefab:
@@ -4269,7 +4269,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4858500956142592, guid: 0b9c5c6446728ff408d4c21decb41113, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4858500956142592, guid: 0b9c5c6446728ff408d4c21decb41113, type: 2}
       propertyPath: m_LocalScale.x
@@ -4497,6 +4497,16 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 304626196}
     m_Modifications:
+    - target: {fileID: 114402446455790048, guid: 9fb5844b6b3c82d46865dda0737b972b,
+        type: 2}
+      propertyPath: mainObjectives.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114402446455790048, guid: 9fb5844b6b3c82d46865dda0737b972b,
+        type: 2}
+      propertyPath: mainObjectives.Array.data[0].relatedObjects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4498872837371968, guid: 9fb5844b6b3c82d46865dda0737b972b, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4542,8 +4552,18 @@ Prefab:
     - target: {fileID: 114402446455790048, guid: 9fb5844b6b3c82d46865dda0737b972b,
         type: 2}
       propertyPath: objectiveDescription
-      value: Do something
+      value: Burn the statue!
       objectReference: {fileID: 0}
+    - target: {fileID: 114402446455790048, guid: 9fb5844b6b3c82d46865dda0737b972b,
+        type: 2}
+      propertyPath: mainObjectives.Array.data[0].type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114402446455790048, guid: 9fb5844b6b3c82d46865dda0737b972b,
+        type: 2}
+      propertyPath: mainObjectives.Array.data[0].relatedObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 355071228}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9fb5844b6b3c82d46865dda0737b972b, type: 2}
   m_IsPrefabAsset: 0
@@ -4590,7 +4610,7 @@ Transform:
   - {fileID: 943841661}
   - {fileID: 1375683248}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1089932069 stripped
 Transform:
@@ -4722,7 +4742,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4364897347804974, guid: 228c9866b97bf1c4a891f8d42b65d009, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -10.54
+      value: -10.01
       objectReference: {fileID: 0}
     - target: {fileID: 4364897347804974, guid: 228c9866b97bf1c4a891f8d42b65d009, type: 2}
       propertyPath: m_LocalRotation.x
@@ -6930,7 +6950,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4858500956142592, guid: 0b9c5c6446728ff408d4c21decb41113, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4858500956142592, guid: 0b9c5c6446728ff408d4c21decb41113, type: 2}
       propertyPath: m_LocalScale.x
@@ -8107,7 +8127,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4737778757619442, guid: aad803980e3fff54e86d204f0fa69426, type: 2}
       propertyPath: m_RootOrder
-      value: 22
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 1625106664957382, guid: aad803980e3fff54e86d204f0fa69426, type: 2}
       propertyPath: m_Name
@@ -8496,7 +8516,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4858500956142592, guid: 0b9c5c6446728ff408d4c21decb41113, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4858500956142592, guid: 0b9c5c6446728ff408d4c21decb41113, type: 2}
       propertyPath: m_LocalScale.x
