@@ -181,15 +181,15 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1654052945279190}
-  m_LocalRotation: {x: -0, y: 0.70710576, z: -0, w: 0.7071078}
-  m_LocalPosition: {x: -1.93, y: 1.39, z: 3.41}
+  m_LocalRotation: {x: -0, y: 0.7536417, z: -0, w: 0.6572855}
+  m_LocalPosition: {x: -3.88, y: 1.3899999, z: -8.42}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4064580863979462}
   - {fileID: 4870789842636690}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 90.00001, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 97.814, z: 0}
 --- !u!4 &4870789842636690
 Transform:
   m_ObjectHideFlags: 1
@@ -279,7 +279,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 890bda0e739623c4e8aebb27b197c3eb, type: 2}
+  - {fileID: 2100000, guid: b6aadfd7177f4674ab411f8e1fea74e6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -314,7 +314,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 890bda0e739623c4e8aebb27b197c3eb, type: 2}
+  - {fileID: 2100000, guid: b6aadfd7177f4674ab411f8e1fea74e6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -349,7 +349,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: f1e501fdf7dc88248b0d7fcfa4c57037, type: 3}
+  - {fileID: 2100000, guid: 890bda0e739623c4e8aebb27b197c3eb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -423,7 +423,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.259
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -612,9 +612,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  checkCircleDistance: 2.5
-  checkCircleRadius: 2.5
-  grabAngleTolerance: 30
+  checkCircleDistance: 0
+  checkCircleRadius: 3
+  grabAngleTolerance: 10
   uiOffset: {x: 0, y: 25, z: 0}
   steerTimerLimit: 0.2
 --- !u!114 &114240170670739462
@@ -630,8 +630,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 114219712242797052}
   myAudioSource: {fileID: 82039040311032090}
-  leftFootGrassClip: {fileID: 8300000, guid: 4c754a7079b77ac42ac37b4f51209b1c, type: 3}
-  rightFootGrassClip: {fileID: 8300000, guid: a509eefc26ce466479a7ee16944f9c44, type: 3}
+  leftFootGrassClip: {fileID: 8300000, guid: b6dd7ff830380c642acee300c62fc3d2, type: 3}
+  rightFootGrassClip: {fileID: 8300000, guid: 60507dd9c7d384846b81a67281b57d42, type: 3}
 --- !u!136 &136922621171408154
 CapsuleCollider:
   m_ObjectHideFlags: 1
