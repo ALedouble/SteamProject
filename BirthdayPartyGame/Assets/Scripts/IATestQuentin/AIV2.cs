@@ -53,29 +53,32 @@ public class AIV2 : MonoBehaviour {
     {
         AttractionCircleV2 _targetedAttractionCircle = null;
         int maxScore = 0;
-        for (int i = 0; i < AttractionCircleList.Count; i++)
+        if (AttractionCircleList.Count > 0)
         {
-            if (AttractionCircleList[i].repulse) // one repulse circle detected !!
+            for (int i = 0; i < AttractionCircleList.Count; i++)
             {
-                attractionCircleFleeing = AttractionCircleList[i];
-                SetState(AIState.Fleeing);
-                return;
+                if (AttractionCircleList[i].repulse) // one repulse circle detected !!
+                {
+                    attractionCircleFleeing = AttractionCircleList[i];
+                    SetState(AIState.Fleeing);
+                    return;
+                }
+                if (AttractionCircleList[i].score > maxScore) //attraction circle better than previous ones checked
+                {
+                    _targetedAttractionCircle = AttractionCircleList[i];
+                    maxScore = _targetedAttractionCircle.score;
+                }
             }
-            if (AttractionCircleList[i].score > maxScore) //attraction circle better than previous ones checked
+            if (maxScore > 0 && _targetedAttractionCircle != null && myState != AIState.Fleeing) //new attraction circle found
             {
-                _targetedAttractionCircle = AttractionCircleList[i];
-                maxScore = _targetedAttractionCircle.score;
+                SetNewCurrentAttractionCircle(_targetedAttractionCircle);
             }
-        }
-        if (maxScore > 0 && _targetedAttractionCircle!=null && myState!=AIState.Fleeing) //new attraction circle found
-        {
-            SetNewCurrentAttractionCircle(_targetedAttractionCircle);
-        }
-        else if(myState != AIState.Fleeing) //when no attraction circles
-        {
-            SetState(AIState.Neutral);
-            SetNewCurrentAttractionCircle(null);
-        }
+            else if (myState != AIState.Fleeing) //when no attraction circles
+            {
+                SetState(AIState.Neutral);
+                SetNewCurrentAttractionCircle(null);
+            }
+        }            
     }
 
     void SetNewCurrentAttractionCircle(AttractionCircleV2 _newCurrentAttractionCircle)
@@ -218,6 +221,10 @@ public class AIV2 : MonoBehaviour {
     void ResetAttractionCirclesAndSpots()
     {
         currentAttractionCircle = null;
-        currentSpot = null;
+        if(currentSpot!= null)
+        {
+            currentSpot.availability = true;
+            currentSpot = null;
+        }
     }
 }

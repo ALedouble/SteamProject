@@ -5,22 +5,29 @@ using UnityEngine;
 public class Speaker : Interactable {
 
     [Space]
-	public AudioSource levelAudioSource;
-	public AudioClip firstMusic;
+    [Header("Referencies")]
+    public GameObject explosionParticlePrefab;
+    public GameObject smokeParticlePrefab;
+    public Transform explosionTransform;
+    public Animator myAnim;
+    public AudioClip firstMusic;
 	public AudioClip secondMusic;
     public AudioClip levelMusic;
+    public AttractionCircleV2 myAttractionCircle;
+
+    [Space]
+    [Header("Variables to tweak")]
     public AnimationCurve comingBackMusicCurve;
     public float secondMusicVolume;
     public float firstMusicVolumeBeforeDeath;
     public float firstMusicVolumeAfterDeath;
-    public float timeforMusicToComeBack;
+    public float timeForMusicToComeBack;
+    public float hardTriggerRadius;
+    public float popTriggerRadius;
+
+    [HideInInspector]
+    public AudioSource levelAudioSource;
     float musicVolumeAscending;
-    [Space]
-    public GameObject explosionParticlePrefab;
-    public GameObject smokeParticlePrefab;
-    public Transform explosionTransform;
-    [Space]
-    public Animator myAnim;
 
     protected override void Start()
     {
@@ -44,7 +51,9 @@ public class Speaker : Interactable {
             levelAudioSource.Play();
 			activated = true;
             myAnim.SetTrigger("PopTrigger");
-		}
+            myAttractionCircle.ChangeRadius(popTriggerRadius);
+            myAttractionCircle.ChangeRepulse(false);
+        }
 		else
 		{
 			Deactivate();
@@ -60,11 +69,14 @@ public class Speaker : Interactable {
         levelAudioSource.Play();
         activated = false;
         myAnim.SetTrigger("HardTrigger");
-
+        myAttractionCircle.ChangeRadius(hardTriggerRadius);
+        myAttractionCircle.ChangeRepulse(true);
     }
 
 	public override void Die()
 	{
+        myAttractionCircle.ChangeScore(0);
+        myAttractionCircle.ChangeRadius(0);
         Instantiate(explosionParticlePrefab, explosionTransform.position, Quaternion.identity);
         Instantiate(smokeParticlePrefab, explosionTransform.position, Quaternion.Euler(-90, 0, 0), transform);
         canActivate = false;
@@ -79,7 +91,7 @@ public class Speaker : Interactable {
 
     IEnumerator MusicComingBack()
     {
-        musicVolumeAscending += Time.deltaTime / timeforMusicToComeBack;
+        musicVolumeAscending += Time.deltaTime / timeForMusicToComeBack;
         levelAudioSource.volume = comingBackMusicCurve.Evaluate(musicVolumeAscending);
         yield return new WaitForSeconds(Time.deltaTime);
         if (musicVolumeAscending < firstMusicVolumeAfterDeath)

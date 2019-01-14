@@ -8,14 +8,19 @@ public class Pinata : Interactable
     LineRenderer line;
     SpringJoint joint;
 
+    [Space]
+    [Header("Variables to tweak")]
     public GameObject containedObject;
     public bool linked;
+    public int scoreOnceDestroyed;
 
+
+    [Space]
+    [Header("Referencies")]
     public GameObject confettiParticlesPrefab;
-
     public AudioSource myAudioSource;
     public AudioClip dieAudioClip;
-    public CircleAttraction ca;
+    public AttractionCircleV2 myAttractionCircle;
 
     protected override void Start()
     {
@@ -39,7 +44,11 @@ public class Pinata : Interactable
 
     public override void Die()
     {
-        if (ca != null) ca.valueCircle = 10;
+        if(myAttractionCircle != null)
+        {
+            myAttractionCircle.ChangeScore(scoreOnceDestroyed);
+            myAttractionCircle.ChangeRadius(25);
+        }
         GameObject _confettiParticlesRef = Instantiate(confettiParticlesPrefab, transform.position, Quaternion.Euler(-90, 0, 0));
         Destroy(_confettiParticlesRef, 2.5f);
         print("beforePlay");
