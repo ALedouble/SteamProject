@@ -62,11 +62,13 @@ public class AttractionCircleV2 : MonoBehaviour {
 
     public void ChangeRadius(float _newRadius)
     {
-        oldRadius = mySphereCollider.radius;
-        wantedRadius = _newRadius;
-        lerpValue = 0;
-        StopAllCoroutines();
-        StartCoroutine(ChangeRadiusCoroutine());
+        mySphereCollider.radius = _newRadius;
+        Invoke("OffsetUp", 0.2f);
+
+        for (int i = 0; i < AIsInRange.Count; i++)
+        {
+            AIsInRange[i].CompareAttractionCircles();
+        }
     }
 
     private void Update()
@@ -92,11 +94,10 @@ public class AttractionCircleV2 : MonoBehaviour {
         }
         else
         {
-            Invoke("Hey", 0.2f);
         }
     }
 
-    void Hey()
+    void OffsetUp()
     {
         transform.position += transform.up * 0.01f;
     }

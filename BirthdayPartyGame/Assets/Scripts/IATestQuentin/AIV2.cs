@@ -14,7 +14,7 @@ public class AIV2 : MonoBehaviour {
     public AIState myState = AIState.Neutral;
 
     [Space]
-    [Header("VariablesToTweak")]
+    [Header("Variables To Tweak")]
     public float cooldownInDistressValue;
 
     [Space]
@@ -25,6 +25,7 @@ public class AIV2 : MonoBehaviour {
     public GameObject surpriseParticlesPrefab;
     public AudioSource myAudioSource;
     public AudioClip hitAudioClip;
+    public GameObject tearsParent;
 
 
     float cooldownInDistress;
@@ -43,7 +44,10 @@ public class AIV2 : MonoBehaviour {
     {
         if(myState == AIState.Fleeing && _oldAttractionCircle == attractionCircleFleeing) //si le cercle dont on vient de sortir était le repulse
         {
-            SetState(AIState.Neutral);
+            if (myState != AIState.Neutral)
+            {
+                SetState(AIState.Neutral);
+            }
         }
         AttractionCircleList.Remove(_oldAttractionCircle);
         CompareAttractionCircles();
@@ -60,7 +64,10 @@ public class AIV2 : MonoBehaviour {
                 if (AttractionCircleList[i].repulse) // one repulse circle detected !!
                 {
                     attractionCircleFleeing = AttractionCircleList[i];
-                    SetState(AIState.Fleeing);
+                    if (myState != AIState.Fleeing)
+                    {
+                        SetState(AIState.Fleeing);
+                    }
                     return;
                 }
                 if (AttractionCircleList[i].score > maxScore) //attraction circle better than previous ones checked
@@ -75,7 +82,10 @@ public class AIV2 : MonoBehaviour {
             }
             else if (myState != AIState.Fleeing) //when no attraction circles
             {
-                SetState(AIState.Neutral);
+                if (myState != AIState.Neutral)
+                {
+                    SetState(AIState.Neutral);
+                }
                 SetNewCurrentAttractionCircle(null);
             }
         }            
@@ -98,10 +108,6 @@ public class AIV2 : MonoBehaviour {
             {
                 if (currentAttractionCircle.mySpots[i].availability)
                 {
-                    if (currentSpot != null)
-                    {
-                         //make it available when you leave the spot
-                    }
                     if(Vector3.Distance(transform.position, currentAttractionCircle.mySpots[i].transform.position) < distanceMin)
                     {
                         distanceMin = Vector3.Distance(transform.position, currentAttractionCircle.mySpots[i].transform.position);
@@ -119,7 +125,7 @@ public class AIV2 : MonoBehaviour {
                 currentSpot.availability = false;
             }
         }
-        else
+        else if(currentSpot!=null)
         {
             currentSpot.availability = true;
             currentSpot = null;
@@ -133,7 +139,10 @@ public class AIV2 : MonoBehaviour {
             myNavMeshAgent.SetDestination(currentSpot.transform.position);
             if(myNavMeshAgent.remainingDistance > 0.5f)
             {
-                SetState(AIState.Neutral);
+                if (myState != AIState.Neutral)
+                {
+                    SetState(AIState.Neutral);
+                }
             }
         }
     }
@@ -147,14 +156,20 @@ public class AIV2 : MonoBehaviour {
                 cooldownInDistress -= Time.deltaTime;
                 if (cooldownInDistress <= 0)
                 {
-                    SetState(AIState.Neutral);
+                    if (myState != AIState.Neutral)
+                    {
+                        SetState(AIState.Neutral);
+                    }
                     CompareAttractionCircles();
                 }
                 break;
             case AIState.Amused:
                 if(myNavMeshAgent.remainingDistance > 0.5f)
                 {
-                    SetState(AIState.Neutral);
+                    if (myState != AIState.Neutral)
+                    {
+                        SetState(AIState.Neutral);
+                    }
                 }
                 break;
             case AIState.Neutral:
@@ -170,39 +185,70 @@ public class AIV2 : MonoBehaviour {
 
     void SetState(AIState _newState)
     {
+        ExitState();
         switch (_newState)
         {
             case AIState.inDistress:
+                print(gameObject.name+" IN DISTRESS");
                 myState = AIState.inDistress;
                 cooldownInDistress = cooldownInDistressValue;
-                myAnim.SetTrigger("SurpriseTrigger");
+                int inDistressToInt = (int)AIState.inDistress;
+                myAnim.SetInteger("EnumState", inDistressToInt);
+
                 GameObject _surprisePartRef = Instantiate(surpriseParticlesPrefab, spawnPointForSurpriseParticles.position, Quaternion.Euler(-90, 0, 0), spawnPointForSurpriseParticles);
                 Destroy(_surprisePartRef, 2f);
                 myAudioSource.PlayOneShot(hitAudioClip);
+                tearsParent.SetActive(true);
                 ResetAttractionCirclesAndSpots();
                 myNavMeshAgent.SetDestination(transform.position);
                 break;
             case AIState.Amused:
+                print(gameObject.name + " AMUSED");
                 myState = AIState.Amused;
-                myAnim.SetTrigger("AmusedTrigger");
+                int AmusedToInt = (int)AIState.Amused;
+                myAnim.SetInteger("EnumState", AmusedToInt);
                 break;
             case AIState.Neutral:
+                print(gameObject.name + " NEUTRAL");
                 myState = AIState.Neutral;
-                myAnim.SetTrigger("NeutralTrigger");
+                int NeutralToInt = (int)AIState.Neutral;
+                myAnim.SetInteger("EnumState", NeutralToInt);
                 break;
             case AIState.Fleeing:
+                print(gameObject.name + " FLEEING");
                 myState = AIState.Fleeing;
-                myAnim.SetTrigger("FleeingTrigger");
+                int FleeingToInt = (int)AIState.Fleeing;
+                myAnim.SetInteger("EnumState", FleeingToInt);
                 ResetAttractionCirclesAndSpots();
+                myNavMeshAgent.speed = 5;
 
                 //Set the fleeing destination
                 Vector3 newDestination = (transform.position - attractionCircleFleeing.transform.position).normalized;
-                float distance = attractionCircleFleeing.GetComponent<SphereCollider>().radius /2 +1;
+                float distance = attractionCircleFleeing.GetComponent<SphereCollider>().radius;
                 newDestination *= distance;
                 newDestination.y = transform.position.y;
-                newDestination += transform.position;
+                newDestination += attractionCircleFleeing.transform.position;
                 myNavMeshAgent.SetDestination(newDestination);
+                Vector3 test = newDestination - attractionCircleFleeing.transform.position;
                 break;
+        }
+    }
+
+    void ExitState()
+    {
+        switch (myState)
+        {
+            case AIState.inDistress:
+                tearsParent.SetActive(false);
+                break;
+            case AIState.Amused:
+                break;
+            case AIState.Neutral:
+                break;
+            case AIState.Fleeing:
+                myNavMeshAgent.speed = 3.5f;
+                break;
+
         }
     }
 
@@ -213,8 +259,8 @@ public class AIV2 : MonoBehaviour {
             Interactable _object = other.gameObject.GetComponent<Interactable>();
             if (_object.canBreak)
             {
+                SetState(AIState.inDistress);
             }
-            SetState(AIState.inDistress);
         }
     }
 
