@@ -240,6 +240,7 @@ public class LevelManager : MonoBehaviour
 
 			SaveManager.instance.SaveProgress(LevelData.instance.id, true, LevelData.instance.secondaryObjectives);
 			LevelData.instance = null;
+			SpawnPoint.instance = null;
 		}
 		else
 		{
@@ -257,7 +258,7 @@ public class LevelManager : MonoBehaviour
 
 		SaveManager.instance.SaveProgress(LevelData.instance.id, false, LevelData.instance.secondaryObjectives);
 		LevelData.instance = null;
-
+		SpawnPoint.instance = null;
 
 		if (Input.GetKeyDown(KeyCode.Return) && index == 1)
 		{
@@ -280,6 +281,10 @@ public class LevelManager : MonoBehaviour
 
 	public void NextLevel()
 	{
-		SceneManager.LoadScene(SaveManager.instance.currentSave.progressionIndex + 1);
+		int progression = SaveManager.instance.currentSave.progressionIndex;
+		if (progression < SaveManager.instance.currentSave.levels.Length)
+		{
+			SceneManager.LoadScene(progression + 1);
+		}
 	}
 }
