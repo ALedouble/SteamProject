@@ -6,7 +6,8 @@ public enum ObjectiveType
 {
 	None,
 	Destroy,
-	PositionChild
+	PositionChild,
+    Isolate
 }
 
 [System.Serializable]
@@ -14,6 +15,7 @@ public class Objective {
 
 	public ObjectiveType type;
 	public Interactable[] relatedObjects;
+    public GameObject[] relatedGameObjects;
 
 	[Header("Position child parameters:")]
 	public GameObject[] toPositionObjects;
@@ -35,6 +37,9 @@ public class Objective {
 			case ObjectiveType.PositionChild:
 				CheckPositionned();
 				break;
+            case ObjectiveType.Isolate:
+                CheckIsolation();
+                break;
 		}
 	}
 
@@ -61,6 +66,15 @@ public class Objective {
 			}
 		}
 	}
+
+    void CheckIsolation()
+    {
+        //related game objects : 0 = SphereCollider / 1 = Bridge
+        if(relatedGameObjects[0].GetComponent<LD4CollisionAI>().douglasIsolated && !relatedGameObjects[1].GetComponent<BridgeSwitcher>().opened)
+        {
+            Validate();
+        }
+    }
 
 	void Validate()
 	{
