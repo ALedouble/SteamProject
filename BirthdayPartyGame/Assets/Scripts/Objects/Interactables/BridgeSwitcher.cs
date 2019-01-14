@@ -5,6 +5,7 @@ using UnityEngine;
 public class BridgeSwitcher : Interactable {
 
     public Animator bridgeBarrierAnim;
+    public bool opened;
 
     protected override void Start()
     {
@@ -16,11 +17,14 @@ public class BridgeSwitcher : Interactable {
         base.Activate();
         if (!activated)
         {
+            activated = true;
             bridgeBarrierAnim.SetTrigger("ToggleTrigger");
+            opened = true;
         }
         else
         {
             Deactivate();
+            activated = false;
         }
     }
 
@@ -28,5 +32,6 @@ public class BridgeSwitcher : Interactable {
     {
         base.Deactivate();
         bridgeBarrierAnim.SetTrigger("ToggleTrigger");
+        opened = false;
     }
 }

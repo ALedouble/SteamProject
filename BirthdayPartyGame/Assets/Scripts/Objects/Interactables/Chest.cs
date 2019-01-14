@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Chest : Interactable {
 
-    public CircleAttraction myCircleAttraction;
+    public AttractionCircleV2 myAttractionCircle;
     public Renderer myRenderer;
+    public int minScore;
+    public int maxScore;
 
     protected override void Start()
     {
@@ -17,13 +19,12 @@ public class Chest : Interactable {
         base.Activate();
         if (!activated)
         {
-            myCircleAttraction.valueCircle = 20;
+            myAttractionCircle.ChangeScore(maxScore);
             myRenderer.material.color = Color.yellow;
             activated = true;
         }
         else
         {
-            print("prout");
             Deactivate();
         }
     }
@@ -31,7 +32,7 @@ public class Chest : Interactable {
     public override void Deactivate()
     {
         base.Deactivate();
-        myCircleAttraction.valueCircle = 0;
+        myAttractionCircle.ChangeScore(minScore);
         myRenderer.material.color = Color.white;
         activated = false;
     }
