@@ -32,7 +32,7 @@ public class SaveManager : MonoBehaviour
 				objectiveNames = _objectiveNames;
 				subObjectiveNames = _subObjectiveNames;
 				description = _description;
-				completedSecondaryObjectives = new bool[objectiveNames.Length];
+				completedSecondaryObjectives = new bool[subObjectiveNames.Length];
 			}
 		}
 
@@ -89,9 +89,9 @@ public class SaveManager : MonoBehaviour
 		currentSave = new Save(new Save.Level[] {
 			new Save.Level(0, "Level 1", 60, new string[] { "Destroy the cake!"}, new string[] { ""},
 				"Learn to be bad"),
-			new Save.Level(1, "Level 2", 60, new string[] { "Destroy the cake!"}, new string[] { "Drop the bass!", "Get the ball rolling!"},
+			new Save.Level(1, "Level 2", 60, new string[] { "Destroy the cake!"}, new string[] { "Drop the bass!"},
 				"Throw it on the ground!"),
-			new Save.Level(2, "Level 3", 60, new string[] { "Destroy the cake!"}, new string[] { "Hang the DJ!", "Break the pinata!"},
+			new Save.Level(2, "Level 3", 60, new string[] { "Destroy the cake!"}, new string[] { "Break the pinata!", "Hang the DJ!" },
 				"Bat out of hell"),
 			new Save.Level(3, "Level 4", 60, new string[] { "Isolate Douglas on the island!"}, new string[] { ""},
 				"Cast away"),
@@ -101,7 +101,7 @@ public class SaveManager : MonoBehaviour
 				"No gods or kings"),
 			new Save.Level(6, "Level 7", 60, new string[] { "Burn the presents!"}, new string[] { ""},
 				"Some like it hot"),
-			new Save.Level(7, "Level 8", 60, new string[] { "Burn the banners!"}, new string[] { ""},
+			new Save.Level(7, "Level 8", 60, new string[] { "Burn the banners!"}, new string[] { "Ruin the cake!"},
 				"The birthday boy with no name"),
 			new Save.Level(8, "Level 9", 60, new string[] { "Burn the presents and pinata!"}, new string[] { ""},
 				"Burn burn burn"),

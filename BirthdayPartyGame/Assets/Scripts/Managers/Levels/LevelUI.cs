@@ -36,7 +36,7 @@ public class LevelUI : MonoBehaviour {
 		time.text = "Time: " + _time.ToString() + " sec";
 
 		//string objString = "";
-		subObjectivesText.text = "";
+		objectivesText.text = "";
 		if (index < progression)
 		{
 			objectivesText.color = new Color(0, 150, 0);
