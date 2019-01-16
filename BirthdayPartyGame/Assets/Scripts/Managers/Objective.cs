@@ -17,9 +17,11 @@ public class Objective {
 
 	public ObjectiveType type;
 	public Interactable[] relatedObjects;
-    public GameObject[] relatedGameObjects;
-	bool setup;
+	public GameObject[] relatedGameObjects;
+	//bool setup;
 	public bool[] checkedObjects;
+	BridgeSwitcher bridge;
+	LD4CollisionAI doug;
 
 	//[Header("Position child parameters:")]
 	//public GameObject[] toPositionObjects;
@@ -29,52 +31,46 @@ public class Objective {
 
 	/*[HideInInspector]*/ public bool validated;
 
+	public delegate void Win();
+	public Win WinEvent;
+
 	public void InitializeObjective()
 	{
 		switch (type)
 		{
 			case ObjectiveType.Destroy:
-				if (!setup)
+				checkedObjects = new bool[relatedObjects.Length];
+				for (int i = 0; i < relatedObjects.Length; i++)
 				{
-					setup = true;
-					checkedObjects = new bool[relatedObjects.Length];
-					for (int i = 0; i < relatedObjects.Length; i++)
-					{
-						relatedObjects[i].DieEvent += CheckObject;
-					}
+					relatedObjects[i].DieEvent += CheckObject;
 				}
 				break;
 			case ObjectiveType.Isolate:
-				if (!setup)
+				for (int i = 0; i < relatedGameObjects.Length; i++)
 				{
-					setup = true;
-					checkedObjects = new bool[relatedObjects.Length];
-					for (int i = 0; i < relatedObjects.Length; i++)
+					if (relatedGameObjects[i].GetComponent<LD4CollisionAI>() != null)
 					{
-						relatedObjects[i].DeactivateEvent += CheckObject;
+						doug = relatedGameObjects[i].GetComponent<LD4CollisionAI>();
+					}
+					else if (relatedGameObjects[i].GetComponent<BridgeSwitcher>() != null)
+					{
+						bridge = relatedGameObjects[i].GetComponent<BridgeSwitcher>();
+						bridge.DeactivateEvent += CheckIsolation;
 					}
 				}
 				break;
 			case ObjectiveType.Activate:
-				if (!setup)
+				checkedObjects = new bool[relatedObjects.Length];
+				for (int i = 0; i < relatedObjects.Length; i++)
 				{
-					setup = true;
-					checkedObjects = new bool[relatedObjects.Length];
-					for (int i = 0; i < relatedObjects.Length; i++)
-					{
-						relatedObjects[i].ActionEvent += CheckObject;
-					}
+					relatedObjects[i].ActionEvent += CheckObject;
 				}
 				break;
 			case ObjectiveType.Grab:
-				if (!setup)
+				checkedObjects = new bool[relatedObjects.Length];
+				for (int i = 0; i < relatedObjects.Length; i++)
 				{
-					setup = true;
-					checkedObjects = new bool[relatedObjects.Length];
-					for (int i = 0; i < relatedObjects.Length; i++)
-					{
-						relatedObjects[i].GrabEvent += CheckObject;
-					}
+					relatedObjects[i].GrabEvent += CheckObject;
 				}
 				break;
 		}
@@ -147,7 +143,7 @@ public class Objective {
     void CheckIsolation(Interactable script)
     {
         //related game objects : 0 = SphereCollider / 1 = Bridge
-        if(relatedGameObjects[0].GetComponent<LD4CollisionAI>().douglasIsolated && !relatedGameObjects[1].GetComponent<BridgeSwitcher>().opened)
+        if(doug.douglasIsolated && !bridge.opened)
         {
             Validate();
         }
@@ -181,5 +177,6 @@ public class Objective {
 	{
 		validated = true;
 		Debug.Log("Validate");
+		WinEvent();
 	}
 }

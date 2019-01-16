@@ -30,8 +30,9 @@ public class BridgeSwitcher : Interactable {
 
     public override void Deactivate()
     {
-        base.Deactivate();
+        
         bridgeBarrierAnim.SetTrigger("ToggleTrigger");
         opened = false;
-    }
+		base.Deactivate();
+	}
 }

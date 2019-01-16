@@ -28,7 +28,11 @@ public class LevelManager : MonoBehaviour
 	{
 		levelTimer = LevelData.instance.levelTimer;
 		objectiveText.text = LevelData.instance.objectiveDescription;
-		
+
+		for (int i = 0; i < LevelData.instance.mainObjectives.Length; i++)
+		{
+			LevelData.instance.mainObjectives[i].WinEvent += CheckWin;
+		} 
 	}
 
 	void MenuNavigation()
@@ -208,27 +212,34 @@ public class LevelManager : MonoBehaviour
 
 	public virtual void CheckWin()
 	{
-		if (LevelData.instance.mainObjectives.Length <= 0)
-		{
-			return;
-		}
+		//if (LevelData.instance.mainObjectives.Length <= 0)
+		//{
+		//	return;
+		//}
 
-		bool won = true;
+		//bool won = true;
 
+		//for (int i = 0; i < LevelData.instance.mainObjectives.Length; i++)
+		//{
+		//	LevelData.instance.mainObjectives[i].CheckValid();
+		//	if (!LevelData.instance.mainObjectives[i].validated)
+		//	{
+		//		won = false;
+		//	}
+		//}
+
+		//if (won)
+		//{
+		//	print("Go to win");
 		for (int i = 0; i < LevelData.instance.mainObjectives.Length; i++)
 		{
-			LevelData.instance.mainObjectives[i].CheckValid();
 			if (!LevelData.instance.mainObjectives[i].validated)
 			{
-				won = false;
+				return;
 			}
 		}
-
-		if (won)
-		{
-			print("Go to win");
 			StartCoroutine(Win());
-		}
+		//}
 	}
 
 	protected virtual IEnumerator Win()

@@ -123,7 +123,7 @@ public class Interactable : MonoBehaviour {
 	{
 		if (DeactivateEvent != null)
 		{
-			DeactivateEvent();
+			DeactivateEvent(this);
 		}
 	}
 
