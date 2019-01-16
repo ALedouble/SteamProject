@@ -24,6 +24,7 @@ public class Lawnmower : Interactable {
 	public override void Activate()
 	{
 		base.Activate();
+		if (!canActivate) return;
 		if (isAnimated && !hasJumped)
 		{
 			anim.SetTrigger("Jump");

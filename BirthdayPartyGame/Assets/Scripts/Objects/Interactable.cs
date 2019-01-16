@@ -35,10 +35,13 @@ public class Interactable : MonoBehaviour {
 
 	[System.NonSerialized]
 	public bool electrified, burning, wet;
+	protected bool dead;
 
 	public delegate void Action(Interactable script);
 	public Action ActionEvent;
-	
+	public Action DeactivateEvent;
+	public Action GrabEvent;
+	public Action DieEvent;
 
 	protected virtual void Start()
 	{
@@ -91,6 +94,8 @@ public class Interactable : MonoBehaviour {
 
 	public void GetGrabbed(Transform _holdPoint)
 	{
+		if (GrabEvent != null)
+			GrabEvent(this);
 		self.parent = _holdPoint;
 		self.localPosition = parameters.holdPositionOffset;
 		self.localRotation = Quaternion.Euler(parameters.holdRotationOffset);
@@ -114,11 +119,21 @@ public class Interactable : MonoBehaviour {
 			ActionEvent(this);
 	}
 
-	public virtual void Deactivate() { }
+	public virtual void Deactivate()
+	{
+		if (DeactivateEvent != null)
+		{
+			DeactivateEvent();
+		}
+	}
 
 	public virtual void Die()
 	{
+		if (dead) return;
+		if (DieEvent != null)
+			DieEvent(this);
 		Destroy(gameObject);
+		dead = true;
 		//body.isKinematic = true;
 		//for (int i = 0; i < colliders.Length; i++)
 		//{

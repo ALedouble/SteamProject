@@ -111,18 +111,18 @@ public class LevelManager : MonoBehaviour
 		{
 			UpdateTimer();
 
-			if (LevelData.instance.secondaryObjectives.Length > 0)
-			{
-				for (int i = 0; i < LevelData.instance.secondaryObjectives.Length; i++)
-				{
-					if (!LevelData.instance.secondaryObjectives[i].validated)
-					{
-						LevelData.instance.secondaryObjectives[i].CheckValid();
-					}
-				}
-			}
+			//if (LevelData.instance.secondaryObjectives.Length > 0)
+			//{
+			//	for (int i = 0; i < LevelData.instance.secondaryObjectives.Length; i++)
+			//	{
+			//		if (!LevelData.instance.secondaryObjectives[i].validated)
+			//		{
+			//			LevelData.instance.secondaryObjectives[i].CheckValid();
+			//		}
+			//	}
+			//}
 
-			CheckWin();
+			//CheckWin();
 		}
 
 		if (loose == true && index == 0)
@@ -243,7 +243,7 @@ public class LevelManager : MonoBehaviour
 			gameEnd = true;
 			//Time.timeScale = 0.01f;
 			uiWin.SetActive(true);
-			Time.timeScale = 1;
+			Time.timeScale = 0;
 
 			SaveManager.instance.SaveProgress(LevelData.instance.id, true, LevelData.instance.secondaryObjectives);
 			LevelData.instance = null;
@@ -261,7 +261,7 @@ public class LevelManager : MonoBehaviour
 		gameEnd = true;
 		//Time.timeScale = 0.01f;
 		uiLose.SetActive(true);
-		Time.timeScale = 1;
+		Time.timeScale = 0;
 
 		SaveManager.instance.SaveProgress(LevelData.instance.id, false, LevelData.instance.secondaryObjectives);
 		LevelData.instance = null;
@@ -277,16 +277,19 @@ public class LevelManager : MonoBehaviour
 
 	public void Restart()
 	{
+		Time.timeScale = 1;
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
 
 	public void Menu()
 	{
+		Time.timeScale = 1;
 		SceneManager.LoadScene("LevelSelection", LoadSceneMode.Single);
 	}
 
 	public void NextLevel()
 	{
+		Time.timeScale = 1;
 		int progression = SaveManager.instance.currentSave.progressionIndex;
 		if (progression < SaveManager.instance.currentSave.levels.Length)
 		{

@@ -25,6 +25,14 @@ public class LevelData : MonoBehaviour
 		{
 			Destroy(gameObject);
 		}
+		for (int i = 0; i < mainObjectives.Length; i++)
+		{
+			mainObjectives[i].InitializeObjective();
+		}
+		for (int i = 0; i < secondaryObjectives.Length; i++)
+		{
+			secondaryObjectives[i].InitializeObjective();
+		}
 		SceneManager.LoadScene("LevelNecessities", LoadSceneMode.Additive);
 	}
 

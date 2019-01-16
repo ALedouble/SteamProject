@@ -43,6 +43,7 @@ public class Speaker : Interactable {
     public override void Activate()
 	{
 		base.Activate();
+		if (!canActivate) return;
 		if (!activated)
 		{
             levelAudioSource.Stop();

@@ -44,6 +44,11 @@ public class Pinata : Interactable
 
     public override void Die()
     {
+		//base.Die();
+		if (dead) return;
+		if (DieEvent != null)
+			DieEvent(this);
+		dead = true;
         if(myAttractionCircle != null)
         {
             myAttractionCircle.ChangeScore(scoreOnceDestroyed);
@@ -54,10 +59,11 @@ public class Pinata : Interactable
         print("beforePlay");
         myAudioSource.PlayOneShot(dieAudioClip);
         print("afterPlay");
-        base.Die();
+       
         if (containedObject != null)
             Instantiate(containedObject, transform.position, Quaternion.identity);
-    }
+		Destroy(gameObject);
+	}
 
     private void OnJointBreak(float breakForce)
     {

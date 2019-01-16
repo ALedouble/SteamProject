@@ -102,7 +102,7 @@ public class PlayerController : MonoBehaviour {
 		}
 		actionText = actionUI.GetComponentInChildren<Text>();
 		actionUI.SetActive(false);
-		grabbedActionText = actionUI.GetComponentInChildren<Text>();
+		grabbedActionText = grabbedActionUI.GetComponentInChildren<Text>();
 		grabbedActionUI.SetActive(false);
 	}
 
@@ -125,10 +125,14 @@ public class PlayerController : MonoBehaviour {
 
 	void GrabbedInteractUI()
 	{
-		if (grabbedObject != null && grabbedObject.parameters.activationType == ActivationType.Handheld)
+		if (grabbedObject != null)
 		{
 			grabbedActionUI.SetActive(true);
-			grabbedActionText.text = "(" + actionKey + ") Use: " + grabbedObject.parameters.objectName;
+			grabbedActionText.text = grabbedObject.parameters.objectName;
+			if (grabbedObject.parameters.activationType == ActivationType.Handheld)
+			{
+				grabbedActionText.text += ": X to use";
+			}
 		}
 		else
 		{
@@ -207,7 +211,6 @@ public class PlayerController : MonoBehaviour {
 		//if (Input.GetKeyDown(actionKey))
 		if (Input.GetButtonDown("Action"))
 		{
-			print("Activate");
 			ActivateObject();
 		}
 

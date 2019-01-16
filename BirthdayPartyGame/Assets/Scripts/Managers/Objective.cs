@@ -8,7 +8,8 @@ public enum ObjectiveType
 	Destroy,
 	PositionChild,
     Isolate,
-	Activate
+	Activate,
+	Grab
 }
 
 [System.Serializable]
@@ -18,70 +19,132 @@ public class Objective {
 	public Interactable[] relatedObjects;
     public GameObject[] relatedGameObjects;
 	bool setup;
-	public bool[] activatedObjects;
+	public bool[] checkedObjects;
 
-	[Header("Position child parameters:")]
-	public GameObject[] toPositionObjects;
-	public bool strict;
-	public ZoneBehaviour positionZone;
-	List<GameObject> positionnedObjects;
+	//[Header("Position child parameters:")]
+	//public GameObject[] toPositionObjects;
+	//public bool strict;
+	//public ZoneBehaviour positionZone;
+	//List<GameObject> positionnedObjects;
 
-	[HideInInspector] public bool validated;
+	/*[HideInInspector]*/ public bool validated;
 
-	public void CheckValid()
+	public void InitializeObjective()
 	{
 		switch (type)
 		{
-			case ObjectiveType.None:
-				break;
 			case ObjectiveType.Destroy:
-				CheckDestroyed();
+				if (!setup)
+				{
+					setup = true;
+					checkedObjects = new bool[relatedObjects.Length];
+					for (int i = 0; i < relatedObjects.Length; i++)
+					{
+						relatedObjects[i].DieEvent += CheckObject;
+					}
+				}
 				break;
-			case ObjectiveType.PositionChild:
-				CheckPositionned();
+			case ObjectiveType.Isolate:
+				if (!setup)
+				{
+					setup = true;
+					checkedObjects = new bool[relatedObjects.Length];
+					for (int i = 0; i < relatedObjects.Length; i++)
+					{
+						relatedObjects[i].DeactivateEvent += CheckObject;
+					}
+				}
 				break;
-            case ObjectiveType.Isolate:
-                CheckIsolation();
-                break;
 			case ObjectiveType.Activate:
 				if (!setup)
 				{
 					setup = true;
-					activatedObjects = new bool[relatedObjects.Length];
+					checkedObjects = new bool[relatedObjects.Length];
 					for (int i = 0; i < relatedObjects.Length; i++)
 					{
-						relatedObjects[i].ActionEvent += CheckActivate;
+						relatedObjects[i].ActionEvent += CheckObject;
+					}
+				}
+				break;
+			case ObjectiveType.Grab:
+				if (!setup)
+				{
+					setup = true;
+					checkedObjects = new bool[relatedObjects.Length];
+					for (int i = 0; i < relatedObjects.Length; i++)
+					{
+						relatedObjects[i].GrabEvent += CheckObject;
 					}
 				}
 				break;
 		}
 	}
 
-	void CheckDestroyed()
-	{
-		for (int i = 0; i < relatedObjects.Length; i++)
-		{
-			if (relatedObjects[i] != null/* && relatedObjects[i].enabled*/)
-			{
-				return;
-			}
-		}
-        Debug.Log ("About to win");
-		Validate();
-	}
+	//public void CheckValid()
+	//{
+	//	switch (type)
+	//	{
+	//		case ObjectiveType.None:
+	//			break;
+	//		case ObjectiveType.Destroy:
+	//			CheckDestroyed();
+	//			break;
+	//		case ObjectiveType.PositionChild:
+	//			CheckPositionned();
+	//			break;
+ //           case ObjectiveType.Isolate:
+ //               CheckIsolation();
+ //               break;
+	//		case ObjectiveType.Activate:
+	//			if (!setup)
+	//			{
+	//				setup = true;
+	//				checkedObjects = new bool[relatedObjects.Length];
+	//				for (int i = 0; i < relatedObjects.Length; i++)
+	//				{
+	//					relatedObjects[i].ActionEvent += CheckObject;
+	//				}
+	//			}
+	//			break;
+	//		case ObjectiveType.Grab:
+	//			if (!setup)
+	//			{
+	//				setup = true;
+	//				checkedObjects = new bool[relatedObjects.Length];
+	//				for (int i = 0; i < relatedObjects.Length; i++)
+	//				{
+	//					relatedObjects[i].GrabEvent += CheckObject;
+	//				}
+	//			}
+	//			break;
+	//	}
+	//}
+
+	//void CheckDestroyed()
+	//{
+	//	for (int i = 0; i < relatedObjects.Length; i++)
+	//	{
+	//		if (relatedObjects[i] != null/* && relatedObjects[i].enabled*/)
+	//		{
+	//			return;
+	//		}
+	//	}
+ //       Debug.Log ("About to win");
+	//	Validate();
+	//}
 
 	void CheckPositionned()
 	{
-		if (ZoneBehaviour.instance != null)
-		{
-			if (ZoneBehaviour.instance.collidingObjects.Count >= toPositionObjects.Length)
-			{
-				Validate();
-			}
-		}
+		//if (ZoneBehaviour.instance != null)
+		//{
+		//	if (ZoneBehaviour.instance.collidingObjects.Count >= toPositionObjects.Length)
+		//	{
+		//		Validate();
+		//	}
+		//}
 	}
 
-    void CheckIsolation()
+    void CheckIsolation(Interactable script)
     {
         //related game objects : 0 = SphereCollider / 1 = Bridge
         if(relatedGameObjects[0].GetComponent<LD4CollisionAI>().douglasIsolated && !relatedGameObjects[1].GetComponent<BridgeSwitcher>().opened)
@@ -90,20 +153,20 @@ public class Objective {
         }
     }
 
-	void CheckActivate(Interactable script)
+	void CheckObject(Interactable script)
 	{
 		for (int i = 0; i < relatedObjects.Length; i++)
 		{
 			if (script == relatedObjects[i])
 			{
-				activatedObjects[i] = true;
+				checkedObjects[i] = true;
 			}
 
 		}
 
-		for (int i = 0; i < activatedObjects.Length; i++)
+		for (int i = 0; i < checkedObjects.Length; i++)
 		{
-			if (!activatedObjects[i])
+			if (!checkedObjects[i])
 			{
 				return;
 			}
