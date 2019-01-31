@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
-
 	int choose = 0;
+	public GameObject optionsObject;
 	public GameObject[] allElements;
 
 
@@ -22,6 +22,7 @@ public class MenuManager : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+		if (OptionsManager.instance != null) return;
 		if (Input.GetKeyDown(KeyCode.DownArrow))
 		{
 			choose += 1;
@@ -96,6 +97,9 @@ public class MenuManager : MonoBehaviour
 					break;
 				case 1:
 					SceneManager.LoadScene("LevelSelection", LoadSceneMode.Single);
+					break;
+				case 2:
+					optionsObject.SetActive(true);
 					break;
 				case 3:
 					Application.Quit();

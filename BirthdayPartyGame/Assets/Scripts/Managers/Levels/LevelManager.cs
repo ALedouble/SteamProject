@@ -159,10 +159,10 @@ public class LevelManager : MonoBehaviour
 			}
 		}
 
-		if (Input.GetKeyDown(KeyCode.Escape))
-		{
-			SceneManager.LoadScene("LevelSelection");
-		}
+		//if (Input.GetKeyDown(KeyCode.Escape))
+		//{
+		//	SceneManager.LoadScene("LevelSelection");
+		//}
 		if (Input.GetKeyDown(KeyCode.F2))
 		{
 			StartCoroutine(Win());
