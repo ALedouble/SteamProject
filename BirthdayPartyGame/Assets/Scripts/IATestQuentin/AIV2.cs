@@ -189,7 +189,6 @@ public class AIV2 : MonoBehaviour {
         switch (_newState)
         {
             case AIState.inDistress:
-                print(gameObject.name+" IN DISTRESS");
                 myState = AIState.inDistress;
                 cooldownInDistress = cooldownInDistressValue;
                 int inDistressToInt = (int)AIState.inDistress;
@@ -203,19 +202,16 @@ public class AIV2 : MonoBehaviour {
                 myNavMeshAgent.SetDestination(transform.position);
                 break;
             case AIState.Amused:
-                print(gameObject.name + " AMUSED");
                 myState = AIState.Amused;
                 int AmusedToInt = (int)AIState.Amused;
                 myAnim.SetInteger("EnumState", AmusedToInt);
                 break;
             case AIState.Neutral:
-                print(gameObject.name + " NEUTRAL");
                 myState = AIState.Neutral;
                 int NeutralToInt = (int)AIState.Neutral;
                 myAnim.SetInteger("EnumState", NeutralToInt);
                 break;
             case AIState.Fleeing:
-                print(gameObject.name + " FLEEING");
                 myState = AIState.Fleeing;
                 int FleeingToInt = (int)AIState.Fleeing;
                 myAnim.SetInteger("EnumState", FleeingToInt);
@@ -229,7 +225,6 @@ public class AIV2 : MonoBehaviour {
                 newDestination.y = transform.position.y;
                 newDestination += attractionCircleFleeing.transform.position;
                 myNavMeshAgent.SetDestination(newDestination);
-                Vector3 test = newDestination - attractionCircleFleeing.transform.position;
                 break;
         }
     }

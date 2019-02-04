@@ -62,6 +62,7 @@ public class AttractionCircleV2 : MonoBehaviour {
 
     public void ChangeRadius(float _newRadius)
     {
+        oldRadius = mySphereCollider.radius;
         mySphereCollider.radius = _newRadius;
         Invoke("OffsetUp", 0.2f);
 
