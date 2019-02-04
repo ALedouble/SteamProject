@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.AI;
 
 public enum MoveState
 {
@@ -95,6 +96,7 @@ public class PlayerController : MonoBehaviour {
     [Header("TestNewGrab")]
     List<Interactable> listOfInteractables = new List<Interactable>();
     public Transform pointRef;
+    Vector3 velocityLateUpdate;
 
 	private void Awake()
 	{
@@ -315,10 +317,10 @@ public class PlayerController : MonoBehaviour {
         turnRotation = Quaternion.Euler(0, Mathf.Atan2(input.x, input.z) * 180 / Mathf.PI, 0);
         transform.rotation = Quaternion.Slerp(transform.rotation, turnRotation, turnSpeed);
     }
+
 	void Steer()
 	{
 		transform.rotation = Quaternion.Slerp(transform.rotation, steerTarget, turnSpeed);
-		print("Steering");
 	}
 
     void Accelerate()
@@ -502,7 +504,6 @@ public class PlayerController : MonoBehaviour {
             if (FilteredObjects(needToBeFiltered, Filter.Grab) != null || FilteredObjects(needToBeFiltered, Filter.Activate) != null)
             {
                 listOfInteractables.Remove(other.GetComponent<Interactable>());
-                print(listOfInteractables.Count);
             }
 
         }
@@ -530,5 +531,5 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-	#endregion
+    #endregion
 }
