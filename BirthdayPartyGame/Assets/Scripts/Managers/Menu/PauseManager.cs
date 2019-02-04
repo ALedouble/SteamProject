@@ -50,7 +50,7 @@ public class PauseManager : PanelUI {
 			if (state == PauseState.Pause)
 				base.GetInput();
 
-			if (Input.GetKeyDown(KeyCode.Escape))
+			if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Joystick1Button7))//|| Input.GetButtonDown("Start"))
 			{
 				//if (optionsOpened)
 				//{

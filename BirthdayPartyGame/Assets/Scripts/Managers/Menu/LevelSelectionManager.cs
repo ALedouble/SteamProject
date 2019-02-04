@@ -16,6 +16,9 @@ public class LevelSelectionManager : MonoBehaviour {
 
 	bool canClick = true;
 
+	float padMoveLeftTimer;
+	float padMoveRightTimer;
+
 	// Use this for initialization
 	void Start () {
 
@@ -44,26 +47,46 @@ public class LevelSelectionManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		GetInput();
+
+		if (padMoveLeftTimer > 0)
+		{
+			padMoveLeftTimer -= Time.unscaledDeltaTime;
+		}
+		if (padMoveRightTimer > 0)
+		{
+			padMoveRightTimer -= Time.unscaledDeltaTime;
+		}
 	}
 
 	void GetInput()
 	{
 		if (!canClick) return;
 
-		if (Input.GetKeyDown(KeyCode.LeftArrow) && levelIndex > 0)
+		if (( Input.GetKeyDown(KeyCode.LeftArrow) || (Input.GetAxisRaw("Horizontal") < -0.2f && padMoveLeftTimer <= 0) ) && levelIndex > 0)
 		{
 			SwitchLevel(false);
+			padMoveLeftTimer = Constants.constants.gamepadMoveTimer;
+			padMoveRightTimer = 0;
 		}
-		else if (Input.GetKeyDown(KeyCode.RightArrow) && levelIndex < levelsNumber - 1 &&
+		else if (( Input.GetKeyDown(KeyCode.RightArrow) || (Input.GetAxisRaw("Horizontal") > 0.2f && padMoveRightTimer <= 0) )
+			&& levelIndex < levelsNumber - 1 &&
 				(levelIndex < SaveManager.instance.currentSave.progressionIndex || GameManager.instance.state == DevState.Debug))
 		{
 			SwitchLevel(true);
+			padMoveRightTimer = Constants.constants.gamepadMoveTimer;
+			padMoveLeftTimer = 0;
 		}
-		if (Input.GetKey(KeyCode.Return))
+		if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) < 0.2f)
+		{
+			padMoveRightTimer = 0;
+			padMoveLeftTimer = 0;
+		}
+
+		if (Input.GetKey(KeyCode.Return) || Input.GetButtonDown("Grab"))
 		{
 			GoToLevel();
 		}
-		else if (Input.GetKey(KeyCode.Escape))
+		else if (Input.GetKey(KeyCode.Escape) || Input.GetButtonDown("Back"))
 		{
 			SceneManager.LoadScene(0);
 		}

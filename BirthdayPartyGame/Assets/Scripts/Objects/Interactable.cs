@@ -280,10 +280,10 @@ public class Interactable : MonoBehaviour {
 
 	IEnumerator CheckBurningScore()
 	{
-		if (DestructionManager.instance != null)
+		if (GameManager.instance.mode == LevelsMode.Destruction)
 		{
 			if (burning)
-				DestructionManager.instance.AddDestruction(5);
+				DestructionManager.instance.AddDestruction(transform.position, Constants.constants.fireDestructionAmount);
 			yield return new WaitForSeconds(2.0f);
 			StartCoroutine(CheckBurningScore());
 		}

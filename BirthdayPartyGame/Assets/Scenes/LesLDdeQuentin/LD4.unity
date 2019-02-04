@@ -349,6 +349,7 @@ MonoBehaviour:
   blunt: 0
   breakable: 0
   destructible: 0
+  destructionScore: 0
   pickUp: 0
   isElectric: 0
   isFire: 0
@@ -526,6 +527,7 @@ MonoBehaviour:
   blunt: 0
   breakable: 0
   destructible: 0
+  destructionScore: 0
   pickUp: 0
   isElectric: 0
   isFire: 0
@@ -1281,6 +1283,7 @@ MonoBehaviour:
   blunt: 0
   breakable: 0
   destructible: 0
+  destructionScore: 0
   pickUp: 0
   isElectric: 0
   isFire: 0
@@ -1446,6 +1449,7 @@ MonoBehaviour:
   blunt: 0
   breakable: 0
   destructible: 0
+  destructionScore: 0
   pickUp: 0
   isElectric: 0
   isFire: 0
@@ -1558,9 +1562,11 @@ MonoBehaviour:
   secondTimerText: {fileID: 105654492}
   thirdTimerText: {fileID: 685954444}
   fourthTimerText: {fileID: 1178385941}
-  objectiveText: {fileID: 785053202}
+  uiObjective: {fileID: 0}
+  uiScore: {fileID: 0}
   uiWin: {fileID: 548038705}
   uiLose: {fileID: 1428402596}
+  uiDestructionEnd: {fileID: 0}
   objectiveAnimator: {fileID: 1194927855}
   timerAcceleration: 1.5
 --- !u!1 &256195638
@@ -1908,6 +1914,7 @@ MonoBehaviour:
   blunt: 0
   breakable: 0
   destructible: 0
+  destructionScore: 0
   pickUp: 0
   isElectric: 0
   isFire: 0
@@ -2269,6 +2276,7 @@ MonoBehaviour:
   blunt: 0
   breakable: 0
   destructible: 0
+  destructionScore: 0
   pickUp: 0
   isElectric: 0
   isFire: 0
@@ -2409,6 +2417,7 @@ MonoBehaviour:
   blunt: 0
   breakable: 0
   destructible: 0
+  destructionScore: 0
   pickUp: 0
   isElectric: 0
   isFire: 0
@@ -2627,6 +2636,7 @@ MonoBehaviour:
   blunt: 0
   breakable: 0
   destructible: 0
+  destructionScore: 0
   pickUp: 0
   isElectric: 0
   isFire: 0
@@ -2710,6 +2720,7 @@ MonoBehaviour:
   blunt: 0
   breakable: 0
   destructible: 0
+  destructionScore: 0
   pickUp: 0
   isElectric: 0
   isFire: 0
@@ -2804,6 +2815,11 @@ Prefab:
       propertyPath: mainObjectives.Array.data[0].relatedGameObjects.Array.data[1]
       value: 
       objectReference: {fileID: 2125846395}
+    - target: {fileID: 114402446455790048, guid: 9fb5844b6b3c82d46865dda0737b972b,
+        type: 2}
+      propertyPath: cameraPosition
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9fb5844b6b3c82d46865dda0737b972b, type: 2}
   m_IsPrefabAsset: 0
@@ -3071,6 +3087,7 @@ MonoBehaviour:
   blunt: 0
   breakable: 0
   destructible: 0
+  destructionScore: 0
   pickUp: 0
   isElectric: 0
   isFire: 0
@@ -3164,6 +3181,7 @@ MonoBehaviour:
   blunt: 0
   breakable: 0
   destructible: 0
+  destructionScore: 0
   pickUp: 0
   isElectric: 0
   isFire: 0
@@ -3375,6 +3393,7 @@ MonoBehaviour:
   blunt: 0
   breakable: 0
   destructible: 0
+  destructionScore: 0
   pickUp: 0
   isElectric: 0
   isFire: 0
@@ -3458,6 +3477,7 @@ MonoBehaviour:
   blunt: 0
   breakable: 0
   destructible: 0
+  destructionScore: 0
   pickUp: 0
   isElectric: 0
   isFire: 0
@@ -3886,6 +3906,7 @@ MonoBehaviour:
   blunt: 0
   breakable: 0
   destructible: 0
+  destructionScore: 0
   pickUp: 0
   isElectric: 0
   isFire: 0
@@ -3969,6 +3990,7 @@ MonoBehaviour:
   blunt: 0
   breakable: 0
   destructible: 0
+  destructionScore: 0
   pickUp: 0
   isElectric: 0
   isFire: 0
@@ -4052,6 +4074,7 @@ MonoBehaviour:
   blunt: 0
   breakable: 0
   destructible: 0
+  destructionScore: 0
   pickUp: 0
   isElectric: 0
   isFire: 0
@@ -4062,12 +4085,6 @@ MonoBehaviour:
   holdRotationOffset: {x: 0, y: 0, z: 0}
   nodesChildren: []
   nodes: []
---- !u!114 &785053202 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114228939202672148, guid: a4bbdf60f079b4d4a9a631b058a9e7d1,
-    type: 2}
-  m_PrefabInternal: {fileID: 1989113078}
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &801964848
 GameObject:
   m_ObjectHideFlags: 0
@@ -4141,6 +4158,7 @@ MonoBehaviour:
   blunt: 0
   breakable: 0
   destructible: 0
+  destructionScore: 0
   pickUp: 0
   isElectric: 0
   isFire: 0
@@ -4224,6 +4242,7 @@ MonoBehaviour:
   blunt: 0
   breakable: 0
   destructible: 0
+  destructionScore: 0
   pickUp: 0
   isElectric: 0
   isFire: 0
@@ -4408,6 +4427,7 @@ MonoBehaviour:
   blunt: 0
   breakable: 0
   destructible: 0
+  destructionScore: 0
   pickUp: 0
   isElectric: 0
   isFire: 0
@@ -4453,6 +4473,7 @@ MonoBehaviour:
   blunt: 0
   breakable: 1
   destructible: 0
+  destructionScore: 0
   pickUp: 0
   isElectric: 0
   isFire: 0
@@ -4820,6 +4841,7 @@ MonoBehaviour:
   blunt: 0
   breakable: 0
   destructible: 0
+  destructionScore: 0
   pickUp: 0
   isElectric: 0
   isFire: 0
@@ -5016,6 +5038,7 @@ MonoBehaviour:
   blunt: 0
   breakable: 1
   destructible: 0
+  destructionScore: 0
   pickUp: 0
   isElectric: 0
   isFire: 0
@@ -5263,6 +5286,7 @@ MonoBehaviour:
   blunt: 0
   breakable: 0
   destructible: 0
+  destructionScore: 0
   pickUp: 0
   isElectric: 0
   isFire: 0
@@ -5537,6 +5561,7 @@ MonoBehaviour:
   blunt: 0
   breakable: 0
   destructible: 0
+  destructionScore: 0
   pickUp: 0
   isElectric: 0
   isFire: 0
@@ -5620,6 +5645,7 @@ MonoBehaviour:
   blunt: 0
   breakable: 0
   destructible: 0
+  destructionScore: 0
   pickUp: 0
   isElectric: 0
   isFire: 0
@@ -5944,6 +5970,7 @@ MonoBehaviour:
   blunt: 0
   breakable: 0
   destructible: 0
+  destructionScore: 0
   pickUp: 0
   isElectric: 0
   isFire: 0
@@ -6094,6 +6121,7 @@ MonoBehaviour:
   blunt: 0
   breakable: 0
   destructible: 0
+  destructionScore: 0
   pickUp: 0
   isElectric: 0
   isFire: 0
@@ -6177,6 +6205,7 @@ MonoBehaviour:
   blunt: 0
   breakable: 0
   destructible: 0
+  destructionScore: 0
   pickUp: 0
   isElectric: 0
   isFire: 0
@@ -6260,6 +6289,7 @@ MonoBehaviour:
   blunt: 0
   breakable: 0
   destructible: 0
+  destructionScore: 0
   pickUp: 0
   isElectric: 0
   isFire: 0
@@ -6596,6 +6626,7 @@ MonoBehaviour:
   blunt: 0
   breakable: 0
   destructible: 0
+  destructionScore: 0
   pickUp: 0
   isElectric: 0
   isFire: 0
@@ -6710,6 +6741,7 @@ MonoBehaviour:
   blunt: 0
   breakable: 0
   destructible: 0
+  destructionScore: 0
   pickUp: 0
   isElectric: 0
   isFire: 0
@@ -6905,6 +6937,7 @@ MonoBehaviour:
   blunt: 0
   breakable: 0
   destructible: 0
+  destructionScore: 0
   pickUp: 0
   isElectric: 0
   isFire: 0
@@ -6988,6 +7021,7 @@ MonoBehaviour:
   blunt: 0
   breakable: 0
   destructible: 0
+  destructionScore: 0
   pickUp: 0
   isElectric: 0
   isFire: 0
@@ -7156,6 +7190,7 @@ MonoBehaviour:
   blunt: 0
   breakable: 0
   destructible: 0
+  destructionScore: 0
   pickUp: 0
   isElectric: 0
   isFire: 0
@@ -7478,6 +7513,7 @@ MonoBehaviour:
   blunt: 0
   breakable: 0
   destructible: 0
+  destructionScore: 0
   pickUp: 0
   isElectric: 0
   isFire: 0
@@ -7817,6 +7853,7 @@ MonoBehaviour:
   blunt: 0
   breakable: 0
   destructible: 0
+  destructionScore: 0
   pickUp: 0
   isElectric: 0
   isFire: 0
@@ -8028,6 +8065,7 @@ MonoBehaviour:
   blunt: 0
   breakable: 0
   destructible: 0
+  destructionScore: 0
   pickUp: 0
   isElectric: 0
   isFire: 0
@@ -8111,6 +8149,7 @@ MonoBehaviour:
   blunt: 0
   breakable: 0
   destructible: 0
+  destructionScore: 0
   pickUp: 0
   isElectric: 0
   isFire: 0
@@ -8170,6 +8209,7 @@ MonoBehaviour:
   blunt: 0
   breakable: 0
   destructible: 0
+  destructionScore: 0
   pickUp: 0
   isElectric: 0
   isFire: 0
@@ -8326,6 +8366,7 @@ MonoBehaviour:
   blunt: 0
   breakable: 0
   destructible: 0
+  destructionScore: 0
   pickUp: 0
   isElectric: 0
   isFire: 0
@@ -8455,6 +8496,7 @@ MonoBehaviour:
   blunt: 0
   breakable: 0
   destructible: 0
+  destructionScore: 0
   pickUp: 0
   isElectric: 0
   isFire: 0
@@ -8676,6 +8718,7 @@ MonoBehaviour:
   blunt: 0
   breakable: 0
   destructible: 0
+  destructionScore: 0
   pickUp: 0
   isElectric: 0
   isFire: 0
@@ -8759,6 +8802,7 @@ MonoBehaviour:
   blunt: 0
   breakable: 0
   destructible: 0
+  destructionScore: 0
   pickUp: 0
   isElectric: 0
   isFire: 0
@@ -9005,6 +9049,7 @@ MonoBehaviour:
   blunt: 0
   breakable: 0
   destructible: 0
+  destructionScore: 0
   pickUp: 0
   isElectric: 0
   isFire: 0
@@ -9088,6 +9133,7 @@ MonoBehaviour:
   blunt: 0
   breakable: 0
   destructible: 0
+  destructionScore: 0
   pickUp: 0
   isElectric: 0
   isFire: 0
@@ -9171,6 +9217,7 @@ MonoBehaviour:
   blunt: 0
   breakable: 0
   destructible: 0
+  destructionScore: 0
   pickUp: 0
   isElectric: 0
   isFire: 0
@@ -9254,6 +9301,7 @@ MonoBehaviour:
   blunt: 0
   breakable: 0
   destructible: 0
+  destructionScore: 0
   pickUp: 0
   isElectric: 0
   isFire: 0
@@ -9505,6 +9553,7 @@ MonoBehaviour:
   blunt: 0
   breakable: 1
   destructible: 0
+  destructionScore: 0
   pickUp: 0
   isElectric: 0
   isFire: 0
@@ -9651,6 +9700,7 @@ MonoBehaviour:
   blunt: 0
   breakable: 0
   destructible: 0
+  destructionScore: 0
   pickUp: 0
   isElectric: 0
   isFire: 0
@@ -9734,6 +9784,7 @@ MonoBehaviour:
   blunt: 0
   breakable: 0
   destructible: 0
+  destructionScore: 0
   pickUp: 0
   isElectric: 0
   isFire: 0
@@ -9858,6 +9909,7 @@ MonoBehaviour:
   blunt: 0
   breakable: 0
   destructible: 0
+  destructionScore: 0
   pickUp: 0
   isElectric: 0
   isFire: 0
@@ -10253,6 +10305,7 @@ MonoBehaviour:
   blunt: 0
   breakable: 0
   destructible: 0
+  destructionScore: 0
   pickUp: 0
   isElectric: 0
   isFire: 0
@@ -10336,6 +10389,7 @@ MonoBehaviour:
   blunt: 0
   breakable: 0
   destructible: 0
+  destructionScore: 0
   pickUp: 0
   isElectric: 0
   isFire: 0
@@ -10701,6 +10755,7 @@ MonoBehaviour:
   blunt: 0
   breakable: 0
   destructible: 0
+  destructionScore: 0
   pickUp: 0
   isElectric: 0
   isFire: 0
@@ -10970,6 +11025,7 @@ MonoBehaviour:
   blunt: 0
   breakable: 0
   destructible: 0
+  destructionScore: 0
   pickUp: 0
   isElectric: 0
   isFire: 0
@@ -11053,6 +11109,7 @@ MonoBehaviour:
   blunt: 0
   breakable: 0
   destructible: 0
+  destructionScore: 0
   pickUp: 0
   isElectric: 0
   isFire: 0
@@ -11167,6 +11224,7 @@ MonoBehaviour:
   blunt: 0
   breakable: 0
   destructible: 0
+  destructionScore: 0
   pickUp: 0
   isElectric: 0
   isFire: 0
@@ -11282,6 +11340,7 @@ MonoBehaviour:
   blunt: 0
   breakable: 0
   destructible: 0
+  destructionScore: 0
   pickUp: 0
   isElectric: 0
   isFire: 0
@@ -11365,6 +11424,7 @@ MonoBehaviour:
   blunt: 0
   breakable: 0
   destructible: 0
+  destructionScore: 0
   pickUp: 0
   isElectric: 0
   isFire: 0
