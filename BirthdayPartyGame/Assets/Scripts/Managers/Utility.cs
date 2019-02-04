@@ -35,4 +35,14 @@ public class Utility : MonoBehaviour {
 		}
 	}
 
+	public static Vector3 ConvertUI(Vector3 _position)
+	{
+		return Camera.main.WorldToScreenPoint(_position);
+	}
+
+	public static Vector3 AddOffset(Vector3 _position, Vector3 _offset)
+	{
+		return new Vector3(_position.x + _offset.x, _position.y + _offset.y, _position.z + _offset.z);
+	}
+
 }

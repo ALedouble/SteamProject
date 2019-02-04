@@ -194,6 +194,9 @@ public class AIV2 : MonoBehaviour {
                 int inDistressToInt = (int)AIState.inDistress;
                 myAnim.SetInteger("EnumState", inDistressToInt);
 
+				if (GameManager.instance.mode == LevelsMode.Destruction)
+					DestructionManager.instance.AddDestruction(transform.position, Constants.constants.cryingDestructionAmount);
+
                 GameObject _surprisePartRef = Instantiate(surpriseParticlesPrefab, spawnPointForSurpriseParticles.position, Quaternion.Euler(-90, 0, 0), spawnPointForSurpriseParticles);
                 Destroy(_surprisePartRef, 2f);
                 myAudioSource.PlayOneShot(hitAudioClip);

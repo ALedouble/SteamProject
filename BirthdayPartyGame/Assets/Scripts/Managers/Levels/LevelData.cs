@@ -3,6 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
+public enum CameraPosition
+{
+	Default,
+	Near,
+	Far
+}
+
 public class LevelData : MonoBehaviour
 {
 
@@ -11,6 +19,7 @@ public class LevelData : MonoBehaviour
 	public byte id;
 	public string levelName;
 	public float levelTimer = 60;
+	public CameraPosition cameraPosition;
 	public string objectiveDescription = "Do something!";
 	public Objective[] mainObjectives;
 	public Objective[] secondaryObjectives;
@@ -34,6 +43,8 @@ public class LevelData : MonoBehaviour
 			secondaryObjectives[i].InitializeObjective();
 		}
 		SceneManager.LoadScene("LevelNecessities", LoadSceneMode.Additive);
+
+		
 	}
 
 }

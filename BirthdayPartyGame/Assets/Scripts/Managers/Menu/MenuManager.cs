@@ -19,11 +19,29 @@ public class MenuManager : MonoBehaviour
 	MeshRenderer[] meshTextWhite4;
 
 
+	float padMoveUpTimer;
+	float padMoveDownTimer;
+
+
 	// Update is called once per frame
 	void Update()
 	{
+		if (padMoveUpTimer > 0)
+		{
+			padMoveUpTimer -= Time.unscaledDeltaTime;
+		}
+		if (padMoveDownTimer > 0)
+		{
+			padMoveDownTimer -= Time.unscaledDeltaTime;
+		}
+
+		MenuNavigation();
+	}
+
+	void MenuNavigation()
+	{
 		if (OptionsManager.instance != null) return;
-		if (Input.GetKeyDown(KeyCode.DownArrow))
+		if (Input.GetKeyDown(KeyCode.DownArrow) || (Input.GetAxisRaw("Vertical") < -0.2f && padMoveDownTimer <= 0))
 		{
 			choose += 1;
 
@@ -32,9 +50,12 @@ public class MenuManager : MonoBehaviour
 			{
 				choose = 0;
 			}
+
+			padMoveDownTimer = Constants.constants.gamepadMoveTimer;
+			padMoveUpTimer = 0;
 		}
 
-		if (Input.GetKeyDown(KeyCode.UpArrow))
+		if (Input.GetKeyDown(KeyCode.UpArrow) || (Input.GetAxisRaw("Vertical") > 0.2f && padMoveUpTimer <= 0))
 		{
 			choose -= 1;
 
@@ -42,6 +63,14 @@ public class MenuManager : MonoBehaviour
 			{
 				choose = 3;
 			}
+
+			padMoveUpTimer = Constants.constants.gamepadMoveTimer;
+			padMoveDownTimer = 0;
+		}
+		if (Mathf.Abs(Input.GetAxisRaw("Vertical")) < 0.2f)
+		{
+			padMoveUpTimer = 0;
+			padMoveDownTimer = 0;
 		}
 
 		meshTextRed = allElements[choose].GetComponentsInChildren<MeshRenderer>();
@@ -88,7 +117,7 @@ public class MenuManager : MonoBehaviour
 			}
 		}
 
-		if (Input.GetKeyDown(KeyCode.Return))
+		if (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("Grab"))
 		{
 			switch (choose)
 			{
@@ -110,7 +139,7 @@ public class MenuManager : MonoBehaviour
 
 		}
 
-		if (Input.GetKeyDown(KeyCode.Escape))
+		if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Back"))
 		{
 			Application.Quit();
 		}

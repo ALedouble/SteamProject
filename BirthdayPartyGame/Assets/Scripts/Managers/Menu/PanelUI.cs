@@ -7,6 +7,8 @@ public class PanelUI : MonoBehaviour {
 
 	protected int selectIndex;
 	public Button[] buttons;
+	float padMoveUpTimer;
+	float padMoveDownTimer;
 
 	protected virtual void Start()
 	{
@@ -15,23 +17,41 @@ public class PanelUI : MonoBehaviour {
 
 	// Update is called once per frame
 	protected virtual void Update () {
+
+		if (padMoveUpTimer > 0)
+		{
+			padMoveUpTimer -= Time.unscaledDeltaTime;
+		}
+		if (padMoveDownTimer > 0)
+		{
+			padMoveDownTimer -= Time.unscaledDeltaTime;
+		}
 		GetInput();
 	}
 
 	protected virtual void GetInput()
 	{
 		//Select button
-		if (Input.GetKeyDown(KeyCode.UpArrow))
+		if (Input.GetKeyDown(KeyCode.UpArrow) || (Input.GetAxisRaw("Vertical") > 0.2f && padMoveUpTimer <= 0))
 		{
 			UpdateIndex(-1);
+			padMoveUpTimer = Constants.constants.gamepadMoveTimer;
+			padMoveDownTimer = 0;
 		}
-		if (Input.GetKeyDown(KeyCode.DownArrow))
+		if (Input.GetKeyDown(KeyCode.DownArrow) || (Input.GetAxisRaw("Vertical") < -0.2f && padMoveDownTimer <= 0))
 		{
 			UpdateIndex(1);
+			padMoveDownTimer = Constants.constants.gamepadMoveTimer;
+			padMoveUpTimer = 0;
+		}
+		if (Mathf.Abs(Input.GetAxisRaw("Vertical")) < 0.2f)
+		{
+			padMoveUpTimer = 0;
+			padMoveDownTimer = 0;
 		}
 
 		//Click button
-		if (Input.GetKeyDown(KeyCode.Space))
+		if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Grab"))
 		{
 			ClickButton();
 		}
