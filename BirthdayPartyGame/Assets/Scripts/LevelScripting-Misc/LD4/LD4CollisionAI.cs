@@ -47,8 +47,6 @@ public class LD4CollisionAI : MonoBehaviour {
 
     void CheckCondition()
     {
-        print(nbWrongAI);
-        print(mainAIHere);
         if(nbWrongAI<=0 && mainAIHere)
         {
 			douglasIsolated = true;
