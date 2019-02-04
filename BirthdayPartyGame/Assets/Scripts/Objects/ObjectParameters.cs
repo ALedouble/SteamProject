@@ -24,6 +24,7 @@ public class ObjectParameters : MonoBehaviour {
 	public bool blunt;
 	public bool breakable;
 	public bool destructible;
+	public float destructionScore;
 	public bool pickUp;
 	public bool isElectric;
 	public bool isFire;

@@ -9,8 +9,8 @@ public class ObjectParametersInspector : Editor {
 
 	ObjectParameters script;
 	Interactable interactable;
-	bool initialized;
-	SerializedProperty objectName, blunt, breakable, destructible, pickUp, isElectric, isFire, isWater, activationType, material,
+	//bool initialized;
+	SerializedProperty objectName, blunt, breakable, destructible, destructionScore, pickUp, isElectric, isFire, isWater, activationType, material,
 						holdPositionOffset, holdRotationOffset, nodesChildren, nodes;
 
 	private void OnEnable()
@@ -22,6 +22,7 @@ public class ObjectParametersInspector : Editor {
 		blunt = serializedObject.FindProperty("blunt");
 		breakable = serializedObject.FindProperty("breakable");
 		destructible = serializedObject.FindProperty("destructible");
+		destructionScore = serializedObject.FindProperty("destructionScore");
 		pickUp = serializedObject.FindProperty("pickUp");
 		isElectric = serializedObject.FindProperty("isElectric");
 		isFire = serializedObject.FindProperty("isFire");
@@ -43,7 +44,11 @@ public class ObjectParametersInspector : Editor {
 		breakable.boolValue = EditorGUILayout.Toggle(breakable.displayName, breakable.boolValue);
 
 		EditorGUI.indentLevel = 1;
-		if (breakable.boolValue) EditorGUILayout.PropertyField(destructible);
+		if (breakable.boolValue)
+		{
+			EditorGUILayout.PropertyField(destructible);
+			EditorGUILayout.PropertyField(destructionScore);
+		}
 		EditorGUI.indentLevel = 0;
 
 		EditorGUILayout.PropertyField(pickUp);
@@ -63,16 +68,16 @@ public class ObjectParametersInspector : Editor {
 		EditorGUILayout.PropertyField(nodes, true);
 
 
-		if (interactable.fireParticleSystem == null ||
-			interactable.waterParticleSystem == null ||
-			interactable.electricityParticleSystem == null ||
-			interactable.body == null ||
-			interactable.self == null ||
-			interactable.colliders == null ||
-			interactable.renderers == null)
-		{
-			initialized = false;
-		}
+		//if (interactable.fireParticleSystem == null ||
+		//	interactable.waterParticleSystem == null ||
+		//	interactable.electricityParticleSystem == null ||
+		//	interactable.body == null ||
+		//	interactable.self == null ||
+		//	interactable.colliders == null ||
+		//	interactable.renderers == null)
+		//{
+		//	initialized = false;
+		//}
 		//if (GUILayout.Button("Initialize Object"))
 		//{
 		//	interactable.fireParticleSystem = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Entities/P_Fire.prefab", typeof(GameObject));

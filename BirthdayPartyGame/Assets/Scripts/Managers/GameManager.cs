@@ -9,11 +9,18 @@ public enum DevState
 	Debug
 }
 
+public enum LevelsMode
+{
+	Default,
+	Destruction
+}
+
 public class GameManager : MonoBehaviour {
 
 	static public GameManager instance;
 
 	public DevState state = DevState.Debug;
+	public LevelsMode mode = LevelsMode.Default;
 	public AudioSource source;
 
 	// Use this for initialization
@@ -41,6 +48,10 @@ public class GameManager : MonoBehaviour {
 				state = DevState.Test;
 			}
 		}
+		if (Input.GetKeyDown(KeyCode.F5))
+		{
+			ToggleDestructionMode();
+		}
 
 		if (source.isPlaying && SceneManager.GetActiveScene().buildIndex != 0 && SceneManager.GetActiveScene().buildIndex != 14)
 		{
@@ -49,6 +60,18 @@ public class GameManager : MonoBehaviour {
 		else if (!source.isPlaying && (SceneManager.GetActiveScene().buildIndex == 0 || SceneManager.GetActiveScene().buildIndex == 14))
 		{
 			source.Play();
+		}
+	}
+
+	void ToggleDestructionMode()
+	{
+		if (mode == LevelsMode.Default)
+		{
+			mode = LevelsMode.Destruction;
+		}
+		else
+		{
+			mode = LevelsMode.Default;
 		}
 	}
 }

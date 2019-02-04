@@ -10,7 +10,7 @@ public enum PauseState
 	Pause
 }
 
-public class PauseManager : MonoBehaviour {
+public class PauseManager : PanelUI {
 
 	LevelManager levelManager;
 	public AudioMixer audioMixer;
@@ -18,88 +18,96 @@ public class PauseManager : MonoBehaviour {
 	public PauseState state = PauseState.Default;
 
 	public GameObject pauseObject;
-	public Button[] buttons;
+	//public Button[] buttons;
 	public GameObject optionsObject;
 	public Slider volumeSlider;
 	public Text volumeText;
 
-	int selectIndex;
+	//int selectIndex;
 	bool optionsOpened;
 
 	// Use this for initialization
-	void Start () {
+	protected override void Start () {
+		base.Start();
 		levelManager = GetComponent<LevelManager>();
-		UpdateIndex(0);
+		//UpdateIndex(0);
 		//UpdateVolumeSlider(GetMixerValue());
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	//protected override void Update () {
+	//	if (OptionsManager.instance == null && state == PauseState.Pause)
+	//	{
+	//		base.Update();
+	//		//GetInput();
+	//	}
+	//}
+
+	protected override void GetInput()
+	{
 		if (OptionsManager.instance == null)
 		{
-			GetInput();
-		}
-	}
+			if (state == PauseState.Pause)
+				base.GetInput();
 
-	void GetInput()
-	{
+			if (Input.GetKeyDown(KeyCode.Escape))
+			{
+				//if (optionsOpened)
+				//{
+				//	CloseOptions();
+				//}
+				//else
+				//{
+					TogglePause();
+				//}
+			}
+		}
 		//Toggle UI
-		if (Input.GetKeyDown(KeyCode.Escape))
-		{
-			//if (optionsOpened)
-			//{
-			//	CloseOptions();
-			//}
-			//else
-			//{
-				TogglePause();
-			//}
-		}
 
-		//Select button
-		if (Input.GetKeyDown(KeyCode.UpArrow))
-		{
-			UpdateIndex(-1);
-		}
-		if (Input.GetKeyDown(KeyCode.DownArrow))
-		{
-			UpdateIndex(1);
-		}
+		////Select button
+		//if (Input.GetKeyDown(KeyCode.UpArrow))
+		//{
+		//	UpdateIndex(-1);
+		//}
+		//if (Input.GetKeyDown(KeyCode.DownArrow))
+		//{
+		//	UpdateIndex(1);
+		//}
 
-		//Click button
-		if (Input.GetKeyDown(KeyCode.Space))
-		{
-			ClickButton();
-		}
+		////Click button
+		//if (Input.GetKeyDown(KeyCode.Space))
+		//{
+		//	ClickButton();
+		//}
 	}
 
-	void UpdateIndex(int _amount)
-	{
-		int _newIndex = selectIndex + _amount;
+	//void UpdateIndex(int _amount)
+	//{
+	//	int _newIndex = selectIndex + _amount;
 
-		if (_newIndex < 0)
-		{
-			selectIndex = 3;
-		}
-		else
-		{
-			selectIndex = (_newIndex) % buttons.Length;
-		}
+	//	if (_newIndex < 0)
+	//	{
+	//		selectIndex = 3;
+	//	}
+	//	else
+	//	{
+	//		selectIndex = (_newIndex) % buttons.Length;
+	//	}
 
-		for (int i = 0; i < buttons.Length; i++)
-		{
-			if (i == selectIndex)
-			{
-				buttons[i].GetComponent<Image>().color = Color.green;
-			}
-			else
-			{
-				buttons[i].GetComponent<Image>().color = Color.white;
-			}
-		}
-	}
+	//	for (int i = 0; i < buttons.Length; i++)
+	//	{
+	//		if (i == selectIndex)
+	//		{
+	//			buttons[i].GetComponent<Image>().color = Color.green;
+	//		}
+	//		else
+	//		{
+	//			buttons[i].GetComponent<Image>().color = Color.white;
+	//		}
+	//	}
+	//}
 
-	void ClickButton()
+	protected override void ClickButton()
 	{
 		switch (selectIndex)
 		{
@@ -112,11 +120,11 @@ public class PauseManager : MonoBehaviour {
 				break;
 
 			case 2:
-				levelManager.Restart();
+				Utility.Restart();
 				break;
 
 			case 3:
-				levelManager.Menu();
+				Utility.Menu();
 				break;
 		}
 	}

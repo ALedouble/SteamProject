@@ -65,7 +65,7 @@ public class Pinata : Interactable
             Rigidbody newObjectBody = Instantiate(containedObject, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
 			if (newObjectBody != null)
 			{
-				newObjectBody.AddForce(Vector3.up * 50, ForceMode.VelocityChange);
+				newObjectBody.AddForce(Vector3.up * 10, ForceMode.VelocityChange);
 			}
 		}
 		Destroy(gameObject);

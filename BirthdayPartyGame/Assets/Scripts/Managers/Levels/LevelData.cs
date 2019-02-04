@@ -36,10 +36,4 @@ public class LevelData : MonoBehaviour
 		SceneManager.LoadScene("LevelNecessities", LoadSceneMode.Additive);
 	}
 
-	public void Initialize(string _name, float _timer)
-	{
-		levelName = _name;
-		levelTimer = _timer;
-	}
-
 }
