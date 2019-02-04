@@ -12,13 +12,15 @@ public class LevelManager : MonoBehaviour
 	public Text secondTimerText;
 	public Text thirdTimerText;
 	public Text fourthTimerText;
-	public Text objectiveText;
+	Text objectiveText;
+	public GameObject uiObjective;
+	public GameObject uiScore;
 	public GameObject uiWin;
 	public GameObject uiLose;
+	public GameObject uiDestructionEnd;
 	public Animator objectiveAnimator;
 	protected bool gameEnd;
 	int index = 0;
-	bool loose = false;
 	bool hasReminded;
 	bool lastSeconds;
 	public float timerAcceleration = 1.5f;
@@ -26,6 +28,15 @@ public class LevelManager : MonoBehaviour
 
 	private void Start()
 	{
+		if (GameManager.instance.mode == LevelsMode.Default)
+		{
+			uiObjective.SetActive(true);
+		}
+		else
+		{
+			uiScore.SetActive(true);
+		}
+		objectiveText = uiObjective.GetComponent<Text>();
 		levelTimer = LevelData.instance.levelTimer;
 		objectiveText.text = LevelData.instance.objectiveDescription;
 
@@ -34,7 +45,7 @@ public class LevelManager : MonoBehaviour
 			LevelData.instance.mainObjectives[i].WinEvent += CheckWin;
 		} 
 	}
-
+	/*
 	void MenuNavigation()
 	{
 		if (gameEnd == true)
@@ -106,70 +117,29 @@ public class LevelManager : MonoBehaviour
 
 		}
 	}
-
+	*/
 	protected virtual void Update()
 	{
-		MenuNavigation();
-
-		if (gameEnd == false)
+		if (gameEnd == false && Time.timeScale == 1)
 		{
 			UpdateTimer();
-
-			//if (LevelData.instance.secondaryObjectives.Length > 0)
-			//{
-			//	for (int i = 0; i < LevelData.instance.secondaryObjectives.Length; i++)
-			//	{
-			//		if (!LevelData.instance.secondaryObjectives[i].validated)
-			//		{
-			//			LevelData.instance.secondaryObjectives[i].CheckValid();
-			//		}
-			//	}
-			//}
-
-			//CheckWin();
 		}
-
-		if (loose == true && index == 0)
-		{
-			index = 0;
-		}
-
-		if (gameEnd == true && loose == true)
-		{
-			if (Input.GetKeyDown(KeyCode.DownArrow) && index < 1)
-			{
-				index += 1;
-			}
-
-			if (Input.GetKeyDown(KeyCode.UpArrow) && index > 0)
-			{
-				index -= 1;
-			}
-		}
-		else if (gameEnd == true && loose == false)
-		{
-			if (Input.GetKeyDown(KeyCode.DownArrow) && index < 1)
-			{
-				index += 1;
-			}
-
-			if (Input.GetKeyDown(KeyCode.UpArrow) && index > -1)
-			{
-				index -= 1;
-			}
-		}
-
-		//if (Input.GetKeyDown(KeyCode.Escape))
-		//{
-		//	SceneManager.LoadScene("LevelSelection");
-		//}
+		
 		if (Input.GetKeyDown(KeyCode.F2))
 		{
 			StartCoroutine(Win());
 		}
+		if (Input.GetKeyDown(KeyCode.F3))
+		{
+			Lose();
+		}
+		if (Input.GetKeyDown(KeyCode.F4))
+		{
+			EndDestruction();
+		}
 		if (Input.GetKeyDown(KeyCode.R))
 		{
-			Restart();
+			Utility.Restart();
 		}
 	}
 
@@ -177,27 +147,38 @@ public class LevelManager : MonoBehaviour
 	{
 		if (levelTimer <= 0)
 		{
-			Lose();
+			if (GameManager.instance.mode == LevelsMode.Default)
+			{
+				Lose();
+			}
+			else
+			{
+				EndDestruction();
+			}
 		}
 		else
 		{
 			if (levelTimer <= LevelData.instance.levelTimer / 2 && !hasReminded)
 			{
 				hasReminded = true;
-				objectiveAnimator.SetTrigger("Remind");
+				if (GameManager.instance.mode == LevelsMode.Default)
+					objectiveAnimator.SetTrigger("Remind");
 			}
 			if (levelTimer <= 10)
 			{
 				if (!lastSeconds)
 				{
-					objectiveAnimator.SetTrigger("Remind");
+					if (GameManager.instance.mode == LevelsMode.Default)
+					{
+						objectiveAnimator.SetTrigger("Remind");
+						objectiveText.color = Color.red;
+					}
 					lastSeconds = true;
 					Time.timeScale = timerAcceleration;
 					firstTimerText.color = Color.red;
 					secondTimerText.color = Color.red;
 					thirdTimerText.color = Color.red;
 					fourthTimerText.color = Color.red;
-					objectiveText.color = Color.red;
 				}
 			}
 
@@ -210,27 +191,10 @@ public class LevelManager : MonoBehaviour
 		fourthTimerText.text = Mathf.Max(Mathf.FloorToInt((levelTimer % 0.1f) * 100), 0).ToString();
 	}
 
-	public virtual void CheckWin()
+	public void CheckWin()
 	{
-		//if (LevelData.instance.mainObjectives.Length <= 0)
-		//{
-		//	return;
-		//}
+		if (GameManager.instance.mode == LevelsMode.Destruction) return;
 
-		//bool won = true;
-
-		//for (int i = 0; i < LevelData.instance.mainObjectives.Length; i++)
-		//{
-		//	LevelData.instance.mainObjectives[i].CheckValid();
-		//	if (!LevelData.instance.mainObjectives[i].validated)
-		//	{
-		//		won = false;
-		//	}
-		//}
-
-		//if (won)
-		//{
-		//	print("Go to win");
 		for (int i = 0; i < LevelData.instance.mainObjectives.Length; i++)
 		{
 			if (!LevelData.instance.mainObjectives[i].validated)
@@ -238,21 +202,15 @@ public class LevelManager : MonoBehaviour
 				return;
 			}
 		}
-			StartCoroutine(Win());
-		//}
+		StartCoroutine(Win());
 	}
 
 	protected virtual IEnumerator Win()
 	{
-		print(gameEnd);
 		if (!gameEnd)
 		{
-
-			//Debug.Log(index);
-
 			yield return new WaitForSeconds(1);
 			gameEnd = true;
-			//Time.timeScale = 0.01f;
 			uiWin.SetActive(true);
 			Time.timeScale = 0;
 
@@ -268,9 +226,7 @@ public class LevelManager : MonoBehaviour
 
 	void Lose()
 	{
-		loose = true;
 		gameEnd = true;
-		//Time.timeScale = 0.01f;
 		uiLose.SetActive(true);
 		Time.timeScale = 0;
 
@@ -278,33 +234,42 @@ public class LevelManager : MonoBehaviour
 		LevelData.instance = null;
 		SpawnPoint.instance = null;
 
-		if (Input.GetKeyDown(KeyCode.Return) && index == 1)
-		{
-			Menu();
-		}
-
-		Debug.Log(index);
+		//if (Input.GetKeyDown(KeyCode.Return) && index == 1)
+		//{
+		//	Menu();
+		//}
 	}
 
-	public void Restart()
+	void EndDestruction()
 	{
-		Time.timeScale = 1;
-		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+		gameEnd = true;
+		uiDestructionEnd.SetActive(true);
+		Time.timeScale = 0;
+
+		SaveManager.instance.SaveDestructionProgress(LevelData.instance.id, DestructionManager.instance.destructionScore);
+		LevelData.instance = null;
+		SpawnPoint.instance = null;
 	}
 
-	public void Menu()
-	{
-		Time.timeScale = 1;
-		SceneManager.LoadScene("LevelSelection", LoadSceneMode.Single);
-	}
+	//public void Restart()
+	//{
+	//	Time.timeScale = 1;
+	//	SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+	//}
 
-	public void NextLevel()
-	{
-		Time.timeScale = 1;
-		int progression = SaveManager.instance.currentSave.progressionIndex;
-		if (progression < SaveManager.instance.currentSave.levels.Length)
-		{
-			SceneManager.LoadScene(progression + 1);
-		}
-	}
+	//public void Menu()
+	//{
+	//	Time.timeScale = 1;
+	//	SceneManager.LoadScene("LevelSelection", LoadSceneMode.Single);
+	//}
+
+	//public void NextLevel()
+	//{
+	//	Time.timeScale = 1;
+	//	int progression = SaveManager.instance.currentSave.progressionIndex;
+	//	if (progression < SaveManager.instance.currentSave.levels.Length)
+	//	{
+	//		SceneManager.LoadScene(progression + 1);
+	//	}
+	//}
 }

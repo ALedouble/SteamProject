@@ -8,6 +8,7 @@ public class Breakable : InteractableComponent {
 	public float breakSpeed;
 	public Rigidbody rb;
 	Transform self;
+	bool broken;
 
 
 	// Use this for initialization
@@ -42,6 +43,8 @@ public class Breakable : InteractableComponent {
 
 	public void Break(Vector3 impactPoint)
 	{
+		if (broken) return;
+
 		if (parts.Length > 0)
 		{
 			for (int i = 0; i < parts.Length; i++)
@@ -49,7 +52,12 @@ public class Breakable : InteractableComponent {
 				parts[i].Break(impactPoint);
 			}
 		}
-		print("Break");
+
+		if (DestructionManager.instance != null)
+			DestructionManager.instance.AddDestruction(main.parameters.destructionScore);
+
 		main.Die();
+
+		broken = true;
 	}
 }

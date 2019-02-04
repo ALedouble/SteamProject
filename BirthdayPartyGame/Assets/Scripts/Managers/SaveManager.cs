@@ -24,6 +24,9 @@ public class SaveManager : MonoBehaviour
 			public bool complete;
 			public bool[] completedSecondaryObjectives;
 
+			public bool destructionComplete;
+			public float highScore;
+
 			public Level(byte _id, string _name, float _timer, string[] _objectiveNames, string[] _subObjectiveNames, string _description)
 			{
 				id = _id;
@@ -33,6 +36,8 @@ public class SaveManager : MonoBehaviour
 				subObjectiveNames = _subObjectiveNames;
 				description = _description;
 				completedSecondaryObjectives = new bool[subObjectiveNames.Length];
+				destructionComplete = false;
+				highScore = 0;
 			}
 		}
 
@@ -153,6 +158,13 @@ public class SaveManager : MonoBehaviour
 				}
 			}
 		}
+		SaveGame();
+	}
+
+	public void SaveDestructionProgress(byte id, float _score)
+	{
+		currentSave.levels[id].destructionComplete = true;
+		currentSave.levels[id].highScore = _score;
 		SaveGame();
 	}
 

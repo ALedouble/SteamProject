@@ -36,6 +36,7 @@ public class Interactable : MonoBehaviour {
 	[System.NonSerialized]
 	public bool electrified, burning, wet;
 	protected bool dead;
+	bool hadFire;
 
 	public delegate void Action(Interactable script);
 	public Action ActionEvent;
@@ -90,6 +91,11 @@ public class Interactable : MonoBehaviour {
 		{
 			parameters.nodes[i].Initialize(this);
 		}
+
+		//if (DestructionManager.instance != null && !parameters.isFire)
+		//{
+		//	StartCoroutine(CheckBurningScore());
+		//}
 	}
 
 	public void GetGrabbed(Transform _holdPoint)
@@ -159,6 +165,12 @@ public class Interactable : MonoBehaviour {
 
 	public void Burn()
 	{
+		if (!hadFire && DestructionManager.instance != null && !parameters.isFire)
+		{
+			hadFire = true;
+			StartCoroutine(CheckBurningScore());
+		}
+
 		print("Start burning");
 		burning = true;
 
@@ -265,4 +277,20 @@ public class Interactable : MonoBehaviour {
 	}
 
 	#endregion
+
+	IEnumerator CheckBurningScore()
+	{
+		if (DestructionManager.instance != null)
+		{
+			if (burning)
+				DestructionManager.instance.AddDestruction(5);
+			yield return new WaitForSeconds(2.0f);
+			StartCoroutine(CheckBurningScore());
+		}
+		else
+		{
+			yield return null;
+		}
+	}
+
 }
