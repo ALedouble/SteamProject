@@ -71,6 +71,7 @@ public class PlayerController : MonoBehaviour {
 	[Tooltip("Distance forward to check for objects")] public float checkCircleDistance;
 	[Tooltip("Circle radius to check for objects")]  public float checkCircleRadius;
 	public float grabAngleTolerance;
+    public float dotTolerance;
 
 	[Space]
 	[Header("UI")]
@@ -89,6 +90,11 @@ public class PlayerController : MonoBehaviour {
 	Interactable canInteract;
 	private float steerTimer;
 	public float steerTimerLimit = .2f;
+
+    [Space]
+    [Header("TestNewGrab")]
+    List<Interactable> listOfInteractables = new List<Interactable>();
+    public Transform pointRef;
 
 	private void Awake()
 	{
@@ -139,7 +145,6 @@ public class PlayerController : MonoBehaviour {
 			grabbedActionUI.SetActive(false);
 		}
 	}
-
 
 	private void FixedUpdate()
     {
@@ -332,22 +337,28 @@ public class PlayerController : MonoBehaviour {
     #region Actions
 	void CheckForActions()
 	{
-		Collider[] objectsNear = Physics.OverlapSphere(self.position + self.forward * checkCircleDistance, 5);
-
-		canInteract = null;
+        CleanInteractableList();
+        canInteract = null;
 		if (grabbedObject == null)
 		{
-			if (objectsNear.Length > 0)
+			if (listOfInteractables.Count > 0)
 			{
-				List<Interactable> InteractablesNear = FilteredObjects(objectsNear, Filter.Interactable);
-				if (InteractablesNear.Count > 0)
-				{
-					canInteract = GetNearestInFront(InteractablesNear);
-				}
+				canInteract = GetNearestInFront(listOfInteractables);
 			}
 		}
 		UpdateInteractUI();
 	}
+
+    void CleanInteractableList()
+    {
+        for (int i = 0; i < listOfInteractables.Count; i++)
+        {
+            if(listOfInteractables[i] == null)
+            {
+                listOfInteractables.Remove(listOfInteractables[i]);
+            }
+        }
+    }
 
 	void UpdateInteractUI()
 	{
@@ -384,23 +395,9 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void Grab()
-    {
-        //Collider[] objectsGrab = Physics.OverlapSphere(self.position + self.forward * checkCircleDistance, checkCircleRadius);
-		
+    {		
         if ( grabbedObject == null)
         {
-     //       if (objectsGrab.Length > 0)
-     //       {
-     //           List<Interactable> grabbableObjects = FilteredObjects(objectsGrab, Filter.Grab);
-     //           if (grabbableObjects.Count > 0)
-     //           {
-     //               grabbedObject = GetNearestInFront(grabbableObjects);
-					//grabbedObject.GetGrabbed(holdPoint);
-     //               GameObject _grabParticlesRef = Instantiate(grabParticlesPrefab, holdPoint.position, Quaternion.identity, holdPoint);
-     //               Destroy(_grabParticlesRef, 1);
-     //               myAudioSource.PlayOneShot(grabClip);
-     //           }
-     //       }
 			if (canInteract != null && canInteract.GetComponent<Interactable>().parameters.pickUp)
 			{
 				grabbedObject = canInteract;
@@ -424,7 +421,6 @@ public class PlayerController : MonoBehaviour {
 	{
 		if (grabbedObject != null && grabbedObject.parameters.activationType == ActivationType.Handheld)
 		{
-			//grabbedObject.Activate();
 			switch (grabbedObject.parameters.objectName)
 			{
 				case "Bat":
@@ -438,15 +434,6 @@ public class PlayerController : MonoBehaviour {
 		}
 		else
 		{
-			//Collider[] objectsActivate = Physics.OverlapSphere(self.position + self.forward * checkCircleDistance, checkCircleRadius);
-			//if (objectsActivate.Length > 0)
-			//{
-			//	List<Interactable> activableObjects = FilteredObjects(objectsActivate, Filter.Activate);
-			//	if (activableObjects.Count > 0)
-			//	{
-			//		GetNearestInFront(activableObjects).Activate();
-			//	}
-			//}
 			if (canInteract != null && canInteract.GetComponent<Interactable>().parameters.activationType == ActivationType.Proximity)
 			{
 				canInteract.Activate();
@@ -493,42 +480,54 @@ public class PlayerController : MonoBehaviour {
 		
 		return filteredObjects;
 	}
-	
-	//TO OPTIMIZE
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Interactable")
+        {
+            var needToBeFiltered = new Collider[] {other};
+            if(FilteredObjects(needToBeFiltered, Filter.Grab) != null || FilteredObjects(needToBeFiltered, Filter.Activate) != null)
+            {
+                listOfInteractables.Add(other.GetComponent<Interactable>());
+                print(listOfInteractables.Count);
+            }            
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Interactable")
+        {
+            var needToBeFiltered = new Collider[] { other };
+            if (FilteredObjects(needToBeFiltered, Filter.Grab) != null || FilteredObjects(needToBeFiltered, Filter.Activate) != null)
+            {
+                listOfInteractables.Remove(other.GetComponent<Interactable>());
+                print(listOfInteractables.Count);
+            }
+
+        }
+    }
+    
     Interactable GetNearestInFront(List<Interactable> _objects)
     {
-		List<Interactable> inFrontObjects = new List<Interactable>();
-		float minAngle = Mathf.Infinity;
-		for (int i = 0; i < _objects.Count; i++)
-		{
-			Vector3 directionToObject = _objects[i].self.position - self.position;
-			float angle = Vector3.Angle(directionToObject, self.forward);
-			if (Vector3.Angle(directionToObject, self.forward) < minAngle)
-			{
-				minAngle = angle;
-			}
-		}
-		for (int i = 0; i < _objects.Count; i++)
-		{
-			Vector3 directionToObject = _objects[i].self.position - self.position;
-			float angle = Vector3.Angle(directionToObject, self.forward);
-			if (angle < minAngle + grabAngleTolerance)
-			{
-				inFrontObjects.Add(_objects[i]);
-			}
-		}
-
-		float minDist = Mathf.Infinity;
-        int minIndex = -1;
-        for (int i = 0; i < inFrontObjects.Count; i++)
+        if (listOfInteractables.Count > 0)
         {
-            if (Vector3.Distance(self.position, inFrontObjects[i].self.position) < minDist)
+            float p = Mathf.Infinity;
+            Interactable newI = null;
+            for (int i = 0; i < listOfInteractables.Count; i++)
             {
-                minDist = Vector3.Distance(self.position, inFrontObjects[i].self.position);
-                minIndex = i;
+                if(Vector3.Distance(pointRef.position, listOfInteractables[i].transform.position) < p)
+                {
+                    p = Vector3.Distance(pointRef.position, listOfInteractables[i].transform.position);
+                    newI = listOfInteractables[i];
+                }
             }
+            return newI;
         }
-        return inFrontObjects[minIndex];
+        else
+        {
+            return null;
+        }
     }
 
 	#endregion

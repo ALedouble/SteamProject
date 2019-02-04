@@ -11,6 +11,22 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1654052945279190}
   m_IsPrefabAsset: 1
+--- !u!1 &1029064052049628
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4470471758679524}
+  - component: {fileID: 65012147959536326}
+  m_Layer: 11
+  m_Name: EmptyTrigger
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1186712024343100
 GameObject:
   m_ObjectHideFlags: 0
@@ -132,6 +148,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1892508398960424
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4644790010607206}
+  m_Layer: 11
+  m_Name: PointRef
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &4019043730466294
 Transform:
   m_ObjectHideFlags: 1
@@ -161,6 +192,20 @@ Transform:
   m_Father: {fileID: 4637974877923470}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -180.00002, z: 0}
+--- !u!4 &4470471758679524
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1029064052049628}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.02, y: 0, z: 1.35}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4644790010607206}
+  m_Father: {fileID: 4637974877923470}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4566123378712856
 Transform:
   m_ObjectHideFlags: 1
@@ -181,15 +226,29 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1654052945279190}
-  m_LocalRotation: {x: -0, y: 0.7536417, z: -0, w: 0.6572855}
-  m_LocalPosition: {x: -3.88, y: 1.3899999, z: -8.42}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.8700589, y: 1.062033, z: 5.4849863}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4064580863979462}
   - {fileID: 4870789842636690}
+  - {fileID: 4470471758679524}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 97.814, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4644790010607206
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1892508398960424}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.27}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4470471758679524}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4870789842636690
 Transform:
   m_ObjectHideFlags: 1
@@ -412,6 +471,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!65 &65012147959536326
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1029064052049628}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.46, y: 2.26, z: 1}
+  m_Center: {x: 0, y: -0.23, z: 0}
 --- !u!82 &82039040311032090
 AudioSource:
   m_ObjectHideFlags: 1
@@ -542,6 +613,7 @@ MonoBehaviour:
   anim: {fileID: 95449798827462390}
   myAudioSource: {fileID: 82039040311032090}
   actionUI: {fileID: 0}
+  grabbedActionUI: {fileID: 0}
   steerParticlesPrefab: {fileID: 1010759285009588, guid: cbe4c6baeb110a947ac2dbcd04ea93e7,
     type: 2}
   grabParticlesPrefab: {fileID: 1933719270593620, guid: 39b020881d1ad904c88919e804942afe,
@@ -614,9 +686,11 @@ MonoBehaviour:
     m_RotationOrder: 4
   checkCircleDistance: 0
   checkCircleRadius: 3
-  grabAngleTolerance: 10
+  grabAngleTolerance: 30
+  dotTolerance: 10
   uiOffset: {x: 0, y: 25, z: 0}
   steerTimerLimit: 0.2
+  pointRef: {fileID: 4644790010607206}
 --- !u!114 &114240170670739462
 MonoBehaviour:
   m_ObjectHideFlags: 1
