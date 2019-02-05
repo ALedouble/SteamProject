@@ -11,7 +11,7 @@ public class OptionsManager : MonoBehaviour {
     [Space]
     [Header("Referencies")]
 	public AudioMixer audioMixer;
-    public Transform[] sectionTransform;
+    public Animator cameraAnim;
     public Animator optionAnim;
     public Slider volumeSlider;
 	public Text volumeText;
@@ -95,8 +95,7 @@ public class OptionsManager : MonoBehaviour {
 
     public void ExitCameraAnimation()
     {
-        Camera.main.transform.position = sectionTransform[0].position;
-        Camera.main.transform.rotation = sectionTransform[0].rotation;
+        cameraAnim.SetBool("SettingsBool", false);
     }
 
 }

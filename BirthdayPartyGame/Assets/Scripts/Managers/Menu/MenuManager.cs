@@ -8,8 +8,7 @@ public class MenuManager : MonoBehaviour
 	int choose = 0;
 	public OptionsManager optionsObject;
 	public GameObject[] allElements;
-    public Transform[] sectionTransform;
-    
+    public Animator cameraAnim;    
 
 
 	MeshRenderer[] meshTextRed;
@@ -38,7 +37,14 @@ public class MenuManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Back"))
         {
-            Application.Quit();
+            if (cameraAnim.GetBool("SelectBool"))
+            {
+                cameraAnim.SetBool("SelectBool", false);
+            }
+            else if(!cameraAnim.GetBool("SettingsBool"))
+            {
+                Application.Quit();
+            }
         }
 
         UpdatePadMoveTimers();
@@ -152,15 +158,11 @@ public class MenuManager : MonoBehaviour
 				SceneManager.LoadScene(SaveManager.instance.currentSave.progressionIndex + 1);
 				break;
 			case 1:
-                /*Camera.main.transform.position = sectionTransform[1].position;
-                Camera.main.transform.rotation = sectionTransform[1].rotation;*/
-                SceneManager.LoadScene("LevelSelection", LoadSceneMode.Single);
+                cameraAnim.SetBool("SelectBool", true);
+                //SceneManager.LoadScene("LevelSelection", LoadSceneMode.Single);
                 break;
 			case 2:
-                Camera.main.transform.position = sectionTransform[2].position;
-                Camera.main.transform.rotation = sectionTransform[2].rotation;
-                optionsObject.opened = true;
-                optionsObject.optionAnim.SetBool("Open", optionsObject.opened);
+                cameraAnim.SetBool("SettingsBool", true);
                 break;
 			case 3:
 				Application.Quit();
