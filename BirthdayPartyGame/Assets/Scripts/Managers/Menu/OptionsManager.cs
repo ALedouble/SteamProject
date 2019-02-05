@@ -8,10 +8,16 @@ public class OptionsManager : MonoBehaviour {
 
 	public static OptionsManager instance;
 
+    [Space]
+    [Header("Referencies")]
 	public AudioMixer audioMixer;
-
-	public Slider volumeSlider;
+    public Animator cameraAnim;
+    public Animator optionAnim;
+    public Slider volumeSlider;
 	public Text volumeText;
+
+    [HideInInspector]
+    public bool opened;
 
 	private void OnEnable()
 	{
@@ -36,13 +42,14 @@ public class OptionsManager : MonoBehaviour {
 
 	private void OnDisable()
 	{
-		instance = null;
+        instance = null;
 	}
 
 	public void CloseOptions()
-	{
-		gameObject.SetActive(false);
-	}
+    {
+        opened = false;
+        optionAnim.SetBool("Open", opened);
+    }
 
 	public void ToggleWindowed()
 	{
@@ -85,5 +92,10 @@ public class OptionsManager : MonoBehaviour {
 		audioMixer.GetFloat("Volume", out _volume);
 		return _volume + 80;
 	}
+
+    public void ExitCameraAnimation()
+    {
+        cameraAnim.SetBool("SettingsBool", false);
+    }
 
 }
