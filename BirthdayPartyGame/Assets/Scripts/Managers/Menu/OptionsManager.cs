@@ -98,4 +98,10 @@ public class OptionsManager : MonoBehaviour {
         cameraAnim.SetBool("SettingsBool", false);
     }
 
+    public void LaunchingOpenAnim()
+    {
+        opened = true;
+        optionAnim.SetBool("Open", opened);
+    }
+
 }

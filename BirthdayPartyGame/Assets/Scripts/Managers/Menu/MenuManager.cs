@@ -8,7 +8,10 @@ public class MenuManager : MonoBehaviour
 	int choose = 0;
 	public OptionsManager optionsObject;
 	public GameObject[] allElements;
-    public Animator cameraAnim;    
+    public Animator cameraAnim;
+
+    public GameObject LoadingUIContainer;
+    public GameObject levelSelectUIContainer;
 
 
 	MeshRenderer[] meshTextRed;
@@ -37,12 +40,9 @@ public class MenuManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Back"))
         {
-            if (cameraAnim.GetBool("SelectBool"))
+            if(!cameraAnim.GetBool("SettingsBool") && !cameraAnim.GetBool("SelectBool"))
             {
-                cameraAnim.SetBool("SelectBool", false);
-            }
-            else if(!cameraAnim.GetBool("SettingsBool"))
-            {
+                print("QUIT");
                 Application.Quit();
             }
         }
@@ -155,11 +155,12 @@ public class MenuManager : MonoBehaviour
 		switch (choose)
 		{
 			case 0:
-				SceneManager.LoadScene(SaveManager.instance.currentSave.progressionIndex + 1);
+                //StartCoroutine(ContinueAsync());
 				break;
 			case 1: //A MODIFIER POUR LE FINAL
-                //cameraAnim.SetBool("SelectBool", true);
-                SceneManager.LoadScene("LevelSelection", LoadSceneMode.Single);
+                cameraAnim.SetBool("SelectBool", true);
+                levelSelectUIContainer.SetActive(true);
+                //SceneManager.LoadScene("LevelSelection", LoadSceneMode.Single);
                 break;
 			case 2:
                 cameraAnim.SetBool("SettingsBool", true);
@@ -170,6 +171,23 @@ public class MenuManager : MonoBehaviour
 			default:
 				break;
 		}
-
 	}
+
+    IEnumerator ContinueAsync()
+    {
+        // The Application loads the Scene in the background as the current Scene runs.
+        // This is particularly good for creating loading screens.
+        // You could also load the Scene by using sceneBuildIndex. In this case Scene2 has
+        // a sceneBuildIndex of 1 as shown in Build Settings.
+
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(/*SaveManager.instance.currentSave.progressionIndex + 1*/7);
+        LoadingUIContainer.SetActive(true);
+
+        // Wait until the asynchronous scene fully loads
+        while (!asyncLoad.isDone)
+        {
+            print(asyncLoad.progress);
+            yield return null;
+        }
+    }
 }
