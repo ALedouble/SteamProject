@@ -157,9 +157,9 @@ public class MenuManager : MonoBehaviour
 			case 0:
 				SceneManager.LoadScene(SaveManager.instance.currentSave.progressionIndex + 1);
 				break;
-			case 1:
-                cameraAnim.SetBool("SelectBool", true);
-                //SceneManager.LoadScene("LevelSelection", LoadSceneMode.Single);
+			case 1: //A MODIFIER POUR LE FINAL
+                //cameraAnim.SetBool("SelectBool", true);
+                SceneManager.LoadScene("LevelSelection", LoadSceneMode.Single);
                 break;
 			case 2:
                 cameraAnim.SetBool("SettingsBool", true);
