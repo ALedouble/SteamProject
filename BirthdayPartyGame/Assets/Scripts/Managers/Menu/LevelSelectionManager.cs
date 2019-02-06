@@ -23,6 +23,7 @@ public class LevelSelectionManager : MonoBehaviour {
     public bool uiOpened;
     public Animator cameraAnim;
     public Animator levelSelectionContainerAnim;
+    public GameObject loadingUIContainer;
 
     void OnEnable () {
 
@@ -146,8 +147,8 @@ public class LevelSelectionManager : MonoBehaviour {
 
 	public void GoToLevel()
 	{
-        if(uiOpened)
-            SceneManager.LoadScene(levelIndex+1);
+        if (uiOpened)
+            StartCoroutine(SelectLevelLoadAsync());
 	}
 
     void UpdatePadMoves()
@@ -167,37 +168,15 @@ public class LevelSelectionManager : MonoBehaviour {
         levelSelectionContainerAnim.SetBool("OpenBool", true);
     }
 
-    /*IEnumerator ScaleUIComponents(Vector3 from, Vector3 to)
+    IEnumerator SelectLevelLoadAsync()
     {
-        lerpValue = Mathf.Clamp01(lerpValue + Time.deltaTime / timeToScale);
-        for (int i = 0; i < uiToScale.Length; i++)
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(levelIndex + 1);
+        loadingUIContainer.SetActive(true);
+        
+        while (!asyncLoad.isDone)
         {
-            if(to == new Vector3(1, 1, 1))
-            {
-                uiToScale[i].localScale = Vector3.Lerp(from, to * upScaleAnimCurve.Evaluate(lerpValue), lerpValue);
-            }
-            else
-            {
-                uiToScale[i].localScale = Vector3.Lerp(from * downScaleAnimCurve.Evaluate(lerpValue), to, lerpValue);
-            }
+            print(asyncLoad.progress);
+            yield return null;
         }
-        yield return new WaitForSeconds(0);
-
-        if (lerpValue == 1)
-        {
-            if(to == new Vector3(1, 1, 1))
-            {
-                uiOpened = true;
-            }
-            else
-            {
-                uiOpened = false;
-                cameraAnim.SetBool("SelectBool", false);
-            }
-        }
-        else
-        {
-            StartCoroutine(ScaleUIComponents(from, to));
-        }
-    }*/
+    }
 }
