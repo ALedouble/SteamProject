@@ -12,7 +12,7 @@ public class Entity : InteractableComponent {
 	public bool canSpread;
 	protected List<Interactable> canSpreadObjects = new List<Interactable>();
 
-	void Start()
+	protected virtual void Start()
 	{
 		Initialize();
 	}

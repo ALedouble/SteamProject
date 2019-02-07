@@ -15,12 +15,12 @@ public class SprayWaterMachine : MonoBehaviour {
     IEnumerator SprayWater()
     {
         GameObject gameObjectRef1 = Instantiate(waterSpherePrefab, spawnPoint1.position, spawnPoint1.rotation);
-        gameObjectRef1.GetComponent<Rigidbody>().AddForce(500 * spawnPoint1.forward + 100 * Vector3.up);
+        gameObjectRef1.GetComponent<Rigidbody>().AddForce(400 * spawnPoint1.forward + 100 * Vector3.up);
         Destroy(gameObjectRef1, 1f);
         GameObject gameObjectRef2 = Instantiate(waterSpherePrefab, spawnPoint2.position, spawnPoint2.rotation);
-        gameObjectRef2.GetComponent<Rigidbody>().AddForce(500 * spawnPoint2.forward + 100 * Vector3.up);
+        gameObjectRef2.GetComponent<Rigidbody>().AddForce(400 * spawnPoint2.forward + 100 * Vector3.up);
         Destroy(gameObjectRef2, 1f);
-        yield return new WaitForSeconds(0.05f);
+        yield return new WaitForSeconds(0.1f);
         StartCoroutine(SprayWater());
     }
 }
