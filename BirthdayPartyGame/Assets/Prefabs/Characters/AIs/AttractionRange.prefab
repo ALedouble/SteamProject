@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4625935185333952}
   - component: {fileID: 114954643883918084}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: AISpots
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 114071633819403114}
   - component: {fileID: 135227789156789144}
   - component: {fileID: 54755494805446300}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: AttractionRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,6 +103,7 @@ MonoBehaviour:
   mySpots:
   - {fileID: 114954643883918084}
   repulse: 0
+  wantedRadius: 0
 --- !u!114 &114954643883918084
 MonoBehaviour:
   m_ObjectHideFlags: 1

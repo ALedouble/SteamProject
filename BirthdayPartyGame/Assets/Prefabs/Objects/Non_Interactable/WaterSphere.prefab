@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4831970041593618}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Nodes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,11 +38,11 @@ GameObject:
   - component: {fileID: 23427876694559558}
   - component: {fileID: 135145529744531832}
   - component: {fileID: 114506733973634970}
-  - component: {fileID: 114136223304765458}
+  - component: {fileID: 114061560263043508}
   - component: {fileID: 54536748306889628}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: WaterSphere
-  m_TagString: Interactable
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 114847511744694112}
   - component: {fileID: 114705433826384610}
   - component: {fileID: 135172276792112024}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Node
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -163,7 +163,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &114136223304765458
+--- !u!114 &114061560263043508
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -171,15 +171,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1764448631291328}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7e5f8f3c76606e41864a6caacfe094b, type: 3}
+  m_Script: {fileID: 11500000, guid: 48eeee27bb61bb14d95e97637f6f3035, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 0}
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &114506733973634970
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -191,16 +189,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39feb44449d084c44907efdadc23c0f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectName: 
+  objectName: Water drop
   blunt: 0
   breakable: 0
   destructible: 0
+  destructionScore: 0
   pickUp: 0
   isElectric: 0
   isFire: 0
   isWater: 1
   activationType: 0
-  material: 0
+  material: 3
   holdPositionOffset: {x: 0, y: 0, z: 0}
   holdRotationOffset: {x: 0, y: 0, z: 0}
   nodesChildren: []
@@ -221,8 +220,6 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 0}
-  myFireParticleSystem: {fileID: 0}
 --- !u!114 &114847511744694112
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -238,6 +235,7 @@ MonoBehaviour:
   blunt: 0
   breakable: 0
   destructible: 0
+  destructionScore: 0
   pickUp: 0
   isElectric: 0
   isFire: 0
