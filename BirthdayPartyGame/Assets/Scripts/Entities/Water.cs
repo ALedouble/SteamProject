@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class Water : Entity {
 
+	protected override void Start()
+	{
+		base.Start();
+		radius = 2;
+	}
+
 	protected override void Interact(Interactable _object)
 	{
 		if (_object.parameters.material == ObjectMaterial.Paper)

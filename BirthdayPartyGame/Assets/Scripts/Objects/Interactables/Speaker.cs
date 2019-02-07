@@ -25,6 +25,9 @@ public class Speaker : Interactable {
     public float hardTriggerRadius;
     public float popTriggerRadius;
 
+	public bool isDouble;
+	public Speaker linkedSpeaker;
+
     [HideInInspector]
     public AudioSource levelAudioSource;
     float musicVolumeAscending;
@@ -59,6 +62,22 @@ public class Speaker : Interactable {
 		{
 			Deactivate();
 		}
+
+		if (isDouble && linkedSpeaker.canActivate && linkedSpeaker.activated != activated)
+		{
+			linkedSpeaker.Activate();
+
+			linkedSpeaker.activated = activated;
+			if (activated)
+			{
+				linkedSpeaker.myAnim.SetTrigger("PopTrigger");
+			}
+			else
+			{
+				linkedSpeaker.myAnim.SetTrigger("HardTrigger");
+			}
+		}
+
 	}
 
 	public override void Deactivate()
@@ -76,18 +95,22 @@ public class Speaker : Interactable {
 
 	public override void Die()
 	{
-        myAttractionCircle.ChangeScore(0);
-        myAttractionCircle.ChangeRadius(0);
+        canActivate = false;
         Instantiate(explosionParticlePrefab, explosionTransform.position, Quaternion.identity);
         Instantiate(smokeParticlePrefab, explosionTransform.position, Quaternion.Euler(-90, 0, 0), transform);
-        canActivate = false;
-        levelAudioSource.Stop();
-        levelAudioSource.clip = levelMusic;
-        levelAudioSource.Play();
-        levelAudioSource.volume = 0;
-        StopCoroutine(MusicComingBack());
-        StartCoroutine(MusicComingBack());
-        myAnim.SetTrigger("NoMusicTrigger");
+
+		if (isDouble && !linkedSpeaker.canActivate)
+		{
+			myAttractionCircle.ChangeScore(0);
+			myAttractionCircle.ChangeRadius(0);
+			levelAudioSource.Stop();
+			levelAudioSource.clip = levelMusic;
+			levelAudioSource.Play();
+			levelAudioSource.volume = 0;
+			StopCoroutine(MusicComingBack());
+			StartCoroutine(MusicComingBack());
+			myAnim.SetTrigger("NoMusicTrigger");
+		}
     }
 
     IEnumerator MusicComingBack()
