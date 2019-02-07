@@ -15,8 +15,8 @@ public class GenerateText : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		for (int i = 0; i < textGO.Length; i++){
-			Vector3 positionLetter = new Vector3( transform.position.x - currentPosX, transform.position.y , transform.position.z);
-			Instantiate(textGO[i], positionLetter, Quaternion.identity, self);
+			Vector3 positionLetter = transform.position - transform.right*currentPosX;
+			Instantiate(textGO[i], positionLetter, self.rotation, self);
 			currentPosX = currentPosX + enlargement;
 		}
 	}
