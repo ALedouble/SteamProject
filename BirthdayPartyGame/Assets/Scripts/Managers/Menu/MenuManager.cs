@@ -8,7 +8,10 @@ public class MenuManager : MonoBehaviour
 	int choose = 0;
 	public OptionsManager optionsObject;
 	public GameObject[] allElements;
-    public Animator cameraAnim;    
+    public Animator cameraAnim;
+
+    public GameObject loadingUIContainer;
+    public GameObject levelSelectUIContainer;
 
 
 	MeshRenderer[] meshTextRed;
@@ -37,12 +40,9 @@ public class MenuManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Back"))
         {
-            if (cameraAnim.GetBool("SelectBool"))
+            if(!cameraAnim.GetBool("SettingsBool") && !cameraAnim.GetBool("SelectBool"))
             {
-                cameraAnim.SetBool("SelectBool", false);
-            }
-            else if(!cameraAnim.GetBool("SettingsBool"))
-            {
+                print("QUIT");
                 Application.Quit();
             }
         }
@@ -155,11 +155,11 @@ public class MenuManager : MonoBehaviour
 		switch (choose)
 		{
 			case 0:
-				SceneManager.LoadScene(SaveManager.instance.currentSave.progressionIndex + 1);
+                StartCoroutine(ContinueAsync());
 				break;
-			case 1: //A MODIFIER POUR LE FINAL
-                //cameraAnim.SetBool("SelectBool", true);
-                SceneManager.LoadScene("LevelSelection", LoadSceneMode.Single);
+			case 1:
+                cameraAnim.SetBool("SelectBool", true);
+                levelSelectUIContainer.SetActive(true);
                 break;
 			case 2:
                 cameraAnim.SetBool("SettingsBool", true);
@@ -170,6 +170,18 @@ public class MenuManager : MonoBehaviour
 			default:
 				break;
 		}
-
 	}
+
+    IEnumerator ContinueAsync()
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(SaveManager.instance.currentSave.progressionIndex + 1);
+        loadingUIContainer.SetActive(true);
+
+        // Wait until the asynchronous scene fully loads
+        while (!asyncLoad.isDone)
+        {
+            print(asyncLoad.progress);
+            yield return null;
+        }
+    }
 }

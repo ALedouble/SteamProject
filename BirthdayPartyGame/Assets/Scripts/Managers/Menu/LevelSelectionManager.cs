@@ -19,8 +19,13 @@ public class LevelSelectionManager : MonoBehaviour {
 	float padMoveLeftTimer;
 	float padMoveRightTimer;
 
-	// Use this for initialization
-	void Start () {
+    [HideInInspector]
+    public bool uiOpened;
+    public Animator cameraAnim;
+    public Animator levelSelectionContainerAnim;
+    public GameObject loadingUIContainer;
+
+    void OnEnable () {
 
 		if (instance == null)
 		{
@@ -34,6 +39,7 @@ public class LevelSelectionManager : MonoBehaviour {
 		levelsNumber = SaveManager.instance.currentSave.levels.Length;
 		levelIndex = SaveManager.instance.currentSave.progressionIndex;
 		currentLevelUI = levelsUI[0];
+        print(levelsUI[0]);
 
 		SetUpLevelUI();
 	}
@@ -44,19 +50,10 @@ public class LevelSelectionManager : MonoBehaviour {
 		currentLevelUI.Initialize(currentLevel.name, currentLevel.description, currentLevel.objectiveNames, currentLevel.id, currentLevel.subObjectiveNames, currentLevel.completedSecondaryObjectives, currentLevel.timer, currentLevel.id);
 	}
 	
-	// Update is called once per frame
 	void Update () {
 		GetInput();
-
-		if (padMoveLeftTimer > 0)
-		{
-			padMoveLeftTimer -= Time.unscaledDeltaTime;
-		}
-		if (padMoveRightTimer > 0)
-		{
-			padMoveRightTimer -= Time.unscaledDeltaTime;
-		}
-	}
+        UpdatePadMoves();
+    }
 
 	void GetInput()
 	{
@@ -87,9 +84,9 @@ public class LevelSelectionManager : MonoBehaviour {
 			GoToLevel();
 		}
 		else if (Input.GetKey(KeyCode.Escape) || Input.GetButtonDown("Back"))
-		{
-			SceneManager.LoadScene(0);
-		}
+        {
+            levelSelectionContainerAnim.SetBool("OpenBool", false);
+        }
 	}
 
 	void SwitchLevel(bool right)
@@ -148,9 +145,38 @@ public class LevelSelectionManager : MonoBehaviour {
 		print("Can naviguate. Index: " + levelIndex);
 	}
 
-
 	public void GoToLevel()
 	{
-		SceneManager.LoadScene(levelIndex+1);
+        if (uiOpened)
+            StartCoroutine(SelectLevelLoadAsync());
 	}
+
+    void UpdatePadMoves()
+    {
+        if (padMoveLeftTimer > 0)
+        {
+            padMoveLeftTimer -= Time.unscaledDeltaTime;
+        }
+        if (padMoveRightTimer > 0)
+        {
+            padMoveRightTimer -= Time.unscaledDeltaTime;
+        }
+    }
+
+    public void LaunchingOpenAnim()
+    {
+        levelSelectionContainerAnim.SetBool("OpenBool", true);
+    }
+
+    IEnumerator SelectLevelLoadAsync()
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(levelIndex + 1);
+        loadingUIContainer.SetActive(true);
+        
+        while (!asyncLoad.isDone)
+        {
+            print(asyncLoad.progress);
+            yield return null;
+        }
+    }
 }

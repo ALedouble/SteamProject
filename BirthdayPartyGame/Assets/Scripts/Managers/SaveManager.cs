@@ -56,7 +56,7 @@ public class SaveManager : MonoBehaviour
 	public Save currentSave;
 
 	// Use this for initialization
-	void Start()
+	void Awake()
 	{
 		if (instance == null)
 		{

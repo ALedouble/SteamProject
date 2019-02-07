@@ -5,10 +5,15 @@ using UnityEngine;
 public class MenuCameraAnimationEvents : MonoBehaviour {
 
     public OptionsManager optionsObject;
+    public LevelSelectionManager levelSelectMan;
 
     public void LaunchSettingsAnim()
     {
-        optionsObject.opened = true;
-        optionsObject.optionAnim.SetBool("Open", optionsObject.opened);
+        optionsObject.LaunchingOpenAnim();
+    }
+
+    public void LaunchSelectAnim()
+    {
+        levelSelectMan.LaunchingOpenAnim();
     }
 }
