@@ -225,14 +225,14 @@ public class LevelManager : MonoBehaviour
 		{
 			yield return new WaitForSeconds(1);
 			gameEnd = true;
-            //uiWin.SetActive(true);
-            //Time.timeScale = 0;
+            uiWin.SetActive(true);
+            Time.timeScale = 0;
 
             SaveManager.instance.SaveProgress(LevelData.instance.id, true, LevelData.instance.secondaryObjectives);
 			LevelData.instance = null;
 			SpawnPoint.instance = null;
 
-            SceneManager.LoadScene("VictoryScreen");
+            //SceneManager.LoadScene("VictoryScreen");
         }
 		else
 		{
@@ -243,14 +243,15 @@ public class LevelManager : MonoBehaviour
 	void Lose()
 	{
 		gameEnd = true;
-		//uiLose.SetActive(true);
-		//Time.timeScale = 0;
+		uiLose.SetActive(true);
+		Time.timeScale = 0;
 
 		SaveManager.instance.SaveProgress(LevelData.instance.id, false, LevelData.instance.secondaryObjectives);
 		LevelData.instance = null;
 		SpawnPoint.instance = null;
 
-        SceneManager.LoadScene("DefeatScreen");
+        //SceneManager.LoadScene("DefeatScreen");
+
         //if (Input.GetKeyDown(KeyCode.Return) && index == 1)
         //{
         //	Menu();
