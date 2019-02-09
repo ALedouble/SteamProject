@@ -31,15 +31,21 @@ public class Firecracker : Interactable {
 			}
 			else
 			{
-				Explode();
+				Die();
 			}
 		}
+	}
+
+	public override void Die()
+	{
+		base.Die();
+		Explode();
 	}
 
 	void Explode()
 	{
 		Explosion newExplosion = Instantiate(explosion, self.position, Quaternion.identity).GetComponent<Explosion>();
 		newExplosion.InitializeScale(explosionSize);
-		Die();
+		//Die();
 	}
 }
