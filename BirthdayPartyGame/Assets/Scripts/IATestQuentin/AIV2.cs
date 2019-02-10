@@ -33,6 +33,10 @@ public class AIV2 : MonoBehaviour {
     AttractionCircleV2 attractionCircleFleeing;
 
 
+	public delegate void CryEvent(AIV2 child);
+	public CryEvent Cry;
+	public CryEvent StopCrying;
+
 
     public void AddAttractionCircle(AttractionCircleV2 _newAttractionCircle)
     {
@@ -203,19 +207,35 @@ public class AIV2 : MonoBehaviour {
                 tearsParent.SetActive(true);
                 ResetAttractionCirclesAndSpots();
                 myNavMeshAgent.SetDestination(transform.position);
+				if (Cry != null)
+				{
+					Cry(this);
+				}
                 break;
             case AIState.Amused:
-                myState = AIState.Amused;
+				if (Cry != null && myState == AIState.inDistress)
+				{
+					StopCrying(this);
+				}
+				myState = AIState.Amused;
                 int AmusedToInt = (int)AIState.Amused;
                 myAnim.SetInteger("EnumState", AmusedToInt);
                 break;
             case AIState.Neutral:
-                myState = AIState.Neutral;
+				if (Cry != null && myState == AIState.inDistress)
+				{
+					StopCrying(this);
+				}
+				myState = AIState.Neutral;
                 int NeutralToInt = (int)AIState.Neutral;
                 myAnim.SetInteger("EnumState", NeutralToInt);
                 break;
             case AIState.Fleeing:
-                myState = AIState.Fleeing;
+				if (Cry != null && myState == AIState.inDistress)
+				{
+					StopCrying(this);
+				}
+				myState = AIState.Fleeing;
                 int FleeingToInt = (int)AIState.Fleeing;
                 myAnim.SetInteger("EnumState", FleeingToInt);
                 ResetAttractionCirclesAndSpots();

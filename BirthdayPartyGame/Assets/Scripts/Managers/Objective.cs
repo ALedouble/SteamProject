@@ -9,7 +9,8 @@ public enum ObjectiveType
 	PositionChild,
     Isolate,
 	Activate,
-	Grab
+	Grab, 
+	Cry
 }
 
 [System.Serializable]
@@ -17,6 +18,7 @@ public class Objective {
 
 	public ObjectiveType type;
 	public Interactable[] relatedObjects;
+	public AIV2[] relatedChildren;
 	public GameObject[] relatedGameObjects;
 	//bool setup;
 	public bool[] checkedObjects;
@@ -71,6 +73,15 @@ public class Objective {
 				for (int i = 0; i < relatedObjects.Length; i++)
 				{
 					relatedObjects[i].GrabEvent += CheckObject;
+				}
+				break;
+
+			case ObjectiveType.Cry:
+				checkedObjects = new bool[relatedChildren.Length];
+				for (int i = 0; i < relatedChildren.Length; i++)
+				{
+					relatedChildren[i].Cry += CheckCry;
+					relatedChildren[i].Cry += CheckStopCrying;
 				}
 				break;
 		}
@@ -170,6 +181,42 @@ public class Objective {
 			{
 				Validate();
 			}
+		}
+	}
+
+	public void CheckCry(AIV2 child)
+	{
+		for (int i = 0; i < relatedChildren.Length; i++)
+		{
+			if (child == relatedChildren[i])
+			{
+				checkedObjects[i] = true;
+			}
+
+		}
+
+		for (int i = 0; i < checkedObjects.Length; i++)
+		{
+			if (!checkedObjects[i])
+			{
+				return;
+			}
+			else
+			{
+				Validate();
+			}
+		}
+	}
+
+	public void CheckStopCrying(AIV2 child)
+	{
+		for (int i = 0; i < relatedChildren.Length; i++)
+		{
+			if (child == relatedChildren[i])
+			{
+				checkedObjects[i] = false;
+			}
+
 		}
 	}
 
