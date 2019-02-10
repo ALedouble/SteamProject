@@ -267,6 +267,11 @@ public class Interactable : MonoBehaviour {
 			myElectricityParticleSystem = Instantiate(electricityParticleSystem, self.position, Quaternion.identity, self).GetComponent<ParticleSystem>();
 		else
 			myElectricityParticleSystem.Play();
+
+		if (parameters.activationType == ActivationType.Electronic)
+		{
+			Activate();
+		}
 	}
 
 	public void StopElectrified()
@@ -274,6 +279,11 @@ public class Interactable : MonoBehaviour {
 		electrified = false;
 		electricityScript.enabled = false;
 		myElectricityParticleSystem.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+
+		if (parameters.activationType == ActivationType.Electronic)
+		{
+			Deactivate();
+		}
 	}
 
 	#endregion
