@@ -177,6 +177,7 @@ public class Objective {
 	{
 		validated = true;
 		Debug.Log("Validate");
-		WinEvent();
+		if (WinEvent != null)
+			WinEvent();
 	}
 }

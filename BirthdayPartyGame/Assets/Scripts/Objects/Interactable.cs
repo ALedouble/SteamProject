@@ -110,7 +110,7 @@ public class Interactable : MonoBehaviour {
 		gameObject.layer = LayerMask.NameToLayer("Held Objects");
 	}
 
-	public void GetDropped()
+	public virtual void GetDropped()
 	{
 		self.parent = null;
 		body.constraints = RigidbodyConstraints.None;

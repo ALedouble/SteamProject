@@ -33,7 +33,13 @@ public class Ball : Interactable, ILaunchable {
 		body.AddForce(_direction * _force, ForceMode.VelocityChange);
 	}
 
-    private void Update()
+	public override void GetDropped()
+	{
+		GetLaunched(self.right, 20);
+		base.GetDropped();
+	}
+
+	private void Update()
     {
         if (cooldownBeforeMinScore > 0)
         {
