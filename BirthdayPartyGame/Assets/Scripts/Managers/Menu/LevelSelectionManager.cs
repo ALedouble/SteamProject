@@ -25,6 +25,10 @@ public class LevelSelectionManager : MonoBehaviour {
     public Animator levelSelectionContainerAnim;
     public GameObject loadingUIContainer;
 
+    public AudioSource levelAudioSource;
+    public AudioClip changePanelClip;
+    public AudioClip validateLevelClip;
+
     void OnEnable () {
 
 		if (instance == null)
@@ -51,8 +55,11 @@ public class LevelSelectionManager : MonoBehaviour {
 	}
 	
 	void Update () {
-		GetInput();
-        UpdatePadMoves();
+        if (uiOpened)
+        {
+            GetInput();
+            UpdatePadMoves();
+        }
     }
 
 	void GetInput()
@@ -80,8 +87,9 @@ public class LevelSelectionManager : MonoBehaviour {
 		}
 
 		if (Input.GetKey(KeyCode.Return) || Input.GetButtonDown("Grab"))
-		{
-			GoToLevel();
+        {
+            levelAudioSource.PlayOneShot(validateLevelClip);
+            GoToLevel();
 		}
 		else if (Input.GetKey(KeyCode.Escape) || Input.GetButtonDown("Back"))
         {
@@ -91,7 +99,8 @@ public class LevelSelectionManager : MonoBehaviour {
 
 	void SwitchLevel(bool right)
 	{
-		canClick = false;
+        levelAudioSource.PlayOneShot(changePanelClip);
+        canClick = false;
 		//Change the levelIndex
 		if (right)
 		{

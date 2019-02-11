@@ -15,6 +15,9 @@ public class OptionsManager : MonoBehaviour {
     public Animator optionAnim;
     public Slider volumeSlider;
 	public Text volumeText;
+    public AudioSource levelAudioSource;
+    public AudioClip closingPanelClip;
+    public AudioClip openingPanelClip;
 
     [HideInInspector]
     public bool opened;
@@ -102,6 +105,16 @@ public class OptionsManager : MonoBehaviour {
     {
         opened = true;
         optionAnim.SetBool("Open", opened);
+    }
+
+    public void PlayClosingPanelSound()
+    {
+        levelAudioSource.PlayOneShot(closingPanelClip);
+    }
+
+    public void PlayOpeningPanelSound()
+    {
+        levelAudioSource.PlayOneShot(openingPanelClip);
     }
 
 }
