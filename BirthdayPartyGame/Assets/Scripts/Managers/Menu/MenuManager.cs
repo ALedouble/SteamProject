@@ -6,12 +6,18 @@ using UnityEngine.SceneManagement;
 public class MenuManager : MonoBehaviour
 {
 	int choose = 0;
+
+    [Space]
+    [Header("Referencies")]
 	public OptionsManager optionsObject;
 	public GameObject[] allElements;
     public Animator cameraAnim;
-
     public GameObject loadingUIContainer;
     public GameObject levelSelectUIContainer;
+    public AudioSource levelAudioSource;
+    public AudioClip clipChangeSelectedButton;
+    public AudioClip clipValidateSelectedButton;
+    public AudioClip clipExitGame;
 
 
 	MeshRenderer[] meshTextRed;
@@ -44,6 +50,7 @@ public class MenuManager : MonoBehaviour
             {
                 print("QUIT");
                 Application.Quit();
+                levelAudioSource.PlayOneShot(clipExitGame);
             }
         }
 
@@ -70,9 +77,10 @@ public class MenuManager : MonoBehaviour
 
         //MENU GOING DOWN
 		if (Input.GetKeyDown(KeyCode.DownArrow) || (Input.GetAxisRaw("Vertical") < -0.2f && padMoveDownTimer <= 0))
-		{
-			choose += 1;
+        {
+            levelAudioSource.PlayOneShot(clipChangeSelectedButton);
 
+            choose += 1;
 
 			if (choose > 3)
 			{
@@ -86,6 +94,8 @@ public class MenuManager : MonoBehaviour
         //MENU GOING UP
 		if (Input.GetKeyDown(KeyCode.UpArrow) || (Input.GetAxisRaw("Vertical") > 0.2f && padMoveUpTimer <= 0))
 		{
+            levelAudioSource.PlayOneShot(clipChangeSelectedButton);
+
 			choose -= 1;
 
 			if (choose < 0)
@@ -155,17 +165,21 @@ public class MenuManager : MonoBehaviour
 		switch (choose)
 		{
 			case 0:
+                levelAudioSource.PlayOneShot(clipValidateSelectedButton);
                 StartCoroutine(ContinueAsync());
 				break;
 			case 1:
+                levelAudioSource.PlayOneShot(clipValidateSelectedButton);
                 cameraAnim.SetBool("SelectBool", true);
                 levelSelectUIContainer.SetActive(true);
                 break;
 			case 2:
+                levelAudioSource.PlayOneShot(clipValidateSelectedButton);
                 cameraAnim.SetBool("SettingsBool", true);
                 break;
 			case 3:
-				Application.Quit();
+                levelAudioSource.PlayOneShot(clipExitGame);
+                Application.Quit();
 				break;
 			default:
 				break;

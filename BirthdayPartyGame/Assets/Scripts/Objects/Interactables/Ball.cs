@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ball : Interactable {
+public class Ball : Interactable, ILaunchable {
 
     public AttractionCircleV2 myAttractionCircle;
 	public float shootForce;
@@ -10,6 +10,7 @@ public class Ball : Interactable {
     public int maxScore;
     public float timeBeingAtMaxScore;
     float cooldownBeforeMinScore;
+	public float canBreakThreshold = 2;
 
 	private void OnCollisionEnter(Collision collision)
 	{
@@ -27,7 +28,18 @@ public class Ball : Interactable {
         cooldownBeforeMinScore = timeBeingAtMaxScore;
 	}
 
-    private void Update()
+	public void GetLaunched(Vector3 _direction, float _force)
+	{
+		body.AddForce(_direction * _force, ForceMode.VelocityChange);
+	}
+
+	public override void GetDropped()
+	{
+		GetLaunched(self.right, 20);
+		base.GetDropped();
+	}
+
+	private void Update()
     {
         if (cooldownBeforeMinScore > 0)
         {
@@ -37,6 +49,16 @@ public class Ball : Interactable {
                 myAttractionCircle.ChangeScore(minScore);
             }
         }
+
+		if (body.velocity.magnitude > canBreakThreshold)
+		{
+			canBreak = true;
+			print("Can break");
+		}
+		else
+		{
+			canBreak = false;
+		}
     }
 
 }

@@ -112,6 +112,8 @@ public class SaveManager : MonoBehaviour
 				"Burn burn burn"),
 			new Save.Level(9, "Level 10", 60, new string[] { "Burn the present!"}, new string[] { ""},
 				"Kill it with fire!"),
+			new Save.Level(9, "Level 11", 60, new string[] { "Make them cry!"}, new string[] { ""},
+				"TNT"),
 			new Save.Level(10, "Level 12", 60, new string[] { "Break the table!"}, new string[] { ""},
 				"Break it down!"),
 				new Save.Level(11, "Level 14", 60, new string[] { "Destroy the toybox!"}, new string[] { ""},

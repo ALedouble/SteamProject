@@ -9,7 +9,8 @@ public class Utility : MonoBehaviour {
 	{
 		print("Restart");
 		Time.timeScale = 1;
-		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
+		int progression = SaveManager.instance.currentSave.progressionIndex;
+		SceneManager.LoadScene(progression, LoadSceneMode.Single);
 	}
 
 	public static void Menu()
@@ -21,7 +22,7 @@ public class Utility : MonoBehaviour {
 		//{
 		//	SceneManager.UnloadSceneAsync(SceneManager.GetSceneAt(i));
 		//}
-		SceneManager.LoadScene("LevelSelection", LoadSceneMode.Single);
+		SceneManager.LoadScene("Menu", LoadSceneMode.Single);
 	}
 
 	public static void NextLevel()

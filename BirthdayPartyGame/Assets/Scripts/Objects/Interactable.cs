@@ -110,7 +110,7 @@ public class Interactable : MonoBehaviour {
 		gameObject.layer = LayerMask.NameToLayer("Held Objects");
 	}
 
-	public void GetDropped()
+	public virtual void GetDropped()
 	{
 		self.parent = null;
 		body.constraints = RigidbodyConstraints.None;
@@ -267,6 +267,11 @@ public class Interactable : MonoBehaviour {
 			myElectricityParticleSystem = Instantiate(electricityParticleSystem, self.position, Quaternion.identity, self).GetComponent<ParticleSystem>();
 		else
 			myElectricityParticleSystem.Play();
+
+		if (parameters.activationType == ActivationType.Electronic)
+		{
+			Activate();
+		}
 	}
 
 	public void StopElectrified()
@@ -274,6 +279,11 @@ public class Interactable : MonoBehaviour {
 		electrified = false;
 		electricityScript.enabled = false;
 		myElectricityParticleSystem.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+
+		if (parameters.activationType == ActivationType.Electronic)
+		{
+			Deactivate();
+		}
 	}
 
 	#endregion

@@ -6,7 +6,8 @@ public enum ActivationType
 {
 	None,
 	Proximity,
-	Handheld
+	Handheld,
+	Electronic
 }
 
 public enum ObjectMaterial

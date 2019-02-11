@@ -24,9 +24,9 @@ public class Speaker : Interactable {
     public float timeForMusicToComeBack;
     public float hardTriggerRadius;
     public float popTriggerRadius;
-
 	public bool isDouble;
 	public Speaker linkedSpeaker;
+    public bool playMusic;
 
     [HideInInspector]
     public AudioSource levelAudioSource;
@@ -35,12 +35,20 @@ public class Speaker : Interactable {
     protected override void Start()
     {
 		base.Start();
-		levelAudioSource = GameObject.Find("LevelAudioSource").GetComponent<AudioSource>();
+        if (playMusic)
+        {
+            Invoke("GetLevelAudioSourceRef", 0.5f);
+        }
+        activated = true;
+        myAnim.SetTrigger("PopTrigger");
+    }
+
+    void GetLevelAudioSourceRef()
+    {
+        levelAudioSource = GameObject.Find("LevelAudioSource").GetComponent<AudioSource>();
         levelAudioSource.clip = firstMusic;
         levelAudioSource.volume = firstMusicVolumeBeforeDeath;
         levelAudioSource.Play();
-        activated = true;
-        myAnim.SetTrigger("PopTrigger");
     }
 
     public override void Activate()
@@ -48,11 +56,14 @@ public class Speaker : Interactable {
 		base.Activate();
 		if (!canActivate) return;
 		if (!activated)
-		{
-            levelAudioSource.Stop();
-            levelAudioSource.clip = firstMusic;
-            levelAudioSource.volume = firstMusicVolumeBeforeDeath;
-            levelAudioSource.Play();
+        {
+            if (playMusic)
+            {
+                levelAudioSource.Stop();
+                levelAudioSource.clip = firstMusic;
+                levelAudioSource.volume = firstMusicVolumeBeforeDeath;
+                levelAudioSource.Play();
+            }
 			activated = true;
             myAnim.SetTrigger("PopTrigger");
             myAttractionCircle.ChangeRadius(popTriggerRadius);
@@ -83,10 +94,13 @@ public class Speaker : Interactable {
 	public override void Deactivate()
 	{
 		base.Deactivate();
-        levelAudioSource.Stop();
-        levelAudioSource.clip = secondMusic;
-        levelAudioSource.volume = secondMusicVolume;
-        levelAudioSource.Play();
+        if (playMusic)
+        {
+            levelAudioSource.Stop();
+            levelAudioSource.clip = secondMusic;
+            levelAudioSource.volume = secondMusicVolume;
+            levelAudioSource.Play();
+        }
         activated = false;
         myAnim.SetTrigger("HardTrigger");
         myAttractionCircle.ChangeRadius(hardTriggerRadius);
@@ -103,13 +117,16 @@ public class Speaker : Interactable {
 		{
 			myAttractionCircle.ChangeScore(0);
 			myAttractionCircle.ChangeRadius(0);
-			levelAudioSource.Stop();
-			levelAudioSource.clip = levelMusic;
-			levelAudioSource.Play();
-			levelAudioSource.volume = 0;
+            if (playMusic)
+            {
+                levelAudioSource.Stop();
+                levelAudioSource.clip = levelMusic;
+                levelAudioSource.Play();
+                levelAudioSource.volume = 0;
 			StopCoroutine(MusicComingBack());
 			StartCoroutine(MusicComingBack());
-			myAnim.SetTrigger("NoMusicTrigger");
+            }
+            myAnim.SetTrigger("NoMusicTrigger");
 		}
     }
 

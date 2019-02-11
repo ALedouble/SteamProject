@@ -5,6 +5,9 @@ using UnityEngine;
 public class WaterPistol : Interactable {
 
 	public GameObject waterDrop;
+	public Transform spawnPoint;
+	public float force = 16;
+	public float shotsInterval = 0.5f;
 
 	public override void Activate()
 	{
@@ -14,10 +17,10 @@ public class WaterPistol : Interactable {
 
 	IEnumerator ShootWater()
 	{
-		GameObject gameObjectRef1 = Instantiate(waterDrop, self.position, self.rotation);
-		gameObjectRef1.GetComponent<Rigidbody>().AddForce(400 * self.forward + 100 * Vector3.up);
+		GameObject gameObjectRef1 = Instantiate(waterDrop, spawnPoint.position, self.rotation);
+		gameObjectRef1.GetComponent<Rigidbody>().AddForce(force * self.forward + 1 * Vector3.up);
 		canActivate = false;
-		yield return new WaitForSeconds(0.1f);
+		yield return new WaitForSeconds(shotsInterval);
 		canActivate = true;
 	}
 }
