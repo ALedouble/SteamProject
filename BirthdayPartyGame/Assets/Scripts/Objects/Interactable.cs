@@ -37,6 +37,8 @@ public class Interactable : MonoBehaviour {
 	public bool electrified, burning, wet;
 	protected bool dead;
 	bool hadFire;
+	public bool isGrabbed;
+
 
 	public delegate void Action(Interactable script);
 	public Action ActionEvent;
@@ -108,6 +110,7 @@ public class Interactable : MonoBehaviour {
 		
 		body.constraints = RigidbodyConstraints.FreezeAll;
 		gameObject.layer = LayerMask.NameToLayer("Held Objects");
+		isGrabbed = true;
 	}
 
 	public virtual void GetDropped()
@@ -115,7 +118,7 @@ public class Interactable : MonoBehaviour {
 		self.parent = null;
 		body.constraints = RigidbodyConstraints.None;
 		gameObject.layer = LayerMask.NameToLayer("Default");
-
+		isGrabbed = false;
 	}
 
 	public virtual void Activate()

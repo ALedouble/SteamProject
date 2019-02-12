@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour {
 				state = DevState.Test;
 			}
 		}
-		if (Input.GetKeyDown(KeyCode.F5))
+		if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow))
 		{
 			ToggleDestructionMode();
 		}
