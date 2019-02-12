@@ -429,7 +429,12 @@ public class PlayerController : MonoBehaviour {
 					anim.SetTrigger("SwingTrigger");
 					break;
 
-				default:
+                case "Water Pistol":
+                    anim.SetTrigger("ShootTrigger");
+                    grabbedObject.Activate();
+                    break;
+
+                default:
 					grabbedObject.Activate();
 					break;
 			}
