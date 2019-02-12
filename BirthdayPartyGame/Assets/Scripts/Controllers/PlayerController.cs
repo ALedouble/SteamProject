@@ -454,6 +454,7 @@ public class PlayerController : MonoBehaviour {
 				{
 					if (_objects[i].tag == "Interactable")
 					{
+						print("Checking filter interactable");
 						filteredObjects.Add(_objects[i].GetComponent<Interactable>());
 					}
 				}
@@ -462,8 +463,9 @@ public class PlayerController : MonoBehaviour {
 				for (int i = 0; i < _objects.Length; i++)
 				{
 					if (_objects[i].tag == "Interactable" && 
-						_objects[i].GetComponent<Interactable>().parameters.pickUp)
+						_objects[i].GetComponent<Interactable>().parameters.pickUp && !_objects[i].GetComponent<Interactable>().isGrabbed)
 					{
+						print("Checking filter grab");
 						filteredObjects.Add(_objects[i].GetComponent<Interactable>());
 					}
 				}
@@ -474,12 +476,16 @@ public class PlayerController : MonoBehaviour {
 					if (_objects[i].tag == "Interactable" && 
 						_objects[i].GetComponent<Interactable>().parameters.activationType == ActivationType.Proximity)
 					{
+						print("Checking filter activate");
 						filteredObjects.Add(_objects[i].GetComponent<Interactable>());
 					}
 				}
 				break;
 		}
-		
+		for (int i = 0; i < filteredObjects.Count; i++)
+		{
+			print("Filtered objects: " + filteredObjects[i].name);
+		}
 		return filteredObjects;
 	}
 
@@ -487,8 +493,9 @@ public class PlayerController : MonoBehaviour {
     {
         if(other.tag == "Interactable")
         {
+			print("Seen an interactable");
             var needToBeFiltered = new Collider[] {other};
-            if(FilteredObjects(needToBeFiltered, Filter.Grab) != null || FilteredObjects(needToBeFiltered, Filter.Activate) != null)
+            if(FilteredObjects(needToBeFiltered, Filter.Grab).Count > 0 || FilteredObjects(needToBeFiltered, Filter.Activate).Count > 0)
             {
                 listOfInteractables.Add(other.GetComponent<Interactable>());
                 print(listOfInteractables.Count);
@@ -501,7 +508,7 @@ public class PlayerController : MonoBehaviour {
         if (other.tag == "Interactable")
         {
             var needToBeFiltered = new Collider[] { other };
-            if (FilteredObjects(needToBeFiltered, Filter.Grab) != null || FilteredObjects(needToBeFiltered, Filter.Activate) != null)
+            if (FilteredObjects(needToBeFiltered, Filter.Grab).Count > 0 || FilteredObjects(needToBeFiltered, Filter.Activate).Count > 0)
             {
                 listOfInteractables.Remove(other.GetComponent<Interactable>());
             }
