@@ -8,6 +8,12 @@ public class Electricity : Entity {
 	bool creatorInRange;
 	public bool firstGeneration;
 
+	protected override void Initialize()
+	{
+		base.Initialize();
+		maturingTime = 0.1f;
+	}
+
 	protected override void CheckObjects(Collider[] _colliders)
 	{
 		creatorInRange = false;

@@ -1914,7 +1914,7 @@ Prefab:
     - target: {fileID: 145082202284452736, guid: c06a952f3d4d7204cb515cfcc417f33b,
         type: 2}
       propertyPath: m_ConnectedAnchor.z
-      value: 0.6825899
+      value: 1.5068681
       objectReference: {fileID: 0}
     - target: {fileID: 4405075790198576, guid: c06a952f3d4d7204cb515cfcc417f33b, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -1932,16 +1932,16 @@ Prefab:
         type: 2}
       propertyPath: m_ConnectedBody
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1838133985}
     - target: {fileID: 145082202284452736, guid: c06a952f3d4d7204cb515cfcc417f33b,
         type: 2}
       propertyPath: m_ConnectedAnchor.x
-      value: -0.839345
+      value: 2.1673079
       objectReference: {fileID: 0}
     - target: {fileID: 145082202284452736, guid: c06a952f3d4d7204cb515cfcc417f33b,
         type: 2}
       propertyPath: m_ConnectedAnchor.y
-      value: 0.53999996
+      value: 8.309999
       objectReference: {fileID: 0}
     - target: {fileID: 145795642552935762, guid: c06a952f3d4d7204cb515cfcc417f33b,
         type: 2}
@@ -2921,9 +2921,19 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 1276468427420476, guid: e78732aaabdd57c47a211263dadffa23, type: 2}
+      propertyPath: m_TagString
+      value: Interactable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e78732aaabdd57c47a211263dadffa23, type: 2}
   m_IsPrefabAsset: 0
+--- !u!114 &448263776 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114222626092315030, guid: e78732aaabdd57c47a211263dadffa23,
+    type: 2}
+  m_PrefabInternal: {fileID: 448263775}
+  m_Script: {fileID: 11500000, guid: a7e5f8f3c76606e41864a6caacfe094b, type: 3}
 --- !u!4 &449453171 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4226408971870084, guid: 909de701fb5faa64d8337b3a9e9c0707,
@@ -5272,7 +5282,7 @@ Prefab:
         type: 2}
       propertyPath: mainObjectives.Array.data[0].relatedObjects.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 448263776}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9fb5844b6b3c82d46865dda0737b972b, type: 2}
   m_IsPrefabAsset: 0
@@ -10233,6 +10243,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4590195871690446, guid: 536003c4ced51614da2a27370eafe691,
     type: 2}
   m_PrefabInternal: {fileID: 103851470}
+--- !u!54 &1838133985 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 54054547684969744, guid: e78732aaabdd57c47a211263dadffa23,
+    type: 2}
+  m_PrefabInternal: {fileID: 448263775}
 --- !u!1001 &1842094162
 Prefab:
   m_ObjectHideFlags: 0

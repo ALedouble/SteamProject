@@ -22,10 +22,12 @@ public class Entity : InteractableComponent {
 		Initialize();
 	}
 
-	void Initialize()
+	protected virtual void Initialize()
 	{
 		main = GetComponent<Interactable>();
 		self = transform;
+		canSpread = false;
+		lifeSpan = 0;
 		//StartCoroutine(CheckSpread());
 	}
 	// Update is called once per frame
