@@ -5,6 +5,9 @@ using UnityEngine;
 public class PoolButton : Interactable {
 
     public Animator TrapaulinAnim;
+    public AudioSource myAudioSource;
+    public AudioClip openingClip;
+    public AudioClip closingClip;
 
 	public override void Activate()
 	{
@@ -17,6 +20,7 @@ public class PoolButton : Interactable {
 		{
 			activated = true;
             TrapaulinAnim.SetBool("OpenBool", false);
+            myAudioSource.PlayOneShot(closingClip);
 
         }
 	}
@@ -26,5 +30,6 @@ public class PoolButton : Interactable {
 		base.Deactivate();
 		activated = false;
         TrapaulinAnim.SetBool("OpenBool", true);
+        myAudioSource.PlayOneShot(openingClip);
     }
 }
