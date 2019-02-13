@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PoolButton : Interactable {
 
-	public GameObject pool;
+    public Animator TrapaulinAnim;
 
 	public override void Activate()
 	{
@@ -16,14 +16,15 @@ public class PoolButton : Interactable {
 		else
 		{
 			activated = true;
-			pool.SetActive(false);
-		}
+            TrapaulinAnim.SetBool("OpenBool", false);
+
+        }
 	}
 
 	public override void Deactivate()
 	{
 		base.Deactivate();
 		activated = false;
-		pool.SetActive(true);
-	}
+        TrapaulinAnim.SetBool("OpenBool", true);
+    }
 }
