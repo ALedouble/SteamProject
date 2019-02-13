@@ -11,6 +11,7 @@ public class Ball : Interactable, ILaunchable {
     public float timeBeingAtMaxScore;
     float cooldownBeforeMinScore;
 	public float canBreakThreshold = 2;
+    public TrailRenderer myTrailRenderer;
 
 	private void OnCollisionEnter(Collision collision)
 	{
@@ -53,12 +54,17 @@ public class Ball : Interactable, ILaunchable {
 		if (body.velocity.magnitude > canBreakThreshold)
 		{
 			canBreak = true;
-			print("Can break");
+            /*if(!myTrailRenderer.enabled)
+                myTrailRenderer.enabled = true;*/
+
+            print("Can break");
 		}
 		else
 		{
 			canBreak = false;
-		}
+            /*if (myTrailRenderer.enabled)
+                myTrailRenderer.enabled = false;*/
+        }
     }
 
 }

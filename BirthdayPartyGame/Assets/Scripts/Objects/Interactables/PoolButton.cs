@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class PoolButton : Interactable {
 
-	public GameObject pool;
+    public Animator TrapaulinAnim;
+    public AudioSource myAudioSource;
+    public AudioClip openingClip;
+    public AudioClip closingClip;
 
 	public override void Activate()
 	{
@@ -16,14 +19,17 @@ public class PoolButton : Interactable {
 		else
 		{
 			activated = true;
-			pool.SetActive(false);
-		}
+            TrapaulinAnim.SetBool("OpenBool", false);
+            myAudioSource.PlayOneShot(closingClip);
+
+        }
 	}
 
 	public override void Deactivate()
 	{
 		base.Deactivate();
 		activated = false;
-		pool.SetActive(true);
-	}
+        TrapaulinAnim.SetBool("OpenBool", true);
+        myAudioSource.PlayOneShot(openingClip);
+    }
 }
