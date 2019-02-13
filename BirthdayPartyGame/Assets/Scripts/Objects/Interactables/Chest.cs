@@ -5,9 +5,10 @@ using UnityEngine;
 public class Chest : Interactable {
 
     public AttractionCircleV2 myAttractionCircle;
-    public Renderer myRenderer;
     public int minScore;
     public int maxScore;
+    public Animator myAnim;
+    public ParticleSystem myParticleSystem;
 
     protected override void Start()
     {
@@ -20,7 +21,8 @@ public class Chest : Interactable {
         if (!activated)
         {
             myAttractionCircle.ChangeScore(maxScore);
-            myRenderer.material.color = Color.yellow;
+            myAnim.SetBool("OpenBool", true);
+            myParticleSystem.Play();
             activated = true;
         }
         else
@@ -33,7 +35,9 @@ public class Chest : Interactable {
     {
         base.Deactivate();
         myAttractionCircle.ChangeScore(minScore);
-        myRenderer.material.color = Color.white;
+        myAnim.SetBool("OpenBool", false);
+        myParticleSystem.Clear();
+        myParticleSystem.Stop();
         activated = false;
     }
 }
