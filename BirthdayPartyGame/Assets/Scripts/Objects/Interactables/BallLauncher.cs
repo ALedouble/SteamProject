@@ -8,17 +8,32 @@ public class BallLauncher : Interactable {
 	public Transform spawnPoint;
 	public float force;
 	public Vector3 directionOffset;
+    public Animator myAnim;
+    public AudioSource myAudioSource;
+    public AudioClip launchingClip;
+    public AudioClip preparingClip;
 
 	public override void Activate()
 	{
 		base.Activate();
-		LaunchBall();
+        myAnim.SetBool("ActivatedBool", true);
+		//LaunchBall();
 	}
+    public override void Deactivate()
+    {
+        base.Deactivate();
+        myAnim.SetBool("ActivatedBool", false);
+    }
 
-	void LaunchBall()
+    public void LaunchBall()
 	{
 		ILaunchable newBall = Instantiate(ballPrefab, spawnPoint.position, Quaternion.identity).GetComponent<ILaunchable>();
-
 		newBall.GetLaunched(self.forward + directionOffset, force);
+        myAudioSource.PlayOneShot(launchingClip);
 	}
+
+    public void PlayPreparingClip()
+    {
+        myAudioSource.PlayOneShot(preparingClip);
+    }
 }

@@ -6,9 +6,11 @@ public class BridgeSwitcher : Interactable {
 
     public Animator bridgeBarrierAnim;
     public bool opened;
-    public AudioSource myAudioSource;
+    public AudioSource myAudioSourceGate;
     public AudioClip openingClip;
     public AudioClip closingClip;
+    public AudioSource myAudioSourceButton;
+    public AudioClip toggleButtonClip;
 
     protected override void Start()
     {
@@ -21,7 +23,8 @@ public class BridgeSwitcher : Interactable {
         if (!activated)
         {
             activated = true;
-            myAudioSource.PlayOneShot(openingClip);
+            myAudioSourceGate.PlayOneShot(openingClip);
+            myAudioSourceButton.PlayOneShot(toggleButtonClip);
             bridgeBarrierAnim.SetTrigger("ToggleTrigger");
             opened = true;
         }
@@ -37,7 +40,8 @@ public class BridgeSwitcher : Interactable {
         
         bridgeBarrierAnim.SetTrigger("ToggleTrigger");
         opened = false;
-        myAudioSource.PlayOneShot(closingClip);
+        myAudioSourceGate.PlayOneShot(closingClip);
+        myAudioSourceButton.PlayOneShot(toggleButtonClip);
         base.Deactivate();
 	}
 }
