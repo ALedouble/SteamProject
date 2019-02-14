@@ -7,21 +7,27 @@ public class Firecracker : Interactable {
 	bool chargingExplosion;
 	public float explosionCooldown = 3;
 	float explosionTimer;
+    bool explosionDone;
 
 	public GameObject explosion;
 	public float explosionSize = 2.5f;
 
-	// Update is called once per frame
-	void Update () {
-		if (burning && !chargingExplosion)
+    public AudioSource myAudioSource;
+    public AudioClip explosionClip;
+    
+    void Update () {
+		if (burning && !chargingExplosion && !explosionDone)
 		{
 			chargingExplosion = true;
+            myAudioSource.Play();
 		}
-		else if (!burning && chargingExplosion)
+		else if (!burning && chargingExplosion && !explosionDone)
 		{
 			chargingExplosion = false;
 			explosionTimer = 0;
-		}
+            if(myAudioSource.loop)
+                myAudioSource.Stop();
+        }
 
 		if (chargingExplosion)
 		{
@@ -29,9 +35,11 @@ public class Firecracker : Interactable {
 			{
 				explosionTimer += Time.deltaTime;
 			}
-			else
+			else if(!explosionDone)
 			{
-				Die();
+                explosionDone = true;
+                Explode();
+                Invoke("Die", explosionClip.length);
 			}
 		}
 	}
@@ -39,13 +47,17 @@ public class Firecracker : Interactable {
 	public override void Die()
 	{
 		base.Die();
-		Explode();
 	}
 
 	void Explode()
 	{
-		Explosion newExplosion = Instantiate(explosion, self.position, Quaternion.identity).GetComponent<Explosion>();
+        Explosion newExplosion = Instantiate(explosion, self.position, Quaternion.identity).GetComponent<Explosion>();
 		newExplosion.InitializeScale(explosionSize);
-		//Die();
-	}
+        if (myAudioSource.loop)
+            myAudioSource.Stop();
+        myAudioSource.loop = false;
+        myAudioSource.clip = null;
+        myAudioSource.PlayOneShot(explosionClip);
+        //Die();
+    }
 }
