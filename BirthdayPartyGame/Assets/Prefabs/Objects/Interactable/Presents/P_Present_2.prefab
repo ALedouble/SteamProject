@@ -131,6 +131,7 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
+  isGrabbed: 0
 --- !u!114 &114683814223026656
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -146,6 +147,7 @@ MonoBehaviour:
   blunt: 0
   breakable: 0
   destructible: 0
+  destructionScore: 0
   pickUp: 1
   isElectric: 0
   isFire: 0
@@ -154,4 +156,5 @@ MonoBehaviour:
   material: 1
   holdPositionOffset: {x: 0.5, y: 0, z: 0.5}
   holdRotationOffset: {x: 0, y: 0, z: 0}
+  nodesChildren: []
   nodes: []
