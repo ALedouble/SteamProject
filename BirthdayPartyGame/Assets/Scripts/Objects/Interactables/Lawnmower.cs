@@ -92,7 +92,8 @@ public class Lawnmower : Interactable {
 				Vector3 _direction = self.right * _lateralDirection;
 				_player.body.AddForce(_direction * pushAwayForce, ForceMode.VelocityChange);
 			}
-			else if (collision.contacts[0].point.x >= self.position.x + damageZoneHeight)
+			else if (collision.contacts[0].point.x >= self.position.x + damageZoneHeight && 
+					(collision.collider.GetComponent<ObjectParameters>() == null || !collision.collider.GetComponent<ObjectParameters>().destructible))
 			{
 				StartCoroutine(WaitToDeactivate());
 			}
