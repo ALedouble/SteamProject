@@ -27,6 +27,20 @@ public class LevelManager : MonoBehaviour
 
 	private void Start()
 	{
+		switch (LevelData.instance.cameraPosition)
+		{
+			case CameraPosition.Default:
+				Camera.main.transform.localPosition = new Vector3(0.83f, 28.86f, -29.54f);
+				break;
+			case CameraPosition.Near:
+				Camera.main.transform.localPosition = new Vector3(0.83f, 23.14f, -26.24f);
+				break;
+			case CameraPosition.Far:
+				Camera.main.transform.localPosition = new Vector3(0.83f, 41.56f, -36.88f);
+				break;
+			default:
+				break;
+		}
 		if (GameManager.instance.mode == LevelsMode.Default)
 		{
 			uiObjective.SetActive(true);
@@ -44,20 +58,6 @@ public class LevelManager : MonoBehaviour
 			LevelData.instance.mainObjectives[i].WinEvent += CheckWin;
 		}
 
-		switch (LevelData.instance.cameraPosition)
-		{
-			case CameraPosition.Default:
-				Camera.main.transform.localPosition = new Vector3(0.83f, 28.86f, -29.54f);
-				break;
-			case CameraPosition.Near:
-				Camera.main.transform.localPosition = new Vector3(0.83f, 23.14f, -26.24f);
-				break;
-			case CameraPosition.Far:
-				Camera.main.transform.localPosition = new Vector3(0.83f, 41.56f, -36.88f);
-				break;
-			default:
-				break;
-		}
 	}
 	/*
 	void MenuNavigation()
