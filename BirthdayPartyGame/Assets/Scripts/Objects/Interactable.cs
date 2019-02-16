@@ -51,7 +51,7 @@ public class Interactable : MonoBehaviour {
 		Initialize();
 	}
 
-	void Initialize()
+	public void Initialize()
 	{
 		if (parameters == null) parameters = GetComponent<ObjectParameters>();
 		if (body == null) body = GetComponent<Rigidbody>();

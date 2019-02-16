@@ -197,7 +197,7 @@ public class PlayerController : MonoBehaviour {
 		if (Input.GetButtonDown("Grab"))
 		{
 			print("Grab");
-			Grab();
+			Grab(canInteract);
 		}
 		//if (Input.GetKeyDown(actionKey))
 		if (Input.GetButtonDown("Action"))
@@ -213,7 +213,7 @@ public class PlayerController : MonoBehaviour {
 		if (Input.GetButtonDown("Grab"))
 		{
 			print("Grab");
-            Grab();
+            Grab(canInteract);
         }
 		//if (Input.GetKeyDown(actionKey))
 		if (Input.GetButtonDown("Action"))
@@ -396,13 +396,13 @@ public class PlayerController : MonoBehaviour {
 		return _UIPos;
 	}
 
-	void Grab()
+	public void Grab(Interactable _toGrab)
     {		
-        if ( grabbedObject == null)
+        if (grabbedObject == null)
         {
-			if (canInteract != null && canInteract.GetComponent<Interactable>().parameters.pickUp)
+			if (_toGrab != null && _toGrab.GetComponent<Interactable>().parameters.pickUp)
 			{
-				grabbedObject = canInteract;
+				grabbedObject = _toGrab;
 				grabbedObject.GetGrabbed(holdPoint);
 				GameObject _grabParticlesRef = Instantiate(grabParticlesPrefab, holdPoint.position, Quaternion.identity, holdPoint);
 				Destroy(_grabParticlesRef, 1);
