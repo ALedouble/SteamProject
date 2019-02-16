@@ -27,6 +27,7 @@ public class Lawnmower : Interactable {
 		if (!canActivate) return;
 		if (isAnimated && !hasJumped)
 		{
+		print("Activated");
 			anim.SetTrigger("Jump");
 			hasJumped = true;
 		}
