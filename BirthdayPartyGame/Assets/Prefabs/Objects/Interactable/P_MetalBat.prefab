@@ -56,10 +56,10 @@ GameObject:
   - component: {fileID: 114072311391775584}
   - component: {fileID: 114852370877320194}
   - component: {fileID: 54009273561382374}
-  - component: {fileID: 82339085524665826}
-  - component: {fileID: 65676869463651542}
+  - component: {fileID: 82601790128448022}
+  - component: {fileID: 65224676685488016}
   m_Layer: 0
-  m_Name: P_Bat
+  m_Name: P_MetalBat
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -159,7 +159,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1655780164451330}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -26.788912, y: -0.49414802, z: -0.6089228}
+  m_LocalPosition: {x: -18.42, y: 0.39999986, z: -1.73}
   m_LocalScale: {x: 0.8, y: 0.79999983, z: 0.79999983}
   m_Children:
   - {fileID: 4303163682092268}
@@ -218,7 +218,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: e89fe783b0878234bb47e22cee5c8f3d, type: 2}
+  - {fileID: 2100000, guid: d97fde69c824dd74e9fca8912ab1b8c4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -267,7 +267,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &65676869463651542
+--- !u!65 &65224676685488016
 BoxCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -279,7 +279,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.51, z: 2.6}
   m_Center: {x: 0, y: 0, z: -0.93}
---- !u!82 &82339085524665826
+--- !u!82 &82601790128448022
 AudioSource:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -496,7 +496,7 @@ MonoBehaviour:
   isFire: 0
   isWater: 0
   activationType: 2
-  material: 2
+  material: 3
   holdPositionOffset: {x: 0, y: 0, z: -0.2}
   holdRotationOffset: {x: 65, y: 0, z: 0}
   nodesChildren: []
@@ -539,7 +539,7 @@ MonoBehaviour:
   isFire: 0
   isWater: 0
   activationType: 0
-  material: 2
+  material: 3
   holdPositionOffset: {x: 0, y: 0, z: 0}
   holdRotationOffset: {x: 0, y: 0, z: 0}
   nodesChildren: []
@@ -562,7 +562,7 @@ MonoBehaviour:
   isGrabbed: 0
   swingDuration: 1
   swingGrowFactor: 2
-  myAudioSource: {fileID: 82339085524665826}
+  myAudioSource: {fileID: 82601790128448022}
   batteSwingClip: {fileID: 8300000, guid: a9caa08dc464a9040b7aa19e8a17990d, type: 3}
 --- !u!135 &135139280617757532
 SphereCollider:
