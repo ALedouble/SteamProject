@@ -68,6 +68,7 @@ GameObject:
   - component: {fileID: 4676300533511950}
   - component: {fileID: 65760176143626334}
   - component: {fileID: 114451348134020656}
+  - component: {fileID: 95116326018806538}
   m_Layer: 14
   m_Name: P_Automatic_Sprinkler
   m_TagString: Untagged
@@ -184,6 +185,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.9, y: 1, z: 0.9}
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!95 &95116326018806538
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1780370003778906}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ff3713a151f7073448e0bcc34438c1e4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114451348134020656
 MonoBehaviour:
   m_ObjectHideFlags: 1
