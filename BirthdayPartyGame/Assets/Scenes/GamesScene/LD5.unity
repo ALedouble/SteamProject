@@ -112,7 +112,7 @@ NavMeshSettings:
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: 66e8385914ee8a247adc76501248b8a5, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 4fac2376ec5d8184f9f9a627d3cda7c3, type: 2}
 --- !u!1001 &251005
 Prefab:
   m_ObjectHideFlags: 0
@@ -2459,7 +2459,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &428928563
 Transform:
@@ -4148,7 +4148,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!65 &852625090
 BoxCollider:
@@ -5700,7 +5700,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!65 &1235142371
 BoxCollider:
@@ -5936,6 +5936,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27904283fd010ff4abb82d1ac03ae928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyedBy: []
 --- !u!1 &1270389225
 GameObject:
   m_ObjectHideFlags: 0
@@ -6760,6 +6761,10 @@ Prefab:
     - target: {fileID: 4330729164191648, guid: 1f88873d87117704b83abf8e45386cfe, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1178997861486100, guid: 1f88873d87117704b83abf8e45386cfe, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f88873d87117704b83abf8e45386cfe, type: 2}

@@ -89,6 +89,7 @@ public class PlayerController : MonoBehaviour {
     public List<Interactable> listOfInteractables = new List<Interactable>();
     public Transform pointRef;
     Vector3 velocityLateUpdate;
+    
 
 	private void Awake()
 	{
@@ -116,11 +117,11 @@ public class PlayerController : MonoBehaviour {
     {
 		CheckForActions();
         GetInput();
+        anim.SetFloat("MoveSpeed", walkAnimationSpeedCurve.Evaluate(speed));
 
-		GrabbedInteractUI();
+        GrabbedInteractUI();
 
 
-		anim.SetFloat("MoveSpeed", walkAnimationSpeedCurve.Evaluate(speed));
     }
 
 	void GrabbedInteractUI()
