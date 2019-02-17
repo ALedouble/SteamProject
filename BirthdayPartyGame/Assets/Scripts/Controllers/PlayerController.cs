@@ -66,14 +66,6 @@ public class PlayerController : MonoBehaviour {
 	[Tooltip("Minimum required speed to go to steering state")] [Range(0.01f, 1f)] public float steerThresholdSpeed;
     public AnimationCurve walkAnimationSpeedCurve;
 
-
-	[Space]
-	[Header("Grab")]
-	[Tooltip("Distance forward to check for objects")] public float checkCircleDistance;
-	[Tooltip("Circle radius to check for objects")]  public float checkCircleRadius;
-	public float grabAngleTolerance;
-    public float dotTolerance;
-
 	[Space]
 	[Header("UI")]
 	public Vector3 uiOffset;
@@ -93,8 +85,8 @@ public class PlayerController : MonoBehaviour {
 	public float steerTimerLimit = .2f;
 
     [Space]
-    [Header("TestNewGrab")]
-    List<Interactable> listOfInteractables = new List<Interactable>();
+    [Header("Grab")]
+    public List<Interactable> listOfInteractables = new List<Interactable>();
     public Transform pointRef;
     Vector3 velocityLateUpdate;
 
@@ -515,6 +507,7 @@ public class PlayerController : MonoBehaviour {
             var needToBeFiltered = new Collider[] { other };
             if (FilteredObjects(needToBeFiltered, Filter.Grab).Count > 0 || FilteredObjects(needToBeFiltered, Filter.Activate).Count > 0)
             {
+                print("Remove : " + other.GetComponent<ObjectParameters>().objectName);
                 listOfInteractables.Remove(other.GetComponent<Interactable>());
             }
 

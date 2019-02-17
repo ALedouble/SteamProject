@@ -19,6 +19,14 @@ public class Ball : Interactable, ILaunchable {
 		{
 			GetShot(collision.contacts[0].point, collision.rigidbody.velocity);
 		}
+		if(collision.collider.GetComponent<Interactable>() != null)
+		{
+			Interactable other = collision.collider.GetComponent<Interactable>();
+			if (other.parameters.breakable && canBreak)
+			{
+				print("Should break");
+			}
+		}
 	}
 
 	void GetShot(Vector3 _impactPoint, Vector3 otherSpeed)

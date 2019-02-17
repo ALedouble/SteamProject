@@ -43,8 +43,6 @@ public class LevelData : MonoBehaviour
 			secondaryObjectives[i].InitializeObjective();
 		}
 		SceneManager.LoadScene("LevelNecessities", LoadSceneMode.Additive);
-
-		
 	}
 
 }

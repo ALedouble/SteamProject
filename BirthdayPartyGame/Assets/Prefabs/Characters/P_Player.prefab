@@ -217,7 +217,7 @@ Transform:
   m_GameObject: {fileID: 1029064052049628}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.02, y: -0.024, z: 1.284}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.1541, y: 1.1541, z: 1.1541}
   m_Children:
   - {fileID: 4644790010607206}
   m_Father: {fileID: 4637974877923470}
@@ -257,7 +257,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1654052945279190}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.4952399, y: 1.32, z: -2.6770349}
+  m_LocalPosition: {x: 11.758063, y: -1.2504099e-16, z: 7.20246}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4064580863979462}
@@ -715,12 +715,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  checkCircleDistance: 0
-  checkCircleRadius: 3
-  grabAngleTolerance: 30
-  dotTolerance: 10
   uiOffset: {x: 0, y: 25, z: 0}
   steerTimerLimit: 0.2
+  listOfInteractables: []
   pointRef: {fileID: 4644790010607206}
 --- !u!114 &114240170670739462
 MonoBehaviour:
@@ -745,7 +742,7 @@ SphereCollider:
   m_GameObject: {fileID: 1651738041691972}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.88
   m_Center: {x: 0, y: 0, z: 0}
