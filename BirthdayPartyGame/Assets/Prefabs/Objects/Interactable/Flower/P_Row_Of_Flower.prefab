@@ -493,6 +493,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4693390128724206}
   - component: {fileID: 114304424979706614}
+  - component: {fileID: 82061039943925224}
   m_Layer: 15
   m_Name: P_Row_Of_Flower
   m_TagString: Untagged
@@ -1779,6 +1780,101 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!82 &82061039943925224
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1791168915978500}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &114090812169375438
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1935,6 +2031,8 @@ MonoBehaviour:
   colliders: []
   renderers: []
   isGrabbed: 0
+  myAudioSource: {fileID: 82061039943925224}
+  destroyClip: {fileID: 8300000, guid: 1468626d772725e438d538d4bea90438, type: 3}
 --- !u!114 &114304424979706614
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1964,6 +2062,8 @@ MonoBehaviour:
   colliders: []
   renderers: []
   isGrabbed: 0
+  myAudioSource: {fileID: 82061039943925224}
+  destroyClip: {fileID: 8300000, guid: 1468626d772725e438d538d4bea90438, type: 3}
 --- !u!114 &114335307632166532
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2032,6 +2132,8 @@ MonoBehaviour:
   colliders: []
   renderers: []
   isGrabbed: 0
+  myAudioSource: {fileID: 82061039943925224}
+  destroyClip: {fileID: 8300000, guid: 1468626d772725e438d538d4bea90438, type: 3}
 --- !u!114 &114419163401123768
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2086,6 +2188,8 @@ MonoBehaviour:
   colliders: []
   renderers: []
   isGrabbed: 0
+  myAudioSource: {fileID: 82061039943925224}
+  destroyClip: {fileID: 8300000, guid: 1468626d772725e438d538d4bea90438, type: 3}
 --- !u!114 &114473255036613468
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2102,6 +2206,8 @@ MonoBehaviour:
   colliders: []
   renderers: []
   isGrabbed: 0
+  myAudioSource: {fileID: 82061039943925224}
+  destroyClip: {fileID: 8300000, guid: 1468626d772725e438d538d4bea90438, type: 3}
 --- !u!114 &114494185506157684
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2156,6 +2262,8 @@ MonoBehaviour:
   colliders: []
   renderers: []
   isGrabbed: 0
+  myAudioSource: {fileID: 82061039943925224}
+  destroyClip: {fileID: 8300000, guid: 1468626d772725e438d538d4bea90438, type: 3}
 --- !u!114 &114514684362826008
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2172,6 +2280,8 @@ MonoBehaviour:
   colliders: []
   renderers: []
   isGrabbed: 0
+  myAudioSource: {fileID: 82061039943925224}
+  destroyClip: {fileID: 8300000, guid: 1468626d772725e438d538d4bea90438, type: 3}
 --- !u!114 &114525004676846288
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2262,6 +2372,8 @@ MonoBehaviour:
   colliders: []
   renderers: []
   isGrabbed: 0
+  myAudioSource: {fileID: 82061039943925224}
+  destroyClip: {fileID: 8300000, guid: 1468626d772725e438d538d4bea90438, type: 3}
 --- !u!114 &114817580694689192
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2278,6 +2390,8 @@ MonoBehaviour:
   colliders: []
   renderers: []
   isGrabbed: 0
+  myAudioSource: {fileID: 82061039943925224}
+  destroyClip: {fileID: 8300000, guid: 1468626d772725e438d538d4bea90438, type: 3}
 --- !u!114 &114852781396013990
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2384,6 +2498,8 @@ MonoBehaviour:
   colliders: []
   renderers: []
   isGrabbed: 0
+  myAudioSource: {fileID: 82061039943925224}
+  destroyClip: {fileID: 8300000, guid: 1468626d772725e438d538d4bea90438, type: 3}
 --- !u!114 &114958391444751578
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2400,6 +2516,8 @@ MonoBehaviour:
   colliders: []
   renderers: []
   isGrabbed: 0
+  myAudioSource: {fileID: 82061039943925224}
+  destroyClip: {fileID: 8300000, guid: 1468626d772725e438d538d4bea90438, type: 3}
 --- !u!114 &114985795226638526
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2416,6 +2534,8 @@ MonoBehaviour:
   colliders: []
   renderers: []
   isGrabbed: 0
+  myAudioSource: {fileID: 82061039943925224}
+  destroyClip: {fileID: 8300000, guid: 1468626d772725e438d538d4bea90438, type: 3}
 --- !u!135 &135977181739822612
 SphereCollider:
   m_ObjectHideFlags: 1

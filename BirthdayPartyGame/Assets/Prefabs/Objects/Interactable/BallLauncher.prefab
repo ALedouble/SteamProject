@@ -231,8 +231,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1944212501270864}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.92, y: 0, z: -6.08}
+  m_LocalRotation: {x: -0, y: -0.7071001, z: -0, w: 0.7071135}
+  m_LocalPosition: {x: 17.98, y: 0, z: 16.51}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4556462372713560}
@@ -240,7 +240,7 @@ Transform:
   - {fileID: 4825468549115372}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -89.999, z: 0}
 --- !u!4 &4659847842448500
 Transform:
   m_ObjectHideFlags: 1
@@ -579,6 +579,7 @@ MonoBehaviour:
   ballPrefab: {fileID: 1489801456886688, guid: 7c5c3f67609fba441affeae08c978c3e, type: 2}
   spawnPoint: {fileID: 4825468549115372}
   force: 100
+  maxObject: 10
   directionOffset: {x: 0, y: 0, z: 0}
   myAnim: {fileID: 95585379632497772}
   myAudioSource: {fileID: 82454153171916460}

@@ -437,15 +437,15 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1457840857801490}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.85, y: 1, z: -2.69}
+  m_LocalRotation: {x: -0, y: -0.99985945, z: -0, w: 0.016766379}
+  m_LocalPosition: {x: 1.03, y: 1, z: -4.4100003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4319370236135646}
   - {fileID: 4403867402296430}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -178.07901, z: 0}
 --- !u!4 &4861514991599680
 Transform:
   m_ObjectHideFlags: 1
@@ -664,10 +664,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -789,6 +789,7 @@ MonoBehaviour:
     type: 2}
   myAudioSource: {fileID: 82864526054179286}
   hitAudioClip: {fileID: 8300000, guid: 3725ac2a186b959478f668cfdd95c99f, type: 3}
+  cryingClip: {fileID: 8300000, guid: 47da2a635bfe6204c8bc50181a972b91, type: 3}
   tearsParent: {fileID: 1574405614235356}
 --- !u!136 &136060108533936062
 CapsuleCollider:
