@@ -89,6 +89,7 @@ public class PlayerController : MonoBehaviour {
     public List<Interactable> listOfInteractables = new List<Interactable>();
     public Transform pointRef;
     Vector3 velocityLateUpdate;
+    
 
 	private void Awake()
 	{
