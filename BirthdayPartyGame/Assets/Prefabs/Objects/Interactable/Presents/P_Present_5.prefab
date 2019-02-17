@@ -38,13 +38,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1955250538318524}
-  m_LocalRotation: {x: 0.5951035, y: 0.38190553, z: 0.3819056, w: -0.5951034}
-  m_LocalPosition: {x: 10.611, y: 1.9500008, z: -2.2270012}
-  m_LocalScale: {x: 0.47095758, y: 0.62755334, z: 0.07210963}
+  m_LocalRotation: {x: -0.3786039, y: 0.5972096, z: 0.5972092, w: 0.3786041}
+  m_LocalPosition: {x: -18.69353, y: 18.90433, z: -34.546288}
+  m_LocalScale: {x: 0.47095788, y: 0.6275536, z: 0.07210966}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: -65.380005}
+  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: -244.746}
 --- !u!23 &23184504861685692
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -127,17 +127,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7e5f8f3c76606e41864a6caacfe094b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parameters: {fileID: 0}
   body: {fileID: 0}
   self: {fileID: 0}
   colliders: []
   renderers: []
-  fireParticleSystem: {fileID: 1068989696536054, guid: d585bcc898a67fa43b7b10bc09863fcf,
-    type: 2}
-  waterParticleSystem: {fileID: 1068989696536054, guid: 9ac20361cadf4a147aca21bd3fb1073c,
-    type: 2}
-  electricityParticleSystem: {fileID: 1068989696536054, guid: d79bec28e35144646b97714ef6609a6e,
-    type: 2}
+  isGrabbed: 0
 --- !u!114 &114925386334341036
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -149,12 +143,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39feb44449d084c44907efdadc23c0f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectName: 
+  objectName: Present
   blunt: 0
   breakable: 0
   destructible: 0
+  destructionScore: 0
   pickUp: 1
-  electronic: 0
   isElectric: 0
   isFire: 0
   isWater: 0
@@ -162,4 +156,5 @@ MonoBehaviour:
   material: 1
   holdPositionOffset: {x: 0.5, y: 0, z: 0.5}
   holdRotationOffset: {x: 0, y: 0, z: 0}
-  node: {fileID: 0}
+  nodesChildren: []
+  nodes: []

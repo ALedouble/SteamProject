@@ -5,8 +5,7 @@ using UnityEngine;
 public class SpawnPoint : MonoBehaviour {
 
 	static public SpawnPoint instance;
-
-	// Use this for initialization
+    
 	void Awake () {
 		if (instance == null)
 		{
@@ -16,10 +15,5 @@ public class SpawnPoint : MonoBehaviour {
 		{
 			Destroy(gameObject);
 		}
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 }
