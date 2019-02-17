@@ -25,6 +25,7 @@ public class AIV2 : MonoBehaviour {
     public GameObject surpriseParticlesPrefab;
     public AudioSource myAudioSource;
     public AudioClip hitAudioClip;
+    public AudioClip cryingClip;
     public GameObject tearsParent;
 
 
@@ -207,7 +208,9 @@ public class AIV2 : MonoBehaviour {
                 tearsParent.SetActive(true);
                 ResetAttractionCirclesAndSpots();
                 myNavMeshAgent.SetDestination(transform.position);
-				if (Cry != null)
+                myAudioSource.clip = cryingClip;
+                myAudioSource.Play();
+                if (Cry != null)
 				{
 					Cry(this);
 				}
@@ -258,6 +261,7 @@ public class AIV2 : MonoBehaviour {
         {
             case AIState.inDistress:
                 tearsParent.SetActive(false);
+                myAudioSource.Stop();
                 break;
             case AIState.Amused:
                 break;

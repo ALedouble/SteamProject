@@ -7,6 +7,8 @@ public class SprayWaterMachine : MonoBehaviour {
     public GameObject waterSpherePrefab;
     public Transform spawnPoint1;
     public Transform spawnPoint2;
+    public AudioSource myAudioSource;
+    public AudioClip throwingWaterClip;
 
     void Start () {
         StartCoroutine(SprayWater());
@@ -20,6 +22,7 @@ public class SprayWaterMachine : MonoBehaviour {
         GameObject gameObjectRef2 = Instantiate(waterSpherePrefab, spawnPoint2.position, spawnPoint2.rotation);
         gameObjectRef2.GetComponent<Rigidbody>().AddForce(4 * spawnPoint2.forward + 1 * Vector3.up);
         Destroy(gameObjectRef2, 1f);
+        myAudioSource.PlayOneShot(throwingWaterClip);
         yield return new WaitForSeconds(0.1f);
         StartCoroutine(SprayWater());
     }

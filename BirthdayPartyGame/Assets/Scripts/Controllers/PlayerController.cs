@@ -404,6 +404,7 @@ public class PlayerController : MonoBehaviour {
         else
         {
 			grabbedObject.GetDropped();
+            listOfInteractables.Remove(grabbedObject);
             grabbedObject = null;
             GameObject _dropParticlesRef = Instantiate(dropParticlesPrefab, holdPoint.position, Quaternion.identity);
             Destroy(_dropParticlesRef, 1);

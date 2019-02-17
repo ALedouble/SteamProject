@@ -5,7 +5,8 @@ using UnityEngine;
 public class Flowers : Interactable {
 
     RowOfFlower myParent;
-
+    public AudioSource myAudioSource;
+    public AudioClip destroyClip;
 
     protected override void Start()
     {
@@ -17,6 +18,7 @@ public class Flowers : Interactable {
     {
         if(other.tag == "PlayerFeet")
         {
+            myAudioSource.PlayOneShot(destroyClip);
             myParent.ActualizeNbFlower();
             Die();
         }
