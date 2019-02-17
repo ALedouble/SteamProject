@@ -116,11 +116,11 @@ public class PlayerController : MonoBehaviour {
     {
 		CheckForActions();
         GetInput();
+        anim.SetFloat("MoveSpeed", walkAnimationSpeedCurve.Evaluate(speed));
 
-		GrabbedInteractUI();
+        GrabbedInteractUI();
 
 
-		anim.SetFloat("MoveSpeed", walkAnimationSpeedCurve.Evaluate(speed));
     }
 
 	void GrabbedInteractUI()
