@@ -19,14 +19,23 @@ public class Ball : Interactable, ILaunchable {
 		{
 			GetShot(collision.contacts[0].point, collision.rigidbody.velocity);
 		}
-		if(collision.collider.GetComponent<Interactable>() != null)
+		//if(collision.collider.GetComponent<Interactable>() != null)
+		//{
+		//	Interactable other = collision.collider.GetComponent<Interactable>();
+		//	if (other.parameters.breakable && canBreak)
+		//	{
+		//		print("Should break");
+		//	}
+		//}
+		if (canBreak)
 		{
-			Interactable other = collision.collider.GetComponent<Interactable>();
-			if (other.parameters.breakable && canBreak)
-			{
-				print("Should break");
-			}
+			canBreak = false;
 		}
+	}
+
+	public void ShootToBreak()
+	{
+		canBreak = true;
 	}
 
 	void GetShot(Vector3 _impactPoint, Vector3 otherSpeed)
@@ -59,20 +68,20 @@ public class Ball : Interactable, ILaunchable {
             }
         }
 
-		if (body.velocity.magnitude > canBreakThreshold)
-		{
-			canBreak = true;
-            /*if(!myTrailRenderer.enabled)
-                myTrailRenderer.enabled = true;*/
+		//if (body.velocity.magnitude > canBreakThreshold)
+		//{
+		//	canBreak = true;
+  //          /*if(!myTrailRenderer.enabled)
+  //              myTrailRenderer.enabled = true;*/
 
-            print("Can break");
-		}
-		else
-		{
-			canBreak = false;
-            /*if (myTrailRenderer.enabled)
-                myTrailRenderer.enabled = false;*/
-        }
+  //          print("Can break");
+		//}
+		//else
+		//{
+		//	canBreak = false;
+  //          /*if (myTrailRenderer.enabled)
+  //              myTrailRenderer.enabled = false;*/
+  //      }
     }
 
 }

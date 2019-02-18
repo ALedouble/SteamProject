@@ -28,13 +28,10 @@ public class BallLauncher : Interactable {
 
     public void LaunchBall()
 	{
-        if (maxObject > 0)
-        {
-            maxObject--;
-            ILaunchable newBall = Instantiate(ballPrefab, spawnPoint.position, Quaternion.identity).GetComponent<ILaunchable>();
-            newBall.GetLaunched(self.forward + directionOffset, force);
-            myAudioSource.PlayOneShot(launchingClip);
-        }
+		ILaunchable newBall = Instantiate(ballPrefab, spawnPoint.position, Quaternion.identity).GetComponent<ILaunchable>();
+		newBall.GetLaunched(self.forward + directionOffset, force);
+		newBall.ShootToBreak();
+        myAudioSource.PlayOneShot(launchingClip);
 	}
 
     public void PlayPreparingClip()
