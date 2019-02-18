@@ -161,6 +161,7 @@ GameObject:
   - component: {fileID: 65392827256042022}
   - component: {fileID: 54717158896557948}
   - component: {fileID: 114659413565056718}
+  - component: {fileID: 114874902725804416}
   m_Layer: 0
   m_Name: P_Cake
   m_TagString: Interactable
@@ -865,8 +866,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1328362627220470}
-  m_LocalRotation: {x: -0, y: 0.18525407, z: -0, w: 0.9826907}
-  m_LocalPosition: {x: 28.03, y: 1.96, z: -32.93601}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 12.443, y: 1.952, z: 2.301}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_Children:
   - {fileID: 4711181430217410}
@@ -2872,6 +2873,7 @@ MonoBehaviour:
   self: {fileID: 4834080667856096}
   colliders: []
   renderers: []
+  isGrabbed: 0
 --- !u!114 &114498492195753304
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2960,6 +2962,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27904283fd010ff4abb82d1ac03ae928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyedBy: []
 --- !u!114 &114692639708297562
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3063,6 +3066,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a8fcea77443b3f488d905b3c5612739, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114874902725804416
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1328362627220470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7327b1b1791474e46a72704fe556c9a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  body: {fileID: 0}
+  self: {fileID: 0}
+  colliders: []
+  renderers: []
+  isGrabbed: 0
+  sproutchClip: {fileID: 8300000, guid: a07cac66648145640a65b00a9b125818, type: 3}
 --- !u!114 &114888653065637470
 MonoBehaviour:
   m_ObjectHideFlags: 1
