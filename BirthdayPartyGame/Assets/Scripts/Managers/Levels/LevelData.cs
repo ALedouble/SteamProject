@@ -15,8 +15,9 @@ public class LevelData : MonoBehaviour
 {
 
 	public static LevelData instance;
-
-	public byte id;
+    public AudioClip primaryObjectiveValidatingClip;
+    public AudioClip secondaryObjectiveValidatingClip;
+    public byte id;
 	public string levelName;
 	public float levelTimer = 60;
 	public CameraPosition cameraPosition;
@@ -37,11 +38,13 @@ public class LevelData : MonoBehaviour
 		for (int i = 0; i < mainObjectives.Length; i++)
 		{
 			mainObjectives[i].InitializeObjective();
+            mainObjectives[i].validatingClip = primaryObjectiveValidatingClip;
 		}
 		for (int i = 0; i < secondaryObjectives.Length; i++)
 		{
 			secondaryObjectives[i].InitializeObjective();
-		}
+            secondaryObjectives[i].validatingClip = secondaryObjectiveValidatingClip;
+        }
 		SceneManager.LoadScene("LevelNecessities", LoadSceneMode.Additive);
 	}
 

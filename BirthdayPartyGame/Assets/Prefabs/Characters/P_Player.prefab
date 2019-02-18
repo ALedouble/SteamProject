@@ -256,8 +256,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1654052945279190}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.758063, y: -1.2504099e-16, z: 7.20246}
+  m_LocalRotation: {x: -0, y: 0.7536417, z: -0, w: 0.6572855}
+  m_LocalPosition: {x: -3.88, y: 1.3899999, z: -8.42}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4064580863979462}
@@ -266,7 +266,7 @@ Transform:
   - {fileID: 4620505381020934}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 97.814, z: 0}
 --- !u!4 &4644790010607206
 Transform:
   m_ObjectHideFlags: 1
@@ -525,7 +525,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.259
+  m_Volume: 0.413
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -654,6 +654,8 @@ MonoBehaviour:
   steerClip: {fileID: 8300000, guid: 6a16663b43f102848b079748e55bf9ac, type: 3}
   grabClip: {fileID: 8300000, guid: 3d0add0db7528b542be6a2181988fbb3, type: 3}
   dropClip: {fileID: 8300000, guid: 58ffc0a15c03db2458883a41449d0b05, type: 3}
+  proximityActivationClip: {fileID: 8300000, guid: c4433ab5335341d4fb21fc7e0a4e0afd,
+    type: 3}
   actionKey: 120
   grabKey: 119
   deadzone: 0.2

@@ -16,6 +16,8 @@ public enum ObjectiveType
 [System.Serializable]
 public class Objective {
 
+    [HideInInspector]
+    public AudioClip validatingClip;
 	public ObjectiveType type;
 	public Interactable[] relatedObjects;
 	public AIV2[] relatedChildren;
@@ -222,6 +224,7 @@ public class Objective {
 
 	void Validate()
 	{
+        GameObject.Find("LevelAudioSource").GetComponent<AudioSource>().PlayOneShot(validatingClip);
 		validated = true;
 		Debug.Log("Validate");
 		if (WinEvent != null)

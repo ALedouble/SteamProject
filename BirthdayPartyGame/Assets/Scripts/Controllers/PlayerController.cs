@@ -41,6 +41,7 @@ public class PlayerController : MonoBehaviour {
     public AudioClip steerClip;
     public AudioClip grabClip;
     public AudioClip dropClip;
+    public AudioClip proximityActivationClip;
 
 	[Space]
 	[Header("Inputs")]
@@ -437,6 +438,7 @@ public class PlayerController : MonoBehaviour {
 		{
 			if (canInteract != null && canInteract.GetComponent<Interactable>().parameters.activationType == ActivationType.Proximity)
 			{
+                myAudioSource.PlayOneShot(proximityActivationClip);
 				canInteract.Activate();
 			}
 		}
