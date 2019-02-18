@@ -29,6 +29,7 @@ public class BallLauncher : Interactable {
 	{
 		ILaunchable newBall = Instantiate(ballPrefab, spawnPoint.position, Quaternion.identity).GetComponent<ILaunchable>();
 		newBall.GetLaunched(self.forward + directionOffset, force);
+		newBall.ShootToBreak();
         myAudioSource.PlayOneShot(launchingClip);
 	}
 

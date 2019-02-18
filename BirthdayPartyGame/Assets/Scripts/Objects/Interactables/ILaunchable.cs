@@ -5,4 +5,5 @@ using UnityEngine;
 public interface ILaunchable {
 
 	void GetLaunched(Vector3 _direction, float _force);
+	void ShootToBreak();
 }

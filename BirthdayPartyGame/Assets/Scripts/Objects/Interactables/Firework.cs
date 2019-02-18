@@ -39,4 +39,9 @@ public class Firework : Interactable, ILaunchable {
 		body.AddForce(_direction * _force, ForceMode.VelocityChange);
 	}
 
+	public void ShootToBreak()
+	{
+		canBreak = true;
+	}
+
 }
