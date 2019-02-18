@@ -8,6 +8,7 @@ public class Water : Entity {
 	{
 		base.Start();
 		radius = 2;
+		maturingTime = 0.1f;
 	}
 
 	protected override void Interact(Interactable _object)
@@ -18,6 +19,7 @@ public class Water : Entity {
 		}
 		else if (_object.parameters.material == ObjectMaterial.Wood && _object.burning)
 		{
+			print("Watering: " + _object);
 			_object.StopBurning();
 		}
 	}
