@@ -43,6 +43,7 @@ public class SaveManager : MonoBehaviour
 
 		public Level[] levels;
 		public int progressionIndex = 0;
+		public int lastLevelIndex = 0;
 
 		public Save(Level[] _levels)
 		{
