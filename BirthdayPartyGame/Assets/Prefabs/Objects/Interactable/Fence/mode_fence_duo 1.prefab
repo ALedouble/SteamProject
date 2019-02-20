@@ -521,6 +521,7 @@ GameObject:
   - component: {fileID: 54165015755254176}
   - component: {fileID: 114235652689340822}
   - component: {fileID: 114373482110767284}
+  - component: {fileID: 208452958659837568}
   m_Layer: 0
   m_Name: mode_fence (5)
   m_TagString: Untagged
@@ -829,6 +830,7 @@ GameObject:
   - component: {fileID: 54048936537137106}
   - component: {fileID: 114553218327918036}
   - component: {fileID: 114078739338874738}
+  - component: {fileID: 208114635270640400}
   m_Layer: 0
   m_Name: mode_fence
   m_TagString: Untagged
@@ -883,6 +885,7 @@ GameObject:
   - component: {fileID: 54090775207087570}
   - component: {fileID: 114464663707761308}
   - component: {fileID: 114871539831840330}
+  - component: {fileID: 208383771405287508}
   m_Layer: 0
   m_Name: mode_fence (4)
   m_TagString: Untagged
@@ -1844,16 +1847,16 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1023651809048568}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.15, y: 3.15, z: 3.15}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 1.48, y: -1.998, z: 0.97000027}
+  m_LocalScale: {x: 3.150002, y: 3.15, z: 0.70000046}
   m_Children:
   - {fileID: 4650454951165346}
   - {fileID: 4828097094350922}
   - {fileID: 4391314460115090}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!4 &4920039017820534
 Transform:
   m_ObjectHideFlags: 1
@@ -5021,6 +5024,7 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
+  isGrabbed: 0
 --- !u!114 &114064982111214316
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5073,6 +5077,7 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
+  isGrabbed: 0
   woodPiecesParticlesPrefab: {fileID: 1229173219548546, guid: c10651701692fa24fb70afc23389a98f,
     type: 2}
 --- !u!114 &114092035742060110
@@ -5219,6 +5224,7 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
+  isGrabbed: 0
 --- !u!114 &114270328498798554
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5278,6 +5284,7 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
+  isGrabbed: 0
   woodPiecesParticlesPrefab: {fileID: 1229173219548546, guid: c10651701692fa24fb70afc23389a98f,
     type: 2}
 --- !u!114 &114382782078091498
@@ -5461,6 +5468,7 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
+  isGrabbed: 0
 --- !u!114 &114593518316043018
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5487,6 +5495,7 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
+  isGrabbed: 0
 --- !u!114 &114608603294278374
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5712,6 +5721,7 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
+  isGrabbed: 0
 --- !u!114 &114817024635548354
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5760,6 +5770,7 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
+  isGrabbed: 0
 --- !u!114 &114871539831840330
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5775,6 +5786,7 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
+  isGrabbed: 0
   woodPiecesParticlesPrefab: {fileID: 1229173219548546, guid: c10651701692fa24fb70afc23389a98f,
     type: 2}
 --- !u!114 &114909860539670232
@@ -5904,3 +5916,48 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.025
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!208 &208114635270640400
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1687345411449784}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.15, y: 0.55, z: 0.1}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.55, z: 0}
+  m_TimeToStationary: 0.5
+--- !u!208 &208383771405287508
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1691507973761224}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.15, y: 0.55, z: 0.1}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.55, z: 0}
+  m_TimeToStationary: 0.5
+--- !u!208 &208452958659837568
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1396060440157196}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.15, y: 0.55, z: 0.1}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.55, z: 0}
+  m_TimeToStationary: 0.5
