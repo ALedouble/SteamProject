@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 114946234348404630}
   - component: {fileID: 114716406208115052}
   - component: {fileID: 54813375798473448}
-  - component: {fileID: 65258856260557720}
+  - component: {fileID: 136977980559023152}
   m_Layer: 0
   m_Name: P_Bush
   m_TagString: Untagged
@@ -381,15 +381,15 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1160695667156484}
-  m_LocalRotation: {x: -0, y: -0.3401701, z: -0, w: 0.940364}
-  m_LocalPosition: {x: -4.26, y: 0, z: -5.31}
+  m_LocalRotation: {x: -0, y: -0.9108137, z: -0, w: 0.41281775}
+  m_LocalPosition: {x: 6.92, y: 0, z: 5.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4210172827741952}
   - {fileID: 4874547800496572}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -39.774002, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -131.23601, z: 0}
 --- !u!4 &4749897980095494
 Transform:
   m_ObjectHideFlags: 1
@@ -591,18 +591,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &65258856260557720
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1160695667156484}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 4.5, y: 3, z: 3.5}
-  m_Center: {x: 0, y: 1.25, z: 0}
 --- !u!114 &114036508104179760
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -618,6 +606,7 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
+  isGrabbed: 0
 --- !u!114 &114075297028059208
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -633,6 +622,7 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
+  isGrabbed: 0
 --- !u!114 &114077649744774656
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -648,6 +638,7 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
+  isGrabbed: 0
 --- !u!114 &114236909350904748
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -663,6 +654,7 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
+  isGrabbed: 0
 --- !u!114 &114319782689900748
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -756,6 +748,7 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
+  isGrabbed: 0
 --- !u!114 &114424249474490484
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -771,6 +764,7 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
+  isGrabbed: 0
 --- !u!114 &114470246389717194
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -864,6 +858,7 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
+  isGrabbed: 0
 --- !u!114 &114716406208115052
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -879,6 +874,7 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
+  isGrabbed: 0
 --- !u!114 &114730820167134834
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -894,6 +890,7 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
+  isGrabbed: 0
 --- !u!114 &114775834655391978
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1076,3 +1073,16 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.025
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &136977980559023152
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1160695667156484}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.73
+  m_Height: 4.24
+  m_Direction: 0
+  m_Center: {x: 0.23, y: 1, z: 0}
