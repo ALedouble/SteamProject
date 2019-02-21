@@ -116,14 +116,18 @@ public class PauseManager : PanelUI {
 				break;
 
 			case 1:
-				OpenOptions();
-				break;
-
-			case 2:
 				Utility.Restart();
 				break;
 
+			case 2:
+				Utility.LevelSelection();
+				break;
+
 			case 3:
+				OpenOptions();
+				break;
+
+			case 4:
 				Utility.Menu();
 				break;
 		}

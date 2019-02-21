@@ -10,8 +10,13 @@ public class LevelUI : MonoBehaviour {
 	public Text time;
 	public Image panel;
 
-	public Text objectivesText;
-	public Text subObjectivesText;
+	public Text[] objectivesText;
+	public Image[] objectiveIcon;
+	public Text[] subObjectivesText;
+	public Image[] subObjectiveIcon;
+
+	public Image[] modesUI;
+	public Text[] modesUIText;
 
 	public Vector2 self;
 
@@ -23,6 +28,7 @@ public class LevelUI : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		self = GetComponent<RectTransform>().anchoredPosition;
+		GameManager.instance.ModeChangeEvent += UpdateModeUI;
 	}
 
 	public void Initialize(string _name, string _description, string[] _objectivesText, int _index, string[] _subObjectivesText, bool[] _subComplete, float _time, byte index)
@@ -33,6 +39,81 @@ public class LevelUI : MonoBehaviour {
 		description.text = _description;
 		time.text = "Time: " + _time.ToString() + " sec";
 
+		for (int i = 0; i < objectivesText.Length; i++)
+		{
+			if (i < _objectivesText.Length)
+			{
+				objectiveIcon[i].enabled = true;
+				if (index < progression)
+				{
+					objectiveIcon[i].sprite = Constants.constants.checkedIcon;
+				}
+				else
+				{
+					objectiveIcon[i].sprite = Constants.constants.emptyIcon;
+				}
+				//for (int x = 0; x < _objectivesText.Length; x++)
+				//{
+					objectivesText[i].text = _objectivesText[i];
+				//}
+			}
+			else
+			{
+				print("Objective null");
+				objectivesText[i].text = "";
+				objectiveIcon[i].enabled = false;
+			}
+		}
+		for (int i = 0; i < subObjectivesText.Length; i++)
+		{
+			if (i < _subObjectivesText.Length)
+			{
+				subObjectiveIcon[i].enabled = true;
+				if (_subComplete[i])
+				{
+					subObjectiveIcon[i].sprite = Constants.constants.checkedIcon;
+				}
+				else
+				{
+					subObjectiveIcon[i].sprite = Constants.constants.emptyIcon;
+				}
+				//for (int x = 0; x < _subObjectivesText.Length; x++)
+				//{
+					subObjectivesText[i].text = _subObjectivesText[i];
+				//}
+			}
+			else
+			{
+				print("Objective null");
+
+				subObjectivesText[i].text = "";
+				subObjectiveIcon[i].enabled = false;
+			}
+		}
+		if (progression > _index)
+		{
+			for (int i = 0; i < modesUI.Length; i++)
+			{
+				modesUI[i].enabled = true;
+			}
+			for (int i = 0; i < modesUIText.Length; i++)
+			{
+				modesUIText[i].enabled = true;
+			}
+			UpdateModeUI(GameManager.instance.mode);
+		}
+		else
+		{
+			for (int i = 0; i < modesUI.Length; i++)
+			{
+				modesUI[i].enabled = false;
+			}
+			for (int i = 0; i < modesUIText.Length; i++)
+			{
+				modesUIText[i].enabled = false;
+			}
+		}
+		/*
 		//string objString = "";
 		objectivesText.text = "";
 		if (index < progression)
@@ -65,7 +146,7 @@ public class LevelUI : MonoBehaviour {
 		}
 
 		//subObjectivesText.text = objString;
-
+		*/
 		
 		if (index < progression)
 		{
@@ -132,4 +213,18 @@ public class LevelUI : MonoBehaviour {
             StartCoroutine(ChangeLocation(from, to));
         }
     }
+
+	public void UpdateModeUI(LevelsMode newMode)
+	{
+		if (newMode == LevelsMode.Default)
+		{
+			modesUI[0].color = Color.green;
+			modesUI[1].color = Color.white;
+		}
+		else
+		{
+			modesUI[0].color = Color.white;
+			modesUI[1].color = Color.green;
+		}
+	}
 }

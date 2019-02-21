@@ -7,11 +7,17 @@ public class PanelUI : MonoBehaviour {
 
 	protected int selectIndex;
 	public Button[] buttons;
+	Text[] buttonText;
 	float padMoveUpTimer;
 	float padMoveDownTimer;
 
 	protected virtual void Start()
 	{
+		buttonText = new Text[buttons.Length];
+		for (int i = 0; i < buttonText.Length; i++)
+		{
+			buttonText[i] = buttons[i].GetComponentInChildren<Text>();
+		}
 		UpdateIndex(0);
 	}
 
@@ -74,11 +80,13 @@ public class PanelUI : MonoBehaviour {
 		{
 			if (i == selectIndex)
 			{
-				buttons[i].GetComponent<Image>().color = Color.green;
+				//buttons[i].GetComponent<Image>().color = Color.green;
+				buttonText[i].color = Color.red;
 			}
 			else
 			{
-				buttons[i].GetComponent<Image>().color = Color.white;
+				//buttons[i].GetComponent<Image>().color = Color.white;
+				buttonText[i].color = Color.white;
 			}
 		}
 	}
