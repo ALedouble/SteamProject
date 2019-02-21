@@ -407,6 +407,7 @@ GameObject:
   - component: {fileID: 54346981311193688}
   - component: {fileID: 114749442882207500}
   - component: {fileID: 114799562829639122}
+  - component: {fileID: 208114721233428790}
   m_Layer: 0
   m_Name: mode_fence (6)
   m_TagString: Untagged
@@ -641,6 +642,7 @@ GameObject:
   - component: {fileID: 54180658326180584}
   - component: {fileID: 114538803267442114}
   - component: {fileID: 114747997591452232}
+  - component: {fileID: 208801842393355480}
   m_Layer: 0
   m_Name: mode_fence
   m_TagString: Untagged
@@ -738,6 +740,7 @@ GameObject:
   - component: {fileID: 54589283969119936}
   - component: {fileID: 114166137770966386}
   - component: {fileID: 114829924539512304}
+  - component: {fileID: 208690781411351782}
   m_Layer: 0
   m_Name: mode_fence (5)
   m_TagString: Untagged
@@ -855,6 +858,7 @@ GameObject:
   - component: {fileID: 54692353202991032}
   - component: {fileID: 114888404319763246}
   - component: {fileID: 114325347292401670}
+  - component: {fileID: 208148497168204094}
   m_Layer: 0
   m_Name: mode_fence (7)
   m_TagString: Untagged
@@ -945,6 +949,7 @@ GameObject:
   - component: {fileID: 54043482479110958}
   - component: {fileID: 114798783546122422}
   - component: {fileID: 114672566276895442}
+  - component: {fileID: 208005103830491884}
   m_Layer: 0
   m_Name: mode_fence (4)
   m_TagString: Untagged
@@ -1923,9 +1928,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1921026282007814}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12, y: 0, z: -8}
-  m_LocalScale: {x: 3.1499999, y: 3.1499999, z: 3.1499999}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: 0.4822223, y: -1.998, z: 17.73}
+  m_LocalScale: {x: 0.70000005, y: 3.1499999, z: 3.1499999}
   m_Children:
   - {fileID: 4183587987996396}
   - {fileID: 4571877418886720}
@@ -1934,7 +1939,7 @@ Transform:
   - {fileID: 4495541727216518}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!4 &4025179350162886
 Transform:
   m_ObjectHideFlags: 1
@@ -8347,6 +8352,7 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
+  isGrabbed: 0
 --- !u!114 &114057357308565612
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8439,6 +8445,7 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
+  isGrabbed: 0
 --- !u!114 &114114784212303600
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8465,6 +8472,7 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
+  isGrabbed: 0
 --- !u!114 &114154603063184170
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8675,6 +8683,7 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
+  isGrabbed: 0
   woodPiecesParticlesPrefab: {fileID: 1229173219548546, guid: c10651701692fa24fb70afc23389a98f,
     type: 2}
 --- !u!114 &114325906046110810
@@ -8725,6 +8734,7 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
+  isGrabbed: 0
 --- !u!114 &114384298970963378
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9028,6 +9038,7 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
+  isGrabbed: 0
 --- !u!114 &114574022987522980
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9065,6 +9076,7 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
+  isGrabbed: 0
 --- !u!114 &114597750985182204
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9172,6 +9184,7 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
+  isGrabbed: 0
   woodPiecesParticlesPrefab: {fileID: 1229173219548546, guid: c10651701692fa24fb70afc23389a98f,
     type: 2}
 --- !u!114 &114687795696340270
@@ -9189,6 +9202,7 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
+  isGrabbed: 0
 --- !u!114 &114697652961281450
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9204,6 +9218,7 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
+  isGrabbed: 0
 --- !u!114 &114699583268715478
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9263,6 +9278,7 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
+  isGrabbed: 0
   woodPiecesParticlesPrefab: {fileID: 1229173219548546, guid: c10651701692fa24fb70afc23389a98f,
     type: 2}
 --- !u!114 &114749442882207500
@@ -9369,6 +9385,7 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
+  isGrabbed: 0
   woodPiecesParticlesPrefab: {fileID: 1229173219548546, guid: c10651701692fa24fb70afc23389a98f,
     type: 2}
 --- !u!114 &114803822170358458
@@ -9430,6 +9447,7 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
+  isGrabbed: 0
   woodPiecesParticlesPrefab: {fileID: 1229173219548546, guid: c10651701692fa24fb70afc23389a98f,
     type: 2}
 --- !u!114 &114832590382281460
@@ -9513,6 +9531,7 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
+  isGrabbed: 0
 --- !u!114 &114868232687711594
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9528,6 +9547,7 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
+  isGrabbed: 0
 --- !u!114 &114888404319763246
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9814,3 +9834,78 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.025
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!208 &208005103830491884
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1534683739575298}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.15, y: 0.55, z: 0.1}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.55, z: 0}
+  m_TimeToStationary: 0.5
+--- !u!208 &208114721233428790
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1277128748025042}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.15, y: 0.55, z: 0.1}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.55, z: 0}
+  m_TimeToStationary: 0.5
+--- !u!208 &208148497168204094
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1491428530225050}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.15, y: 0.55, z: 0.1}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.55, z: 0}
+  m_TimeToStationary: 0.5
+--- !u!208 &208690781411351782
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1442750799398916}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.15, y: 0.55, z: 0.1}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.55, z: 0}
+  m_TimeToStationary: 0.5
+--- !u!208 &208801842393355480
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1399264329355316}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.15, y: 0.55, z: 0.1}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.55, z: 0}
+  m_TimeToStationary: 0.5
