@@ -5,7 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
-	int choose = 0;
+	public static MenuManager instance;
+
+	public int choose = 0;
 
     [Space]
     [Header("Referencies")]
@@ -35,7 +37,24 @@ public class MenuManager : MonoBehaviour
 
     private void Start()
     {
+		print("Menu START");
+		if (instance == null)
+		{
+			instance = this;
+		}
+		else
+		{
+			Destroy(gameObject);
+		}
         Invoke("SetNewMeshesInRed", 0.05f);
+		if (GameManager.instance.startMenuOnLevelSelection)
+		{
+			print("GoToLevelSelection START");
+			GameManager.instance.startMenuOnLevelSelection = false;
+			cameraAnim.SetBool("SelectBool", true);
+			levelSelectUIContainer.SetActive(true);
+			print("GoToLevelSelection DONE");
+		}
     }
 
     void Update()
@@ -54,7 +73,17 @@ public class MenuManager : MonoBehaviour
             }
         }
 
-        UpdatePadMoveTimers();
+		//if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow) || (Mathf.Abs(Input.GetAxisRaw("Vertical")) > 0.2f && padMoveUpTimer <= 0))
+		//{
+		//	GameManager.instance.ToggleDestructionMode();
+		//	padMoveUpTimer = Constants.constants.gamepadMoveTimer;
+		//}
+		//if (padMoveUpTimer > 0)
+		//{
+		//	padMoveUpTimer -= Time.unscaledDeltaTime;
+		//}
+
+		UpdatePadMoveTimers();
         MenuNavigation();
 	}
 
@@ -160,7 +189,7 @@ public class MenuManager : MonoBehaviour
         }
     }
 
-    void SelectCategory()
+    public void SelectCategory()
 	{
 		switch (choose)
 		{

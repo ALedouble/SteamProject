@@ -25,6 +25,12 @@ public class Utility : MonoBehaviour {
 		SceneManager.LoadScene("Menu", LoadSceneMode.Single);
 	}
 
+	public static void LevelSelection()
+	{
+		GameManager.instance.startMenuOnLevelSelection = true;
+		Menu();
+	}
+
 	public static void NextLevel()
 	{
 		print("Next level");

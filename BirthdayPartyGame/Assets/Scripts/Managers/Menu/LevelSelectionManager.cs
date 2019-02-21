@@ -18,8 +18,9 @@ public class LevelSelectionManager : MonoBehaviour {
 
 	float padMoveLeftTimer;
 	float padMoveRightTimer;
+	float padMoveUpTimer;
 
-    [HideInInspector]
+	[HideInInspector]
     public bool uiOpened;
     public Animator cameraAnim;
     public Animator levelSelectionContainerAnim;
@@ -95,6 +96,12 @@ public class LevelSelectionManager : MonoBehaviour {
         {
             levelSelectionContainerAnim.SetBool("OpenBool", false);
         }
+
+		if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow) || (Mathf.Abs(Input.GetAxisRaw("Vertical")) > 0.2f && padMoveUpTimer <= 0))
+		{
+			GameManager.instance.ToggleDestructionMode();
+			padMoveUpTimer = Constants.constants.gamepadMoveTimer;
+		}
 	}
 
 	void SwitchLevel(bool right)
@@ -170,7 +177,11 @@ public class LevelSelectionManager : MonoBehaviour {
         {
             padMoveRightTimer -= Time.unscaledDeltaTime;
         }
-    }
+		if (padMoveUpTimer > 0)
+		{
+			padMoveUpTimer -= Time.unscaledDeltaTime;
+		}
+	}
 
     public void LaunchingOpenAnim()
     {

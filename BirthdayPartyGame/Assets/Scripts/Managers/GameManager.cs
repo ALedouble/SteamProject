@@ -23,11 +23,19 @@ public class GameManager : MonoBehaviour {
 	public LevelsMode mode = LevelsMode.Default;
 	public AudioSource source;
 
+	public delegate void ModeChange(LevelsMode newMode);
+	public ModeChange ModeChangeEvent;
+
+	public bool startMenuOnLevelSelection;
+	//float padMoveUpTimer;
+
 	// Use this for initialization
 	void Start () {
+		print("Game manager START");
 		if (instance == null)
 		{
 			instance = this;
+			DontDestroyOnLoad(gameObject);
 		}
 		else
 		{
@@ -48,10 +56,15 @@ public class GameManager : MonoBehaviour {
 				state = DevState.Test;
 			}
 		}
-		if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow))
-		{
-			ToggleDestructionMode();
-		}
+		//if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow) || (Mathf.Abs(Input.GetAxisRaw("Vertical")) > 0.2f && padMoveUpTimer <= 0))
+		//{
+		//	ToggleDestructionMode();
+		//	padMoveUpTimer = Constants.constants.gamepadMoveTimer;
+		//}
+		//if (padMoveUpTimer > 0)
+		//{
+		//	padMoveUpTimer -= Time.unscaledDeltaTime;
+		//}
 
 		if (source.isPlaying && SceneManager.GetActiveScene().buildIndex != 0 && SceneManager.GetActiveScene().buildIndex != 14)
 		{
@@ -63,7 +76,7 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
-	void ToggleDestructionMode()
+	public void ToggleDestructionMode()
 	{
 		if (mode == LevelsMode.Default)
 		{
@@ -72,6 +85,10 @@ public class GameManager : MonoBehaviour {
 		else
 		{
 			mode = LevelsMode.Default;
+		}
+		if (ModeChangeEvent != null)
+		{
+			ModeChangeEvent(mode);
 		}
 	}
 }

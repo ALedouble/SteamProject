@@ -93,32 +93,32 @@ public class SaveManager : MonoBehaviour
 		FileStream _file = File.Create(Application.persistentDataPath + "/Saves.bp");
 
 		currentSave = new Save(new Save.Level[] {
-			new Save.Level(0, "Level 1", 60, new string[] { "Destroy the cake!"}, new string[] { ""},
+			new Save.Level(0, "Level 1: Learn to be bad", 60, new string[] { "Destroy the cake!"}, new string[] {},
 				"Learn to be bad"),
-			new Save.Level(1, "Level 2", 60, new string[] { "Destroy the cake!"}, new string[] { "Drop the bass!"},
+			new Save.Level(1, "Level 2: Throw it on the ground", 60, new string[] { "Destroy the cake!"}, new string[] {},
 				"Throw it on the ground!"),
-			new Save.Level(2, "Level 3", 60, new string[] { "Destroy the cake!"}, new string[] { "Break the pinata!", "Hang the DJ!" },
+			new Save.Level(2, "Level 3: Burn the idols", 60, new string[] { "Burn the statue!"}, new string[] { },
 				"Bat out of hell"),
-			new Save.Level(3, "Level 4", 60, new string[] { "Isolate Douglas on the island!"}, new string[] { ""},
+			new Save.Level(3, "Level 4: The birthday boy with no name", 60, new string[] { "Burn the banners!"}, new string[] { },
 				"Cast away"),
-			new Save.Level(4, "Level 5", 60, new string[] { "Destroy the flowers!"}, new string[] { ""},
+			new Save.Level(4, "Level 5: Cast away", 60, new string[] { "Isolate Douglas on the island!"}, new string[] { },
 				"Flower power"),
-			new Save.Level(5, "Level 6", 60, new string[] { "Burn the statue!"}, new string[] { ""},
+			new Save.Level(5, "Level 6: Wedding day", 60, new string[] { "Make them cry together!"}, new string[] { },
 				"No gods or kings"),
-			new Save.Level(6, "Level 7", 60, new string[] { "Burn the presents!"}, new string[] { ""},
+			new Save.Level(6, "Level 7: Mission impossible", 60, new string[] { "Destroy the cake!"}, new string[] { },
 				"Some like it hot"),
-			new Save.Level(7, "Level 8", 60, new string[] { "Burn the banners!"}, new string[] { "Ruin the cake!"},
+			new Save.Level(7, "Level 8: 30 seconds to BOOM", 60, new string[] { "Destroy the rocket!"}, new string[] { },
 				"The birthday boy with no name"),
-			new Save.Level(8, "Level 9", 60, new string[] { "Burn the presents and pinata!"}, new string[] { ""},
+			new Save.Level(8, "Level 9: The cannoneer", 60, new string[] { "Destroy the toybox!"}, new string[] {},
 				"Burn burn burn"),
-			new Save.Level(9, "Level 10", 60, new string[] { "Burn the present!"}, new string[] { ""},
-				"Kill it with fire!"),
-			new Save.Level(9, "Level 11", 60, new string[] { "Make them cry!"}, new string[] { ""},
-				"TNT"),
-			new Save.Level(10, "Level 12", 60, new string[] { "Break the table!"}, new string[] { ""},
-				"Break it down!"),
-				new Save.Level(11, "Level 14", 60, new string[] { "Destroy the toybox!"}, new string[] { ""},
-				"The cannoneer")
+			new Save.Level(9, "Level 10: The final countdown", 60, new string[] { "Destroy. The. Cake."}, new string[] { },
+				"Kill it with fire!")
+			//new Save.Level(9, "Level 11", 60, new string[] { "Make them cry!"}, new string[] { ""},
+			//	"TNT"),
+			//new Save.Level(10, "Level 12", 60, new string[] { "Break the table!"}, new string[] { ""},
+			//	"Break it down!"),
+			//	new Save.Level(11, "Level 14", 60, new string[] { "Destroy the toybox!"}, new string[] { ""},
+			//	"The cannoneer")
 		});
 
 		_formatter.Serialize(_file, currentSave);
