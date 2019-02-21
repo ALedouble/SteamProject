@@ -9,8 +9,8 @@ public class Utility : MonoBehaviour {
 	{
 		print("Restart");
 		Time.timeScale = 1;
-		int progression = SaveManager.instance.currentSave.progressionIndex;
-		SceneManager.LoadScene(progression, LoadSceneMode.Single);
+		int lastPlayedID = SaveManager.instance.currentSave.lastLevelIndex;
+		SceneManager.LoadScene(lastPlayedID, LoadSceneMode.Single);
 	}
 
 	public static void Menu()
@@ -29,10 +29,10 @@ public class Utility : MonoBehaviour {
 	{
 		print("Next level");
 		Time.timeScale = 1;
-		int progression = SaveManager.instance.currentSave.progressionIndex;
-		if (progression < SaveManager.instance.currentSave.levels.Length)
+		int lastPlayedID = SaveManager.instance.currentSave.lastLevelIndex;
+		if (lastPlayedID < SaveManager.instance.currentSave.levels.Length)
 		{
-			SceneManager.LoadScene(progression + 1, LoadSceneMode.Single);
+			SceneManager.LoadScene(lastPlayedID + 1, LoadSceneMode.Single);
 		}
 	}
 
