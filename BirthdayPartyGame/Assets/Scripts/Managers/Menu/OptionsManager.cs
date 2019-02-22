@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class OptionsManager : PanelUI {
 
@@ -49,6 +50,11 @@ public class OptionsManager : PanelUI {
 		{
 			fullscreenIcon.sprite = Constants.constants.emptyIcon;
 		}
+		//if (SceneManager.GetActiveScene().buildIndex != 0)
+		//{
+
+		//	/*optionsObject.*/GetComponent<Animator>().SetTrigger("Open");
+		//}
 		UpdateVolumeSlider(GetMixerValue());
 	}
 
@@ -88,14 +94,14 @@ public class OptionsManager : PanelUI {
 		{
 			if (Input.GetKeyDown(KeyCode.RightArrow) || (Input.GetAxisRaw("Horizontal") > 0.2f /*&& padMoveRightTimer <= 0*/))
 			{
-				UpdateVolumeSlider(Mathf.Clamp(GetMixerValue() + (volumeChangeSpeed * Time.deltaTime), 0, 100));
+				UpdateVolumeSlider(Mathf.Clamp(GetMixerValue() + (volumeChangeSpeed * Time.unscaledDeltaTime), 0, 100));
 				//UpdateIndex(-1);
 				//padMoveRightTimer = Constants.constants.gamepadMoveTimer;
 				//padMoveLeftTimer = 0;
 			}
 			if (Input.GetKeyDown(KeyCode.LeftArrow) || (Input.GetAxisRaw("Horizontal") < -0.2f /*&& padMoveLeftTimer <= 0*/))
 			{
-				UpdateVolumeSlider(Mathf.Clamp(GetMixerValue() - (volumeChangeSpeed * Time.deltaTime), 0, 100));
+				UpdateVolumeSlider(Mathf.Clamp(GetMixerValue() - (volumeChangeSpeed * Time.unscaledDeltaTime), 0, 100));
 				//UpdateIndex(1);
 				//padMoveLeftTimer = Constants.constants.gamepadMoveTimer;
 				//padMoveRightTimer = 0;
@@ -132,6 +138,10 @@ public class OptionsManager : PanelUI {
 				ToggleWindowed();
 				break;
 
+			case 2:
+				CloseOptions();
+				break;
+
 			default:
 				break;
 		}
@@ -145,7 +155,14 @@ public class OptionsManager : PanelUI {
 	public void CloseOptions()
     {
         opened = false;
-        optionAnim.SetBool("Open", opened);
+		if (SceneManager.GetActiveScene().buildIndex == 0)
+		{
+			optionAnim.SetBool("Open", opened);
+		}
+		else
+		{
+			gameObject.SetActive(false);
+		}
     }
 
 	public void ToggleWindowed()
