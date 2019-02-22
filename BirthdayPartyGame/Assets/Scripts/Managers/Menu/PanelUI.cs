@@ -57,13 +57,13 @@ public class PanelUI : MonoBehaviour {
 		}
 
 		//Click button
-		if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Grab"))
+		if (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("Grab"))
 		{
 			ClickButton();
 		}
 	}
 
-	protected void UpdateIndex(int _amount)
+	protected virtual void UpdateIndex(int _amount)
 	{
 		int _newIndex = selectIndex + _amount;
 
