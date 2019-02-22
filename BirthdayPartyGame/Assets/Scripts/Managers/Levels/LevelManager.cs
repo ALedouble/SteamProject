@@ -229,6 +229,7 @@ public class LevelManager : MonoBehaviour
             //Time.timeScale = 0;
 
             SaveManager.instance.SaveProgress(LevelData.instance.id, true, LevelData.instance.secondaryObjectives);
+			SaveManager.instance.currentSave.lastLevelTime = LevelData.instance.levelTimer - levelTimer;
 			LevelData.instance = null;
 			SpawnPoint.instance = null;
 
@@ -247,6 +248,7 @@ public class LevelManager : MonoBehaviour
 		//Time.timeScale = 0;
 
 		SaveManager.instance.SaveProgress(LevelData.instance.id, false, LevelData.instance.secondaryObjectives);
+		SaveManager.instance.currentSave.lastLevelTime = LevelData.instance.levelTimer - levelTimer;
 		LevelData.instance = null;
 		SpawnPoint.instance = null;
 
@@ -261,12 +263,15 @@ public class LevelManager : MonoBehaviour
 	void EndDestruction()
 	{
 		gameEnd = true;
-		uiDestructionEnd.SetActive(true);
-		Time.timeScale = 0;
+		//uiDestructionEnd.SetActive(true);
+		//Time.timeScale = 0;
 
 		SaveManager.instance.SaveDestructionProgress(LevelData.instance.id, DestructionManager.instance.destructionScore);
+		SaveManager.instance.currentSave.lastScore = DestructionManager.instance.destructionScore;
 		LevelData.instance = null;
 		SpawnPoint.instance = null;
+
+		SceneManager.LoadScene("VictoryScreen");
 	}
 
 	//public void Restart()

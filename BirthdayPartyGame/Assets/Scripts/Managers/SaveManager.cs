@@ -44,6 +44,8 @@ public class SaveManager : MonoBehaviour
 		public Level[] levels;
 		public int progressionIndex = 0;
 		public int lastLevelIndex = 0;
+		public float lastLevelTime;
+		public float lastScore;
 
 		public Save(Level[] _levels)
 		{

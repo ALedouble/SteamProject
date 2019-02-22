@@ -31,7 +31,7 @@ public class LevelUI : MonoBehaviour {
 		GameManager.instance.ModeChangeEvent += UpdateModeUI;
 	}
 
-	public void Initialize(string _name, string _description, string[] _objectivesText, int _index, string[] _subObjectivesText, bool[] _subComplete, float _time, byte index)
+	public void Initialize(string _name, string _description, string[] _objectivesText,/* int _index,*/ string[] _subObjectivesText, bool[] _subComplete, float _time, byte index)
 	{
 		int progression = SaveManager.instance.currentSave.progressionIndex;
 
@@ -59,7 +59,6 @@ public class LevelUI : MonoBehaviour {
 			}
 			else
 			{
-				print("Objective null");
 				objectivesText[i].text = "";
 				objectiveIcon[i].enabled = false;
 			}
@@ -84,13 +83,11 @@ public class LevelUI : MonoBehaviour {
 			}
 			else
 			{
-				print("Objective null");
-
 				subObjectivesText[i].text = "";
 				subObjectiveIcon[i].enabled = false;
 			}
 		}
-		if (progression > _index)
+		if (progression > index)
 		{
 			for (int i = 0; i < modesUI.Length; i++)
 			{

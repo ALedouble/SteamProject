@@ -52,7 +52,7 @@ public class LevelSelectionManager : MonoBehaviour {
 	void SetUpLevelUI()
 	{
 		currentLevel = SaveManager.instance.currentSave.levels[levelIndex];
-		currentLevelUI.Initialize(currentLevel.name, currentLevel.description, currentLevel.objectiveNames, currentLevel.id, currentLevel.subObjectiveNames, currentLevel.completedSecondaryObjectives, currentLevel.timer, currentLevel.id);
+		currentLevelUI.Initialize(currentLevel.name, currentLevel.description, currentLevel.objectiveNames,/* currentLevel.id,*/ currentLevel.subObjectiveNames, currentLevel.completedSecondaryObjectives, currentLevel.timer, currentLevel.id);
 	}
 	
 	void Update () {
