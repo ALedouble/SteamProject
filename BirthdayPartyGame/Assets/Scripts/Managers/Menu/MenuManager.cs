@@ -200,7 +200,7 @@ public class MenuManager : MonoBehaviour
 			case 1:
                 levelAudioSource.PlayOneShot(clipValidateSelectedButton);
                 cameraAnim.SetBool("SelectBool", true);
-                levelSelectUIContainer.SetActive(true);
+                //levelSelectUIContainer.SetActive(true);
                 break;
 			case 2:
                 levelAudioSource.PlayOneShot(clipValidateSelectedButton);
