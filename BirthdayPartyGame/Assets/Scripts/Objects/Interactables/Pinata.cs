@@ -52,7 +52,6 @@ public class Pinata : Interactable
         if(myAttractionCircle != null)
         {
             myAttractionCircle.ChangeScore(scoreOnceDestroyed);
-            myAttractionCircle.ChangeRadius(25);
         }
         GameObject _confettiParticlesRef = Instantiate(confettiParticlesPrefab, transform.position, Quaternion.Euler(-90, 0, 0));
         Destroy(_confettiParticlesRef, 2.5f);
