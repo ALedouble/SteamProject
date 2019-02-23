@@ -31,10 +31,20 @@ public class OptionsManager : PanelUI {
 
 	//float padMoveRightTimer;
 	//float padMoveLeftTimer;
+	protected override void Start()
+	{
+		base.Start();
+		Initialize();
+	}
 
 	private void OnEnable()
 	{
-		if (instance == null)
+		Initialize();
+	}
+
+	void Initialize()
+	{
+		if (instance == null || instance == this)
 		{
 			instance = this;
 		}
@@ -50,6 +60,7 @@ public class OptionsManager : PanelUI {
 		{
 			fullscreenIcon.sprite = Constants.constants.emptyIcon;
 		}
+		print("Options START");
 		//if (SceneManager.GetActiveScene().buildIndex != 0)
 		//{
 
