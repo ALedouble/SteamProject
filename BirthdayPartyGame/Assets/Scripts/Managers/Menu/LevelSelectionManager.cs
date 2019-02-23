@@ -44,7 +44,6 @@ public class LevelSelectionManager : MonoBehaviour {
 		levelsNumber = SaveManager.instance.currentSave.levels.Length;
 		levelIndex = SaveManager.instance.currentSave.progressionIndex;
 		currentLevelUI = levelsUI[0];
-        print(levelsUI[0]);
 
 		SetUpLevelUI();
 	}

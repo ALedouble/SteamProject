@@ -21,7 +21,7 @@ public class LoseUI : PanelUI {
 	{
 
 		int progression = SaveManager.instance.currentSave.progressionIndex;
-		SaveManager.Save.Level level = SaveManager.instance.currentSave.levels[SaveManager.instance.currentSave.lastLevelIndex];
+		SaveManager.Save.Level level = SaveManager.instance.currentSave.levels[SaveManager.instance.currentSave.lastLevelIndex-1];
 
 		for (int i = 0; i < objectivesText.Length; i++)
 		{

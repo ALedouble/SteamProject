@@ -31,7 +31,7 @@ public class WinUI : PanelUI {
 	{
 
 		int progression = SaveManager.instance.currentSave.progressionIndex;
-		SaveManager.Save.Level level = SaveManager.instance.currentSave.levels[SaveManager.instance.currentSave.lastLevelIndex];
+		SaveManager.Save.Level level = SaveManager.instance.currentSave.levels[SaveManager.instance.currentSave.lastLevelIndex-1];
 
 		for (int i = 0; i < objectivesText.Length; i++)
 		{
@@ -82,7 +82,7 @@ public class WinUI : PanelUI {
 			}
 		}
 		timeText.text = SaveManager.instance.currentSave.lastLevelTime.ToString("#.##");
-
+		scoreText.text = "";
 	}
 
 	void InitializeDestruction()
