@@ -180,7 +180,7 @@ Prefab:
     - target: {fileID: 114402446455790048, guid: 9fb5844b6b3c82d46865dda0737b972b,
         type: 2}
       propertyPath: levelName
-      value: Level two
+      value: Turbo Bass
       objectReference: {fileID: 0}
     - target: {fileID: 114402446455790048, guid: 9fb5844b6b3c82d46865dda0737b972b,
         type: 2}
@@ -1415,6 +1415,9 @@ MonoBehaviour:
   self: {fileID: 595727048}
   colliders: []
   renderers: []
+  electrified: 0
+  burning: 0
+  wet: 0
   isGrabbed: 0
   myAttractionCircle: {fileID: 1328400721}
   shootForce: 30
@@ -1422,7 +1425,6 @@ MonoBehaviour:
   maxScore: 5
   timeBeingAtMaxScore: 4
   canBreakThreshold: 2
-  myTrailRenderer: {fileID: 0}
 --- !u!114 &595727052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2216,7 +2218,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27904283fd010ff4abb82d1ac03ae928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyedBy: []
 --- !u!1001 &972334635
 Prefab:
   m_ObjectHideFlags: 0

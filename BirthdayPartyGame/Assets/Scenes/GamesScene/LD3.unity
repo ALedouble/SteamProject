@@ -1703,6 +1703,9 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
+  electrified: 0
+  burning: 0
+  wet: 0
   isGrabbed: 0
 --- !u!114 &204892265
 MonoBehaviour:
@@ -3107,6 +3110,9 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
+  electrified: 0
+  burning: 0
+  wet: 0
   isGrabbed: 0
 --- !u!114 &375671046
 MonoBehaviour:
@@ -7251,7 +7257,7 @@ Prefab:
     - target: {fileID: 114402446455790048, guid: 9fb5844b6b3c82d46865dda0737b972b,
         type: 2}
       propertyPath: levelName
-      value: Level six
+      value: Burning Man
       objectReference: {fileID: 0}
     - target: {fileID: 114402446455790048, guid: 9fb5844b6b3c82d46865dda0737b972b,
         type: 2}
@@ -8218,7 +8224,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27904283fd010ff4abb82d1ac03ae928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyedBy: []
 --- !u!1001 &1143834159
 Prefab:
   m_ObjectHideFlags: 0
@@ -9611,11 +9616,11 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
+  electrified: 0
+  burning: 0
+  wet: 0
   isGrabbed: 0
-  TrapaulinAnim: {fileID: 1095145817}
-  myAudioSource: {fileID: 1314538580}
-  openingClip: {fileID: 8300000, guid: dac6cb7f1e2d5574297191a14dff61d9, type: 3}
-  closingClip: {fileID: 8300000, guid: d4d18a730f91bd341aa6a1679fd87a37, type: 3}
+  pool: {fileID: 0}
 --- !u!114 &1314538582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10830,6 +10835,9 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
+  electrified: 0
+  burning: 0
+  wet: 0
   isGrabbed: 0
 --- !u!114 &1543706290
 MonoBehaviour:
@@ -12760,6 +12768,9 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
+  electrified: 0
+  burning: 0
+  wet: 0
   isGrabbed: 0
 --- !u!114 &1774346524
 MonoBehaviour:

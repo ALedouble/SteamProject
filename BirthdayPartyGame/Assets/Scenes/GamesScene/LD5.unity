@@ -1868,6 +1868,9 @@ MonoBehaviour:
   self: {fileID: 229240721}
   colliders: []
   renderers: []
+  electrified: 0
+  burning: 0
+  wet: 0
   isGrabbed: 0
 --- !u!114 &229240725
 MonoBehaviour:
@@ -2922,7 +2925,7 @@ Prefab:
     - target: {fileID: 114402446455790048, guid: 9fb5844b6b3c82d46865dda0737b972b,
         type: 2}
       propertyPath: levelName
-      value: Pirate's Birthday
+      value: 'Pirates of the Birthday Party: Lil Kid''s Chest'
       objectReference: {fileID: 0}
     - target: {fileID: 114402446455790048, guid: 9fb5844b6b3c82d46865dda0737b972b,
         type: 2}
@@ -3792,16 +3795,14 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
+  electrified: 0
+  burning: 0
+  wet: 0
   isGrabbed: 0
   myAttractionCircle: {fileID: 696988123}
+  myRenderer: {fileID: 0}
   minScore: 0
   maxScore: 20
-  myAnim: {fileID: 1649708259}
-  myParticleSystem: {fileID: 1258651380}
-  myAudioSource: {fileID: 707508812}
-  openingClip: {fileID: 8300000, guid: 36946017a6b773849bc6f84c27193e2c, type: 3}
-  closingClip: {fileID: 8300000, guid: 14ff7dee41a26f04cbb204c784899e81, type: 3}
-  shiningClip: {fileID: 8300000, guid: ff9e81cde29e8194588ae79749be3436, type: 3}
 --- !u!65 &707508815
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4158,6 +4159,9 @@ MonoBehaviour:
   self: {fileID: 716841825}
   colliders: []
   renderers: []
+  electrified: 0
+  burning: 0
+  wet: 0
   isGrabbed: 0
 --- !u!114 &716841829
 MonoBehaviour:
@@ -11769,7 +11773,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27904283fd010ff4abb82d1ac03ae928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyedBy: []
 --- !u!1 &1270393051
 GameObject:
   m_ObjectHideFlags: 0
@@ -15018,7 +15021,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27904283fd010ff4abb82d1ac03ae928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyedBy: []
 --- !u!114 &1953519112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15060,6 +15062,9 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
+  electrified: 0
+  burning: 0
+  wet: 0
   isGrabbed: 0
   candlesParam:
   - {fileID: 2008053933}
@@ -15343,6 +15348,9 @@ MonoBehaviour:
   self: {fileID: 2008053929}
   colliders: []
   renderers: []
+  electrified: 0
+  burning: 0
+  wet: 0
   isGrabbed: 0
 --- !u!114 &2008053933
 MonoBehaviour:
