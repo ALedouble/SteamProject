@@ -113,7 +113,7 @@ public class Speaker : Interactable {
         Instantiate(explosionParticlePrefab, explosionTransform.position, Quaternion.identity);
         Instantiate(smokeParticlePrefab, explosionTransform.position, Quaternion.Euler(-90, 0, 0), transform);
 
-		if (isDouble && !linkedSpeaker.canActivate)
+		if ((isDouble && !linkedSpeaker.canActivate) || !isDouble)
 		{
 			myAttractionCircle.ChangeScore(0);
 			myAttractionCircle.ChangeRadius(0);
