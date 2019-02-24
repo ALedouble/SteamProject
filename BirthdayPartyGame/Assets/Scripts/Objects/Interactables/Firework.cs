@@ -11,8 +11,8 @@ public class Firework : Interactable, ILaunchable {
 
 	private void OnCollisionEnter(Collision collision)
 	{
-		if (body == null) return;
-		if (body.velocity.magnitude > canExplodeSpeedThreshold)
+        if (body == null) return;
+        if (body.velocity.magnitude > canExplodeSpeedThreshold)
 		{
 			print("Collided with: " + collision.collider);
 			Die();
