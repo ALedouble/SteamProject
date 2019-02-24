@@ -109,6 +109,10 @@ public class Speaker : Interactable {
 
 	public override void Die()
 	{
+		if (DieEvent != null)
+		{
+			DieEvent(this);
+		}
         canActivate = false;
         Instantiate(explosionParticlePrefab, explosionTransform.position, Quaternion.identity);
         Instantiate(smokeParticlePrefab, explosionTransform.position, Quaternion.Euler(-90, 0, 0), transform);
