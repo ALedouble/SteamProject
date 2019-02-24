@@ -174,7 +174,7 @@ public class Interactable : MonoBehaviour {
 			StartCoroutine(CheckBurningScore());
 		}
 
-		print("Start burning");
+		//print("Start burning");
 		burning = true;
 
 		if (fireScript == null)
@@ -215,13 +215,13 @@ public class Interactable : MonoBehaviour {
 		}
 		//myFireParticleSystem.GetComponent<ParticleSystem>().Play();
 
-		print("My part system is: " + myFireParticleSystem);
+		//print("My part system is: " + myFireParticleSystem);
 		
 	}
 
 	public virtual void StopBurning()
 	{
-		print("Stop burning");
+		//print("Stop burning");
 		burning = false;
 		fireScript.enabled = false;
 
