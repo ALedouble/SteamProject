@@ -13,6 +13,7 @@ public class BallLauncher : Interactable {
     public AudioSource myAudioSource;
     public AudioClip launchingClip;
     public AudioClip preparingClip;
+    int nbBallToThrow = 10;
 
 	public override void Activate()
 	{
@@ -28,10 +29,14 @@ public class BallLauncher : Interactable {
 
     public void LaunchBall()
 	{
-		ILaunchable newBall = Instantiate(ballPrefab, spawnPoint.position, Quaternion.identity).GetComponent<ILaunchable>();
-		newBall.GetLaunched(self.forward + directionOffset, force);
-		newBall.ShootToBreak();
-        myAudioSource.PlayOneShot(launchingClip);
+        if (nbBallToThrow > 0)
+        {
+            nbBallToThrow--;
+            ILaunchable newBall = Instantiate(ballPrefab, spawnPoint.position, Quaternion.identity).GetComponent<ILaunchable>();
+            newBall.GetLaunched(self.forward + directionOffset, force);
+            newBall.ShootToBreak();
+            myAudioSource.PlayOneShot(launchingClip);
+        }
 	}
 
     public void PlayPreparingClip()
