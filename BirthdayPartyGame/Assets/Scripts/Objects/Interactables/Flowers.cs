@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Flowers : Interactable {
+public class Flowers : Interactable
+{
 
     RowOfFlower myParent;
     public AudioSource myAudioSource;
@@ -16,11 +17,16 @@ public class Flowers : Interactable {
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "PlayerFeet")
+        if (other.tag == "PlayerFeet")
         {
             myAudioSource.PlayOneShot(destroyClip);
-            myParent.ActualizeNbFlower();
             Die();
         }
+    }
+
+    public override void Die()
+    {
+        myParent.ActualizeNbFlower();
+        base.Die();
     }
 }
