@@ -60,14 +60,14 @@ public class FireworkLauncher : Interactable {
 	public override void Activate()
 	{
 		base.Activate();
-		//myAnim.SetBool("ActivatedBool", true);
-		//LaunchBall();
-	}
+        myAnim.SetBool("ActivatedBool", true);
+        //LaunchBall();
+    }
 	public override void Deactivate()
 	{
 		base.Deactivate();
-		//myAnim.SetBool("ActivatedBool", false);
-	}
+        myAnim.SetBool("ActivatedBool", false);
+    }
 
 	public void Launch()
 	{

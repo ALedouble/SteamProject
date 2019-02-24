@@ -33,4 +33,10 @@ public class Explosion : Interactable {
 			Die();
 		}
 	}
+
+    public override void Burn()
+    {
+        base.Burn();
+        fireScript.canSpread = true;
+    }
 }

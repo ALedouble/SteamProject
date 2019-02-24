@@ -120,7 +120,7 @@ MonoBehaviour:
   destructionScore: 0
   pickUp: 0
   isElectric: 0
-  isFire: 0
+  isFire: 1
   isWater: 0
   activationType: 0
   material: 0
@@ -143,7 +143,8 @@ MonoBehaviour:
   self: {fileID: 0}
   colliders: []
   renderers: []
-  lifetime: 0.1
+  isGrabbed: 0
+  lifetime: 0.25
 --- !u!135 &135442541917313900
 SphereCollider:
   m_ObjectHideFlags: 1
