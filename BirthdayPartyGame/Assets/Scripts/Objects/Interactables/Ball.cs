@@ -49,11 +49,12 @@ public class Ball : Interactable, ILaunchable {
 	public void GetLaunched(Vector3 _direction, float _force)
 	{
 		body.AddForce(_direction * _force, ForceMode.VelocityChange);
+        transform.localScale = new Vector3(0.75f, 0.75f, 0.75f);
 	}
 
 	public override void GetDropped()
 	{
-		GetLaunched(self.right, 20);
+		GetLaunched(PlayerController.instance.transform.forward, 20);
 		base.GetDropped();
 	}
 
