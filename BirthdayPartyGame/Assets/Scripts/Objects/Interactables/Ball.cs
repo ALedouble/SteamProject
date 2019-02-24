@@ -27,7 +27,7 @@ public class Ball : Interactable, ILaunchable {
 		//		print("Should break");
 		//	}
 		//}
-		if (canBreak)
+		if (collision.collider.tag == "Ground" && canBreak)
 		{
 			canBreak = false;
 		}
