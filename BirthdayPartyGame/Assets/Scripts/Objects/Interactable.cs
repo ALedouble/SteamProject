@@ -138,11 +138,16 @@ public class Interactable : MonoBehaviour {
 
 	public virtual void Die()
 	{
+		print("Am I dead ?");
 		if (dead) return;
+		print("Yes I am. Die event ?");
 		if (DieEvent != null)
 			DieEvent(this);
+		print("Die event");
 		Destroy(gameObject);
+		print("Just got Destroyed");
 		dead = true;
+		print("I am declared dead");
 		//body.isKinematic = true;
 		//for (int i = 0; i < colliders.Length; i++)
 		//{
