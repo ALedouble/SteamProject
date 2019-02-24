@@ -1007,7 +1007,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1791168915978500}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -25.7, y: -4.555451e-16, z: 18.098742}
+  m_LocalPosition: {x: 5.27, y: -4.555451e-16, z: -0.56}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4910388248683962}
@@ -2033,8 +2033,9 @@ MonoBehaviour:
   isGrabbed: 0
   myAudioSource: {fileID: 82061039943925224}
   destroyClip: {fileID: 8300000, guid: 1468626d772725e438d538d4bea90438, type: 3}
-  petaleParticle: {fileID: 1961535015627430, guid: b4d341835b88b0442b69898632a1ec34,
-    type: 2}
+  redPetaleParticle: {fileID: 0}
+  purplePetaleParticle: {fileID: 0}
+  amIRed: 1
 --- !u!114 &114304424979706614
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2066,8 +2067,11 @@ MonoBehaviour:
   isGrabbed: 0
   myAudioSource: {fileID: 82061039943925224}
   destroyClip: {fileID: 8300000, guid: 1468626d772725e438d538d4bea90438, type: 3}
-  petaleParticle: {fileID: 1961535015627430, guid: b4d341835b88b0442b69898632a1ec34,
+  redPetaleParticle: {fileID: 1961535015627430, guid: b4d341835b88b0442b69898632a1ec34,
     type: 2}
+  purplePetaleParticle: {fileID: 1961535015627430, guid: 078e3da62b630a0478c560ba6ed54787,
+    type: 2}
+  amIRed: 0
 --- !u!114 &114335307632166532
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2138,8 +2142,11 @@ MonoBehaviour:
   isGrabbed: 0
   myAudioSource: {fileID: 82061039943925224}
   destroyClip: {fileID: 8300000, guid: 1468626d772725e438d538d4bea90438, type: 3}
-  petaleParticle: {fileID: 1961535015627430, guid: b4d341835b88b0442b69898632a1ec34,
+  redPetaleParticle: {fileID: 1961535015627430, guid: b4d341835b88b0442b69898632a1ec34,
     type: 2}
+  purplePetaleParticle: {fileID: 1961535015627430, guid: 078e3da62b630a0478c560ba6ed54787,
+    type: 2}
+  amIRed: 0
 --- !u!114 &114419163401123768
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2196,8 +2203,11 @@ MonoBehaviour:
   isGrabbed: 0
   myAudioSource: {fileID: 82061039943925224}
   destroyClip: {fileID: 8300000, guid: 1468626d772725e438d538d4bea90438, type: 3}
-  petaleParticle: {fileID: 1961535015627430, guid: b4d341835b88b0442b69898632a1ec34,
+  redPetaleParticle: {fileID: 1961535015627430, guid: b4d341835b88b0442b69898632a1ec34,
     type: 2}
+  purplePetaleParticle: {fileID: 1961535015627430, guid: 078e3da62b630a0478c560ba6ed54787,
+    type: 2}
+  amIRed: 0
 --- !u!114 &114473255036613468
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2216,8 +2226,11 @@ MonoBehaviour:
   isGrabbed: 0
   myAudioSource: {fileID: 82061039943925224}
   destroyClip: {fileID: 8300000, guid: 1468626d772725e438d538d4bea90438, type: 3}
-  petaleParticle: {fileID: 1961535015627430, guid: b4d341835b88b0442b69898632a1ec34,
+  redPetaleParticle: {fileID: 1961535015627430, guid: b4d341835b88b0442b69898632a1ec34,
     type: 2}
+  purplePetaleParticle: {fileID: 1961535015627430, guid: 078e3da62b630a0478c560ba6ed54787,
+    type: 2}
+  amIRed: 0
 --- !u!114 &114494185506157684
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2274,8 +2287,9 @@ MonoBehaviour:
   isGrabbed: 0
   myAudioSource: {fileID: 82061039943925224}
   destroyClip: {fileID: 8300000, guid: 1468626d772725e438d538d4bea90438, type: 3}
-  petaleParticle: {fileID: 1961535015627430, guid: b4d341835b88b0442b69898632a1ec34,
-    type: 2}
+  redPetaleParticle: {fileID: 0}
+  purplePetaleParticle: {fileID: 0}
+  amIRed: 1
 --- !u!114 &114514684362826008
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2294,8 +2308,9 @@ MonoBehaviour:
   isGrabbed: 0
   myAudioSource: {fileID: 82061039943925224}
   destroyClip: {fileID: 8300000, guid: 1468626d772725e438d538d4bea90438, type: 3}
-  petaleParticle: {fileID: 1961535015627430, guid: b4d341835b88b0442b69898632a1ec34,
-    type: 2}
+  redPetaleParticle: {fileID: 0}
+  purplePetaleParticle: {fileID: 0}
+  amIRed: 1
 --- !u!114 &114525004676846288
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2388,8 +2403,11 @@ MonoBehaviour:
   isGrabbed: 0
   myAudioSource: {fileID: 82061039943925224}
   destroyClip: {fileID: 8300000, guid: 1468626d772725e438d538d4bea90438, type: 3}
-  petaleParticle: {fileID: 1961535015627430, guid: b4d341835b88b0442b69898632a1ec34,
+  redPetaleParticle: {fileID: 1961535015627430, guid: b4d341835b88b0442b69898632a1ec34,
     type: 2}
+  purplePetaleParticle: {fileID: 1961535015627430, guid: 078e3da62b630a0478c560ba6ed54787,
+    type: 2}
+  amIRed: 0
 --- !u!114 &114817580694689192
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2408,8 +2426,9 @@ MonoBehaviour:
   isGrabbed: 0
   myAudioSource: {fileID: 82061039943925224}
   destroyClip: {fileID: 8300000, guid: 1468626d772725e438d538d4bea90438, type: 3}
-  petaleParticle: {fileID: 1961535015627430, guid: b4d341835b88b0442b69898632a1ec34,
-    type: 2}
+  redPetaleParticle: {fileID: 0}
+  purplePetaleParticle: {fileID: 0}
+  amIRed: 1
 --- !u!114 &114852781396013990
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2518,8 +2537,11 @@ MonoBehaviour:
   isGrabbed: 0
   myAudioSource: {fileID: 82061039943925224}
   destroyClip: {fileID: 8300000, guid: 1468626d772725e438d538d4bea90438, type: 3}
-  petaleParticle: {fileID: 1961535015627430, guid: b4d341835b88b0442b69898632a1ec34,
+  redPetaleParticle: {fileID: 1961535015627430, guid: b4d341835b88b0442b69898632a1ec34,
     type: 2}
+  purplePetaleParticle: {fileID: 1961535015627430, guid: 078e3da62b630a0478c560ba6ed54787,
+    type: 2}
+  amIRed: 0
 --- !u!114 &114958391444751578
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2538,8 +2560,9 @@ MonoBehaviour:
   isGrabbed: 0
   myAudioSource: {fileID: 82061039943925224}
   destroyClip: {fileID: 8300000, guid: 1468626d772725e438d538d4bea90438, type: 3}
-  petaleParticle: {fileID: 1961535015627430, guid: b4d341835b88b0442b69898632a1ec34,
-    type: 2}
+  redPetaleParticle: {fileID: 0}
+  purplePetaleParticle: {fileID: 0}
+  amIRed: 1
 --- !u!114 &114985795226638526
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2558,8 +2581,11 @@ MonoBehaviour:
   isGrabbed: 0
   myAudioSource: {fileID: 82061039943925224}
   destroyClip: {fileID: 8300000, guid: 1468626d772725e438d538d4bea90438, type: 3}
-  petaleParticle: {fileID: 1961535015627430, guid: b4d341835b88b0442b69898632a1ec34,
+  redPetaleParticle: {fileID: 1961535015627430, guid: b4d341835b88b0442b69898632a1ec34,
     type: 2}
+  purplePetaleParticle: {fileID: 1961535015627430, guid: 078e3da62b630a0478c560ba6ed54787,
+    type: 2}
+  amIRed: 0
 --- !u!135 &135977181739822612
 SphereCollider:
   m_ObjectHideFlags: 1
