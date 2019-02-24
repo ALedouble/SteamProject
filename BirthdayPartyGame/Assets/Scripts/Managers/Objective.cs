@@ -162,13 +162,15 @@ public class Objective {
         }
     }
 
-	void CheckObject(Interactable script)
+	public void CheckObject(Interactable script)
 	{
+		Debug.Log("Checking object death");
 		for (int i = 0; i < relatedObjects.Length; i++)
 		{
 			if (script == relatedObjects[i])
 			{
 				checkedObjects[i] = true;
+				Debug.Log("Objective checked: " + script);
 			}
 
 		}
@@ -181,6 +183,7 @@ public class Objective {
 			}
 			else
 			{
+				Debug.Log("About to validate");
 				Validate();
 			}
 		}

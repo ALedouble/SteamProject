@@ -46,7 +46,7 @@ public class LevelData : MonoBehaviour
             secondaryObjectives[i].validatingClip = secondaryObjectiveValidatingClip;
         }
 		SceneManager.LoadScene("LevelNecessities", LoadSceneMode.Additive);
-		SaveManager.instance.currentSave.lastLevelIndex = id+1;
+		SaveManager.instance.currentSave.lastLevelIndex = id + 1;
 	}
 
 }
