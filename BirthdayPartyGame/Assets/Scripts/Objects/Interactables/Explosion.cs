@@ -13,6 +13,8 @@ public class Explosion : Interactable {
 	{
 		base.Start();
 		canBreak = true;
+		fireScript.canSpread = true;
+
 	}
 
 	public void InitializeScale(float _scale)
@@ -23,6 +25,10 @@ public class Explosion : Interactable {
 
 	// Update is called once per frame
 	void Update () {
+		if (!fireScript.canSpread)
+		{
+			fireScript.canSpread = true;
+		}
 		if (lifeTimer < lifetime)
 		{
 			lifeTimer += Time.deltaTime;
@@ -32,6 +38,7 @@ public class Explosion : Interactable {
 		{
 			Die();
 		}
+
 	}
 
     public override void Burn()
