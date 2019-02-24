@@ -2460,6 +2460,9 @@ MonoBehaviour:
   isGrabbed: 0
   myAudioSource: {fileID: 1316416578}
   destroyClip: {fileID: 8300000, guid: 1468626d772725e438d538d4bea90438, type: 3}
+  redPetaleParticle: {fileID: 0}
+  purplePetaleParticle: {fileID: 0}
+  amIRed: 0
 --- !u!4 &76944961 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4331663305897148, guid: 79750a94f8efb304bb482d18d1ec127c,
@@ -5910,6 +5913,9 @@ MonoBehaviour:
   isGrabbed: 0
   myAudioSource: {fileID: 1316416578}
   destroyClip: {fileID: 8300000, guid: 1468626d772725e438d538d4bea90438, type: 3}
+  redPetaleParticle: {fileID: 0}
+  purplePetaleParticle: {fileID: 0}
+  amIRed: 0
 --- !u!1001 &231057327
 Prefab:
   m_ObjectHideFlags: 0
@@ -7038,6 +7044,9 @@ MonoBehaviour:
   isGrabbed: 0
   myAudioSource: {fileID: 1316416578}
   destroyClip: {fileID: 8300000, guid: 1468626d772725e438d538d4bea90438, type: 3}
+  redPetaleParticle: {fileID: 0}
+  purplePetaleParticle: {fileID: 0}
+  amIRed: 0
 --- !u!1 &265630813
 GameObject:
   m_ObjectHideFlags: 0
@@ -7916,6 +7925,9 @@ MonoBehaviour:
   isGrabbed: 0
   myAudioSource: {fileID: 1070955898}
   destroyClip: {fileID: 8300000, guid: 1468626d772725e438d538d4bea90438, type: 3}
+  redPetaleParticle: {fileID: 0}
+  purplePetaleParticle: {fileID: 0}
+  amIRed: 0
 --- !u!4 &299465999 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4331663305897148, guid: 79750a94f8efb304bb482d18d1ec127c,
@@ -9069,6 +9081,9 @@ MonoBehaviour:
   isGrabbed: 0
   myAudioSource: {fileID: 1316416578}
   destroyClip: {fileID: 8300000, guid: 1468626d772725e438d538d4bea90438, type: 3}
+  redPetaleParticle: {fileID: 0}
+  purplePetaleParticle: {fileID: 0}
+  amIRed: 0
 --- !u!1001 &359227031
 Prefab:
   m_ObjectHideFlags: 0
@@ -9795,6 +9810,9 @@ MonoBehaviour:
   isGrabbed: 0
   myAudioSource: {fileID: 1070955898}
   destroyClip: {fileID: 8300000, guid: 1468626d772725e438d538d4bea90438, type: 3}
+  redPetaleParticle: {fileID: 0}
+  purplePetaleParticle: {fileID: 0}
+  amIRed: 0
 --- !u!4 &417499788 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4331663305897148, guid: 79750a94f8efb304bb482d18d1ec127c,
@@ -10494,6 +10512,9 @@ MonoBehaviour:
   isGrabbed: 0
   myAudioSource: {fileID: 1070955898}
   destroyClip: {fileID: 8300000, guid: 1468626d772725e438d538d4bea90438, type: 3}
+  redPetaleParticle: {fileID: 0}
+  purplePetaleParticle: {fileID: 0}
+  amIRed: 0
 --- !u!1001 &430128093
 Prefab:
   m_ObjectHideFlags: 0
@@ -10959,6 +10980,9 @@ MonoBehaviour:
   isGrabbed: 0
   myAudioSource: {fileID: 1070955898}
   destroyClip: {fileID: 8300000, guid: 1468626d772725e438d538d4bea90438, type: 3}
+  redPetaleParticle: {fileID: 0}
+  purplePetaleParticle: {fileID: 0}
+  amIRed: 0
 --- !u!1 &446060040
 GameObject:
   m_ObjectHideFlags: 0
@@ -11905,129 +11929,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4319370236135646, guid: 0b9c5c6446728ff408d4c21decb41113,
     type: 2}
   m_PrefabInternal: {fileID: 1947558995}
---- !u!1001 &469170916
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1704775748}
-    m_Modifications:
-    - target: {fileID: 4976941832906542, guid: 75bf0d27bea0e774c8987d6fb58fe6b0, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -7.45
-      objectReference: {fileID: 0}
-    - target: {fileID: 4976941832906542, guid: 75bf0d27bea0e774c8987d6fb58fe6b0, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4976941832906542, guid: 75bf0d27bea0e774c8987d6fb58fe6b0, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -0.14
-      objectReference: {fileID: 0}
-    - target: {fileID: 4976941832906542, guid: 75bf0d27bea0e774c8987d6fb58fe6b0, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4976941832906542, guid: 75bf0d27bea0e774c8987d6fb58fe6b0, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4976941832906542, guid: 75bf0d27bea0e774c8987d6fb58fe6b0, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4976941832906542, guid: 75bf0d27bea0e774c8987d6fb58fe6b0, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4976941832906542, guid: 75bf0d27bea0e774c8987d6fb58fe6b0, type: 2}
-      propertyPath: m_RootOrder
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 1144818548342744, guid: 75bf0d27bea0e774c8987d6fb58fe6b0, type: 2}
-      propertyPath: m_Name
-      value: P_Garden_Light (13)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1490659470136584, guid: 75bf0d27bea0e774c8987d6fb58fe6b0, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1913755758609142, guid: 75bf0d27bea0e774c8987d6fb58fe6b0, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1794268514942724, guid: 75bf0d27bea0e774c8987d6fb58fe6b0, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1851397451277020, guid: 75bf0d27bea0e774c8987d6fb58fe6b0, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1241470278375578, guid: 75bf0d27bea0e774c8987d6fb58fe6b0, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1994301569716222, guid: 75bf0d27bea0e774c8987d6fb58fe6b0, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1160150264864494, guid: 75bf0d27bea0e774c8987d6fb58fe6b0, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1094849110457758, guid: 75bf0d27bea0e774c8987d6fb58fe6b0, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1074378793230908, guid: 75bf0d27bea0e774c8987d6fb58fe6b0, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1624554446513590, guid: 75bf0d27bea0e774c8987d6fb58fe6b0, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1813285523995204, guid: 75bf0d27bea0e774c8987d6fb58fe6b0, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1424379243121456, guid: 75bf0d27bea0e774c8987d6fb58fe6b0, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1728296787777526, guid: 75bf0d27bea0e774c8987d6fb58fe6b0, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1290946867117406, guid: 75bf0d27bea0e774c8987d6fb58fe6b0, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1455671013208296, guid: 75bf0d27bea0e774c8987d6fb58fe6b0, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1144818548342744, guid: 75bf0d27bea0e774c8987d6fb58fe6b0, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1656879939700126, guid: 75bf0d27bea0e774c8987d6fb58fe6b0, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1698353904951844, guid: 75bf0d27bea0e774c8987d6fb58fe6b0, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114514585017786690, guid: 75bf0d27bea0e774c8987d6fb58fe6b0,
-        type: 2}
-      propertyPath: isElectric
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 75bf0d27bea0e774c8987d6fb58fe6b0, type: 2}
-  m_IsPrefabAsset: 0
 --- !u!1 &472000288
 GameObject:
   m_ObjectHideFlags: 0
@@ -14347,6 +14248,9 @@ MonoBehaviour:
   isGrabbed: 0
   myAudioSource: {fileID: 1070955898}
   destroyClip: {fileID: 8300000, guid: 1468626d772725e438d538d4bea90438, type: 3}
+  redPetaleParticle: {fileID: 0}
+  purplePetaleParticle: {fileID: 0}
+  amIRed: 0
 --- !u!1 &579893041
 GameObject:
   m_ObjectHideFlags: 0
@@ -15359,6 +15263,9 @@ MonoBehaviour:
   isGrabbed: 0
   myAudioSource: {fileID: 1316416578}
   destroyClip: {fileID: 8300000, guid: 1468626d772725e438d538d4bea90438, type: 3}
+  redPetaleParticle: {fileID: 0}
+  purplePetaleParticle: {fileID: 0}
+  amIRed: 0
 --- !u!1 &633586937
 GameObject:
   m_ObjectHideFlags: 0
@@ -16832,11 +16739,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 681078908}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &683400580 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4976941832906542, guid: 75bf0d27bea0e774c8987d6fb58fe6b0,
-    type: 2}
-  m_PrefabInternal: {fileID: 469170916}
 --- !u!1001 &686848369
 Prefab:
   m_ObjectHideFlags: 0
@@ -17684,6 +17586,9 @@ MonoBehaviour:
   isGrabbed: 0
   myAudioSource: {fileID: 1316416578}
   destroyClip: {fileID: 8300000, guid: 1468626d772725e438d538d4bea90438, type: 3}
+  redPetaleParticle: {fileID: 0}
+  purplePetaleParticle: {fileID: 0}
+  amIRed: 0
 --- !u!1001 &732902499
 Prefab:
   m_ObjectHideFlags: 0
@@ -19890,6 +19795,9 @@ MonoBehaviour:
   isGrabbed: 0
   myAudioSource: {fileID: 1070955898}
   destroyClip: {fileID: 8300000, guid: 1468626d772725e438d538d4bea90438, type: 3}
+  redPetaleParticle: {fileID: 0}
+  purplePetaleParticle: {fileID: 0}
+  amIRed: 0
 --- !u!4 &831119696 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4395127278180240, guid: e338a4d22f3851b4181a9361f9d891b3,
@@ -20826,6 +20734,9 @@ MonoBehaviour:
   isGrabbed: 0
   myAudioSource: {fileID: 1070955898}
   destroyClip: {fileID: 8300000, guid: 1468626d772725e438d538d4bea90438, type: 3}
+  redPetaleParticle: {fileID: 0}
+  purplePetaleParticle: {fileID: 0}
+  amIRed: 0
 --- !u!1 &886187610
 GameObject:
   m_ObjectHideFlags: 0
@@ -21821,6 +21732,9 @@ MonoBehaviour:
   isGrabbed: 0
   myAudioSource: {fileID: 1070955898}
   destroyClip: {fileID: 8300000, guid: 1468626d772725e438d538d4bea90438, type: 3}
+  redPetaleParticle: {fileID: 0}
+  purplePetaleParticle: {fileID: 0}
+  amIRed: 0
 --- !u!1001 &921826395
 Prefab:
   m_ObjectHideFlags: 0
@@ -22256,6 +22170,9 @@ MonoBehaviour:
   isGrabbed: 0
   myAudioSource: {fileID: 1316416578}
   destroyClip: {fileID: 8300000, guid: 1468626d772725e438d538d4bea90438, type: 3}
+  redPetaleParticle: {fileID: 0}
+  purplePetaleParticle: {fileID: 0}
+  amIRed: 0
 --- !u!1 &937358384
 GameObject:
   m_ObjectHideFlags: 0
@@ -25283,6 +25200,9 @@ MonoBehaviour:
   isGrabbed: 0
   myAudioSource: {fileID: 1316416578}
   destroyClip: {fileID: 8300000, guid: 1468626d772725e438d538d4bea90438, type: 3}
+  redPetaleParticle: {fileID: 0}
+  purplePetaleParticle: {fileID: 0}
+  amIRed: 0
 --- !u!1 &1068109260
 GameObject:
   m_ObjectHideFlags: 0
@@ -28079,6 +27999,9 @@ MonoBehaviour:
   isGrabbed: 0
   myAudioSource: {fileID: 1070955898}
   destroyClip: {fileID: 8300000, guid: 1468626d772725e438d538d4bea90438, type: 3}
+  redPetaleParticle: {fileID: 0}
+  purplePetaleParticle: {fileID: 0}
+  amIRed: 0
 --- !u!1001 &1165660773
 Prefab:
   m_ObjectHideFlags: 0
@@ -35496,6 +35419,9 @@ MonoBehaviour:
   isGrabbed: 0
   myAudioSource: {fileID: 1316416578}
   destroyClip: {fileID: 8300000, guid: 1468626d772725e438d538d4bea90438, type: 3}
+  redPetaleParticle: {fileID: 0}
+  purplePetaleParticle: {fileID: 0}
+  amIRed: 0
 --- !u!4 &1421355542 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4331663305897148, guid: 79750a94f8efb304bb482d18d1ec127c,
@@ -36555,6 +36481,9 @@ MonoBehaviour:
   isGrabbed: 0
   myAudioSource: {fileID: 1316416578}
   destroyClip: {fileID: 8300000, guid: 1468626d772725e438d538d4bea90438, type: 3}
+  redPetaleParticle: {fileID: 0}
+  purplePetaleParticle: {fileID: 0}
+  amIRed: 0
 --- !u!4 &1468665890 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4331663305897148, guid: 79750a94f8efb304bb482d18d1ec127c,
@@ -41688,6 +41617,9 @@ MonoBehaviour:
   isGrabbed: 0
   myAudioSource: {fileID: 1316416578}
   destroyClip: {fileID: 8300000, guid: 1468626d772725e438d538d4bea90438, type: 3}
+  redPetaleParticle: {fileID: 0}
+  purplePetaleParticle: {fileID: 0}
+  amIRed: 0
 --- !u!1001 &1681918629
 Prefab:
   m_ObjectHideFlags: 0
@@ -42555,7 +42487,6 @@ Transform:
   - {fileID: 326643309}
   - {fileID: 1804758998}
   - {fileID: 1013398716}
-  - {fileID: 683400580}
   m_Father: {fileID: 1676810352}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -42692,6 +42623,9 @@ MonoBehaviour:
   isGrabbed: 0
   myAudioSource: {fileID: 1316416578}
   destroyClip: {fileID: 8300000, guid: 1468626d772725e438d538d4bea90438, type: 3}
+  redPetaleParticle: {fileID: 0}
+  purplePetaleParticle: {fileID: 0}
+  amIRed: 0
 --- !u!4 &1734727290 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4331663305897148, guid: 79750a94f8efb304bb482d18d1ec127c,
@@ -42896,6 +42830,9 @@ MonoBehaviour:
   isGrabbed: 0
   myAudioSource: {fileID: 1070955898}
   destroyClip: {fileID: 8300000, guid: 1468626d772725e438d538d4bea90438, type: 3}
+  redPetaleParticle: {fileID: 0}
+  purplePetaleParticle: {fileID: 0}
+  amIRed: 0
 --- !u!1 &1741792569
 GameObject:
   m_ObjectHideFlags: 0
@@ -45049,6 +44986,9 @@ MonoBehaviour:
   isGrabbed: 0
   myAudioSource: {fileID: 1070955898}
   destroyClip: {fileID: 8300000, guid: 1468626d772725e438d538d4bea90438, type: 3}
+  redPetaleParticle: {fileID: 0}
+  purplePetaleParticle: {fileID: 0}
+  amIRed: 0
 --- !u!1 &1786710921
 GameObject:
   m_ObjectHideFlags: 0
@@ -48887,6 +48827,9 @@ MonoBehaviour:
   isGrabbed: 0
   myAudioSource: {fileID: 1070955898}
   destroyClip: {fileID: 8300000, guid: 1468626d772725e438d538d4bea90438, type: 3}
+  redPetaleParticle: {fileID: 0}
+  purplePetaleParticle: {fileID: 0}
+  amIRed: 0
 --- !u!1 &1943172753
 GameObject:
   m_ObjectHideFlags: 0
