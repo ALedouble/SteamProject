@@ -6154,6 +6154,17 @@ MonoBehaviour:
   modesUIText:
   - {fileID: 1261936155}
   - {fileID: 373487328}
+  levelSnapshot: {fileID: 311814202}
+  levelSprites:
+  - {fileID: 21300000, guid: 31a16726fafcd8844895d70316829d24, type: 3}
+  - {fileID: 21300000, guid: 008d6cf7869ed4745a6bc5fb48095ed3, type: 3}
+  - {fileID: 21300000, guid: 89dff2f7c0ab4404dbdeda1119bb51ec, type: 3}
+  - {fileID: 21300000, guid: b9fc358f1aea70d48b765b54fc1ace9a, type: 3}
+  - {fileID: 21300000, guid: 7ee68ab05ff82b942a771f6162ec163e, type: 3}
+  - {fileID: 21300000, guid: d69f2620711dc99458ffbd8431c3bd70, type: 3}
+  - {fileID: 21300000, guid: eefb96707326bc642bbaf77bfc377e28, type: 3}
+  - {fileID: 21300000, guid: 31a16726fafcd8844895d70316829d24, type: 3}
+  - {fileID: 21300000, guid: 008d6cf7869ed4745a6bc5fb48095ed3, type: 3}
   self: {x: 0, y: 0}
   timeToPan: 0.7
   myRectTransform: {fileID: 1168747517}
@@ -16892,6 +16903,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114364486305893492, guid: 8eb840656efc5e44f86de9ccd7dcbd6b,
         type: 2}
+      propertyPath: levelSprites.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 114364486305893492, guid: 8eb840656efc5e44f86de9ccd7dcbd6b,
+        type: 2}
       propertyPath: objectiveIcon.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -17346,6 +17362,65 @@ Prefab:
 
 '
       objectReference: {fileID: 0}
+    - target: {fileID: 114364486305893492, guid: 8eb840656efc5e44f86de9ccd7dcbd6b,
+        type: 2}
+      propertyPath: levelSnapshot
+      value: 
+      objectReference: {fileID: 1786006698}
+    - target: {fileID: 114364486305893492, guid: 8eb840656efc5e44f86de9ccd7dcbd6b,
+        type: 2}
+      propertyPath: levelSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 31a16726fafcd8844895d70316829d24,
+        type: 3}
+    - target: {fileID: 114364486305893492, guid: 8eb840656efc5e44f86de9ccd7dcbd6b,
+        type: 2}
+      propertyPath: levelSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 008d6cf7869ed4745a6bc5fb48095ed3,
+        type: 3}
+    - target: {fileID: 114364486305893492, guid: 8eb840656efc5e44f86de9ccd7dcbd6b,
+        type: 2}
+      propertyPath: levelSprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 89dff2f7c0ab4404dbdeda1119bb51ec,
+        type: 3}
+    - target: {fileID: 114364486305893492, guid: 8eb840656efc5e44f86de9ccd7dcbd6b,
+        type: 2}
+      propertyPath: levelSprites.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: b9fc358f1aea70d48b765b54fc1ace9a,
+        type: 3}
+    - target: {fileID: 114364486305893492, guid: 8eb840656efc5e44f86de9ccd7dcbd6b,
+        type: 2}
+      propertyPath: levelSprites.Array.data[4]
+      value: 
+      objectReference: {fileID: 21300000, guid: 7ee68ab05ff82b942a771f6162ec163e,
+        type: 3}
+    - target: {fileID: 114364486305893492, guid: 8eb840656efc5e44f86de9ccd7dcbd6b,
+        type: 2}
+      propertyPath: levelSprites.Array.data[5]
+      value: 
+      objectReference: {fileID: 21300000, guid: d69f2620711dc99458ffbd8431c3bd70,
+        type: 3}
+    - target: {fileID: 114364486305893492, guid: 8eb840656efc5e44f86de9ccd7dcbd6b,
+        type: 2}
+      propertyPath: levelSprites.Array.data[6]
+      value: 
+      objectReference: {fileID: 21300000, guid: eefb96707326bc642bbaf77bfc377e28,
+        type: 3}
+    - target: {fileID: 114364486305893492, guid: 8eb840656efc5e44f86de9ccd7dcbd6b,
+        type: 2}
+      propertyPath: levelSprites.Array.data[7]
+      value: 
+      objectReference: {fileID: 21300000, guid: 31a16726fafcd8844895d70316829d24,
+        type: 3}
+    - target: {fileID: 114364486305893492, guid: 8eb840656efc5e44f86de9ccd7dcbd6b,
+        type: 2}
+      propertyPath: levelSprites.Array.data[8]
+      value: 
+      objectReference: {fileID: 21300000, guid: 008d6cf7869ed4745a6bc5fb48095ed3,
+        type: 3}
     m_RemovedComponents:
     - {fileID: 95324335797364640, guid: 8eb840656efc5e44f86de9ccd7dcbd6b, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 8eb840656efc5e44f86de9ccd7dcbd6b, type: 2}
@@ -17372,6 +17447,12 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 224490768866554594, guid: 8eb840656efc5e44f86de9ccd7dcbd6b,
     type: 2}
   m_PrefabInternal: {fileID: 1786006693}
+--- !u!114 &1786006698 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114055799657168816, guid: 8eb840656efc5e44f86de9ccd7dcbd6b,
+    type: 2}
+  m_PrefabInternal: {fileID: 1786006693}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1787188723
 GameObject:
   m_ObjectHideFlags: 0

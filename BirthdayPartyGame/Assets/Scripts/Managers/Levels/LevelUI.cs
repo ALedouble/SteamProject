@@ -18,6 +18,9 @@ public class LevelUI : MonoBehaviour {
 	public Image[] modesUI;
 	public Text[] modesUIText;
 
+	public Image levelSnapshot;
+	public Sprite[] levelSprites;
+
 	public Vector2 self;
 
     float lerpValue;
@@ -157,6 +160,8 @@ public class LevelUI : MonoBehaviour {
 		{
 			panel.color = Color.grey;
 		}
+
+		levelSnapshot.sprite = levelSprites[index];
 	}
 
 	public void RtoC()
