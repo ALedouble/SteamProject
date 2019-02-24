@@ -166,7 +166,7 @@ public class Interactable : MonoBehaviour {
 
 	#region Entities behavior
 
-	public void Burn()
+	public virtual void Burn()
 	{
 		if (!hadFire && DestructionManager.instance != null && !parameters.isFire)
 		{
@@ -219,7 +219,7 @@ public class Interactable : MonoBehaviour {
 		
 	}
 
-	public void StopBurning()
+	public virtual void StopBurning()
 	{
 		print("Stop burning");
 		burning = false;
