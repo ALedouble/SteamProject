@@ -51,8 +51,8 @@ public class FireworkLauncher : Interactable {
 	{
         if (nbFireworksLeft > 0)
         {
-            nbFireworksLeft--;
             fireworks[nbFireworksLeft - 1].SetActive(false);
+            nbFireworksLeft--;
             ILaunchable newBall = Instantiate(fireworkPrefab, spawnPoint.position, Quaternion.Euler(90, 90, 0)).GetComponent<ILaunchable>();
             newBall.GetLaunched(self.forward + directionOffset, force);
             newBall.ShootToBreak();
