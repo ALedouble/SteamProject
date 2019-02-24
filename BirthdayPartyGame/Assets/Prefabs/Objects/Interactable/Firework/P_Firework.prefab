@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4091081213766000}
   - component: {fileID: 114522907250931578}
-  - component: {fileID: 114198905801623862}
+  - component: {fileID: 114556431119656308}
   - component: {fileID: 136154165333791714}
   - component: {fileID: 54350230163588502}
   m_Layer: 0
@@ -53,14 +53,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1857846910031484}
-  m_LocalRotation: {x: -0, y: -0.7071068, z: 0, w: 0.70710677}
+  m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: -8.76, y: 0.088, z: -11.438}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4230349041683054}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 90, z: 0}
 --- !u!4 &4230349041683054
 Transform:
   m_ObjectHideFlags: 1
@@ -131,24 +131,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &114198905801623862
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1857846910031484}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f5623b102c459449bce9d2073ce3d0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  body: {fileID: 0}
-  self: {fileID: 0}
-  colliders: []
-  renderers: []
-  explosionCooldown: 3
-  explosion: {fileID: 1770453206695956, guid: a19b460c4d2322b4fbaedd01954e5e58, type: 2}
-  explosionSize: 3.5
 --- !u!114 &114522907250931578
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -162,19 +144,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: Firework
   blunt: 0
-  breakable: 0
+  breakable: 1
   destructible: 0
-  destructionScore: 0
+  destructionScore: 30
   pickUp: 0
   isElectric: 0
   isFire: 0
   isWater: 0
   activationType: 0
-  material: 2
+  material: 1
   holdPositionOffset: {x: 0, y: 0, z: 0}
   holdRotationOffset: {x: 0, y: 0, z: 0}
   nodesChildren: []
   nodes: []
+--- !u!114 &114556431119656308
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1857846910031484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87f9868c6124a224fb10c8bc0dea1766, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  body: {fileID: 0}
+  self: {fileID: 0}
+  colliders: []
+  renderers: []
+  isGrabbed: 0
+  canExplodeSpeedThreshold: 2
+  explosion: {fileID: 1770453206695956, guid: a19b460c4d2322b4fbaedd01954e5e58, type: 2}
+  explosionSize: 2.5
 --- !u!136 &136154165333791714
 CapsuleCollider:
   m_ObjectHideFlags: 1
