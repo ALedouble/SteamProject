@@ -8,6 +8,7 @@ public class Flowers : Interactable
     RowOfFlower myParent;
     public AudioSource myAudioSource;
     public AudioClip destroyClip;
+    public GameObject petaleParticle;
 
     protected override void Start()
     {
@@ -27,6 +28,8 @@ public class Flowers : Interactable
     public override void Die()
     {
         myParent.ActualizeNbFlower();
+        GameObject petalePartRef = Instantiate(petaleParticle, transform.position, Quaternion.Euler(-90, 0, 0));
+        Destroy(petalePartRef, 1);
         base.Die();
     }
 }

@@ -13,7 +13,6 @@ public class RowOfFlower : MonoBehaviour {
         if (nbFlower <= 0)
         {
             myAttractionCircle.ChangeScore(0);
-            //Destroy(gameObject);
         }
     }
 }
