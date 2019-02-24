@@ -54,7 +54,7 @@ public class Breakable : InteractableComponent {
 		}
 
 		if (GameManager.instance != null &&  GameManager.instance.mode == LevelsMode.Destruction)
-			DestructionManager.instance.AddDestruction(transform.position, main.parameters.destructionScore);
+			DestructionManager.instance.AddDestruction(transform.position, /*main.parameters.destructionScore*/ 50);
 
 		main.Die();
 
