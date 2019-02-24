@@ -37,7 +37,10 @@ public class BridgeSwitcher : Interactable {
 
     public override void Deactivate()
     {
-        
+        if (DeactivateEvent != null)
+		{
+			DeactivateEvent(this);
+		}
         bridgeBarrierAnim.SetTrigger("ToggleTrigger");
         opened = false;
         myAudioSourceGate.PlayOneShot(closingClip);
